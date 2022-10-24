@@ -4,6 +4,7 @@ import Footer from "./pages/Footer";
 import Header from "./pages/Header";
 import Landing from "./pages/Landing";
 import NotFound from "./pages/NotFound";
+import Services from "./pages/Services";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Landing />} />
         <Route path="/about-us" element={<About />} />
+        <Route path="/services" element={<Services />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
       <Footer />
