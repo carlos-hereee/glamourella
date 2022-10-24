@@ -6,10 +6,10 @@ const Footer = () => {
         <h4>Business Hours</h4>
       </div>
       <div>
-        <p>Contact Us</p>
+        <h4>Contact Us</h4>
       </div>
       <div>
-        <p>Follow Us </p>
+        <h4>Follow Us </h4>
       </div>
     </footer>
   );

@@ -1,3 +1,6 @@
+.header {
+  border-bottom: 1px solid #333;
+}
 .navbar {
   margin: 1rem;
   display: flex;
@@ -6,4 +9,10 @@
 }
 .nav-link {
   padding: 1rem;
+}
+.footer {
+  border-top: 1px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }

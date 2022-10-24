@@ -3,7 +3,7 @@ import Buttons from "../component/atoms/Buttons";
 
 const Header = () => {
   return (
-    <header>
+    <header className="header">
       <h1>GLAMOURELLA</h1>
       <nav className="navbar">
         <Link className="nav-link" to="/">
