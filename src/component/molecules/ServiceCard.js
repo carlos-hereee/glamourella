@@ -1,4 +1,4 @@
-const Card = ({ data }) => {
+const ServiceCard = ({ data }) => {
   return (
     <div className="card">
       <h4>
@@ -12,4 +12,4 @@ const Card = ({ data }) => {
   );
 };
 
-export default Card;
+export default ServiceCard;

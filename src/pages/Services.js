@@ -1,4 +1,4 @@
-import Card from "../component/molecules/Card";
+import ServiceCard from "../component/molecules/ServiceCard";
 
 const Services = () => {
   const service = [
@@ -52,7 +52,7 @@ const Services = () => {
     <section>
       <h2>Our Services</h2>
       <div className="card-container">
-        {service && service.map((s) => <Card data={s} key={s.id} />)}
+        {service && service.map((s) => <ServiceCard data={s} key={s.id} />)}
       </div>
     </section>
   );
