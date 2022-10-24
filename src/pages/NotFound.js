@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
+import Buttons from "../component/atoms/Buttons";
 
 const NotFound = () => {
   return (
     <main>
       <h2>Page Not Found</h2>
-      <button type="button" className="btn btn-link">
-        <Link to="/">Home</Link>
-      </button>
+      <Link to="/">
+        <Buttons name="home" />
+      </Link>
     </main>
   );
 };

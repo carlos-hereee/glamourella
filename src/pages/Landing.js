@@ -2,7 +2,7 @@ const Landing = () => {
   return (
     <div>
       <button type="button" className="btn">
-        make an appointment
+        Book now!
       </button>
       <button type="button" className="btn">
         Call Now

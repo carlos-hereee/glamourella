@@ -1,5 +1,8 @@
 .navbar {
   margin: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 .nav-link {
   padding: 1rem;

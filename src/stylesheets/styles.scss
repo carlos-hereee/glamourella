@@ -3,4 +3,14 @@
   padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
+  max-width: 200px;
+  min-width: 100px;
+  background-color: $secondary-bg-color;
+  &:hover {
+    background-color: $secondary-bg-color-hover;
+    color: $primary-text-color;
+  }
+  &:focus {
+    background-color: $secondary-bg-color-hover;
+  }
 }
