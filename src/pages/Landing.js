@@ -1,7 +1,12 @@
 const Landing = () => {
   return (
     <div>
-      <h1>GLAMOURELLA</h1>
+      <button type="button" className="btn">
+        make an appointment
+      </button>
+      <button type="button" className="btn">
+        Call Now
+      </button>
     </div>
   );
 };
