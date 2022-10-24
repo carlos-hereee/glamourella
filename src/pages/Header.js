@@ -10,19 +10,19 @@ const Header = () => {
           <Buttons name="home" />
         </Link>
         <Link className="nav-link" to="/about-us">
-          About Us
+          <Buttons name="about us" />
         </Link>
         <Link className="nav-link" to="/services">
-          Services
+          <Buttons name="services" />
         </Link>
         <Link className="nav-link" to="/booking">
-          Booking
+          <Buttons name="booking" />
         </Link>
         <Link className="nav-link" to="/gallery">
-          Gallery
+          <Buttons name="gallery" />
         </Link>
         <Link className="nav-link" to="/contact-us">
-          Contact Us
+          <Buttons name="contact us" />
         </Link>
       </nav>
     </header>
