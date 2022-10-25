@@ -1,30 +1,42 @@
 .react-calendar {
-  background-color: white;
+  background-color: $secondary-bg-color;
+  color: $primary-text-color;
+}
+.react-calendar__navigation {
+  background-color: $secondary-bg-color-hover;
 }
 .react-calendar__tile {
   cursor: pointer;
-  background-color: $third-bg-color;
   padding: 2rem 0;
+  background-color: $secondary-bg-color;
+  color: $primary-text-color;
   border: none;
   &:hover {
-    background-color: $third-bg-color-hover;
+    background-color: $secondary-bg-color-hover;
   }
   &:disabled {
+    background-color: $secondary-bg-color;
+    color: $primary-text-color-disable;
     cursor: not-allowed;
   }
-}
-.react-calendar__month-view__days__day--neighboringMonth {
-  background-color: $third-bg-color-hover;
 }
 
 .react-calendar__navigation__label,
 .react-calendar__navigation__arrow {
-  padding: 2rem;
+  background-color: $secondary-bg-color-hover;
+  color: $primary-text-color;
   border: none;
-  background-color: white;
   cursor: pointer;
   font-size: larger;
+  padding: 2rem;
   &:hover {
-    background-color: $third-bg-color-hover;
+    background-color: $secondary-bg-color-hover;
   }
+  &:disabled {
+    color: $primary-text-color-disable;
+    cursor: not-allowed;
+  }
+}
+.react-calendar__navigation__label__labelText {
+  color: $primary-text-color;
 }
