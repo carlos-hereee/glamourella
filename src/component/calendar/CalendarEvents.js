@@ -14,24 +14,26 @@ const CalendarEvents = () => {
     <div className="card">
       <h2>{calendar.summary}</h2>
       <p>{calendar.description}</p>
-      {selectedDay.length ? (
-        selectedDay.map((day) => (
-          <button
-            type="button"
-            className="btn"
-            key={day.id}
-            onClick={() => selectAppointment(day)}>
-            {day.id === appointment?.id ? (
-              <Icons name="check" />
-            ) : (
-              <Icons name="uncheck" />
-            )}
-            {formatTime(day.start.dateTime)} - {formatTime(day.end.dateTime)}
-          </button>
-        ))
-      ) : (
-        <Empty />
-      )}
+      <div className="list">
+        {selectedDay.length ? (
+          selectedDay.map((day) => (
+            <button
+              type="button"
+              className="btn list-item"
+              key={day.id}
+              onClick={() => selectAppointment(day)}>
+              {day.id === appointment?.id ? (
+                <Icons name="check" />
+              ) : (
+                <Icons name="uncheck" />
+              )}
+              {formatTime(day.start.dateTime)} - {formatTime(day.end.dateTime)}
+            </button>
+          ))
+        ) : (
+          <Empty />
+        )}
+      </div>
     </div>
   );
 };
