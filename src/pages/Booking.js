@@ -5,15 +5,10 @@ import moment from "moment";
 import Icons from "../component/atoms/Icons";
 import CalendarEvents from "../component/calendar/CalendarEvents";
 
-const formatDate = (d) => moment(d).format("ddd MMM DD YYYY");
-const eventMatch = (date, events) => {
-  return events.filter((e) => {
-    return formatDate(e.start.dateTime) === date;
-  });
-};
 const Booking = () => {
   const [value, onChange] = useState();
-  const { events, setDay } = useContext(CalendarContext);
+  const { events, setDay, formatDate, eventMatch } =
+    useContext(CalendarContext);
 
   useEffect(() => {
     if (value) {
@@ -22,6 +17,7 @@ const Booking = () => {
       setDay(eventMatch(day, events));
     }
   }, [value]);
+
   const tileContent = (date) => {
     const day = formatDate(date);
     const match = eventMatch(day, events);

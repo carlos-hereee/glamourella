@@ -6,12 +6,12 @@ const Landing = () => {
     <main>
       <About />
       <Services />
-      <button type="button" className="btn">
+      {/* <button type="button" className="btn">
         Book now!
       </button>
       <button type="button" className="btn">
         Call Now
-      </button>
+      </button> */}
     </main>
   );
 };

@@ -12,6 +12,7 @@
   }
   &:focus {
     background-color: $secondary-bg-color-hover;
+    color: $primary-text-color;
   }
   &:disabled {
     cursor: not-allowed;

@@ -2,6 +2,7 @@ import React, { createContext, useEffect, useReducer } from "react";
 import { axiosWithOutAuth } from "./axios";
 import { reducer } from "./reducer";
 import { gapi } from "gapi-script";
+import moment from "moment";
 
 export const CalendarContext = createContext();
 export const CalendarState = ({ children }) => {
@@ -21,6 +22,8 @@ export const CalendarState = ({ children }) => {
     // getCalendar();
     getEvents(calendarId, apiKey);
   }, []);
+  const formatDate = (t) => moment(t).format("ddd MMM DD YYYY");
+  const formatTime = (t) => moment(t).format("hh:mm a");
 
   const getEvents = (calendarID, apiKey) => {
     const initiate = () => {
@@ -71,15 +74,11 @@ export const CalendarState = ({ children }) => {
     dispatch({ type: "IS_LOADING", payload: true });
     dispatch({ type: "UPDATE_CALENDAR_EVENT", payload: event });
   };
-  // const getCalendar = async () => {
-  //   dispatch({ type: "IS_LOADING", payload: true });
-  //   try {
-  //     const data = await axiosWithOutAuth.get("/calendar/");
-  //     dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data });
-  //   } catch (e) {
-  //     dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: true });
-  //   }
-  // };
+  const eventMatch = (date, events) => {
+    return events.filter((e) => {
+      return formatDate(e.start.dateTime) === date;
+    });
+  };
   return (
     <CalendarContext.Provider
       value={{
@@ -91,6 +90,9 @@ export const CalendarState = ({ children }) => {
         contactUs,
         getCalendarDay,
         setDay,
+        formatDate,
+        formatTime,
+        eventMatch,
       }}>
       {children}
     </CalendarContext.Provider>
