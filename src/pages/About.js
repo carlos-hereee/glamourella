@@ -1,10 +1,9 @@
 const About = () => {
   return (
     <section>
-      <h2>About Us</h2>
-      <h4>
+      <h2>
         Welcome to <span> GLAMOURELLA </span>
-      </h4>
+      </h2>
       <p>GLAMOURELLA is ... </p>
     </section>
   );
