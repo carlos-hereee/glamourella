@@ -1,7 +1,8 @@
 import { Formik, Form, Field } from "formik";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import * as yup from "yup";
+import { CalendarContext } from "../utils/CalendarContext";
 
 const schema = yup.object().shape({
   name: yup.string().required("*Required field"),
@@ -11,6 +12,7 @@ const schema = yup.object().shape({
 });
 const ContactUs = () => {
   const [isRobot, setIsRobot] = useState(true);
+  const { contactUs } = useContext(CalendarContext);
 
   return (
     <section className="card">
@@ -23,8 +25,7 @@ const ContactUs = () => {
           message: "",
         }}
         validationSchema={schema}
-        // onSubmit={(values)=> isRobot && contactUs(values)}
-      >
+        onSubmit={(values) => isRobot && contactUs(values)}>
         {({ errors }) => (
           <Form className="form">
             <div>
