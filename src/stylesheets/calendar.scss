@@ -12,7 +12,8 @@
   color: $primary-text-color;
   border: none;
   &:hover {
-    background-color: $secondary-bg-color-hover;
+    background-color: $active-bg-color-hover;
+    border-radius: 4px;
   }
   &:disabled {
     background-color: $secondary-bg-color;
@@ -29,8 +30,10 @@
   cursor: pointer;
   font-size: larger;
   padding: 2rem;
+}
+.react-calendar__navigation__arrow {
   &:hover {
-    background-color: $secondary-bg-color-hover;
+    background-color: $active-bg-color-hover;
   }
   &:disabled {
     color: $primary-text-color-disable;
