@@ -1,6 +1,7 @@
 import { Formik, Form, Field } from "formik";
+import { useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import * as yup from "yup";
-import Buttons from "../component/atoms/Buttons";
 
 const schema = yup.object().shape({
   name: yup.string().required("*Required field"),
@@ -9,6 +10,8 @@ const schema = yup.object().shape({
   message: yup.string().required("*Required field"),
 });
 const ContactUs = () => {
+  const [isRobot, setIsRobot] = useState(true);
+
   return (
     <section className="card">
       <h2>Contact Us </h2>
@@ -20,7 +23,7 @@ const ContactUs = () => {
           message: "",
         }}
         validationSchema={schema}
-        // onSubmit={(values)=> contactUs(values)}
+        // onSubmit={(values)=> isRobot && contactUs(values)}
       >
         {({ errors }) => (
           <Form className="form">
@@ -63,7 +66,15 @@ const ContactUs = () => {
               component="textarea"
               className="textarea"
             />
-            <Buttons name="submit" />
+            <div className="form-submit">
+              <ReCAPTCHA
+                sitekey={process.env.REACT_APP_SITE_KEY}
+                onChange={() => setIsRobot(!isRobot)}
+              />
+              <button type="submit" className="btn">
+                Send
+              </button>
+            </div>
           </Form>
         )}
       </Formik>
