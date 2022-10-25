@@ -8,29 +8,25 @@ export const CalendarState = ({ children }) => {
   const initialState = { isLoading: false, calendar: [], log: [], events: [] };
   const [state, dispatch] = useReducer(reducer, initialState);
   const calendarId = process.env.REACT_APP_CALENDAR_ID;
-  const apiKey = process.env.REACT_APP_CALENDAR_API_AKEY;
+  const apiKey = process.env.REACT_APP_CALENDAR_API_KEY;
   const accessToken = process.env.REACT_APP_CALENDAR_ACCESS_TOKEN;
 
   useEffect(() => {
     // getCalendar();
-    const events = getEvents(calendarId, apiKey);
-    updateEvents(events);
+    getEvents(calendarId, apiKey);
   }, []);
 
   const getEvents = (calendarID, apiKey) => {
     const initiate = () => {
       gapi.client
         .init({ apiKey: apiKey })
-        .then(function () {
+        .then(() => {
           return gapi.client.request({
             path: `https://www.googleapis.com/calendar/v3/calendars/${calendarID}/events`,
           });
         })
         .then(
-          (res) => {
-            let events = res.result.items;
-            return events;
-          },
+          (res) => updateEvents(res.result),
           (err) => [false, err]
         );
     };
