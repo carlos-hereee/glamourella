@@ -9,8 +9,9 @@ input {
   padding: 0.5rem 1rem;
   border-radius: 4px;
 }
-.validate {
+.required {
   color: red;
+  border: red;
 }
 .textarea {
   padding: 0.5rem 1rem;

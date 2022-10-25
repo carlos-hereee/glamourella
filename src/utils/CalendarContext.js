@@ -10,10 +10,11 @@ export const CalendarState = ({ children }) => {
   const contactUs = async (values) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
-      const data = await axiosWithOutAuth.post("/contact", values);
+      const data = await axiosWithOutAuth.post("/contact-me", values);
       console.log("data", data);
       dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data });
     } catch (e) {
+      console.log("e", e);
       dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: true });
     }
   };

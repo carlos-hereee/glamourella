@@ -11,9 +11,15 @@ const schema = yup.object().shape({
   message: yup.string().required("*Required field"),
 });
 const ContactUs = () => {
-  const [isRobot, setIsRobot] = useState(true);
+  const [isRobot, setIsRobot] = useState(false);
+  const [isRequired, setIsRequired] = useState(false);
   const { contactUs } = useContext(CalendarContext);
 
+  const handleClick = () => {
+    if (!isRobot) {
+      setIsRequired(true);
+    } else setIsRequired(false);
+  };
   return (
     <section className="card">
       <h2>Contact Us </h2>
@@ -31,7 +37,7 @@ const ContactUs = () => {
             <div>
               <label htmlFor="name">
                 Name{" "}
-                {errors.name && <span className="validate">{errors.name}</span>}
+                {errors.name && <span className="required">{errors.name}</span>}
               </label>
             </div>
             <Field type="text" name="name" />
@@ -39,7 +45,7 @@ const ContactUs = () => {
               <label htmlFor="email">
                 Email{" "}
                 {errors.email && (
-                  <span className="validate">{errors.email}</span>
+                  <span className="required">{errors.email}</span>
                 )}
               </label>
             </div>
@@ -48,7 +54,7 @@ const ContactUs = () => {
               <label htmlFor="subject">
                 Subject{" "}
                 {errors.subject && (
-                  <span className="validate">{errors.subject}</span>
+                  <span className="required">{errors.subject}</span>
                 )}
               </label>
             </div>
@@ -57,7 +63,7 @@ const ContactUs = () => {
               <label htmlFor="message">
                 Message{" "}
                 {errors.message && (
-                  <span className="validate">{errors.message}</span>
+                  <span className="required">{errors.message}</span>
                 )}
               </label>
             </div>
@@ -68,11 +74,14 @@ const ContactUs = () => {
               className="textarea"
             />
             <div className="form-submit">
+              {isRequired && (
+                <span className="required">*Recaptcha is required</span>
+              )}
               <ReCAPTCHA
                 sitekey={process.env.REACT_APP_SITE_KEY}
-                onChange={() => setIsRobot(!isRobot)}
+                onChange={(e) => setIsRobot(e)}
               />
-              <button type="submit" className="btn">
+              <button type="submit" className="btn" onClick={handleClick}>
                 Send
               </button>
             </div>
