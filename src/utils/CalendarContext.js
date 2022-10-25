@@ -5,7 +5,13 @@ import { gapi } from "gapi-script";
 
 export const CalendarContext = createContext();
 export const CalendarState = ({ children }) => {
-  const initialState = { isLoading: false, calendar: [], log: [], events: [] };
+  const initialState = {
+    isLoading: false,
+    calendar: [],
+    log: [],
+    events: [],
+    day: [],
+  };
   const [state, dispatch] = useReducer(reducer, initialState);
   const calendarId = process.env.REACT_APP_CALENDAR_ID;
   const apiKey = process.env.REACT_APP_CALENDAR_API_KEY;
@@ -61,6 +67,10 @@ export const CalendarState = ({ children }) => {
       dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: true });
     }
   };
+  const setDay = async (event) => {
+    dispatch({ type: "IS_LOADING", payload: true });
+    dispatch({ type: "UPDATE_CALENDAR_EVENT", payload: event });
+  };
   // const getCalendar = async () => {
   //   dispatch({ type: "IS_LOADING", payload: true });
   //   try {
@@ -76,9 +86,11 @@ export const CalendarState = ({ children }) => {
         isLoading: state.isLoading,
         calendar: state.calendar,
         events: state.events,
+        day: state.day,
         log: state.log,
         contactUs,
         getCalendarDay,
+        setDay,
       }}>
       {children}
     </CalendarContext.Provider>

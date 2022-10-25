@@ -22,6 +22,12 @@ const updateCalendar = (state, action) => {
     calendar: action.payload,
   };
 };
+const updateCalendarEvent = (state, action) => {
+  return {
+    ...state,
+    day: action.payload,
+  };
+};
 export const reducer = (state, action) => {
   switch (action.type) {
     case "IS_LOADING":
@@ -30,6 +36,8 @@ export const reducer = (state, action) => {
       return addMessageToLog(state, action);
     case "UPDATE_EVENTS":
       return updateEvents(state, action);
+    case "UPDATE_CALENDAR_EVENT":
+      return updateCalendarEvent(state, action);
     case "UPDATE_CALENDAR":
       return updateCalendar(state, action);
     default:

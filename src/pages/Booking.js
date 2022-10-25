@@ -1,35 +1,40 @@
 import { useContext, useEffect, useState } from "react";
 import { Calendar } from "react-calendar";
-import EventCard from "../component/molecules/EventCard";
 import { CalendarContext } from "../utils/CalendarContext";
 import moment from "moment";
 import Icons from "../component/atoms/Icons";
+import CalendarEvents from "../component/calendar/CalendarEvents";
 
+const formatDate = (d) => moment(d).format("ddd MMM DD YYYY");
+const eventMatch = (date, events) => {
+  return events.filter((e) => {
+    return formatDate(e.start.dateTime) === date;
+  });
+};
 const Booking = () => {
-  const [value, onChange] = useState(new Date());
-  const { getCalendarDay, events, calendar } = useContext(CalendarContext);
+  const [value, onChange] = useState();
+  const { events, calendar, setDay } = useContext(CalendarContext);
 
-  // useEffect(() => {
-  //   if (value) {
-  //     getCalendarDay(value);
-  //   }
-  // }, [value]);
+  useEffect(() => {
+    if (value) {
+      // getCalendarDay(value);
+      const day = formatDate(value);
+      setDay(eventMatch(day, events));
+    }
+  }, [value]);
   const tileContent = (date) => {
-    const tileDate = moment(date).format("ddd MMM DD YYYY");
-    const event = events.filter((e) => {
-      return moment(e.start.dateTime).format("ddd MMM DD YYYY") === tileDate;
-    });
-    if (event.length) {
+    const day = formatDate(date);
+    const match = eventMatch(day, events);
+    if (match.length) {
       return (
         <p className="required">
-          <Icons name={event.length} /> Remaining!
+          <Icons name={match.length} /> Remaining!
         </p>
       );
     }
   };
   return (
     <div className="card">
-      <h1>Booking {}</h1>
       <Calendar
         onChange={onChange}
         value={value}
@@ -43,8 +48,7 @@ const Booking = () => {
         showNeighboringMonth={false}
         tileContent={({ date }) => tileContent(date)}
       />
-      <p>{calendar.description}</p>
-      {/* <EventCard data={event} /> */}
+      <CalendarEvents />
     </div>
   );
 };
