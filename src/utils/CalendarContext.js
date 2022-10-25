@@ -26,7 +26,10 @@ export const CalendarState = ({ children }) => {
           });
         })
         .then(
-          (res) => updateEvents(res.result),
+          (res) => {
+            updateCalendar(res.result);
+            updateEvents(res.result.items);
+          },
           (err) => [false, err]
         );
     };
@@ -35,6 +38,10 @@ export const CalendarState = ({ children }) => {
   const updateEvents = async (events) => {
     dispatch({ type: "IS_LOADING", payload: true });
     dispatch({ type: "UPDATE_EVENTS", payload: events });
+  };
+  const updateCalendar = async (calendar) => {
+    dispatch({ type: "IS_LOADING", payload: true });
+    dispatch({ type: "UPDATE_CALENDAR", payload: calendar });
   };
   const contactUs = async (values) => {
     dispatch({ type: "IS_LOADING", payload: true });
@@ -54,15 +61,15 @@ export const CalendarState = ({ children }) => {
       dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: true });
     }
   };
-  const getCalendar = async () => {
-    dispatch({ type: "IS_LOADING", payload: true });
-    try {
-      const data = await axiosWithOutAuth.get("/calendar/");
-      dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data });
-    } catch (e) {
-      dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: true });
-    }
-  };
+  // const getCalendar = async () => {
+  //   dispatch({ type: "IS_LOADING", payload: true });
+  //   try {
+  //     const data = await axiosWithOutAuth.get("/calendar/");
+  //     dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data });
+  //   } catch (e) {
+  //     dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: true });
+  //   }
+  // };
   return (
     <CalendarContext.Provider
       value={{

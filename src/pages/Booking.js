@@ -5,7 +5,7 @@ import { CalendarContext } from "../utils/CalendarContext";
 
 const Booking = () => {
   const [value, onChange] = useState(new Date());
-  const { getCalendarDay, events } = useContext(CalendarContext);
+  const { getCalendarDay, events, calendar } = useContext(CalendarContext);
 
   useEffect(() => {
     if (value) {
@@ -13,11 +13,13 @@ const Booking = () => {
     }
   }, [value]);
 
+  console.log("calendar", calendar);
   console.log("events", events);
   return (
     <div>
-      <h1>Booking</h1>
-      <Calendar onChange={onChange} value={value} />
+      <h1>Booking {}</h1>
+      <Calendar onChange={onChange} value={value} minDate={value} />
+      <p>{calendar.description}</p>
       {/* <EventCard data={event} /> */}
     </div>
   );

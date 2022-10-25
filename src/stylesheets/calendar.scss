@@ -9,6 +9,9 @@
   &:hover {
     background-color: $third-bg-color-hover;
   }
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
 .react-calendar__month-view__days__day--neighboringMonth {
   background-color: $third-bg-color-hover;

@@ -13,6 +13,9 @@
   &:focus {
     background-color: $secondary-bg-color-hover;
   }
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
 .card-container {
   display: flex;
