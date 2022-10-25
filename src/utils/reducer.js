@@ -25,7 +25,7 @@ const updateCalendar = (state, action) => {
 const updateCalendarEvent = (state, action) => {
   return {
     ...state,
-    day: action.payload,
+    selectedDay: action.payload,
   };
 };
 export const reducer = (state, action) => {

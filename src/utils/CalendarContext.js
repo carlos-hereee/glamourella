@@ -10,7 +10,7 @@ export const CalendarState = ({ children }) => {
     calendar: [],
     log: [],
     events: [],
-    day: [],
+    selectedDay: [],
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   const calendarId = process.env.REACT_APP_CALENDAR_ID;
@@ -85,8 +85,8 @@ export const CalendarState = ({ children }) => {
       value={{
         isLoading: state.isLoading,
         calendar: state.calendar,
+        selectedDay: state.selectedDay,
         events: state.events,
-        day: state.day,
         log: state.log,
         contactUs,
         getCalendarDay,

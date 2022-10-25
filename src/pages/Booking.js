@@ -13,7 +13,7 @@ const eventMatch = (date, events) => {
 };
 const Booking = () => {
   const [value, onChange] = useState();
-  const { events, calendar, setDay } = useContext(CalendarContext);
+  const { events, setDay } = useContext(CalendarContext);
 
   useEffect(() => {
     if (value) {
@@ -34,7 +34,7 @@ const Booking = () => {
     }
   };
   return (
-    <div className="card">
+    <div className="container">
       <Calendar
         onChange={onChange}
         value={value}

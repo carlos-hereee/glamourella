@@ -3,7 +3,7 @@ import Services from "./Services";
 
 const Landing = () => {
   return (
-    <section className="container">
+    <main>
       <About />
       <Services />
       <button type="button" className="btn">
@@ -12,7 +12,7 @@ const Landing = () => {
       <button type="button" className="btn">
         Call Now
       </button>
-    </section>
+    </main>
   );
 };
 
