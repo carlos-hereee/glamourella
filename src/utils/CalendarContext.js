@@ -12,6 +12,7 @@ export const CalendarState = ({ children }) => {
     log: [],
     events: [],
     selectedDay: [],
+    appointment: {},
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   const calendarId = process.env.REACT_APP_CALENDAR_ID;
@@ -79,12 +80,17 @@ export const CalendarState = ({ children }) => {
       return formatDate(e.start.dateTime) === date;
     });
   };
+  const bookNow = (values, appointment) => {
+    dispatch({ type: "IS_LOADING", payload: true });
+    dispatch({ type: "BOOK_NOW", payload: appointment });
+  };
   return (
     <CalendarContext.Provider
       value={{
         isLoading: state.isLoading,
         calendar: state.calendar,
         selectedDay: state.selectedDay,
+        appointment: state.appointment,
         events: state.events,
         log: state.log,
         contactUs,
@@ -92,6 +98,7 @@ export const CalendarState = ({ children }) => {
         setDay,
         formatDate,
         formatTime,
+        bookNow,
         eventMatch,
       }}>
       {children}

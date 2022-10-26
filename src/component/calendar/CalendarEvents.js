@@ -2,38 +2,54 @@ import { useContext, useState } from "react";
 import { CalendarContext } from "../../utils/CalendarContext";
 import Empty from "../atoms/Empty";
 import Icons from "../atoms/Icons";
+import ConfirmCard from "../molecules/ConfirmCard";
 
 const CalendarEvents = () => {
   const { selectedDay, calendar, formatTime } = useContext(CalendarContext);
   const [appointment, setAppointment] = useState();
+  const [confirmation, setConfirmation] = useState(true);
 
-  const selectAppointment = (app) => {
-    setAppointment(app);
-  };
   return (
     <div className="card">
-      <h2>{calendar.summary}</h2>
-      <p>{calendar.description}</p>
-      <div className="list">
-        {selectedDay.length ? (
-          selectedDay.map((day) => (
-            <button
-              type="button"
-              className="btn list-item"
-              key={day.id}
-              onClick={() => selectAppointment(day)}>
-              {day.id === appointment?.id ? (
-                <Icons name="check" />
-              ) : (
-                <Icons name="uncheck" />
-              )}
-              {formatTime(day.start.dateTime)} - {formatTime(day.end.dateTime)}
-            </button>
-          ))
-        ) : (
-          <Empty />
-        )}
+      <div className="card-header">
+        <h2>{calendar.summary}</h2>
+        <p>{calendar.description}</p>
       </div>
+      {confirmation ? (
+        <ConfirmCard />
+      ) : (
+        <>
+          <div className="list">
+            {selectedDay.length ? (
+              selectedDay.map((day) => (
+                <button
+                  type="button"
+                  className="btn list-item"
+                  key={day.id}
+                  onClick={() => setAppointment(day)}>
+                  {day.id === appointment?.id ? (
+                    <Icons name="check" />
+                  ) : (
+                    <Icons name="uncheck" />
+                  )}
+                  {formatTime(day.start.dateTime)} -{" "}
+                  {formatTime(day.end.dateTime)}
+                </button>
+              ))
+            ) : (
+              <Empty />
+            )}
+          </div>
+          <div className="card-footer">
+            <button
+              className="btn btn-primary"
+              disabled={!appointment?.id}
+              onClick={() => setConfirmation(!confirmation)}>
+              Book Now!
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 };

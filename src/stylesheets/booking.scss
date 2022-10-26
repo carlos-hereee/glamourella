@@ -1,10 +1,13 @@
 .list {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
+  height: 100%;
+  margin: auto;
 }
 .list-item {
+  margin: 0.5rem;
   display: flex;
+  height: fit-content;
   gap: 1rem;
+}
+.confirmation {
+  height: 100%;
 }

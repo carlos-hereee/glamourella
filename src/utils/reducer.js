@@ -28,6 +28,12 @@ const updateCalendarEvent = (state, action) => {
     selectedDay: action.payload,
   };
 };
+const bookNow = (state, action) => {
+  return {
+    ...state,
+    appointment: action.payload,
+  };
+};
 export const reducer = (state, action) => {
   switch (action.type) {
     case "IS_LOADING":
@@ -40,6 +46,8 @@ export const reducer = (state, action) => {
       return updateCalendarEvent(state, action);
     case "UPDATE_CALENDAR":
       return updateCalendar(state, action);
+    case "BOOK_NOW":
+      return bookNow(state, action);
     default:
       return state;
   }
