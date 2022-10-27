@@ -16,7 +16,7 @@ const CalendarEvents = () => {
         <p>{calendar.description}</p>
       </div>
       {confirmation ? (
-        <ConfirmCard />
+        <ConfirmCard data={appointment} />
       ) : (
         <>
           <div className="list">
@@ -42,7 +42,7 @@ const CalendarEvents = () => {
           </div>
           <div className="card-footer">
             <button
-              className="btn btn-primary"
+              className="btn"
               disabled={!appointment?.id}
               onClick={() => setConfirmation(!confirmation)}>
               Book Now!

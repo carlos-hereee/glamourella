@@ -7,11 +7,10 @@ import { CalendarContext } from "../../utils/CalendarContext";
 const schema = yup.object().shape({
   name: yup.string().required("*Required field"),
   email: yup.string().email().required("*Required field"),
-  subject: yup.string().required("*Required field"),
-  message: yup.string().required("*Required field"),
+  phone: yup.number().required("*Required field"),
 });
 const ConfirmCard = ({ data }) => {
-  const { bookNow, formatTime } = useContext(CalendarContext);
+  const { bookNow, formatTime, formatDate } = useContext(CalendarContext);
   const [isRobot, setIsRobot] = useState(false);
   const [isRequired, setIsRequired] = useState(false);
   /**
@@ -34,10 +33,16 @@ updated:"2022-10-25T03:43:11.195Z"
    */
   return (
     <div className="confirmation">
-      {formatTime(data.day.start.dateTime)} -{" "}
-      {formatTime(data.day.end.dateTime)}
+      <p>
+        Appointment set for{" "}
+        <strong>
+          {formatDate(data.start.dateTime)} @ {formatTime(data?.start.dateTime)}{" "}
+          - {formatTime(data?.end.dateTime)}
+        </strong>
+      </p>
+      <p>Please fill out form to confirm appointment</p>
       <Formik
-        initialValues={{ name: "", email: "" }}
+        initialValues={{ name: "", email: "", phone: 0 }}
         validationSchema={schema}
         onSubmit={(values) => {
           if (!isRobot) {
@@ -65,6 +70,15 @@ updated:"2022-10-25T03:43:11.195Z"
               </label>
             </div>
             <Field type="email" name="email" />
+            <div>
+              <label htmlFor="phone">
+                Phone #{" "}
+                {errors.phone && (
+                  <span className="required">{errors.phone}</span>
+                )}
+              </label>
+            </div>
+            <Field type="number" name="phone" />
             <div className="form-submit">
               {isRequired && (
                 <span className="required">*Recaptcha is required</span>
@@ -74,7 +88,7 @@ updated:"2022-10-25T03:43:11.195Z"
                 onChange={(e) => setIsRobot(e)}
               />
               <button type="submit" className="btn">
-                Send
+                Confirm
               </button>
             </div>
           </Form>

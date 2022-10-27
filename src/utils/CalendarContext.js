@@ -22,7 +22,7 @@ export const CalendarState = ({ children }) => {
   useEffect(() => {
     getEvents(calendarId, apiKey);
   }, []);
-  const formatDate = (t) => moment(t).format("ddd MMM DD YYYY");
+  const formatDate = (t) => moment(t).format("dddd MMM DD YYYY");
   const formatTime = (t) => moment(t).format("hh:mm a");
   const today = formatDate(new Date());
 
