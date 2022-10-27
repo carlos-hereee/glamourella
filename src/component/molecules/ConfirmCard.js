@@ -11,7 +11,7 @@ const schema = yup.object().shape({
   message: yup.string().required("*Required field"),
 });
 const ConfirmCard = ({ data }) => {
-  const { bookNow } = useContext(CalendarContext);
+  const { bookNow, formatTime } = useContext(CalendarContext);
   const [isRobot, setIsRobot] = useState(false);
   const [isRequired, setIsRequired] = useState(false);
   /**
@@ -34,6 +34,8 @@ updated:"2022-10-25T03:43:11.195Z"
    */
   return (
     <div className="confirmation">
+      {formatTime(data.day.start.dateTime)} -{" "}
+      {formatTime(data.day.end.dateTime)}
       <Formik
         initialValues={{ name: "", email: "" }}
         validationSchema={schema}

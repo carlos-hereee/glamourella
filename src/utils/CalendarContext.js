@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useReducer } from "react";
+import React, { createContext, useEffect, useReducer, useState } from "react";
 import { axiosWithOutAuth } from "./axios";
 import { reducer } from "./reducer";
 import { gapi } from "gapi-script";
@@ -20,11 +20,11 @@ export const CalendarState = ({ children }) => {
   const accessToken = process.env.REACT_APP_CALENDAR_ACCESS_TOKEN;
 
   useEffect(() => {
-    // getCalendar();
     getEvents(calendarId, apiKey);
   }, []);
   const formatDate = (t) => moment(t).format("ddd MMM DD YYYY");
   const formatTime = (t) => moment(t).format("hh:mm a");
+  const today = formatDate(new Date());
 
   const getEvents = (calendarID, apiKey) => {
     const initiate = () => {
@@ -36,9 +36,10 @@ export const CalendarState = ({ children }) => {
           });
         })
         .then(
-          (res) => {
-            updateCalendar(res.result);
-            updateEvents(res.result.items);
+          ({ result }) => {
+            updateCalendar(result);
+            updateEvents(result.items);
+            setDay(eventMatch(today, result.items));
           },
           (err) => [false, err]
         );
@@ -80,6 +81,9 @@ export const CalendarState = ({ children }) => {
       return formatDate(e.start.dateTime) === date;
     });
   };
+  const getCalendar = () => {
+    getEvents(calendarId, apiKey);
+  };
   const bookNow = (values, appointment) => {
     dispatch({ type: "IS_LOADING", payload: true });
     dispatch({ type: "BOOK_NOW", payload: appointment });
@@ -100,6 +104,8 @@ export const CalendarState = ({ children }) => {
         formatTime,
         bookNow,
         eventMatch,
+        getCalendar,
+        getEvents,
       }}>
       {children}
     </CalendarContext.Provider>

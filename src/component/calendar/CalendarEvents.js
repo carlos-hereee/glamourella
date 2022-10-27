@@ -7,7 +7,7 @@ import ConfirmCard from "../molecules/ConfirmCard";
 const CalendarEvents = () => {
   const { selectedDay, calendar, formatTime } = useContext(CalendarContext);
   const [appointment, setAppointment] = useState();
-  const [confirmation, setConfirmation] = useState(true);
+  const [confirmation, setConfirmation] = useState(false);
 
   return (
     <div className="card">

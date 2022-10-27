@@ -1,27 +1,26 @@
 import { useContext, useEffect, useState } from "react";
 import { Calendar } from "react-calendar";
 import { CalendarContext } from "../utils/CalendarContext";
-import moment from "moment";
 import Icons from "../component/atoms/Icons";
 import CalendarEvents from "../component/calendar/CalendarEvents";
 
 const Booking = () => {
-  const [value, onChange] = useState();
+  const [value, onChange] = useState(null);
   const { events, setDay, formatDate, eventMatch } =
     useContext(CalendarContext);
 
   useEffect(() => {
     if (value) {
-      // getCalendarDay(value);
       const day = formatDate(value);
       setDay(eventMatch(day, events));
     }
   }, [value]);
 
   const tileContent = (date) => {
-    const day = formatDate(date);
-    const match = eventMatch(day, events);
-    if (match.length) {
+    const current = formatDate(date);
+    const today = formatDate(new Date());
+    const match = eventMatch(current, events);
+    if (match.length && current <= today) {
       return (
         <p className="required">
           <Icons name={match.length} /> Remaining!
