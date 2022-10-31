@@ -41,6 +41,7 @@ updated:"2022-10-25T03:43:11.195Z"
         </strong>
       </p>
       <p>Please fill out form to confirm appointment</p>
+      {/* <a href={data.htmlLink}>LINK</a> */}
       <Formik
         initialValues={{ name: "", email: "", phone: 0 }}
         validationSchema={schema}
@@ -48,7 +49,7 @@ updated:"2022-10-25T03:43:11.195Z"
           if (!isRobot) {
             setIsRequired(true);
           } else {
-            bookNow(values);
+            bookNow(values, data);
             setIsRequired(false);
           }
         }}>

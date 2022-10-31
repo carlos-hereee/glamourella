@@ -1,8 +1,9 @@
-import React, { createContext, useEffect, useReducer, useState } from "react";
+import React, { createContext, useEffect, useReducer } from "react";
 import { axiosWithOutAuth } from "./axios";
 import { reducer } from "./reducer";
 import { gapi } from "gapi-script";
 import moment from "moment";
+import { getEvents } from "./calendar";
 
 export const CalendarContext = createContext();
 export const CalendarState = ({ children }) => {
@@ -20,32 +21,16 @@ export const CalendarState = ({ children }) => {
   const accessToken = process.env.REACT_APP_CALENDAR_ACCESS_TOKEN;
 
   useEffect(() => {
-    getEvents(calendarId, apiKey);
+    getEvents(calendarId, apiKey, updateEvents, updateCalendar);
   }, []);
+  useEffect(() => {
+    setDay(eventMatch(today, state.events));
+  }, [state.events]);
+
   const formatDate = (t) => moment(t).format("dddd MMM DD YYYY");
   const formatTime = (t) => moment(t).format("hh:mm a");
   const today = formatDate(new Date());
 
-  const getEvents = (calendarID, apiKey) => {
-    const initiate = () => {
-      gapi.client
-        .init({ apiKey: apiKey })
-        .then(() => {
-          return gapi.client.request({
-            path: `https://www.googleapis.com/calendar/v3/calendars/${calendarID}/events`,
-          });
-        })
-        .then(
-          ({ result }) => {
-            updateCalendar(result);
-            updateEvents(result.items);
-            setDay(eventMatch(today, result.items));
-          },
-          (err) => [false, err]
-        );
-    };
-    gapi.load("client", initiate);
-  };
   const updateEvents = async (events) => {
     dispatch({ type: "IS_LOADING", payload: true });
     dispatch({ type: "UPDATE_EVENTS", payload: events });
@@ -84,9 +69,16 @@ export const CalendarState = ({ children }) => {
   const getCalendar = () => {
     getEvents(calendarId, apiKey);
   };
-  const bookNow = (values, appointment) => {
-    dispatch({ type: "IS_LOADING", payload: true });
-    dispatch({ type: "BOOK_NOW", payload: appointment });
+  const bookNow = async (values, appointment) => {
+    try {
+      console.log("appointment", appointment, values);
+      // addEvent(calendarId, appointment);
+      dispatch({ type: "IS_LOADING", payload: true });
+      dispatch({ type: "BOOK_NOW", payload: appointment });
+    } catch (e) {
+      const { data } = e.response;
+      dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data.message });
+    }
   };
   return (
     <CalendarContext.Provider
