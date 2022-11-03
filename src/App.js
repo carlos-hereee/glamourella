@@ -7,6 +7,7 @@ import Gallery from "./pages/Gallery";
 import Header from "./pages/Header";
 import Landing from "./pages/Landing";
 import NotFound from "./pages/NotFound";
+import OauthCallback from "./pages/OauthCallback";
 import Services from "./pages/Services";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/gallery" element={<Gallery />} />
+        <Route path="/oauth2callback" element={<OauthCallback />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>

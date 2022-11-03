@@ -18,3 +18,10 @@ export const axiosWithOutAuth = axios.create({
     Accept: "application/json",
   },
 });
+export const axiosWithOAuth = axios.create({
+  baseURL: "https://accounts.google.com/o/oauth2/v2/auth",
+  headers: {
+    "Access-Control-Allow-Origin": process.env.REACT_APP_CLIENT_BASE_URL,
+    Accept: "application/json",
+  },
+});
