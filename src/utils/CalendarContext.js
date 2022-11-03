@@ -74,7 +74,7 @@ export const CalendarState = ({ children }) => {
           " - ",
           formatTime(appointment.end.dateTime))
         }.`,
-        attendees: [values.email],
+        attendees: [{ displayName: values.name, email: values.email }],
       };
       const { data } = await axiosWithAuth.post("calendar/book", { content });
       console.log("data", data);
