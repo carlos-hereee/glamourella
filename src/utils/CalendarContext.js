@@ -62,7 +62,7 @@ export const CalendarState = ({ children }) => {
   };
   const isDateEqual = (date, events) => {
     return events.filter((e) => {
-      return formatDate(e.start.dateTime) === date;
+      return formatDate(e.start.dateTime) === date && !e.attendees;
     });
   };
   const bookNow = async (values, appointment) => {
@@ -100,7 +100,7 @@ export const CalendarState = ({ children }) => {
         formatDate,
         formatTime,
         bookNow,
-        eventMatch: isDateEqual,
+        isDateEqual,
       }}>
       {children}
     </CalendarContext.Provider>

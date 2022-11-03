@@ -6,21 +6,22 @@ import CalendarEvents from "../component/calendar/CalendarEvents";
 
 const Booking = () => {
   const [value, onChange] = useState(null);
-  const { events, setDay, formatDate, eventMatch } =
+  const { events, setDay, formatDate, isDateEqual } =
     useContext(CalendarContext);
 
   useEffect(() => {
     if (value) {
       const day = formatDate(value);
-      setDay(eventMatch(day, events));
+      setDay(isDateEqual(day, events));
     }
   }, [value]);
 
   const tileContent = (date) => {
     const current = formatDate(date);
     const today = formatDate(new Date());
-    const match = eventMatch(current, events);
+    const match = isDateEqual(current, events);
     if (match.length && current <= today) {
+      // const filteredMatch = match.filter((m) => );
       return (
         <p className="required">
           <Icons name={match.length} /> Remaining!
