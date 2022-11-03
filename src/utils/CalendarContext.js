@@ -2,7 +2,6 @@ import React, { createContext, useEffect, useReducer } from "react";
 import { axiosWithOutAuth, axiosWithAuth } from "./axios";
 import { reducer } from "./reducer";
 import moment from "moment";
-import { joinEvent } from "./calendar";
 
 export const CalendarContext = createContext();
 export const CalendarState = ({ children }) => {
@@ -15,8 +14,6 @@ export const CalendarState = ({ children }) => {
     appointment: {},
   };
   const [state, dispatch] = useReducer(reducer, initialState);
-  const calendarId = process.env.REACT_APP_CALENDAR_ID;
-  const accessToken = process.env.REACT_APP_CALENDAR_ACCESS_TOKEN;
 
   useEffect(() => {
     // refresh accesstoken
@@ -28,7 +25,6 @@ export const CalendarState = ({ children }) => {
   const today = formatDate(new Date());
   const getAccessToken = async () => {
     const { data } = await axiosWithAuth.get("/calendar/events");
-    console.log("data", data);
     updateCalendar(data.events);
     updateEvents(data.events.items);
     updateDay(isDateEqual(today, data.events.items));
@@ -71,7 +67,7 @@ export const CalendarState = ({ children }) => {
   const bookNow = async (values, appointment) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
-      const data = {
+      const content = {
         ...appointment,
         summary: `Appointment set for ${values.name}, at ${
           (formatTime(appointment.start.dateTime),
@@ -80,7 +76,9 @@ export const CalendarState = ({ children }) => {
         }.`,
         attendees: [values.email],
       };
-      joinEvent(calendarId, accessToken, data);
+      const { data } = await axiosWithAuth.post("calendar/book", { content });
+      console.log("data", data);
+
       // dispatch({ type: "BOOK_NOW", payload: appointment });
     } catch (e) {
       const { data } = e.response;
