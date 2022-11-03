@@ -5,10 +5,11 @@ import Icons from "../atoms/Icons";
 import ConfirmCard from "../molecules/ConfirmCard";
 
 const CalendarEvents = () => {
-  const { selectedDay, calendar, formatTime } = useContext(CalendarContext);
+  const { selectedDay, calendar, formatTime, booked } =
+    useContext(CalendarContext);
   const [appointment, setAppointment] = useState();
   const [confirmation, setConfirmation] = useState(false);
-
+  console.log("booked", booked);
   return (
     <div className="card">
       <div className="card-header">

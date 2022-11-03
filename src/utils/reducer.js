@@ -16,6 +16,12 @@ const updateEvents = (state, action) => {
     events: action.payload,
   };
 };
+const booked = (state, action) => {
+  return {
+    ...state,
+    booked: action.payload,
+  };
+};
 const updateCalendar = (state, action) => {
   return {
     ...state,
@@ -40,6 +46,8 @@ export const reducer = (state, action) => {
       return isLoading(state, action);
     case "ADD_MESSAGE_TO_LOG":
       return addMessageToLog(state, action);
+    case "BOOKED":
+      return booked(state, action);
     case "UPDATE_EVENTS":
       return updateEvents(state, action);
     case "UPDATE_CALENDAR_EVENT":

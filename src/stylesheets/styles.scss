@@ -54,3 +54,9 @@
   justify-content: space-around;
   // flex-wrap: wrap;
 }
+.message-success {
+  border-radius: 4px;
+  padding: 1rem;
+  color: $primary-text-color-hover;
+  background-color: $active-bg-color-hover;
+}

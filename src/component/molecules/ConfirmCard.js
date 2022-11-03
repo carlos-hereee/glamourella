@@ -9,7 +9,8 @@ const schema = yup.object().shape({
   email: yup.string().email().required("*Required field"),
 });
 const ConfirmCard = ({ data }) => {
-  const { bookNow, formatTime, formatDate } = useContext(CalendarContext);
+  const { bookNow, formatTime, formatDate, booked } =
+    useContext(CalendarContext);
   const [isRobot, setIsRobot] = useState(false);
   const [isRequired, setIsRequired] = useState(false);
 
@@ -23,6 +24,10 @@ const ConfirmCard = ({ data }) => {
         </strong>
       </p>
       <p>Please fill out form to confirm appointment</p>
+      <p className={booked.success ? "message-success" : "required"}>
+        {booked.message}
+      </p>
+
       {/* <a href={data.htmlLink}>LINK</a> */}
       <Formik
         initialValues={{ name: "", email: "" }}

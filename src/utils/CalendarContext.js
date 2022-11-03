@@ -12,6 +12,7 @@ export const CalendarState = ({ children }) => {
     events: [],
     selectedDay: [],
     appointment: {},
+    booked: {},
   };
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -77,9 +78,7 @@ export const CalendarState = ({ children }) => {
         attendees: [{ displayName: values.name, email: values.email }],
       };
       const { data } = await axiosWithAuth.post("calendar/book", { content });
-      console.log("data", data);
-
-      // dispatch({ type: "BOOK_NOW", payload: appointment });
+      dispatch({ type: "BOOKED", payload: data });
     } catch (e) {
       const { data } = e.response;
       dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data.message });
@@ -93,6 +92,7 @@ export const CalendarState = ({ children }) => {
         selectedDay: state.selectedDay,
         appointment: state.appointment,
         events: state.events,
+        booked: state.booked,
         log: state.log,
         contactUs,
         getCalendarDay,
