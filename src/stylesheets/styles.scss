@@ -5,13 +5,14 @@
   cursor: pointer;
   max-width: 200px;
   min-width: 100px;
-  background-color: $secondary-bg-color;
+  background-color: $secondary-bg-color-hover;
+  color: $primary-text-color;
   &:hover {
-    background-color: $secondary-bg-color-hover;
+    background-color: $secondary-bg-color;
     color: $primary-text-color;
   }
   &:focus {
-    background-color: $secondary-bg-color-hover;
+    background-color: $secondary-bg-color;
     color: $primary-text-color;
   }
   &:disabled {
@@ -34,11 +35,12 @@
     color: $secondary-text-color;
   }
 }
-.card-container {
+.container {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-around;
+  flex-wrap: wrap;
   gap: 1rem;
+  padding: 1rem;
 }
 .card {
   display: flex;
@@ -46,13 +48,13 @@
   justify-content: space-between;
   background-color: $primary-text-color;
   padding: 1rem;
-  margin: 1rem;
   border-radius: 4px;
 }
-.container {
+.card-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
-  // flex-wrap: wrap;
+  gap: 1rem;
 }
 .message-success {
   border-radius: 4px;

@@ -1,21 +1,45 @@
 @import "./variables.scss";
+@import "./reset.scss";
 @import "./styles.scss";
-@import "./header.scss";
 @import "./app.scss";
+@import "./header.scss";
 @import "./forms.scss";
 @import "./booking.scss";
 @import "./calendar.scss";
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+#recaptcha {
+  width: 100%;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+@media only screen and (max-width: 480px) {
+  #recaptcha_challenge_image {
+    margin: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  #recaptcha_response_field {
+    margin: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  .recaptchatable #recaptcha_image {
+    margin: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  .recaptchatable .recaptcha_r1_c1,
+  .recaptchatable .recaptcha_r3_c1,
+  .recaptchatable .recaptcha_r3_c2,
+  .recaptchatable .recaptcha_r7_c1,
+  .recaptchatable .recaptcha_r8_c1,
+  .recaptchatable .recaptcha_r3_c3,
+  .recaptchatable .recaptcha_r2_c1,
+  .recaptchatable .recaptcha_r4_c1,
+  .recaptchatable .recaptcha_r4_c2,
+  .recaptchatable .recaptcha_r4_c4,
+  .recaptchatable .recaptcha_image_cell {
+    margin: 0 !important;
+    width: 100% !important;
+    background: none !important;
+    height: auto !important;
+  }
 }

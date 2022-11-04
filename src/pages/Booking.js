@@ -13,6 +13,7 @@ const Booking = () => {
     if (value) {
       const day = formatDate(value);
       setDay(isDateEqual(day, events));
+      document.getElementById("calendar-events").scrollIntoView();
     }
   }, [value]);
 
@@ -21,7 +22,6 @@ const Booking = () => {
     const today = formatDate(new Date());
     const match = isDateEqual(current, events);
     if (match.length && current <= today) {
-      // const filteredMatch = match.filter((m) => );
       return (
         <p className="required">
           <Icons name={match.length} /> Remaining!

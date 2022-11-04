@@ -9,7 +9,7 @@ const CalendarEvents = () => {
   const [appointment, setAppointment] = useState();
   const [confirmation, setConfirmation] = useState(false);
   return (
-    <div className="card">
+    <section className="card" id="calendar-events">
       <div className="card-header">
         <h2>{calendar.summary}</h2>
         <p>{calendar.description}</p>
@@ -49,7 +49,7 @@ const CalendarEvents = () => {
           </div>
         </>
       )}
-    </div>
+    </section>
   );
 };
 export default CalendarEvents;
