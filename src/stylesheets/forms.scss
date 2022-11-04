@@ -1,17 +1,18 @@
 .form {
   display: flex;
-  justify-content: space-around;
   flex-direction: column;
-  text-align: left;
-  background-color: $primary-text-color;
-  padding: 1rem;
   gap: 1rem;
+  background-color: $primary-text-color;
+  text-align: left;
+  padding: 1rem;
   border-radius: 4px;
   input,
   textarea {
     background-color: $primary-bg-color;
-    border: none;
     border-bottom: 1px solid $secondary-bg-color-hover;
+    box-sizing: border-box;
+    border: none;
+    width: 100%;
     padding: 0.5rem 1rem;
     border-radius: 4px;
   }
@@ -20,11 +21,9 @@
   color: red;
   border: red;
 }
-
 .form-submit {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1rem 0;
   gap: 1rem;
 }

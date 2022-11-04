@@ -2,10 +2,16 @@ import { useContext, useState } from "react";
 import { CalendarContext } from "../../utils/CalendarContext";
 import Empty from "../atoms/Empty";
 import Icons from "../atoms/Icons";
-import ConfirmCard from "../molecules/ConfirmCard";
+import * as yup from "yup";
+import Forms from "../forms/Forms";
 
+const schema = yup.object().shape({
+  name: yup.string().required("*Required field"),
+  email: yup.string().email().required("*Required field"),
+});
 const CalendarEvents = () => {
-  const { selectedDay, calendar, formatTime } = useContext(CalendarContext);
+  const { selectedDay, calendar, formatTime, bookNow, formatDate, booked } =
+    useContext(CalendarContext);
   const [appointment, setAppointment] = useState();
   const [confirmation, setConfirmation] = useState(false);
   return (
@@ -15,7 +21,26 @@ const CalendarEvents = () => {
         <p>{calendar.description}</p>
       </div>
       {confirmation ? (
-        <ConfirmCard data={appointment} />
+        <>
+          <span>
+            Appointment set for{" "}
+            <strong>
+              {formatDate(appointment?.start.dateTime)} @{" "}
+              {formatTime(appointment?.start.dateTime)} -{" "}
+              {formatTime(appointment?.end.dateTime)}
+            </strong>
+          </span>
+          <span className={booked.success ? "message-success" : "required"}>
+            {booked.message}
+          </span>
+          <Forms
+            data={{
+              initialValues: { name: "", email: "" },
+              schema,
+              handleSubmit: bookNow,
+            }}
+          />
+        </>
       ) : (
         <>
           <div className="list">
