@@ -1,9 +1,12 @@
 import React from "react";
 import Icons from "./Icons";
 
-const Buttons = ({ name, onClick }) => {
+const Buttons = ({ name, handleClick }) => {
   return (
-    <button type="button" className="btn" onClick={onClick}>
+    <button
+      type={name === "submit" ? "submit" : "button"}
+      className="btn"
+      onClick={handleClick}>
       <Icons name={name} /> {name.toUpperCase()}
     </button>
   );

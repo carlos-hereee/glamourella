@@ -1,7 +1,6 @@
-import { Formik, Form, Field } from "formik";
-import { useContext, useState } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
+import { useContext } from "react";
 import * as yup from "yup";
+import Forms from "../component/forms/Forms";
 import { CalendarContext } from "../utils/CalendarContext";
 
 const schema = yup.object().shape({
@@ -11,24 +10,16 @@ const schema = yup.object().shape({
   message: yup.string().required("*Required field"),
 });
 const ContactUs = () => {
-  const [isRobot, setIsRobot] = useState(false);
-  const [isRequired, setIsRequired] = useState(false);
   const { contactUs } = useContext(CalendarContext);
 
-  const handleClick = () => {
-    if (!isRobot) {
-      setIsRequired(true);
-    } else setIsRequired(false);
-  };
   return (
-    <section className="card">
-      <h2>Contact Us </h2>
-      <Formik
-        initialValues={{ name: "", email: "", message: "" }}
+    <main className="container">
+      {/* <Formik
+        initialValues={}
         validationSchema={schema}
         onSubmit={(values) => isRobot && contactUs(values)}>
         {({ errors }) => (
-          <Form className="form">
+          <Form className="form card">
             <div>
               <label htmlFor="name">
                 Name{" "}
@@ -73,8 +64,15 @@ const ContactUs = () => {
             </div>
           </Form>
         )}
-      </Formik>
-    </section>
+      </Formik> */}
+      <Forms
+        data={{
+          initialValues: { name: "", email: "", message: "" },
+          schema,
+          handleSubmit: contactUs,
+        }}
+      />
+    </main>
   );
 };
 

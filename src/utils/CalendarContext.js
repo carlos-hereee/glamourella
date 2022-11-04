@@ -78,6 +78,7 @@ export const CalendarState = ({ children }) => {
         attendees: [{ displayName: values.name, email: values.email }],
       };
       const { data } = await axiosWithAuth.post("calendar/book", { content });
+      console.log("data", data);
       dispatch({ type: "BOOKED", payload: data });
     } catch (e) {
       const { data } = e.response;

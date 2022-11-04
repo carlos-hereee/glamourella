@@ -10,39 +10,40 @@ import {
   fa8,
   fa9,
   faCalendarAlt,
-  faCheck,
   faCheckCircle,
+  faCircle,
   faHome,
   faImage,
   faInfoCircle,
   faListCheck,
   faPhone,
+  faPlane,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
 
+const svg = {
+  home: faHome,
+  "about us": faInfoCircle,
+  services: faListCheck,
+  booking: faCalendarAlt,
+  gallery: faImage,
+  "contact us": faPhone,
+  check: faCheckCircle,
+  uncheck: faCircle,
+  submit: faPlane,
+  1: fa1,
+  2: fa2,
+  3: fa3,
+  4: fa4,
+  5: fa5,
+  6: fa6,
+  7: fa7,
+  8: fa8,
+  9: fa9,
+  0: fa0,
+};
 const Icons = ({ name, size }) => {
-  const icons = {
-    home: faHome,
-    "about us": faInfoCircle,
-    services: faListCheck,
-    booking: faCalendarAlt,
-    gallery: faImage,
-    "contact us": faPhone,
-    check: faCheckCircle,
-    uncheck: faCheck,
-    1: fa1,
-    2: fa2,
-    3: fa3,
-    4: fa4,
-    5: fa5,
-    6: fa6,
-    7: fa7,
-    8: fa8,
-    9: fa9,
-    0: fa0,
-  };
-  return <FontAwesomeIcon icon={icons[name]} size={size} />;
+  return <FontAwesomeIcon icon={svg[name]} size={size} />;
 };
 
 export default Icons;
