@@ -30,7 +30,7 @@ const Booking = () => {
     }
   };
   return (
-    <div className="container">
+    <main className="container">
       <Calendar
         onChange={onChange}
         value={value}
@@ -45,7 +45,7 @@ const Booking = () => {
         tileContent={({ date }) => tileContent(date)}
       />
       <CalendarEvents />
-    </div>
+    </main>
   );
 };
 

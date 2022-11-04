@@ -4,6 +4,7 @@
 }
 .react-calendar__navigation {
   background-color: $secondary-bg-color-hover;
+  border-radius: 4px;
 }
 .react-calendar__tile {
   cursor: pointer;
@@ -21,7 +22,9 @@
     cursor: not-allowed;
   }
 }
-
+.react-calendar__month-view__weekdays {
+  color: $secondary-text-color;
+}
 .react-calendar__navigation__label,
 .react-calendar__navigation__arrow {
   background-color: $secondary-bg-color-hover;

@@ -49,12 +49,9 @@ const Services = () => {
     },
   ];
   return (
-    <section>
-      <h2>Our Services</h2>
-      <div className="card-container">
-        {service && service.map((s) => <ServiceCard data={s} key={s.id} />)}
-      </div>
-    </section>
+    <main className="container">
+      {service && service.map((s) => <ServiceCard data={s} key={s.id} />)}
+    </main>
   );
 };
 

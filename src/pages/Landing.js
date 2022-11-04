@@ -3,7 +3,7 @@ import Services from "./Services";
 
 const Landing = () => {
   return (
-    <main>
+    <main className="container">
       <About />
       <Services />
       {/* <button type="button" className="btn">
