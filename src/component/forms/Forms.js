@@ -1,5 +1,5 @@
-import { Field, Form, Formik, useFormik } from "formik";
-import { useEffect, useState } from "react";
+import { getIn, useFormik } from "formik";
+import { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import Icons from "../atoms/Icons";
 
@@ -12,52 +12,50 @@ const Forms = ({ data }) => {
   const formik = useFormik({
     initialValues: data.initialValues,
     onSubmit: (values) => {
-      console.log("values", values);
-      // if (isHuman) {
-      //   setIsRequired(false);
-      //   data.handleSubmit(values);
-      // } else setIsRequired(true);
+      if (isHuman) {
+        setIsRequired(false);
+        data.handleSubmit(values);
+      } else setIsRequired(true);
     },
     validationSchema: data.schema,
   });
 
-  // const handleLoaded = () => {
-  //   window.grecaptcha.ready(() => {
-  //     window.grecaptcha
-  //       .execute(apiKey, { action: "homepage" })
-  //       .then((token) => {
-  //         setIsHuman(token);
-  //       });
-  //   });
-  // };
-  // useEffect(() => {
-  //   const script = document.createElement("script");
-  //   script.src = `https://www.google.com/recaptcha/api.js?render=${apiKey}`;
-  //   script.addEventListener("load", handleLoaded);
-  //   document.body.appendChild(script);
-  // }, []);
-
-  // {({ errors, handleSubmit, handleChange }) => (
   const handleSubmit = (e) => {
     e.preventDefault();
     formik.handleSubmit();
   };
+  const handleChange = (e) => {
+    formik.handleChange(e);
+    formik.handleBlur(e);
+  };
   return (
     <form className="form" onSubmit={handleSubmit}>
-      {Object.keys(data.initialValues).map((value) => (
-        <div key={value}>
+      {Object.keys(data.initialValues).map((ref) => (
+        <div key={ref}>
           <div>
-            <label htmlFor={value}>
-              {value.charAt(0).toUpperCase() + value.slice(1)}{" "}
-              {formik.errors[value] && (
-                <span className="required">{formik.errors[value]}</span>
+            <label htmlFor={ref}>
+              {ref.charAt(0).toUpperCase() + ref.slice(1)}{" "}
+              {formik.errors[ref] && (
+                <span className="required">{formik.errors[ref]}</span>
               )}
             </label>
           </div>
-          {textarea.includes(value) ? (
-            <input type="textarea" name={value} component="textarea" />
+          {textarea.includes(ref) ? (
+            <textarea
+              type="text"
+              name={ref}
+              value={getIn(formik.values, ref)}
+              onChange={handleChange}
+              onBlur={formik.handleBlur}
+            />
           ) : (
-            <input type="text" name={value} />
+            <input
+              type="text"
+              name={ref}
+              value={getIn(formik.values, ref)}
+              onChange={handleChange}
+              onBlur={formik.handleBlur}
+            />
           )}
         </div>
       ))}

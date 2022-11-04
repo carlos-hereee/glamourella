@@ -6,13 +6,10 @@ import { CalendarContext } from "../utils/CalendarContext";
 const schema = yup.object().shape({
   name: yup.string().required("*Required field"),
   email: yup.string().email().required("*Required field"),
-  subject: yup.string().required("*Required field"),
   message: yup.string().required("*Required field"),
-  // recaptcha: yup.string().required("*Recaptcha is Required"),
 });
 const ContactUs = () => {
   const { contactUs } = useContext(CalendarContext);
-
   return (
     <main className="container">
       <Forms
