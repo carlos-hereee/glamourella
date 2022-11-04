@@ -18,7 +18,7 @@ const Forms = ({ data }) => {
         } else setIsRequired(true);
       }}>
       {({ errors }) => (
-        <Form className="form card">
+        <Form className="form">
           {Object.keys(data.initialValues).map((value) => (
             <div key={value}>
               <label htmlFor={value}>
@@ -45,7 +45,7 @@ const Forms = ({ data }) => {
           <ReCAPTCHA
             sitekey={process.env.REACT_APP_SITE_KEY}
             onChange={(e) => setIsHuman(e)}
-          />{" "}
+          />
           <Buttons name="submit" />
         </Form>
       )}

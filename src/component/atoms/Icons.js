@@ -16,8 +16,8 @@ import {
   faImage,
   faInfoCircle,
   faListCheck,
+  faPaperPlane,
   faPhone,
-  faPlane,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -30,7 +30,7 @@ const svg = {
   "contact us": faPhone,
   check: faCheckCircle,
   uncheck: faCircle,
-  submit: faPlane,
+  submit: faPaperPlane,
   1: fa1,
   2: fa2,
   3: fa3,
