@@ -20,13 +20,15 @@ const Forms = ({ data }) => {
       {({ errors }) => (
         <Form className="form">
           {Object.keys(data.initialValues).map((value) => (
-            <div key={value}>
-              <label htmlFor={value}>
-                {value}{" "}
-                {errors[value] && (
-                  <span className="required">{errors[value]}</span>
-                )}
-              </label>
+            <>
+              <div key={value}>
+                <label htmlFor={value}>
+                  {value}{" "}
+                  {errors[value] && (
+                    <span className="required">{errors[value]}</span>
+                  )}
+                </label>
+              </div>
               {textarea.includes(value) ? (
                 <Field
                   type={typeof value}
@@ -37,7 +39,7 @@ const Forms = ({ data }) => {
               ) : (
                 <Field type={typeof value} name={value} />
               )}
-            </div>
+            </>
           ))}
           {isRequired && (
             <span className="required">*Recaptcha is required</span>

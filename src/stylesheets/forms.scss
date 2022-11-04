@@ -9,6 +9,7 @@
   border-radius: 4px;
   input,
   textarea {
+    background-color: $primary-bg-color;
     border: none;
     border-bottom: 1px solid $secondary-bg-color-hover;
     padding: 0.5rem 1rem;
