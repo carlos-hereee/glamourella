@@ -1,12 +1,14 @@
 .btn {
+  background-color: $secondary-bg-color-hover;
+  color: $primary-text-color;
   border: none;
   padding: 0.5rem 1rem;
   max-width: 300px;
   border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  background-color: $secondary-bg-color-hover;
-  color: $primary-text-color;
-  text-decoration: none;
   &:hover {
     background-color: $secondary-bg-color;
     color: $primary-text-color;
@@ -49,6 +51,9 @@
   background-color: $primary-text-color;
   padding: 1rem;
   border-radius: 4px;
+}
+.card-footer {
+  margin: auto;
 }
 .card-container {
   display: flex;
