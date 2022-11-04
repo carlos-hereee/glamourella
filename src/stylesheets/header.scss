@@ -1,17 +1,27 @@
 .header {
-  border-bottom: 1px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid $secondary-bg-color-hover;
+}
+.header-title {
+  border-radius: 4px;
+  padding: 1rem;
 }
 .navbar {
-  margin: 1rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  margin: 1rem;
 }
 .nav-link {
+  display: flex;
   padding: 1rem;
+  flex: 1;
 }
 .footer {
-  border-top: 1px solid #333;
+  border-top: 1px solid $secondary-bg-color-hover;
   display: flex;
   align-items: center;
   justify-content: space-around;

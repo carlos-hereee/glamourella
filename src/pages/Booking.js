@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, useEffect, useState } from "react";
 import { Calendar } from "react-calendar";
 import { CalendarContext } from "../utils/CalendarContext";

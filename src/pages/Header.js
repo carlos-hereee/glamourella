@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import Buttons from "../component/atoms/Buttons";
+import Logo from "../component/atoms/Logo";
 
 const Header = () => {
   return (
     <header className="header">
-      <h1>GLAMOURELLA</h1>
+      <Logo />
       <nav className="navbar">
         <Link className="nav-link" to="/">
           <Buttons name="home" />
