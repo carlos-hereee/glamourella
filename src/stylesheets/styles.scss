@@ -3,11 +3,11 @@
   color: $primary-text-color;
   border: none;
   padding: 0.5rem 1rem;
-  max-width: 300px;
   border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: 1;
   cursor: pointer;
   &:hover {
     background-color: $secondary-bg-color;

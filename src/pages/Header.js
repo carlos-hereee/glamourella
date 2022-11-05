@@ -8,22 +8,22 @@ const Header = () => {
       <Logo />
       <nav className="navbar">
         <Link className="nav-link" to="/">
-          <Buttons name="home" />
+          <Buttons name="Home" />
         </Link>
         <Link className="nav-link" to="/about-us">
-          <Buttons name="about us" />
+          <Buttons name="About Us" />
         </Link>
         <Link className="nav-link" to="/services">
-          <Buttons name="services" />
+          <Buttons name="Services" />
         </Link>
         <Link className="nav-link" to="/booking">
-          <Buttons name="booking" />
+          <Buttons name="Booking" />
         </Link>
         <Link className="nav-link" to="/gallery">
-          <Buttons name="gallery" />
+          <Buttons name="Gallery" />
         </Link>
         <Link className="nav-link" to="/contact-us">
-          <Buttons name="contact us" />
+          <Buttons name="Contact Us" />
         </Link>
       </nav>
     </header>
