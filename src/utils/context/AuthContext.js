@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useReducer } from "react";
+import { axiosWithOutAuth } from "../axios";
 import authReducer from "./authReducer";
-import { axiosWithOutAuth } from "../../axiosWithAuth";
 
 export const AuthContext = createContext();
 
@@ -10,19 +10,16 @@ export const AuthState = (props) => {
     signInError: "",
     signUpError: "",
     accessToken: "",
-    appName: "Rok Handbook",
+    appName: "Glamourella",
   };
   const [state, dispatch] = useReducer(authReducer, initialState);
   useEffect(() => {
-    const getAccessToken = async () => {
-      try {
-        const { data } = await axiosWithOutAuth.post("/users/refresh-token");
-        dispatch({ type: "SIGNIN_SUCCESS", payload: data });
-      } catch (e) {
-        dispatch({ type: "SIGNIN_ERROR", payload: e.response.data.message });
-      }
-    };
-    getAccessToken();
+    axiosWithOutAuth
+      .post("/users/refresh-token")
+      .then((res) => dispatch({ type: "SIGNIN_SUCCESS", payload: res.data }))
+      .catch((e) =>
+        dispatch({ type: "SIGNIN_ERROR", payload: e.response.data.message })
+      );
   }, []);
 
   const register = async (values) => {
