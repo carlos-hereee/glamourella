@@ -65,24 +65,24 @@ export const CalendarState = ({ children }) => {
       return formatDate(e.start.dateTime) === date && !e.attendees;
     });
   };
-  const bookNow = async (values, appointment) => {
+  const bookNow = async (values, event) => {
+    console.log("appoi", event);
     dispatch({ type: "IS_LOADING", payload: true });
     try {
       const content = {
-        ...appointment,
-        summary: `Appointment set for ${values.name}, at ${
-          (formatTime(appointment.start.dateTime),
-          " - ",
-          formatTime(appointment.end.dateTime))
-        }.`,
+        ...event,
+        summary: `${values.name}, at ${formatTime(
+          event.start.dateTime
+        )} ${formatTime(event.end.dateTime)}`,
         attendees: [{ displayName: values.name, email: values.email }],
       };
-      const { data } = await axiosWithAuth.post("calendar/book", { content });
+      const { data } = await axiosWithAuth.post("calendar/book", content);
       console.log("data", data);
       dispatch({ type: "BOOKED", payload: data });
     } catch (e) {
-      const { data } = e.response;
-      dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data.message });
+      console.log("e", e);
+      // const { data } = e.response;
+      dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: "data.message " });
     }
   };
   return (

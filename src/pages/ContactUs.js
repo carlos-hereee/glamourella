@@ -8,17 +8,13 @@ const schema = yup.object().shape({
   email: yup.string().email().required("*Required field"),
   message: yup.string().required("*Required field"),
 });
+const values = { name: "", email: "", message: "" };
+
 const ContactUs = () => {
   const { contactUs } = useContext(CalendarContext);
   return (
     <main className="container">
-      <Forms
-        data={{
-          initialValues: { name: "", email: "", message: "" },
-          schema,
-          handleSubmit: contactUs,
-        }}
-      />
+      <Forms data={{ values, schema, onSubmit: contactUs }} />
     </main>
   );
 };

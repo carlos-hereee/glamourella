@@ -14,6 +14,8 @@ const CalendarEvents = () => {
     useContext(CalendarContext);
   const [appointment, setAppointment] = useState();
   const [confirmation, setConfirmation] = useState(false);
+
+  const onSubmit = (values) => bookNow(values, appointment);
   return (
     <section className="card" id="calendar-events">
       <div className="card-header">
@@ -33,13 +35,7 @@ const CalendarEvents = () => {
           <span className={booked.success ? "message-success" : "required"}>
             {booked.message}
           </span>
-          <Forms
-            data={{
-              initialValues: { name: "", email: "" },
-              schema,
-              handleSubmit: bookNow,
-            }}
-          />
+          <Forms data={{ values: { name: "", email: "" }, schema, onSubmit }} />
         </>
       ) : (
         <>
@@ -66,6 +62,7 @@ const CalendarEvents = () => {
           </div>
           <div className="card-footer">
             <button
+              type="button"
               className="btn"
               disabled={!appointment?.id}
               onClick={() => setConfirmation(!confirmation)}>

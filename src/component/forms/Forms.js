@@ -10,16 +10,15 @@ const Forms = ({ data }) => {
   const textarea = ["message"];
 
   const formik = useFormik({
-    initialValues: data.initialValues,
+    initialValues: data.values,
     onSubmit: (values) => {
       if (isHuman) {
         setIsRequired(false);
-        data.handleSubmit(values);
+        data.onSubmit(values);
       } else setIsRequired(true);
     },
     validationSchema: data.schema,
   });
-
   const handleSubmit = (e) => {
     e.preventDefault();
     formik.handleSubmit();
@@ -30,7 +29,7 @@ const Forms = ({ data }) => {
   };
   return (
     <form className="form" onSubmit={handleSubmit}>
-      {Object.keys(data.initialValues).map((ref) => (
+      {Object.keys(data.values).map((ref) => (
         <div key={ref}>
           <div>
             <label htmlFor={ref}>
