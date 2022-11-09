@@ -8,6 +8,7 @@ const Forms = ({ data }) => {
   const [isRequired, setIsRequired] = useState(false);
   const apiKey = process.env.REACT_APP_SITE_KEY;
   const textarea = ["message"];
+  const passwords = ["password", "confirmPassword"];
 
   const formik = useFormik({
     initialValues: data.values,
@@ -49,7 +50,7 @@ const Forms = ({ data }) => {
             />
           ) : (
             <input
-              type="text"
+              type={passwords.includes(ref) ? "password" : "text"}
               name={ref}
               value={getIn(formik.values, ref)}
               onChange={handleChange}
