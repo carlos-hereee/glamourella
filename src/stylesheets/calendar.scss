@@ -2,25 +2,39 @@
   background-color: $secondary-bg-color;
   color: $primary-text-color;
   flex: 1;
+  @include devices(mobile) {
+    width: 100%;
+  }
 }
 .react-calendar__navigation {
   background-color: $secondary-bg-color-hover;
   border-radius: 4px;
 }
 .react-calendar__tile {
+  position: relative;
   cursor: pointer;
   padding: 2rem 0;
+  border: 1px solid $primary-bg-color-hover;
   background-color: $secondary-bg-color;
   color: $primary-text-color;
-  border: none;
+  // border: none;
   &:hover {
     background-color: $active-bg-color-hover;
-    border-radius: 4px;
   }
   &:disabled {
     background-color: $secondary-bg-color;
     color: $primary-text-color-disable;
     cursor: not-allowed;
+  }
+  .match {
+    background-color: $danger;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    border-radius: 100%;
+    width: fit-content;
+    padding: 5px;
+    // z-index: 1;
   }
 }
 .react-calendar__month-view__weekdays {

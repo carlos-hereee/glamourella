@@ -43,7 +43,7 @@ const svg = {
   0: fa0,
 };
 const Icons = ({ name, size }) => {
-  return <FontAwesomeIcon icon={svg[name.toLowerCase()]} size={size} />;
+  return <FontAwesomeIcon icon={svg[name]} size={size} />;
 };
 
 export default Icons;

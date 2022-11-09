@@ -19,14 +19,14 @@ const Booking = () => {
   }, [value]);
 
   const tileContent = (date) => {
-    const current = formatDate(date);
-    const today = formatDate(new Date());
-    const match = isDateEqual(current, events);
-    if (match.length && current <= today) {
+    const current = new Date(date).getDate();
+    const today = new Date().getDate();
+    const match = isDateEqual(formatDate(date), events);
+    if (match.length && current >= today) {
       return (
-        <p className="required">
-          <Icons name={match.length} /> Remaining!
-        </p>
+        <div className="match">
+          <Icons name={match.length} />
+        </div>
       );
     }
   };
