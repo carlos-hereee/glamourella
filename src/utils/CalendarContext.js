@@ -66,7 +66,6 @@ export const CalendarState = ({ children }) => {
     });
   };
   const bookNow = async (values, event) => {
-    console.log("appoi", event);
     dispatch({ type: "IS_LOADING", payload: true });
     try {
       const content = {
@@ -78,11 +77,10 @@ export const CalendarState = ({ children }) => {
       };
       const { data } = await axiosWithAuth.post("calendar/book", content);
       console.log("data", data);
-      dispatch({ type: "BOOKED", payload: data });
-    } catch (e) {
-      console.log("e", e);
-      // const { data } = e.response;
-      dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: "data.message " });
+      dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data });
+    } catch (error) {
+      const data = error.response.data;
+      dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data });
     }
   };
   return (

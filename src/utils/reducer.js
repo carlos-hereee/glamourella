@@ -7,7 +7,7 @@ const isLoading = (state, action) => {
 const addMessageToLog = (state, action) => {
   return {
     ...state,
-    log: action.payload,
+    log: [...state.log, action.payload],
   };
 };
 const updateEvents = (state, action) => {

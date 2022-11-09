@@ -10,11 +10,10 @@ const schema = yup.object().shape({
   email: yup.string().email().required("*Required field"),
 });
 const CalendarEvents = () => {
-  const { selectedDay, calendar, formatTime, bookNow, formatDate, booked } =
+  const { selectedDay, calendar, formatTime, bookNow, formatDate, log } =
     useContext(CalendarContext);
   const [appointment, setAppointment] = useState();
   const [confirmation, setConfirmation] = useState(false);
-
   const onSubmit = (values) => bookNow(values, appointment);
   return (
     <section className="card" id="calendar-events">
@@ -24,17 +23,20 @@ const CalendarEvents = () => {
       </div>
       {confirmation ? (
         <>
-          <span>
+          <p>
             Appointment set for{" "}
             <strong>
               {formatDate(appointment?.start.dateTime)} @{" "}
               {formatTime(appointment?.start.dateTime)} -{" "}
               {formatTime(appointment?.end.dateTime)}
             </strong>
-          </span>
-          <span className={booked.success ? "message-success" : "required"}>
-            {booked.message}
-          </span>
+          </p>
+          {log &&
+            log.map((l) => (
+              <p key={l} className={l.success ? "message-success" : "required"}>
+                {l.message}
+              </p>
+            ))}
           <Forms data={{ values: { name: "", email: "" }, schema, onSubmit }} />
         </>
       ) : (
