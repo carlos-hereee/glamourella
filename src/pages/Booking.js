@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, useEffect, useState } from "react";
 import { Calendar } from "react-calendar";
-import { CalendarContext } from "../utils/CalendarContext";
+import { CalendarContext } from "../utils/context/CalendarContext";
 import Icons from "../component/atoms/Icons";
 import CalendarEvents from "../component/calendar/CalendarEvents";
 

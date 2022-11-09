@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { CalendarContext } from "../../utils/CalendarContext";
+import { CalendarContext } from "../../utils/context/CalendarContext";
 import Empty from "../atoms/Empty";
 import Icons from "../atoms/Icons";
 import * as yup from "yup";

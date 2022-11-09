@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useReducer } from "react";
-import { axiosWithOutAuth, axiosWithAuth } from "./axios";
+import { axiosWithOutAuth, axiosWithAuth } from "../axios";
 import { reducer } from "./reducer";
 import moment from "moment";
 
