@@ -18,18 +18,26 @@ export const CalendarState = ({ children }) => {
 
   useEffect(() => {
     // refresh accesstoken
-    getAccessToken();
+    // getAccessToken();
+    getCalendar();
   }, []);
 
   const formatDate = (t) => moment(t).format("dddd MMM DD YYYY");
   const formatTime = (t) => moment(t).format("hh:mm a");
   const today = formatDate(new Date());
-  const getAccessToken = async () => {
+  const getCalendar = async () => {
     const { data } = await axiosWithAuth.get("/calendar/events");
-    updateCalendar(data.events);
-    updateEvents(data.events.items);
-    updateDay(isDateEqual(today, data.events.items));
+    console.log("data", data);
+    // updateCalendar(data.events);
+    updateEvents(data);
+    updateDay(isDateEqual(today, data));
   };
+  // const getAccessToken = async () => {
+  //   const { data } = await axiosWithAuth.get("/calendar/events");
+  //   updateCalendar(data.events);
+  //   updateEvents(data.events.items);
+  //   updateDay(isDateEqual(today, data.events.items));
+  // };
   const updateEvents = async (events) => {
     dispatch({ type: "IS_LOADING", payload: true });
     dispatch({ type: "UPDATE_EVENTS", payload: events });

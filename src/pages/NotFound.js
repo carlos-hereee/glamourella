@@ -3,11 +3,15 @@ import Buttons from "../component/atoms/Buttons";
 
 const NotFound = () => {
   return (
-    <main>
-      <h2>Page Not Found</h2>
-      <Link to="/">
-        <Buttons name="home" />
-      </Link>
+    <main className="container">
+      <section className="card">
+        <h2>Page Not Found</h2>
+        <div className="card-body">
+          <Link to="/" className="nav-link">
+            <Buttons name="Home" />
+          </Link>
+        </div>
+      </section>
     </main>
   );
 };
