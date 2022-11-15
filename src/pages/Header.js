@@ -6,6 +6,16 @@ import Logo from "../component/atoms/Logo";
 
 const Header = () => {
   const [active, setActive] = useState(false);
+  if (active) {
+    document.addEventListener(
+      "click",
+      (event) => {
+        if (event.target.closest(".navbar-mobile")) return;
+        setActive(false);
+      },
+      true
+    );
+  }
   return (
     <header className="header">
       <Logo />
