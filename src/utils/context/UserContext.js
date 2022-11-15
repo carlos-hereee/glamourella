@@ -20,8 +20,8 @@ export const UserState = ({ children }) => {
       const { data } = await axiosWithAuth.get("/users");
       dispatch({ type: "UPDATE_USER_DATA", payload: data });
     } catch (e) {
-      const { message } = e.response.data;
-      dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: message });
+      const data = e.response.data;
+      dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data.message });
     }
   };
   return (

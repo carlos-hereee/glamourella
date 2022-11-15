@@ -13,15 +13,23 @@ export const AuthState = (props) => {
     appName: "Glamourella",
   };
   const [state, dispatch] = useReducer(authReducer, initialState);
+  const cookieName = process.env.REACT_APP_COOKIE_NAME;
   useEffect(() => {
-    axiosWithOutAuth
-      .post("/users/refresh-token")
-      .then((res) => dispatch({ type: "SIGNIN_SUCCESS", payload: res.data }))
-      .catch((e) =>
-        dispatch({ type: "SIGNIN_ERROR", payload: e.response.data.message })
-      );
+    if (document.cookie.indexOf(cookieName) !== -1) {
+      getAccessToken();
+    }
   }, []);
 
+  const getAccessToken = async () => {
+    try {
+      const { data } = await axiosWithOutAuth.post("/users/refresh-token");
+      console.log("data", data);
+      dispatch({ type: "SIGNIN_SUCCESS", payload: data });
+    } catch (err) {
+      console.log("err", err);
+      dispatch({ type: "SIGNIN_ERROR", payload: err.response.data.message });
+    }
+  };
   const register = async (values) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
