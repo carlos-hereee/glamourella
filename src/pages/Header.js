@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Buttons from "../component/atoms/Buttons";
 import Icons from "../component/atoms/Icons";
@@ -6,20 +6,34 @@ import Logo from "../component/atoms/Logo";
 
 const Header = () => {
   const [active, setActive] = useState(false);
-  if (active) {
-    document.addEventListener(
-      "click",
-      (event) => {
-        if (event.target.closest(".navbar-mobile")) return;
+  const navRef = useRef(null);
+
+  useEffect(() => {
+    const onClickOutside = (event) => {
+      if (navRef.current && navRef.current.contains(event.target)) {
+        // target burger menu icon
         setActive(false);
-      },
-      true
-    );
-  }
+      }
+    };
+    document.addEventListener("click", onClickOutside, true);
+    return () => {
+      document.removeEventListener("click", onClickOutside, true);
+    };
+  }, [active]);
+
+  // useEffect(() => {
+  //   const handleClickOutside = (event) => {
+  //     if (ref.current && !ref.current.contains(event.target)) {
+  //       onClickOutside && onClickOutside();
+  //     }
+  //   };
+  //   document.addEventListener("click", handleClickOutside, true);
+
+  // }, []);
   return (
-    <header className="header">
+    <header>
       <Logo />
-      <nav className={active ? "navbar-mobile" : "navbar"}>
+      <nav ref={navRef} className={active ? "navbar-mobile" : "navbar"}>
         <Link className="nav-link" to="/">
           <Buttons name="Home" />
         </Link>
@@ -42,7 +56,7 @@ const Header = () => {
           <Buttons name="Contact Us" />
         </Link>
       </nav>
-      <button className="navbar-burger btn" onClick={() => setActive(!active)}>
+      <button className="navbar-burger" onClick={() => setActive(!active)}>
         <Icons name="bars" size="2x" />
       </button>
     </header>

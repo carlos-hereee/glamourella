@@ -1,17 +1,18 @@
-.header {
+header {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
   border-bottom: 1px solid $secondary-bg-color-hover;
+  position: relative;
   @include devices(mobile) {
-    display: flex;
     flex-wrap: nowrap;
   }
 }
 .header-title {
   border-radius: 4px;
-  padding: 1rem;
 }
 .navbar {
   display: flex;
@@ -31,6 +32,7 @@
   top: 4rem;
   right: 0;
   padding: 1rem;
+  z-index: 1;
   animation: slide-left 0.5s ease-in;
 }
 .nav-link {
@@ -42,29 +44,13 @@
 .navbar-burger {
   display: none;
   @include devices(mobile) {
-    display: flex;
+    display: block;
   }
 }
-.footer {
+footer {
   border-top: 1px solid $secondary-bg-color-hover;
   display: flex;
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
 }
-@keyframes slide-left {
-  0% {
-    transform: translateX(300px);
-  }
-  100% {
-    transform: translateX(0px);
-  }
-}
-// @keyframes slide-left {
-//   0% {
-//     transform: translateX(200px);
-//   }
-//   100% {
-//     transform: translateX(0px);
-//   }
-// }

@@ -1,26 +1,3 @@
-.btn {
-  background-color: $secondary-bg-color-hover;
-  color: $primary-text-color;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  cursor: pointer;
-  &:hover {
-    background-color: $secondary-bg-color;
-    color: $primary-text-color;
-  }
-  &:focus {
-    background-color: $secondary-bg-color;
-    color: $primary-text-color;
-  }
-  &:disabled {
-    cursor: not-allowed;
-  }
-}
 .btn-primary {
   background-color: $active-bg-color-hover;
   color: $secondary-text-color;

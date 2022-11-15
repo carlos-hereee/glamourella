@@ -2,7 +2,7 @@ import Logo from "../component/atoms/Logo";
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer>
       <Logo />
       <div>
         <h4>Business Hours</h4>
