@@ -8,16 +8,17 @@
 }
 .react-calendar__navigation {
   background-color: $secondary-bg-color-hover;
+  display: flex;
   border-radius: 4px;
+  border: none;
+  height: 100px;
 }
 .react-calendar__tile {
   position: relative;
   cursor: pointer;
   padding: 2rem 0;
-  border: 1px solid $primary-bg-color-hover;
   background-color: $secondary-bg-color;
   color: $primary-text-color;
-  // border: none;
   &:hover {
     background-color: $active-bg-color-hover;
   }
@@ -40,16 +41,8 @@
 .react-calendar__month-view__weekdays {
   color: $secondary-text-color;
 }
-.react-calendar__navigation__label,
 .react-calendar__navigation__arrow {
-  background-color: $secondary-bg-color-hover;
-  color: $primary-text-color;
-  border: none;
   cursor: pointer;
-  font-size: larger;
-  padding: 2rem;
-}
-.react-calendar__navigation__arrow {
   &:hover {
     background-color: $active-bg-color-hover;
   }
@@ -58,6 +51,12 @@
     cursor: not-allowed;
   }
 }
-.react-calendar__navigation__label__labelText {
+.react-calendar__navigation__label {
   color: $primary-text-color;
+  &:hover {
+    background-color: $secondary-bg-color-hover;
+  }
+  &:disabled {
+    cursor: default;
+  }
 }
