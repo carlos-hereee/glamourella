@@ -11,9 +11,6 @@ header {
     flex-wrap: nowrap;
   }
 }
-.header-title {
-  border-radius: 4px;
-}
 .navbar {
   display: flex;
   flex-wrap: wrap;
@@ -44,6 +41,7 @@ header {
 .navbar-burger {
   display: none;
   @include devices(mobile) {
+    flex: none;
     display: block;
   }
 }

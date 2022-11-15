@@ -6,6 +6,7 @@ import Icons from "../atoms/Icons";
 const Forms = ({ data }) => {
   const [isHuman, setIsHuman] = useState(false);
   const [isRequired, setIsRequired] = useState(false);
+
   const apiKey = process.env.REACT_APP_SITE_KEY;
   const textarea = ["message"];
   const passwords = ["password", "confirmPassword"];
@@ -28,6 +29,8 @@ const Forms = ({ data }) => {
     formik.handleChange(e);
     formik.handleBlur(e);
   };
+  const onChange = (e) => setIsHuman(e);
+
   return (
     <form className="form" onSubmit={handleSubmit}>
       {Object.keys(data.values).map((ref) => (
@@ -61,7 +64,11 @@ const Forms = ({ data }) => {
       ))}
       <div className="form-submit">
         {isRequired && <span className="required">*Recaptcha is required</span>}
-        <ReCAPTCHA sitekey={apiKey} onChange={(e) => setIsHuman(e)} />
+        <ReCAPTCHA
+          sitekey={apiKey}
+          onChange={onChange}
+          size={window.screen.width < 481 ? "compact" : "normal"}
+        />
       </div>
       <button type="submit" className="btn">
         <Icons name="submit" /> SUBMIT

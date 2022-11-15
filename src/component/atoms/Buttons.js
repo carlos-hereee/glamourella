@@ -3,7 +3,7 @@ import Icons from "./Icons";
 
 const Buttons = ({ name, handleClick }) => {
   return (
-    <button type="button" className="btn" onClick={handleClick}>
+    <button type="button" onClick={handleClick}>
       <Icons name={name.toLowerCase()} /> {name}
     </button>
   );
