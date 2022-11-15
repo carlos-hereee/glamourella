@@ -4,11 +4,7 @@ import Auth from "../component/molecules/Auth";
 
 const Account = () => {
   const { user } = useContext(UserContext);
-  return (
-    <main className="container">
-      <section className="card">{user.id ? <> </> : <Auth />}</section>
-    </main>
-  );
+  return <section className="container">{user.id ? <> </> : <Auth />}</section>;
 };
 
 export default Account;

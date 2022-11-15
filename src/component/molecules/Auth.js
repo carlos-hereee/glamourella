@@ -14,7 +14,7 @@ const Auth = () => {
 
   const onSubmit = (e) => signIn(e);
   return (
-    <div>
+    <div className="card">
       <h2>Login</h2>
       <Forms data={{ values, schema, onSubmit }} />
       <Link to="/sign-up" className="form-link">

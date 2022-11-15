@@ -13,8 +13,11 @@ const values = { name: "", email: "", message: "" };
 const ContactUs = () => {
   const { contactUs } = useContext(CalendarContext);
   return (
-    <section className="contact-us">
-      <Forms data={{ values, schema, onSubmit: contactUs }} />
+    <section className="container">
+      <div className="card">
+        <h2>Contact Us</h2>
+        <Forms data={{ values, schema, onSubmit: contactUs }} />
+      </div>
     </section>
   );
 };

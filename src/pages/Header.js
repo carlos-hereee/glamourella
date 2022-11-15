@@ -7,7 +7,6 @@ import Logo from "../component/atoms/Logo";
 const Header = () => {
   const [active, setActive] = useState(false);
   const navRef = useRef(null);
-  const burgerRef = useRef(null);
 
   useEffect(() => {
     const onClickOutside = (event) => {
@@ -15,17 +14,13 @@ const Header = () => {
       if (navRef.current && !navRef.current.contains(event.target)) {
         setActive(false);
       }
-      // click burger menu icon
-      if (burgerRef.current && burgerRef.current.contains(event.target)) {
-        setActive(false);
-      }
     };
     document.addEventListener("click", onClickOutside, true);
     return () => {
       document.removeEventListener("click", onClickOutside, true);
     };
-  }, [active]);
-
+  }, []);
+  const onClick = () => setActive(!active);
   return (
     <header>
       <Logo />
@@ -52,7 +47,7 @@ const Header = () => {
           <Buttons name="Contact Us" />
         </Link>
       </nav>
-      <button className="navbar-burger" onClick={() => setActive(!active)}>
+      <button className="navbar-burger" onClick={onClick}>
         <Icons name="bars" size="2x" />
       </button>
     </header>
