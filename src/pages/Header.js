@@ -7,11 +7,16 @@ import Logo from "../component/atoms/Logo";
 const Header = () => {
   const [active, setActive] = useState(false);
   const navRef = useRef(null);
+  const burgerRef = useRef(null);
 
   useEffect(() => {
     const onClickOutside = (event) => {
-      if (navRef.current && navRef.current.contains(event.target)) {
-        // target burger menu icon
+      // click anywhere
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setActive(false);
+      }
+      // click burger menu icon
+      if (burgerRef.current && burgerRef.current.contains(event.target)) {
         setActive(false);
       }
     };
