@@ -13,9 +13,9 @@ const values = { name: "", email: "", message: "" };
 const ContactUs = () => {
   const { contactUs } = useContext(CalendarContext);
   return (
-    <main className="container">
+    <section className="container">
       <Forms data={{ values, schema, onSubmit: contactUs }} />
-    </main>
+    </section>
   );
 };
 
