@@ -1,0 +1,14 @@
+.gallery-photos {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.gallery-photo {
+  flex: 1;
+}
+.photo {
+  flex: 1;
+  border-radius: 4px;
+  // width: ;
+}
