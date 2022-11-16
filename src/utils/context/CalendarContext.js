@@ -27,7 +27,7 @@ export const CalendarState = ({ children }) => {
   const today = formatDate(new Date());
   const getCalendar = async () => {
     const { data } = await axiosWithAuth.get("/calendar/events");
-    console.log("data", data);
+    // console.log("data", data);
     // updateCalendar(data.events);
     updateEvents(data);
     updateDay(isDateEqual(today, data));

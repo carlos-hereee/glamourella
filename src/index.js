@@ -6,15 +6,18 @@ import App from "./App";
 import { CalendarState } from "./utils/context/CalendarContext";
 import { UserState } from "./utils/context/UserContext";
 import { AuthState } from "./utils/context/AuthContext";
+import { GalleryState } from "./utils/context/GalleryContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <AuthState>
       <UserState>
-        <CalendarState>
-          <App />
-        </CalendarState>
+        <GalleryState>
+          <CalendarState>
+            <App />
+          </CalendarState>
+        </GalleryState>
       </UserState>
     </AuthState>
   </BrowserRouter>
