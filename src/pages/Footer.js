@@ -1,12 +1,11 @@
 import Logo from "../component/atoms/Logo";
+import BusinessHours from "../component/molecules/BusinessHours";
 
 const Footer = () => {
   return (
     <footer>
       <Logo />
-      <div>
-        <h4>Business Hours</h4>
-      </div>
+      <BusinessHours />
       <div>
         <h4>Contact Us</h4>
       </div>
