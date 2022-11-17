@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, useEffect, useState } from "react";
 import { GalleryContext } from "../utils/context/GalleryContext";
 import Buttons from "../component/atoms/Buttons";
@@ -6,13 +7,16 @@ import GalleryPhotos from "../component/molecules/GalleryPhotos";
 const Gallery = () => {
   const { gallery, filterGallery, filteredGallery, isFiltered } =
     useContext(GalleryContext);
-  const [filter, setFilter] = useState();
+  const [filter, setFilter] = useState("");
   useEffect(() => {
     if (filter) {
       filterGallery(gallery, filter);
     }
   }, [filter]);
-  const handleClick = (e) => setFilter(e.currentTarget.textContent);
+  const handleClick = (e) => {
+    let content = e.currentTarget.textContent.split(" ").join("");
+    setFilter(content);
+  };
   return (
     <section className="container">
       <div className="card">
@@ -20,7 +24,7 @@ const Gallery = () => {
         <nav className="navbar">
           <Buttons name="all" handleClick={handleClick} />
           <Buttons name="wig" handleClick={handleClick} />
-          <Buttons name="nails" handleClick={handleClick} />
+          <Buttons name="nail" handleClick={handleClick} />
         </nav>
         <div className="gallery-photos">
           {isFiltered

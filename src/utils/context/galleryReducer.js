@@ -14,6 +14,7 @@ const loadAssets = (state, action) => {
   return {
     ...state,
     isLoading: false,
+    isFiltered: false,
     gallery: action.payload,
   };
 };

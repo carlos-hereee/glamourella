@@ -27,9 +27,10 @@ export const GalleryState = ({ children }) => {
   };
   const filterGallery = async (gallery, filter) => {
     dispatch({ type: "IS_LOADING", payload: true });
-    if (filter === "all") dispatch({ type: "LOAD_ASSETS", payload: gallery });
-    const data = gallery.filter((g) => g.type === filter);
-    // console.log("data", data);
+    if (filter === "all") {
+      return dispatch({ type: "LOAD_ASSETS", payload: gallery });
+    }
+    const data = gallery.filter((g) => g.path.includes(filter));
     dispatch({ type: "UPDATE_ASSETS", payload: data });
   };
   return (
