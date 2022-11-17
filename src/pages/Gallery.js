@@ -1,39 +1,33 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { GalleryContext } from "../utils/context/GalleryContext";
+import Buttons from "../component/atoms/Buttons";
+import GalleryPhotos from "../component/molecules/GalleryPhotos";
 
 const Gallery = () => {
-  const { gallery } = useContext(GalleryContext);
-  console.log("gallery", gallery);
+  const { gallery, filterGallery, filteredGallery, isFiltered } =
+    useContext(GalleryContext);
+  const [filter, setFilter] = useState();
+  useEffect(() => {
+    if (filter) {
+      filterGallery(gallery, filter);
+    }
+  }, [filter]);
+  const handleClick = (e) => setFilter(e.currentTarget.textContent);
   return (
     <section className="container">
       <div className="card">
         <h2>Gallery</h2>
+        <nav className="navbar">
+          <Buttons name="all" handleClick={handleClick} />
+          <Buttons name="wig" handleClick={handleClick} />
+          <Buttons name="nails" handleClick={handleClick} />
+        </nav>
         <div className="gallery-photos">
-          {gallery &&
-            gallery.map((g) => (
-              <div key={g.uid} className="gallery-photo">
-                <img
-                  src={g.src}
-                  alt={g.fileName}
-                  className="photo"
-                  crossOrigin="anonymous"
-                />
-                {g.artistName && g.artistName.split("unsplash") && (
-                  <p>
-                    Photo by:{" "}
-                    {g.artistName
-                      .split(" ")
-                      .map((name) => {
-                        if (name === "unsplash") {
-                          return " | Unsplash";
-                        }
-                        return name.charAt(0).toUpperCase() + name.substring(1);
-                      })
-                      .join(" ")}
-                  </p>
-                )}
-              </div>
-            ))}
+          {isFiltered
+            ? filteredGallery.map((fg) => (
+                <GalleryPhotos data={fg} key={fg.uid} />
+              ))
+            : gallery.map((g) => <GalleryPhotos data={g} key={g.uid} />)}
         </div>
       </div>
     </section>
