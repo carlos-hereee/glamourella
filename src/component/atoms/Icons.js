@@ -1,3 +1,4 @@
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import {
   fa0,
   fa1,
@@ -35,6 +36,7 @@ const svg = {
   submit: faPaperPlane,
   account: faUser,
   bars: faBars,
+  instagram: faInstagram,
   1: fa1,
   2: fa2,
   3: fa3,

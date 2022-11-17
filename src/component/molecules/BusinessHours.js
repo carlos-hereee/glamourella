@@ -1,24 +1,4 @@
-import shortid from "shortid";
-
-const BusinessHours = () => {
-  const heading = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
-  ];
-  const schedule = [
-    { open: "9:30am", close: "6:30pm", key: shortid.generate() },
-    { open: "9:30am", close: "6:30pm", key: shortid.generate() },
-    { open: "9:30am", close: "6:30pm", key: shortid.generate() },
-    { open: "9:30am", close: "6:30pm", key: shortid.generate() },
-    { open: "9:30am", close: "6:30pm", key: shortid.generate() },
-    { open: "9:30am", close: "6:30pm", key: shortid.generate() },
-    { open: "9:30am", close: "6:30pm", key: shortid.generate() },
-  ];
+const BusinessHours = ({ heading, body }) => {
   return (
     <table>
       <thead>
@@ -30,9 +10,9 @@ const BusinessHours = () => {
       </thead>
       <tbody>
         <tr>
-          {schedule.map((s) => (
-            <td key={s.key}>
-              {s.open} - {s.close}
+          {body.map((b) => (
+            <td key={b.key}>
+              {b.open} - {b.close}
             </td>
           ))}
         </tr>
