@@ -18,7 +18,20 @@ const Gallery = () => {
                   className="photo"
                   crossOrigin="anonymous"
                 />
-                <span>Credit to: {g.name}</span>
+                {g.artistName && g.artistName.split("unsplash") && (
+                  <p>
+                    Photo by:{" "}
+                    {g.artistName
+                      .split(" ")
+                      .map((name) => {
+                        if (name === "unsplash") {
+                          return " | Unsplash";
+                        }
+                        return name.charAt(0).toUpperCase() + name.substring(1);
+                      })
+                      .join(" ")}
+                  </p>
+                )}
               </div>
             ))}
         </div>
