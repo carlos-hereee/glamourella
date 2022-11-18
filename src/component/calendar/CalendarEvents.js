@@ -4,6 +4,8 @@ import Empty from "../atoms/Empty";
 import Icons from "../atoms/Icons";
 import * as yup from "yup";
 import Forms from "../forms/Forms";
+import { ServicesContext } from "../../utils/context/ServicesContext";
+import CartCard from "../molecules/CartCard";
 
 const schema = yup.object().shape({
   name: yup.string().required("*Required field"),
@@ -12,6 +14,7 @@ const schema = yup.object().shape({
 const CalendarEvents = () => {
   const { selectedDay, calendar, formatTime, bookNow, formatDate, log } =
     useContext(CalendarContext);
+  const { cart } = useContext(ServicesContext);
   const [appointment, setAppointment] = useState();
   const [confirmation, setConfirmation] = useState(false);
   const onSubmit = (values) => bookNow(values, appointment);
@@ -21,6 +24,12 @@ const CalendarEvents = () => {
         <h2>{calendar.summary}</h2>
         <p>{calendar.description}</p>
       </div>
+      {cart &&
+        cart.map((c) => (
+          <div key={c.uid}>
+            <CartCard data={c} />
+          </div>
+        ))}
       {confirmation ? (
         <>
           <p>

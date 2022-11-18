@@ -1,8 +1,8 @@
 import React, { createContext, useEffect, useReducer } from "react";
 import { axiosWithOutAuth } from "../axios";
 import { reducer } from "./servicesReducer";
-export const ServicesContext = createContext();
 
+export const ServicesContext = createContext();
 export const ServicesState = ({ children }) => {
   const initialState = { isLoading: false, services: [], cart: [] };
   const [state, dispatch] = useReducer(reducer, initialState);
