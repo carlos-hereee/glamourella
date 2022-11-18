@@ -65,7 +65,7 @@ const CalendarEvents = () => {
           <div className="card-footer">
             <button
               type="button"
-              className="btn"
+              className="btn-primary"
               disabled={!appointment?.id}
               onClick={() => setConfirmation(!confirmation)}>
               Book Now!
