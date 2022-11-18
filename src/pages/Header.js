@@ -1,12 +1,14 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Buttons from "../component/atoms/Buttons";
 import Icons from "../component/atoms/Icons";
 import Logo from "../component/atoms/Logo";
+import { ServicesContext } from "../utils/context/ServicesContext";
 
 const Header = () => {
   const [active, setActive] = useState(false);
   const navRef = useRef(null);
+  const { cart } = useContext(ServicesContext);
 
   useEffect(() => {
     const onClickOutside = (event) => {
@@ -35,7 +37,7 @@ const Header = () => {
           <Buttons name="Services" />
         </Link>
         <Link className="nav-link" to="/booking">
-          <Buttons name="Booking" />
+          <Buttons name="Booking" count={cart.length} />
         </Link>
         <Link className="nav-link" to="/gallery">
           <Buttons name="Gallery" />

@@ -4,11 +4,13 @@ import { Calendar } from "react-calendar";
 import { CalendarContext } from "../utils/context/CalendarContext";
 import Icons from "../component/atoms/Icons";
 import CalendarEvents from "../component/calendar/CalendarEvents";
+import { ServicesContext } from "../utils/context/ServicesContext";
 
 const Booking = () => {
   const [value, onChange] = useState(null);
   const { events, setDay, formatDate, isDateEqual } =
     useContext(CalendarContext);
+  const { cart } = useContext(ServicesContext);
 
   useEffect(() => {
     if (value) {
