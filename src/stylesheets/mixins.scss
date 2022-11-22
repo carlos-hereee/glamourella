@@ -24,3 +24,7 @@
     transform: translateX(0px);
   }
 }
+// retrieve css variable
+@function color($color-name) {
+  @return var(--data-color-#{$color-name});
+}

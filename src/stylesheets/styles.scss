@@ -92,8 +92,10 @@
   padding: 0.25rem 3rem;
 }
 .read-more {
-  max-height: calc(#{$max-lines} * 1em *#{$line-height});
-  line-height: #{$line-height};
+  --max-lines: 2;
+  --line-height: 1.4;
+  max-height: calc(var(--max-lines) * 1em * var(--line-height));
+  line-height: var(--line-height);
   position: relative;
   overflow: hidden;
   &:has(+ .read-more-toggle:not(:checked))::before {
