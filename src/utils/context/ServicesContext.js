@@ -4,7 +4,12 @@ import { reducer } from "./servicesReducer";
 
 export const ServicesContext = createContext();
 export const ServicesState = ({ children }) => {
-  const initialState = { isLoading: false, services: [], cart: [] };
+  const initialState = {
+    isLoading: false,
+    services: [],
+    cart: [],
+    filteredServices: [],
+  };
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
@@ -30,12 +35,22 @@ export const ServicesState = ({ children }) => {
       dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data.message });
     }
   };
+  const filterServices = async (services, filter) => {
+    dispatch({ type: "IS_LOADING", payload: true });
+    if (filter === "all") {
+      return dispatch({ type: "LOAD_ASSETS", payload: services });
+    }
+    const data = services.filter((g) => g.path.includes(filter));
+    dispatch({ type: "UPDATE_ASSETS", payload: data });
+  };
   return (
     <ServicesContext.Provider
       value={{
         services: state.services,
         isLoading: state.isLoading,
+        filteredServices: state.filteredServices,
         cart: state.cart,
+        filterServices,
         addToCart,
       }}>
       {children}

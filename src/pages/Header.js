@@ -2,10 +2,8 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import shortid from "shortid";
 import Buttons from "../component/atoms/Buttons";
-import Icons from "../component/atoms/Icons";
 import Logo from "../component/atoms/Logo";
 import Navlink from "../component/atoms/Navlink";
-import NotificationCount from "../component/atoms/NotificationCount";
 import { ServicesContext } from "../utils/context/ServicesContext";
 
 const Header = () => {
@@ -24,15 +22,7 @@ const Header = () => {
   ]);
 
   useEffect(() => {
-    const onClickOutside = (event) => {
-      // click anywhere
-      if (navRef.current.contains(event.target)) {
-        setActive(false);
-      }
-      if (navRef.current && !navRef.current.contains(event.target)) {
-        setActive(false);
-      }
-    };
+    const onClickOutside = () => setActive(false);
     document.addEventListener("click", onClickOutside, true);
     return () => {
       document.removeEventListener("click", onClickOutside, true);
