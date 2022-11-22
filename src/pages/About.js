@@ -11,16 +11,17 @@ let lorem = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias 
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore eos quas
       hic, facilis quaerat quos velit alias doloribus nisi tempora?`;
 
-const About = ({ socials }) => {
+const About = () => {
+  // const
   return (
     <main className="container">
       <div className="card">
         <h3>Why choose Glamourella?</h3>
         <ReadMore data={lorem} lines={5} />
         <h3>My story!</h3>
-        <ReadMore data={lorem} />
+        <ReadMore data={lorem} lines={4} />
         <h3>Who am I?</h3>
-        <ReadMore data={lorem} />
+        <ReadMore data={lorem} lines={3} />
         <FollowUs />
       </div>
     </main>

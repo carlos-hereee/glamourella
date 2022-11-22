@@ -1,33 +1,25 @@
 import React, { createContext, useReducer } from "react";
 import { useEffect } from "react";
-import shortid from "shortid";
 import { axiosWithOutAuth } from "../axios";
-import { reducer } from "./reducer";
+import { reducer } from "./glamaurellaReducer";
 export const GlamourellaContext = createContext();
 
 export const GlamourellaState = ({ children }) => {
   const initialState = {
     isLoading: false,
     glamourella: [],
-    socials: [
-      {
-        social: "instagram",
-        link: "https://www.instagram.com/glamourrella/",
-        key: shortid.generate(),
-      },
-    ],
+    socials: [],
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   useEffect(() => {
     getAssets();
   }, []);
   const getAssets = async () => {
-    // console.log('log', log)
     try {
-      const data = await axiosWithOutAuth.get("/glamourella");
-      console.log("data", data);
+      const { data } = await axiosWithOutAuth.get("/glamourella");
+      dispatch({ type: "LOAD_SOCIALS", payload: data });
     } catch (error) {
-      console.log("error", error);
+      dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: error.response.message });
     }
   };
   return (
