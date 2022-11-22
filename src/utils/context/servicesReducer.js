@@ -35,7 +35,7 @@ export const reducer = (state, action) => {
       return loadServices(state, action);
     case "ADD_TO_CART":
       return addToCart(state, action);
-    case "UPDATE_ASSETS":
+    case "UPDATE_SERVICES":
       return updateAssets(state, action);
     default:
       return state;

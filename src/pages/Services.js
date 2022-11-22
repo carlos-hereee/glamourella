@@ -20,7 +20,7 @@ const Services = () => {
             <Buttons name={s} key={s} handleClick={filterClick} />
           ))}
         </nav>
-        <div className="services">
+        <div className="service">
           {isFiltered
             ? filteredServices.map((fs) => (
                 <ServiceCard data={fs} key={fs.uid} handleClick={handleClick} />

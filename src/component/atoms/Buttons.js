@@ -4,7 +4,7 @@ import NotificationCount from "./NotificationCount";
 
 const Buttons = ({ name, handleClick, notification, size }) => {
   return (
-    <button type="button" onClick={handleClick} className={name}>
+    <button type="button" onClick={handleClick} className={`${name} btn-icons`}>
       <Icons name={name.toLowerCase()} size={size} />
       {name !== "burger" && (
         <span>{name[0].toUpperCase() + name.substring(1)}</span>

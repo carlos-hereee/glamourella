@@ -38,10 +38,10 @@ export const ServicesState = ({ children }) => {
   const filterServices = async (services, filter) => {
     dispatch({ type: "IS_LOADING", payload: true });
     if (filter === "all") {
-      return dispatch({ type: "LOAD_ASSETS", payload: services });
+      return dispatch({ type: "LOAD_SERVICES", payload: services });
     }
     const data = services.filter((s) => s.type === filter);
-    dispatch({ type: "UPDATE_ASSETS", payload: data });
+    dispatch({ type: "UPDATE_SERVICES", payload: data });
   };
   return (
     <ServicesContext.Provider

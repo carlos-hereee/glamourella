@@ -35,6 +35,11 @@
     color: $secondary-text-color;
   }
 }
+.btn-icons {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
 .container {
   display: flex;
   justify-content: space-around;
