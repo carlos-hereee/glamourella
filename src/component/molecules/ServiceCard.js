@@ -1,9 +1,8 @@
 const ServiceCard = ({ data, handleClick }) => {
   return (
     <div className="card">
-      <h4>
-        {data.name} {data.type}
-      </h4>
+      <h3>{data.name}</h3>
+      <div className="ribbon">{data.type}</div>
       <p>{data.description}</p>
       <button
         type="button"
