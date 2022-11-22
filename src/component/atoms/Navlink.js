@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const Navlink = ({ data }) => {
   let n = data.name.split("-").join(" ");
   return (
-    <Link className="nav-link" to={n === "home" ? "" : n}>
+    <Link className="nav-link" to={n === "home" ? "" : data.name}>
       <Buttons name={n} notification={data.notification} />
     </Link>
   );

@@ -49,21 +49,6 @@ const Header = () => {
         {menu.map((m) => (
           <Navlink data={m} key={m.uid} />
         ))}
-        {/* <Link className="nav-link" to="/about-us">
-          <Buttons name="About Us" />
-        </Link>
-        <Link className="nav-link" to="/services">
-          <Buttons name="Services" />
-        </Link>
-        <Link className="nav-link" to="/booking">
-          <Buttons name="Booking" count={cart.length} />
-        </Link>
-        <Link className="nav-link" to="/gallery">
-          <Buttons name="Gallery" />
-        </Link>
-        <Link className="nav-link" to="/account">
-          <Buttons name="Account" />
-        </Link> */}
       </nav>
       <button className="navbar-burger" onClick={onClick}>
         <Icons name="bars" size="2x" />
