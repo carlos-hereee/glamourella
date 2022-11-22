@@ -1,7 +1,10 @@
 import React from "react";
+import { useContext } from "react";
+import { GlamourellaContext } from "../../utils/context/GlamourellaContext";
 import Icons from "../atoms/Icons";
 
-const FollowUs = ({ socials }) => {
+const FollowUs = () => {
+  const { socials } = useContext(GlamourellaContext);
   return (
     <div>
       <h4>Dont Miss a thing! Follow Us!</h4>

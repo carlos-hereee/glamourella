@@ -8,19 +8,22 @@ import { UserState } from "./utils/context/UserContext";
 import { AuthState } from "./utils/context/AuthContext";
 import { GalleryState } from "./utils/context/GalleryContext";
 import { ServicesState } from "./utils/context/ServicesContext";
+import { GlamourellaState } from "./utils/context/GlamourellaContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <AuthState>
       <UserState>
-        <ServicesState>
-          <GalleryState>
-            <CalendarState>
-              <App />
-            </CalendarState>
-          </GalleryState>
-        </ServicesState>
+        <GlamourellaState>
+          <ServicesState>
+            <GalleryState>
+              <CalendarState>
+                <App />
+              </CalendarState>
+            </GalleryState>
+          </ServicesState>
+        </GlamourellaState>
       </UserState>
     </AuthState>
   </BrowserRouter>
