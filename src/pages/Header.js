@@ -22,8 +22,11 @@ const Header = () => {
   useEffect(() => {
     const onClickOutside = (event) => {
       // click anywhere
+      if (navRef.current.contains(event.target)) {
+        setActive(!active);
+      }
       if (navRef.current && !navRef.current.contains(event.target)) {
-        setActive(false);
+        setActive(!active);
       }
     };
     document.addEventListener("click", onClickOutside, true);
