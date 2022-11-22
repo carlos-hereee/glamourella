@@ -20,6 +20,7 @@
   padding: 2rem 0;
   background-color: $secondary-bg-color;
   color: $primary-text-color;
+  box-shadow: none;
   &:hover {
     background-color: $active-bg-color-hover;
   }
@@ -43,6 +44,7 @@
   color: $secondary-text-color;
 }
 .react-calendar__navigation__arrow {
+  box-shadow: none;
   cursor: pointer;
   &:hover {
     background-color: $active-bg-color-hover;
@@ -54,6 +56,7 @@
 }
 .react-calendar__navigation__label {
   color: $primary-text-color;
+  box-shadow: none;
   &:hover {
     background-color: $secondary-bg-color-hover;
   }
