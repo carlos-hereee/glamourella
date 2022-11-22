@@ -1,10 +1,13 @@
-const CartCard = ({ data, handleClick }) => {
+import ReadMore from "./ReadMore";
+
+const CartCard = ({ data }) => {
+  // console.log("data", data);
   return (
     <div className="card">
       <h4>
         {data.name} {data.type}
       </h4>
-      <p className="read-more">{data.description}</p>
+      <ReadMore data={data.description} />
     </div>
   );
 };
