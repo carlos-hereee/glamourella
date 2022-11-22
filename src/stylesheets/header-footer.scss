@@ -59,11 +59,12 @@ header {
   }
 }
 footer {
-  border-top: 1px solid $secondary-bg-color-hover;
   display: flex;
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
+  border-top: 1px solid $secondary-bg-color-hover;
+  padding: 1rem;
 }
 .social-link {
   text-decoration: none;

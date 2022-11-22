@@ -12,28 +12,49 @@ const Footer = () => {
       key: shortid.generate(),
     },
   ];
-  const heading = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
-  ];
   const schedule = [
-    { open: "9:30am", close: "6:30pm", key: shortid.generate() },
-    { open: "9:30am", close: "6:30pm", key: shortid.generate() },
-    { open: "9:30am", close: "6:30pm", key: shortid.generate() },
-    { open: "9:30am", close: "6:30pm", key: shortid.generate() },
-    { open: "9:30am", close: "6:30pm", key: shortid.generate() },
-    { open: "9:30am", close: "6:30pm", key: shortid.generate() },
-    { open: "9:30am", close: "6:30pm", key: shortid.generate() },
+    { day: "Monday", open: "9:30am", close: "6:30pm", key: shortid.generate() },
+    {
+      day: "Tuesday",
+      open: "9:30am",
+      close: "6:30pm",
+      key: shortid.generate(),
+    },
+    {
+      day: "Wednesday",
+      open: "9:30am",
+      close: "6:30pm",
+      key: shortid.generate(),
+    },
+    {
+      day: "Thursday",
+      open: "9:30am",
+      close: "6:30pm",
+      key: shortid.generate(),
+    },
+    {
+      day: "Friday",
+      open: "9:30am",
+      close: "6:30pm",
+      key: shortid.generate(),
+    },
+    {
+      day: "Saturday",
+      open: "9:30am",
+      close: "6:30pm",
+      key: shortid.generate(),
+    },
+    {
+      day: "Sunday",
+      open: "9:30am",
+      close: "6:30pm",
+      key: shortid.generate(),
+    },
   ];
   return (
     <footer>
       <Logo />
-      <BusinessHours heading={heading} body={schedule} />
+      <BusinessHours data={schedule} />
       <ContactUs />
       <FollowUs socials={socials} />
     </footer>

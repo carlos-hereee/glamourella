@@ -1,21 +1,25 @@
-const BusinessHours = ({ heading, body }) => {
+const BusinessHours = ({ data }) => {
+  console.log("data", data);
   return (
-    <table>
+    <table className="responsive-table">
       <thead>
-        <tr>
-          {heading.map((h) => (
-            <th key={h}>{h}</th>
+        <tr className="table-header">
+          {data.map((h) => (
+            <th key={h.key} className="right-header">
+              {h.day}
+            </th>
           ))}
         </tr>
       </thead>
       <tbody>
-        <tr>
-          {body.map((b) => (
-            <td key={b.key}>
+        {data.map((b) => (
+          <tr className="responsive-table-item" key={b.key}>
+            <th className="left-header">{b.day}</th>
+            <td className="responsive-table-cell">
               {b.open} - {b.close}
             </td>
-          ))}
-        </tr>
+          </tr>
+        ))}
       </tbody>
     </table>
   );
