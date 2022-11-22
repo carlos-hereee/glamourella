@@ -64,15 +64,12 @@
   }
 }
 .read-more-toggle {
+  color: $active-text-color;
   appearance: none;
+  cursor: pointer;
+  text-align: right;
   padding: 0.5rem;
   border-radius: 0.25rem;
-  color: $active-text-color;
-  cursor: pointer;
-  margin-top: 1rem;
-  &:hover {
-    background-color: #ccc;
-  }
   &::before {
     content: "Read More";
   }
