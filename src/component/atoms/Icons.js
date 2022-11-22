@@ -40,6 +40,7 @@ const svg = {
   bars: faBars,
   instagram: faInstagram,
   wig: faUser,
+  braids: faUser,
   nail: faHandSpock,
   all: faGlobe,
   1: fa1,

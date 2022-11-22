@@ -9,6 +9,9 @@ const GalleryPhotos = ({ data }) => {
       {data.artistName && data.artistName.split("unsplash") && (
         <ArtistName name={data.artistName} />
       )}
+      <button type="button" className="btn-secondary">
+        Add to cart
+      </button>
     </div>
   );
 };

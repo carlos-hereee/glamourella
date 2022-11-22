@@ -14,6 +14,27 @@
     color: $secondary-text-color;
   }
 }
+.btn-secondary {
+  box-shadow: none;
+  position: absolute;
+  background-color: $active-bg-color;
+  color: $secondary-text-color;
+  right: 0;
+  padding: 1rem 2rem;
+  bottom: 2rem;
+  &:hover {
+    background-color: $active-bg-color;
+    color: $secondary-text-color;
+  }
+  &:disabled {
+    background-color: $active-bg-color-hover;
+    color: $secondary-text-color;
+  }
+  &:focus {
+    background-color: $active-bg-color-hover;
+    color: $secondary-text-color;
+  }
+}
 .container {
   display: flex;
   justify-content: space-around;

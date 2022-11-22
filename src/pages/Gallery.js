@@ -14,7 +14,7 @@ const Gallery = () => {
     }
   }, [filter]);
   const handleClick = (e) => {
-    let content = e.currentTarget.textContent.split(" ").join("");
+    let content = e.currentTarget.textContent.split(" ").join("").toLowerCase();
     setFilter(content);
   };
   return (
