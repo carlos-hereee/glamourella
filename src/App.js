@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router-dom";
 import About from "./pages/About";
 import Account from "./pages/Account";
 import Booking from "./pages/Booking";
-import ContactUs from "./pages/ContactUs";
 import Footer from "./pages/Footer";
 import Gallery from "./pages/Gallery";
 import Header from "./pages/Header";
@@ -25,7 +24,6 @@ function App() {
         <Route path="/account" element={<Account />} />
         <Route path="/sign-up" element={<Register />} />
         <Route path="/oauth2callback" element={<OauthCallback />} />
-        <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
       <Footer />

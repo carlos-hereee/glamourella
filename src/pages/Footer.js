@@ -2,7 +2,7 @@ import Logo from "../component/atoms/Logo";
 import BusinessHours from "../component/molecules/BusinessHours";
 import FollowUs from "../component/molecules/FollowUs";
 import shortid from "shortid";
-import ContactUs from "./ContactUs";
+import ContactUs from "../component/molecules/ContactUs";
 
 const Footer = () => {
   const socials = [
