@@ -37,7 +37,7 @@ const svg = {
   uncheck: faCircle,
   submit: faPaperPlane,
   account: faUser,
-  bars: faBars,
+  burger: faBars,
   instagram: faInstagram,
   wig: faUser,
   braids: faUser,

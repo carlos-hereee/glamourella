@@ -39,23 +39,26 @@ header {
   padding: 0.5rem;
   flex: 1;
   position: relative;
-  .notification-count {
-    top: 0;
-    right: 0.2rem;
-    position: absolute;
-    width: 1rem;
-    height: 1rem;
-    background-color: $danger;
-    color: $primary-text-color;
-    border-radius: 50%;
-    padding: 0.2rem;
-  }
 }
-.navbar-burger {
+.notification-count {
+  top: 0;
+  right: 0.2rem;
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  background-color: $danger;
+  color: $primary-text-color;
+  border-radius: 50%;
+  padding: 0.2rem;
+}
+.burger {
   display: none;
   @include devices(mobile) {
-    flex: none;
     display: block;
+    position: relative;
+    .notification-count {
+      top: -0.25rem;
+    }
   }
 }
 footer {

@@ -1,14 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, useEffect, useRef, useState } from "react";
 import shortid from "shortid";
+import Buttons from "../component/atoms/Buttons";
 import Icons from "../component/atoms/Icons";
 import Logo from "../component/atoms/Logo";
 import Navlink from "../component/atoms/Navlink";
+import NotificationCount from "../component/atoms/NotificationCount";
 import { ServicesContext } from "../utils/context/ServicesContext";
 
 const Header = () => {
   const [active, setActive] = useState(false);
+  const [notification, setNotification] = useState(0);
   const navRef = useRef(null);
+  const headerRef = useRef(null);
   const { cart } = useContext(ServicesContext);
   const [menu, setMenu] = useState([
     { name: "home", uid: shortid.generate() },
@@ -23,10 +27,10 @@ const Header = () => {
     const onClickOutside = (event) => {
       // click anywhere
       if (navRef.current.contains(event.target)) {
-        setActive(!active);
+        setActive(false);
       }
       if (navRef.current && !navRef.current.contains(event.target)) {
-        setActive(!active);
+        setActive(false);
       }
     };
     document.addEventListener("click", onClickOutside, true);
@@ -41,21 +45,25 @@ const Header = () => {
       const idx = menu.findIndex((m) => m.name === "booking");
       newArr[idx].notification = cart.length;
       setMenu(newArr);
+      setNotification(cart.length);
     }
   }, [cart]);
-  const onClick = () => setActive(!active);
+  const handleClick = () => setActive(!active);
 
   return (
-    <header>
+    <header ref={headerRef}>
       <Logo />
       <nav ref={navRef} className={active ? "navbar-mobile" : "navbar"}>
         {menu.map((m) => (
           <Navlink data={m} key={m.uid} />
         ))}
       </nav>
-      <button className="navbar-burger" onClick={onClick}>
-        <Icons name="bars" size="2x" />
-      </button>
+      <Buttons
+        name="burger"
+        handleClick={handleClick}
+        notification={notification > 0 && notification}
+        size="2x"
+      />
     </header>
   );
 };
