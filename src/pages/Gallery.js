@@ -13,7 +13,7 @@ const Gallery = () => {
     filterGallery(gallery, content);
   };
   return (
-    <section className="container">
+    <main className="container">
       <div className="card">
         <h2>Gallery</h2>
         <nav className="navbar">
@@ -30,7 +30,7 @@ const Gallery = () => {
             : gallery.map((g) => <GalleryPhotos data={g} key={g.uid} />)}
         </div>
       </div>
-    </section>
+    </main>
   );
 };
 

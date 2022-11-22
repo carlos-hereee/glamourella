@@ -13,4 +13,7 @@ span {
 .App {
   max-width: 1200px;
   margin: auto;
+  @include devices(mobile) {
+    padding-top: 5rem;
+  }
 }

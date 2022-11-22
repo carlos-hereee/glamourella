@@ -5,10 +5,15 @@ header {
   flex-wrap: wrap;
   gap: 1rem;
   padding: 1rem;
+  background-color: $secondary-bg-color;
   border-bottom: 1px solid $secondary-bg-color-hover;
   position: relative;
   @include devices(mobile) {
+    z-index: 1;
     flex-wrap: nowrap;
+    position: fixed;
+    top: 0;
+    width: 100%;
   }
 }
 .navbar {
@@ -28,7 +33,7 @@ header {
   position: absolute;
   width: 50%;
   top: 4rem;
-  right: 0;
+  right: 2rem;
   padding: 1rem;
   z-index: 1;
   animation: slide-left 0.5s ease-in;
@@ -53,11 +58,13 @@ header {
 }
 .burger {
   display: none;
+  flex: none;
   @include devices(mobile) {
     display: block;
     position: relative;
     .notification-count {
       top: -0.25rem;
+      right: -0.25rem;
     }
   }
 }

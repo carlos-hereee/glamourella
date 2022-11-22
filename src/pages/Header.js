@@ -10,7 +10,6 @@ const Header = () => {
   const [active, setActive] = useState(false);
   const [notification, setNotification] = useState(0);
   const navRef = useRef(null);
-  const headerRef = useRef(null);
   const { cart } = useContext(ServicesContext);
   const [menu, setMenu] = useState([
     { name: "home", uid: shortid.generate() },
@@ -41,7 +40,7 @@ const Header = () => {
   const handleClick = () => setActive(!active);
 
   return (
-    <header ref={headerRef}>
+    <header>
       <Logo />
       <nav ref={navRef} className={active ? "navbar-mobile" : "navbar"}>
         {menu.map((m) => (

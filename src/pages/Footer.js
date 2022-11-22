@@ -15,8 +15,10 @@ const Footer = () => {
   ];
   return (
     <footer>
-      <Logo />
-      <BusinessHours data={schedule} />
+      <div>
+        <Logo />
+        <BusinessHours data={schedule} />
+      </div>
       <ContactUs />
     </footer>
   );
