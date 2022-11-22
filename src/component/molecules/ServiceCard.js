@@ -4,11 +4,14 @@ const ServiceCard = ({ data, handleClick }) => {
       <h3>{data.name}</h3>
       <div className="ribbon">{data.type}</div>
       <p>{data.description}</p>
+      <p>
+        Cost: ${data.cost} for {data.length}
+      </p>
       <button
         type="button"
         onClick={() => handleClick(data)}
         className="btn-primary">
-        Cost: ${data.cost} for {data.length}
+        Add To Cart
       </button>
     </div>
   );

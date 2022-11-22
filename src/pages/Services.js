@@ -3,7 +3,7 @@ import ServiceCard from "../component/molecules/ServiceCard";
 import { ServicesContext } from "../utils/context/ServicesContext";
 
 const Services = () => {
-  const { services, addToCart, cart } = useContext(ServicesContext);
+  const { services, addToCart } = useContext(ServicesContext);
   const handleClick = (e) => addToCart(e);
   return (
     <main className="container">
