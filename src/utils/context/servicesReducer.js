@@ -8,7 +8,16 @@ const loadServices = (state, action) => {
   return {
     ...state,
     isLoading: false,
+    isFiltered: false,
     services: action.payload,
+  };
+};
+const updateAssets = (state, action) => {
+  return {
+    ...state,
+    isLoading: false,
+    isFiltered: true,
+    filteredServices: action.payload,
   };
 };
 const addToCart = (state, action) => {
@@ -26,6 +35,8 @@ export const reducer = (state, action) => {
       return loadServices(state, action);
     case "ADD_TO_CART":
       return addToCart(state, action);
+    case "UPDATE_ASSETS":
+      return updateAssets(state, action);
     default:
       return state;
   }

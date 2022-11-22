@@ -6,6 +6,7 @@ export const ServicesContext = createContext();
 export const ServicesState = ({ children }) => {
   const initialState = {
     isLoading: false,
+    isFiltered: false,
     services: [],
     cart: [],
     filteredServices: [],
@@ -27,7 +28,6 @@ export const ServicesState = ({ children }) => {
     }
   };
   const addToCart = (service) => {
-    console.log("service", service);
     try {
       dispatch({ type: "ADD_TO_CART", payload: service });
     } catch (err) {
@@ -40,7 +40,7 @@ export const ServicesState = ({ children }) => {
     if (filter === "all") {
       return dispatch({ type: "LOAD_ASSETS", payload: services });
     }
-    const data = services.filter((g) => g.path.includes(filter));
+    const data = services.filter((s) => s.type === filter);
     dispatch({ type: "UPDATE_ASSETS", payload: data });
   };
   return (
@@ -48,6 +48,7 @@ export const ServicesState = ({ children }) => {
       value={{
         services: state.services,
         isLoading: state.isLoading,
+        isFiltered: state.isFiltered,
         filteredServices: state.filteredServices,
         cart: state.cart,
         filterServices,

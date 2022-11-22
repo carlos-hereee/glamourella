@@ -15,6 +15,7 @@ import {
   faCheckCircle,
   faCircle,
   faGlobe,
+  faHands,
   faHandSpock,
   faHome,
   faImage,
@@ -22,6 +23,7 @@ import {
   faListCheck,
   faPaperPlane,
   faPhone,
+  faShoePrints,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -43,6 +45,8 @@ const svg = {
   braids: faUser,
   nail: faHandSpock,
   all: faGlobe,
+  manicure: faHands,
+  pedicure: faShoePrints,
   1: fa1,
   2: fa2,
   3: fa3,

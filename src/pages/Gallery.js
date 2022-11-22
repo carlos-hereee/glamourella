@@ -7,15 +7,10 @@ import GalleryPhotos from "../component/molecules/GalleryPhotos";
 const Gallery = () => {
   const { gallery, filterGallery, filteredGallery, isFiltered } =
     useContext(GalleryContext);
-  const [filter, setFilter] = useState("");
-  useEffect(() => {
-    if (filter) {
-      filterGallery(gallery, filter);
-    }
-  }, [filter]);
+
   const handleClick = (e) => {
     let content = e.currentTarget.textContent.split(" ").join("").toLowerCase();
-    setFilter(content);
+    filterGallery(gallery, content);
   };
   return (
     <section className="container">
