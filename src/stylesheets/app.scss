@@ -12,8 +12,33 @@ span {
 }
 .App {
   max-width: 1200px;
+  background-color: $primary-bg-color;
   margin: auto;
   @include devices(mobile) {
     padding-top: 5rem;
+  }
+}
+button {
+  background-color: #{$secondary-bg-color-hover};
+  color: #{$primary-text-color};
+  box-shadow: 0 1px 5px 1px #{$secondary-shadow-color};
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  cursor: pointer;
+  &:hover {
+    background-color: #{$secondary-bg-color};
+    color: #{$primary-text-color};
+  }
+  &:focus {
+    background-color: #{$secondary-bg-color};
+    color: #{$primary-text-color};
+  }
+  &:disabled {
+    cursor: not-allowed;
   }
 }

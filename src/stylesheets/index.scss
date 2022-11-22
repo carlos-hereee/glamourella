@@ -1,10 +1,11 @@
+@import "./reset.scss";
+/* rest of app styles */
 @import "./variables.scss";
 @import "./mixins.scss";
 @import "./styles.scss";
-@import "./reset.scss";
-@import "./table.scss";
 @import "./app.scss";
 @import "./header-footer.scss";
+@import "./table.scss";
 @import "./forms.scss";
 @import "./booking.scss";
 @import "./calendar.scss";

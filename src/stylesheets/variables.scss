@@ -4,7 +4,6 @@ https://kdesign.co/blog/girly-color-palettes/
 
 this project is going to use the Unicorn glow color palette
 */
-
 // background color
 $primary-bg-color: #fae7eb;
 $primary-bg-color-hover: #f2d7e8;
@@ -13,7 +12,6 @@ $secondary-bg-color-hover: #b58ebc;
 $active-bg-color: #feef7b;
 $active-bg-color-hover: #d3c454;
 $danger: red;
-
 // text color
 $active-text-color: #459be2;
 $primary-text-color: white;
@@ -21,7 +19,32 @@ $primary-text-color-hover: #333;
 $primary-text-color-disable: gray;
 $secondary-text-color: #333;
 $secondary-text-color-hover: white;
-
 // box shadow color
 $primary-shadow-color: purple;
 $secondary-shadow-color: #bb96c2;
+// // readmore lines
+$max-lines: 2;
+$line-height: 1.4;
+
+:export {
+  // background color
+  primaryBgColor: #{$primary-bg-color};
+  primaryBgColorHover: #{$primary-bg-color-hover};
+  secondaryBgColor: #{$secondary-bg-color};
+  secondaryBgColorHover: #{$secondary-bg-color-hover};
+  activeBgColor: #{$active-bg-color};
+  activeBgColorHover: #{$active-bg-color-hover};
+  danger: #{$danger};
+  // text color
+  primaryTextColor: #{$primary-text-color};
+  primaryTextColorHover: #{$primary-text-color-hover};
+  primaryTextColorDisable: #{$primary-text-color-disable};
+  secondaryTextColor: #{$secondary-text-color};
+  secondaryTextColorHover: #{$secondary-text-color-hover};
+  activeTextColor: #{$active-text-color};
+  // box shadow color
+  primaryShadowColor: #{$primary-shadow-color};
+  secondaryShadowColor: #{$secondary-shadow-color};
+  maxLines: #{$max-lines};
+  lineHeight: #{$line-height};
+}

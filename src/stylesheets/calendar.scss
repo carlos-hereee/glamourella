@@ -1,14 +1,14 @@
 .react-calendar {
-  background-color: $secondary-bg-color;
-  color: $primary-text-color;
+  background-color: #{$secondary-bg-color};
+  color: #{$primary-text-color};
   flex: 1;
-  box-shadow: 0 1px 5px 1px $secondary-shadow-color;
+  box-shadow: 0 1px 5px 1px #{$secondary-shadow-color};
   @include devices(mobile) {
     width: 100%;
   }
 }
 .react-calendar__navigation {
-  background-color: $secondary-bg-color-hover;
+  background-color: #{$secondary-bg-color-hover};
   display: flex;
   border-radius: 4px;
   border: none;
@@ -18,19 +18,19 @@
   position: relative;
   cursor: pointer;
   padding: 2rem 0;
-  background-color: $secondary-bg-color;
-  color: $primary-text-color;
+  background-color: #{$secondary-bg-color};
+  color: #{$primary-text-color};
   box-shadow: none;
   &:hover {
-    background-color: $active-bg-color-hover;
+    background-color: #{$active-bg-color-hover};
   }
   &:disabled {
-    background-color: $secondary-bg-color;
-    color: $primary-text-color-disable;
+    background-color: #{$secondary-bg-color};
+    color: #{$primary-text-color-disable};
     cursor: not-allowed;
   }
   .match {
-    background-color: $danger;
+    background-color: #{$danger};
     position: absolute;
     top: 1px;
     right: 1px;
@@ -41,24 +41,24 @@
   }
 }
 .react-calendar__month-view__weekdays {
-  color: $secondary-text-color;
+  color: #{$secondary-text-color};
 }
 .react-calendar__navigation__arrow {
   box-shadow: none;
   cursor: pointer;
   &:hover {
-    background-color: $active-bg-color-hover;
+    background-color: #{$active-bg-color-hover};
   }
   &:disabled {
-    color: $primary-text-color-disable;
+    color: #{$primary-text-color-disable};
     cursor: not-allowed;
   }
 }
 .react-calendar__navigation__label {
-  color: $primary-text-color;
+  color: #{$primary-text-color};
   box-shadow: none;
   &:hover {
-    background-color: $secondary-bg-color-hover;
+    background-color: #{$secondary-bg-color-hover};
   }
   &:disabled {
     cursor: default;

@@ -1,38 +1,38 @@
 .btn-primary {
-  background-color: $active-bg-color-hover;
-  color: $secondary-text-color;
+  background-color: #{$active-bg-color-hover};
+  color: #{$secondary-text-color};
   &:hover {
-    background-color: $active-bg-color;
-    color: $secondary-text-color;
+    background-color: #{$active-bg-color};
+    color: #{$secondary-text-color};
   }
   &:disabled {
-    background-color: $active-bg-color-hover;
-    color: $secondary-text-color;
+    background-color: #{$active-bg-color-hover};
+    color: #{$secondary-text-color};
   }
   &:focus {
-    background-color: $active-bg-color-hover;
-    color: $secondary-text-color;
+    background-color: #{$active-bg-color-hover};
+    color: #{$secondary-text-color};
   }
 }
 .btn-secondary {
   box-shadow: none;
   position: absolute;
-  background-color: $active-bg-color;
-  color: $secondary-text-color;
+  background-color: #{$active-bg-color};
+  color: #{$secondary-text-color};
   right: 0;
   padding: 1rem 2rem;
   bottom: 2rem;
   &:hover {
-    background-color: $active-bg-color;
-    color: $secondary-text-color;
+    background-color: #{$active-bg-color};
+    color: #{$secondary-text-color};
   }
   &:disabled {
-    background-color: $active-bg-color-hover;
-    color: $secondary-text-color;
+    background-color: #{$active-bg-color-hover};
+    color: #{$secondary-text-color};
   }
   &:focus {
-    background-color: $active-bg-color-hover;
-    color: $secondary-text-color;
+    background-color: #{$active-bg-color-hover};
+    color: #{$secondary-text-color};
   }
 }
 .btn-icons {
@@ -52,7 +52,7 @@
   flex-direction: column;
   gap: 1rem;
   box-shadow: 0 1px 5px 1px #ddd;
-  background-color: $primary-text-color;
+  background-color: #{$primary-text-color};
   padding: 1rem;
   border-radius: 4px;
 }
@@ -61,17 +61,17 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background-color: $primary-text-color;
+  background-color: #{$primary-text-color};
   max-width: 650px;
   min-width: 250px;
   padding: 1rem;
   border-radius: 4px;
-  box-shadow: 0 1px 5px 1px $secondary-shadow-color;
+  box-shadow: 0 1px 5px 1px #{$secondary-shadow-color};
   &:has(> .ribbon) {
     position: relative;
-    border-color: $primary-shadow-color;
-    box-shadow: 0 1px 5px 1px $primary-shadow-color;
-    color: $primary-shadow-color;
+    border-color: #{$primary-shadow-color};
+    box-shadow: 0 1px 5px 1px #{$primary-shadow-color};
+    color: #{$primary-shadow-color};
   }
 }
 .card-body {
@@ -92,16 +92,14 @@
   padding: 0.25rem 3rem;
 }
 .read-more {
-  --max-lines: 2;
-  --line-height: 1.4;
-  max-height: calc(var(--max-lines) * 1em * var(--line-height));
-  line-height: var(--line-height);
+  max-height: calc(#{$max-lines} * 1em *#{$line-height});
+  line-height: #{$line-height};
   position: relative;
   overflow: hidden;
   &:has(+ .read-more-toggle:not(:checked))::before {
     content: "";
     position: absolute;
-    height: calc(1em * var(--line-height));
+    height: calc(1em * #{$line-height});
     width: 100%;
     bottom: 0;
     pointer-events: none;
@@ -112,7 +110,7 @@
   }
 }
 .read-more-toggle {
-  color: $active-text-color;
+  color: #{$active-text-color};
   appearance: none;
   cursor: pointer;
   text-align: right;
@@ -128,8 +126,8 @@
 .message-success {
   border-radius: 4px;
   padding: 1rem;
-  color: $primary-text-color-hover;
-  background-color: $active-bg-color-hover;
+  color: #{$primary-text-color-hover};
+  background-color: #{$active-bg-color-hover};
 }
 .photo {
   flex: 1;
