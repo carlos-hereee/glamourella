@@ -1,27 +1,26 @@
 const BusinessHours = ({ data }) => {
-  console.log("data", data);
   return (
-    <table className="responsive-table">
-      <thead>
-        <tr className="table-header">
-          {data.map((h) => (
-            <th key={h.key} className="right-header">
-              {h.day}
-            </th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((b) => (
-          <tr className="responsive-table-item" key={b.key}>
-            <th className="left-header">{b.day}</th>
-            <td className="responsive-table-cell">
-              {b.open} - {b.close}
-            </td>
+    <section className="card">
+      <h3>Business Hours</h3>
+      <table className="responsive-table">
+        <thead>
+          <tr className="table-header">
+            <th className="right-header">Days</th>
+            <th className="right-header">Hours</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {data.map((b) => (
+            <tr className="responsive-table-item" key={b.key}>
+              <th className="left-header">{b.day}</th>
+              <td className="responsive-table-cell">
+                <strong>{b.hours}</strong>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
   );
 };
 
