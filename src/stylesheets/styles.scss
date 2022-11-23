@@ -85,6 +85,7 @@
   min-width: 200px;
   padding: 1rem;
   border-radius: 4px;
+  gap: 1rem;
   box-shadow: 0 1px 5px 1px #{$secondary-shadow-color};
   &:has(> .ribbon) {
     position: relative;
@@ -93,23 +94,28 @@
     color: #{$primary-shadow-color};
   }
   &:has(> .card-body) {
-    flex-direction: column;
+    .card-body {
+      height: 100%;
+    }
   }
+}
+.card-header {
+  display: flex;
+  // height: 100%;
+  // flex-direction: column;
+  // align-items: center;
+  // min-height: 200px;
+  // max-height: 320px;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
   &:has(> .btn-primary) {
     justify-content: space-between;
     .btn-primary {
       flex: none;
     }
   }
-}
-.card-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.card-body {
-  margin: auto;
-  padding: 1rem;
 }
 .card-footer {
   margin: auto;

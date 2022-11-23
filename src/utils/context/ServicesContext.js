@@ -7,7 +7,6 @@ export const ServicesState = ({ children }) => {
   const initialState = {
     isLoading: false,
     isFiltered: false,
-    // services: [],
     cart: [
       {
         uid: "2105dded-9d48-48b7-a995-5dd493d6a036",
@@ -58,7 +57,6 @@ export const ServicesState = ({ children }) => {
   return (
     <ServicesContext.Provider
       value={{
-        // services: state.services,
         isLoading: state.isLoading,
         isFiltered: state.isFiltered,
         filteredServices: state.filteredServices,
