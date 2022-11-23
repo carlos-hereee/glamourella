@@ -7,7 +7,6 @@ const Checkout = () => {
   const { cart } = useContext(ServicesContext);
   const { checkout } = useContext(GalleryContext);
   const [total, setTotal] = useState(0);
-  // console.log("cart, checkout", cart, checkout);
   useEffect(() => {
     if (cart || checkout) {
       let count = 0;
@@ -22,7 +21,8 @@ const Checkout = () => {
         <h2>Check Out</h2>
         {total < 0 && <p>Link to Services and Gallery</p>}
         {checkout && checkout.map((c) => <CheckoutCard key={c.uid} data={c} />)}
-        <h4>Total {total}</h4>
+        <h4>Total ${total}</h4>
+        <button>Pay now</button>
       </div>
     </main>
   );

@@ -4,10 +4,10 @@ const ReadMore = ({ data, lines }) => {
     element && element?.style.setProperty("--max-lines", lines);
   }
   return (
-    <>
+    <div>
       <p className="read-more">{data}</p>
       <input type="checkbox" className="read-more-toggle" />
-    </>
+    </div>
   );
 };
 
