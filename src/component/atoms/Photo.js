@@ -1,12 +1,12 @@
-const ArtistPhoto = ({ data }) => {
+const Photo = ({ data }) => {
   return (
     <img
       src={data.src}
       alt={data.fileName}
-      className="photo"
+      className="photo-accessory"
       crossOrigin="anonymous"
     />
   );
 };
 
-export default ArtistPhoto;
+export default Photo;

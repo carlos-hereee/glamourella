@@ -24,6 +24,7 @@ import {
   faPaperPlane,
   faPhone,
   faShoePrints,
+  faShoppingCart,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -35,6 +36,7 @@ const svg = {
   booking: faCalendarAlt,
   gallery: faImage,
   "contact us": faPhone,
+  "check out": faShoppingCart,
   check: faCheckCircle,
   uncheck: faCircle,
   submit: faPaperPlane,
