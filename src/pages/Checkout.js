@@ -20,6 +20,7 @@ const Checkout = () => {
       <div className="card-container">
         <h2>Check Out</h2>
         {total < 0 && <p>Link to Services and Gallery</p>}
+        {cart && cart.map((c) => <CheckoutCard key={c.uid} data={c} />)}
         {checkout && checkout.map((c) => <CheckoutCard key={c.uid} data={c} />)}
         <h4>Total ${total}</h4>
         {/* <button >Pay now</button> */}
