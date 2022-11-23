@@ -13,6 +13,7 @@ export const ServicesState = ({ children }) => {
         type: "pedicure",
         name: "classic ",
         length: "30 minutes",
+        src: "http://localhost:4937/gallery/photo/?path=assets/pedicure/billie-unsplash.jpg",
         cost: 25,
         description:
           "Your feet will be pampered, nails are professionally shaped and filed, cuticle trimmer, callus removed, followed by a hot oil massage and finish with a nail buff or polish.",

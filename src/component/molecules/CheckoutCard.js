@@ -3,7 +3,7 @@ import ReadMore from "./ReadMore";
 
 const CheckoutCard = ({ data }) => {
   return (
-    <div className="card">
+    <div className="card checkout-card ">
       <div className="card-header">
         <h2>{data.type}</h2>
         <Photo data={data} />

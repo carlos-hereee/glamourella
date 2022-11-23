@@ -99,6 +99,19 @@
     }
   }
 }
+.checkout-card {
+  display: flex;
+
+  max-height: 200px;
+  // &:has(> .header) {
+
+  // }
+  .photo-accessory {
+    // max-height: 100%;
+    width: min-content;
+    height: 100px;
+  }
+}
 .card-header {
   display: flex;
   // height: 100%;
