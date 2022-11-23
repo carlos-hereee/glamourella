@@ -8,7 +8,18 @@ export const ServicesState = ({ children }) => {
     isLoading: false,
     isFiltered: false,
     services: [],
-    cart: [],
+    cart: [
+      {
+        uid: "2105dded-9d48-48b7-a995-5dd493d6a036",
+        type: "pedicure",
+        name: "classic ",
+        length: "30 minutes",
+        cost: 25,
+        description:
+          "Your feet will be pampered, nails are professionally shaped and filed, cuticle trimmer, callus removed, followed by a hot oil massage and finish with a nail buff or polish.",
+        isService: true,
+      },
+    ],
     filteredServices: [],
   };
   const [state, dispatch] = useReducer(reducer, initialState);

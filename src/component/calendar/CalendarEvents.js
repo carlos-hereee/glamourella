@@ -5,7 +5,7 @@ import Icons from "../atoms/Icons";
 import * as yup from "yup";
 import Forms from "../forms/Forms";
 import { ServicesContext } from "../../utils/context/ServicesContext";
-import CartCard from "../molecules/CartCard";
+import CheckoutCard from "../molecules/CheckoutCard";
 
 const schema = yup.object().shape({
   name: yup.string().required("*Required field"),
@@ -19,17 +19,14 @@ const CalendarEvents = () => {
   const [confirmation, setConfirmation] = useState(false);
   const onSubmit = (values) => bookNow(values, appointment);
   return (
-    <section className="card" id="calendar-events">
+    <section className="card-container" id="calendar-events">
       <div className="card-header">
         <h2>{calendar.summary}</h2>
         <p>{calendar.description}</p>
       </div>
-      {cart &&
-        cart.map((c) => (
-          <div key={c.uid}>
-            <CartCard data={c} />
-          </div>
-        ))}
+      <div>
+        {cart && cart.map((c) => <CheckoutCard data={c} key={c.uid} />)}
+      </div>
       {confirmation ? (
         <>
           <p>

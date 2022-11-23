@@ -17,10 +17,15 @@ const Gallery = () => {
       <div className="card">
         <h2>Gallery</h2>
         <nav className="navbar">
+          {/* {
+          gallery && gallery.map(g=> <Buttons name={g.type}/>)
+          } */}
           <Buttons name="all" handleClick={handleClick} />
+          <Buttons name="promotion" handleClick={handleClick} />
           <Buttons name="wig" handleClick={handleClick} />
           <Buttons name="braids" handleClick={handleClick} />
-          {/* <Buttons name="nail" handleClick={handleClick} /> */}
+          {/* <Buttons name="manicure" handleClick={handleClick} />
+          <Buttons name="pedicure" handleClick={handleClick} /> */}
         </nav>
         <div className="gallery-photos">
           {isFiltered
