@@ -2,7 +2,6 @@ import Photo from "../atoms/Photo";
 import ReadMore from "./ReadMore";
 
 const CheckoutCard = ({ data }) => {
-  console.log("data", data);
   return (
     <div className="card">
       <div className="card-header">

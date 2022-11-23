@@ -5,7 +5,7 @@ const ServiceCard = ({ data, handleClick }) => {
     <div className="card">
       <Photo data={data} />
       <h3>{data.name}</h3>
-      <div className="ribbon">${data.cost}</div>
+      <strong className="ribbon">${data.cost}</strong>
       <p>{data.description}</p>
       <p>
         Cost: ${data.cost} for {data.length}

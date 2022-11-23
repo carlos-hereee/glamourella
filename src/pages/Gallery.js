@@ -14,7 +14,7 @@ const Gallery = () => {
   };
   return (
     <main className="container">
-      <div className="card">
+      <div className="card-container">
         <h2>Gallery</h2>
         <nav className="navbar">
           {/* {

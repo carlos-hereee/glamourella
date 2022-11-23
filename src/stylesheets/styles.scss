@@ -59,15 +59,20 @@
   padding: 0.25rem 3rem;
 }
 .card-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
   box-shadow: 0 1px 5px 1px #ddd;
   background-color: #{$primary-text-color};
   padding: 1rem;
   border-radius: 4px;
-  button {
-    flex: none;
+}
+.card-about {
+  padding: 1rem;
+  p {
+    line-height: normal;
   }
 }
 .card {

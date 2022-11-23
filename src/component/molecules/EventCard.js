@@ -1,7 +1,8 @@
 const EventCard = ({ data }) => {
   return (
-    <div className="card">
-      <h2>{data.date}</h2>
+    <div className="card-about">
+      <h3>{data.title}</h3>
+      <p>{data.description}</p>
     </div>
   );
 };

@@ -1,4 +1,6 @@
 import { useContext } from "react";
+import shortid from "shortid";
+import EventCard from "../component/molecules/EventCard";
 import FollowUs from "../component/molecules/FollowUs";
 import ReadMore from "../component/molecules/ReadMore";
 
@@ -13,15 +15,30 @@ let lorem = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias 
 
 const About = () => {
   // const
+  const about = [
+    {
+      title: "Why choose Glamourella?",
+      description: lorem,
+      uid: shortid.generate(),
+      lines: 5,
+    },
+    {
+      title: "My Story",
+      description: lorem,
+      uid: shortid.generate(),
+      lines: 4,
+    },
+    {
+      title: "Who am I?",
+      description: lorem,
+      uid: shortid.generate(),
+      lines: 3,
+    },
+  ];
   return (
     <main className="container">
-      <div className="card">
-        <h3>Why choose Glamourella?</h3>
-        <ReadMore data={lorem} lines={5} />
-        <h3>My story!</h3>
-        <ReadMore data={lorem} lines={4} />
-        <h3>Who am I?</h3>
-        <ReadMore data={lorem} lines={3} />
+      <div className="card-container">
+        {about && about.map((a) => <EventCard data={a} />)}
         <FollowUs />
       </div>
     </main>

@@ -22,7 +22,7 @@ const Checkout = () => {
         {total < 0 && <p>Link to Services and Gallery</p>}
         {checkout && checkout.map((c) => <CheckoutCard key={c.uid} data={c} />)}
         <h4>Total ${total}</h4>
-        <button>Pay now</button>
+        {/* <button >Pay now</button> */}
       </div>
     </main>
   );
