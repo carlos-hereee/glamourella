@@ -9,6 +9,7 @@ export const GlamourellaState = ({ children }) => {
     isLoading: false,
     glamourella: [],
     socials: [],
+    about: [],
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   useEffect(() => {
@@ -17,7 +18,7 @@ export const GlamourellaState = ({ children }) => {
   const getAssets = async () => {
     try {
       const { data } = await axiosWithOutAuth.get("/glamourella");
-      dispatch({ type: "LOAD_SOCIALS", payload: data });
+      dispatch({ type: "LOAD_CONTENT", payload: data });
     } catch (error) {
       dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: error.response.message });
     }
@@ -28,6 +29,7 @@ export const GlamourellaState = ({ children }) => {
         glamourella: state.glamourella,
         isLoading: state.isLoading,
         socials: state.socials,
+        about: state.about,
       }}>
       {children}
     </GlamourellaContext.Provider>
