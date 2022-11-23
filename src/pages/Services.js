@@ -6,7 +6,7 @@ import { ServicesContext } from "../utils/context/ServicesContext";
 const Services = () => {
   const { services, addToCart, filteredServices, filterServices, isFiltered } =
     useContext(ServicesContext);
-  const handleClick = (e) => addToCart(e);
+  const handleClick = (e) => addToCart(e, true);
   const filterClick = (e) => {
     let content = e.currentTarget.textContent.split(" ").join("");
     filterServices(services, content.toLowerCase());

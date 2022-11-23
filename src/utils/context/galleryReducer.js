@@ -10,6 +10,13 @@ const addMessageToLog = (state, action) => {
     log: [...state.log, action.payload],
   };
 };
+const addToCart = (state, action) => {
+  return {
+    ...state,
+    isLoading: false,
+    checkout: [...state.checkout, action.payload],
+  };
+};
 const loadAssets = (state, action) => {
   return {
     ...state,
@@ -34,6 +41,8 @@ export const reducer = (state, action) => {
       return addMessageToLog(state, action);
     case "LOAD_ASSETS":
       return loadAssets(state, action);
+    case "ADD_TO_CART":
+      return addToCart(state, action);
     case "UPDATE_ASSETS":
       return updateAssets(state, action);
     default:

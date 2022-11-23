@@ -29,7 +29,8 @@ export const ServicesState = ({ children }) => {
   };
   const addToCart = (service) => {
     try {
-      dispatch({ type: "ADD_TO_CART", payload: service });
+      const services = { ...service, isService: true };
+      dispatch({ type: "ADD_TO_CART", payload: services });
     } catch (err) {
       const data = err.response.data;
       dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data.message });

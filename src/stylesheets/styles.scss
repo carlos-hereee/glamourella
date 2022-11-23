@@ -1,6 +1,7 @@
 .btn-primary {
   background-color: #{$active-bg-color-hover};
   color: #{$secondary-text-color};
+  flex: 1;
   &:hover {
     background-color: #{$active-bg-color};
     color: #{$secondary-text-color};
@@ -47,6 +48,16 @@
   gap: 1rem;
   padding: 1rem;
 }
+.ribbon {
+  position: absolute;
+  top: 0.25rem;
+  right: -2rem;
+  rotate: 30deg;
+  background-color: purple;
+  border: 1px solid white;
+  color: white;
+  padding: 0.25rem 3rem;
+}
 .card-container {
   display: flex;
   flex-direction: column;
@@ -55,6 +66,26 @@
   background-color: #{$primary-text-color};
   padding: 1rem;
   border-radius: 4px;
+}
+.card-checkout {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  background-color: #{$primary-text-color};
+  max-width: 650px;
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 1px 5px 1px #{$secondary-shadow-color};
+  &:has(> .ribbon) {
+    position: relative;
+    border-color: #{$primary-shadow-color};
+    box-shadow: 0 1px 5px 1px #{$primary-shadow-color};
+    color: #{$primary-shadow-color};
+    // .ribbon {
+    //   top: 0.25rem;
+    //   right: -2rem;
+    // }
+  }
 }
 .card {
   flex: 1;
@@ -80,16 +111,6 @@
 }
 .card-footer {
   margin: auto;
-}
-.ribbon {
-  position: absolute;
-  top: 10px;
-  right: -3rem;
-  rotate: 30deg;
-  background-color: purple;
-  border: 1px solid white;
-  color: white;
-  padding: 0.25rem 3rem;
 }
 .read-more {
   --max-lines: 2;

@@ -10,6 +10,7 @@ export const GalleryState = ({ children }) => {
     filteredGallery: [],
     gallery: [],
     log: [],
+    checkout: [],
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   useEffect(() => {
@@ -23,6 +24,15 @@ export const GalleryState = ({ children }) => {
     } catch (err) {
       const data = err.response.data;
       dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data });
+    }
+  };
+  const addToCart = (service) => {
+    try {
+      const services = { ...service, isCheckout: true };
+      dispatch({ type: "ADD_TO_CART", payload: services });
+    } catch (err) {
+      const data = err.response.data;
+      dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data.message });
     }
   };
   const filterGallery = async (gallery, filter) => {
@@ -40,7 +50,9 @@ export const GalleryState = ({ children }) => {
         isLoading: state.isLoading,
         isFiltered: state.isFiltered,
         filteredGallery: state.filteredGallery,
+        checkout: state.checkout,
         filterGallery,
+        addToCart,
       }}>
       {children}
     </GalleryContext.Provider>

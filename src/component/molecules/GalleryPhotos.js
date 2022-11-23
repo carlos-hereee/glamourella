@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import { ServicesContext } from "../../utils/context/ServicesContext";
+import { GalleryContext } from "../../utils/context/GalleryContext";
 import ArtistName from "../atoms/ArtistName";
 import ArtistPhoto from "../atoms/ArtistPhoto";
 
 const GalleryPhotos = ({ data }) => {
-  const { addToCart } = useContext(ServicesContext);
+  const { addToCart } = useContext(GalleryContext);
   return (
     <div key={data.uid} className="gallery-photo">
       <ArtistPhoto data={data} />

@@ -1,4 +1,5 @@
 import About from "./About";
+import Gallery from "./Gallery";
 import Services from "./Services";
 
 const Landing = () => {
@@ -6,12 +7,7 @@ const Landing = () => {
     <main className="container">
       <About />
       <Services />
-      {/* <button type="button" className="btn">
-        Book now!
-      </button>
-      <button type="button" className="btn">
-        Call Now
-      </button> */}
+      <Gallery />
     </main>
   );
 };
