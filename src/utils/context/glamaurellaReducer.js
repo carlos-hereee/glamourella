@@ -10,6 +10,7 @@ const loadContent = (state, action) => {
     isLoading: false,
     socials: action.payload.socials,
     about: action.payload.about,
+    services: action.payload.services,
   };
 };
 export const reducer = (state, action) => {

@@ -8,7 +8,7 @@ const About = () => {
   return (
     <main className="container">
       <div className="card-container">
-        {about && about.map((a) => <EventCard data={a} />)}
+        {about && about.map((a) => <EventCard data={a} key={a.uid} />)}
         <FollowUs />
       </div>
     </main>

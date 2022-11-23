@@ -9,7 +9,7 @@ const FollowUs = () => {
     <div>
       <h4>Dont Miss a thing! Follow Us!</h4>
       {socials.map((s) => (
-        <a href={s.link} key={s.key} className={`social-link ${s.social}`}>
+        <a href={s.link} key={s.uid} className={`social-link ${s.social}`}>
           <Icons name={s.social} size="2x" />
         </a>
       ))}

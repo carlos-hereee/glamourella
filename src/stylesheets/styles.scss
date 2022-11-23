@@ -92,9 +92,19 @@
     box-shadow: 0 1px 5px 1px #{$primary-shadow-color};
     color: #{$primary-shadow-color};
   }
+  &:has(> .card-body) {
+    flex-direction: column;
+  }
+  &:has(> .btn-primary) {
+    justify-content: space-between;
+    .btn-primary {
+      flex: none;
+    }
+  }
 }
 .card-header {
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 .card-body {

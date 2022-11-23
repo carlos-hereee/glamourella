@@ -5,7 +5,6 @@ import ArtistPhoto from "../atoms/ArtistPhoto";
 
 const GalleryPhotos = ({ data }) => {
   const { addToCart } = useContext(GalleryContext);
-  console.log("data", data);
   return (
     <div key={data.uid} className="gallery-photo">
       <ArtistPhoto data={data} />

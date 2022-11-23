@@ -1,11 +1,14 @@
 import { useContext } from "react";
 import Buttons from "../component/atoms/Buttons";
 import ServiceCard from "../component/molecules/ServiceCard";
+import { GlamourellaContext } from "../utils/context/GlamourellaContext";
 import { ServicesContext } from "../utils/context/ServicesContext";
 
 const Services = () => {
-  const { services, addToCart, filteredServices, filterServices, isFiltered } =
+  const { services } = useContext(GlamourellaContext);
+  const { addToCart, filteredServices, filterServices, isFiltered } =
     useContext(ServicesContext);
+
   const handleClick = (e) => addToCart(e, true);
   const filterClick = (e) => {
     let content = e.currentTarget.textContent.split(" ").join("");
