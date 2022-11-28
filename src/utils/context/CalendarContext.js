@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useReducer } from "react";
-import { axiosWithOutAuth, axiosWithAuth } from "../axios";
+import { axiosWithOutAuth, axiosWithAuth, axiosCalendar } from "../axios";
 import { reducer } from "./reducer";
 import moment from "moment";
 
@@ -26,18 +26,19 @@ export const CalendarState = ({ children }) => {
   const formatTime = (t) => moment(t).format("hh:mm a");
   const today = formatDate(new Date());
   const getCalendar = async () => {
-    const { data } = await axiosWithAuth.get("/calendar/events");
-    // console.log("data", data);
-    // updateCalendar(data.events);
-    updateEvents(data);
-    updateDay(isDateEqual(today, data));
+    try {
+      const { data } = await axiosCalendar.get("/calendar/events");
+      console.log("get calendar", data);
+      // updateCalendar(data.events);
+      updateEvents(data);
+      updateDay(isDateEqual(today, data));
+    } catch (error) {
+      const { status, data } = error.response;
+      console.log("data", data);
+      dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data });
+    }
   };
-  // const getAccessToken = async () => {
-  //   const { data } = await axiosWithAuth.get("/calendar/events");
-  //   updateCalendar(data.events);
-  //   updateEvents(data.events.items);
-  //   updateDay(isDateEqual(today, data.events.items));
-  // };
+
   const updateEvents = async (events) => {
     dispatch({ type: "IS_LOADING", payload: true });
     dispatch({ type: "UPDATE_EVENTS", payload: events });
