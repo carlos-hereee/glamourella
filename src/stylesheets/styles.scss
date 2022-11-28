@@ -100,16 +100,24 @@
   }
 }
 .checkout-card {
-  display: flex;
-
-  max-height: 200px;
-  // &:has(> .header) {
-
-  // }
-  .photo-accessory {
-    // max-height: 100%;
-    width: min-content;
-    height: 100px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  .card-header {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .card-body {
+    grid-column: 2 / 2;
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+  }
+  .card-footer {
+    grid-column: span 2;
+    .btn-primary {
+      width: 100%;
+    }
   }
 }
 .card-header {
@@ -131,6 +139,7 @@
   }
 }
 .card-footer {
+  width: 100%;
   margin: auto;
 }
 .read-more {
