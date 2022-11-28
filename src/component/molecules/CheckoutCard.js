@@ -7,11 +7,11 @@ const CheckoutCard = ({ data }) => {
       <div className="card-header">
         <Photo data={data} />
         <h2>{data.type}</h2>
+        <ReadMore data={data.description} lines={2} />
       </div>
       <div className="card-body">
-        <ReadMore data={data.description} lines={4} />
-      </div>
-      <div className="card-footer">
+        <p>Our next avalible appointment is ....</p>
+        <p>Price: ${data.cost}</p>
         <button className="btn-primary">Book Now!</button>
       </div>
     </div>

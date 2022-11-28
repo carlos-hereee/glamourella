@@ -107,18 +107,6 @@
     flex-direction: column;
     justify-content: center;
   }
-  .card-body {
-    grid-column: 2 / 2;
-    grid-row: 1;
-    display: flex;
-    justify-content: center;
-  }
-  .card-footer {
-    grid-column: span 2;
-    .btn-primary {
-      width: 100%;
-    }
-  }
 }
 .card-header {
   display: flex;
@@ -152,7 +140,7 @@
   &:has(+ .read-more-toggle:not(:checked))::before {
     content: "";
     position: absolute;
-    height: calc(1em * #{$line-height});
+    height: calc(1em * var(--line-height));
     width: 100%;
     bottom: 0;
     pointer-events: none;
