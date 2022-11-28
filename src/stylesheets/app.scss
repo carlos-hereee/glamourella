@@ -13,6 +13,7 @@ span {
 .App {
   max-width: 1200px;
   background-color: $primary-bg-color;
+  line-height: normal;
   margin: auto;
   @include devices(mobile) {
     padding-top: 5rem;

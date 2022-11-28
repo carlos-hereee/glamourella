@@ -16,7 +16,7 @@ const Services = () => {
   };
   const service = ["all", "manicure", "pedicure"];
   return (
-    <main className="container">
+    <section className="container">
       <div className="card-container">
         <nav className="navbar">
           {service.map((s) => (
@@ -33,7 +33,7 @@ const Services = () => {
               ))}
         </div>
       </div>
-    </main>
+    </section>
   );
 };
 

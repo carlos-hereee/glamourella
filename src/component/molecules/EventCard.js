@@ -1,6 +1,6 @@
 const EventCard = ({ data }) => {
   return (
-    <div className="card-about">
+    <div>
       <h3>{data.title}</h3>
       <p>{data.description}</p>
     </div>

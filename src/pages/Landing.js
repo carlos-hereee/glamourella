@@ -4,11 +4,11 @@ import Services from "./Services";
 
 const Landing = () => {
   return (
-    <main className="container">
+    <>
       <About />
       <Services />
       <Gallery />
-    </main>
+    </>
   );
 };
 

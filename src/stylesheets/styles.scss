@@ -69,12 +69,6 @@
   padding: 1rem;
   border-radius: 4px;
 }
-.card-about {
-  padding: 1rem;
-  p {
-    line-height: normal;
-  }
-}
 .card {
   flex: 1;
   display: flex;
@@ -119,6 +113,7 @@
 .card-body {
   display: flex;
   flex-direction: column;
+  max-height: 15rem;
   &:has(> .btn-primary) {
     justify-content: space-between;
     .btn-primary {
