@@ -11,7 +11,6 @@ const addMessageToLog = (state, action) => {
   };
 };
 const updateUserData = (state, action) => {
-  console.log("action.payload", action.payload);
   return {
     ...state,
     user: action.payload,

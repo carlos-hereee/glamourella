@@ -5,7 +5,7 @@ import { reducer } from "./userReducer";
 export const UserContext = createContext();
 
 export const UserState = ({ children }) => {
-  const initialState = { isLoading: false, user: {}, log: [] };
+  const initialState = { isLoading: false, user: {}, booked: [], log: [] };
   const [state, dispatch] = useReducer(reducer, initialState);
   const { accessToken } = useContext(AuthContext);
 
@@ -16,7 +16,6 @@ export const UserState = ({ children }) => {
   }, [accessToken]);
 
   const clearUserData = async () => {
-    console.log("clear");
     dispatch({ type: "IS_LOADING", payload: true });
     dispatch({ type: "UPDATE_USER_DATA", payload: "" });
   };
@@ -33,8 +32,9 @@ export const UserState = ({ children }) => {
   return (
     <UserContext.Provider
       value={{
-        user: state.user,
         isLoading: state.isLoading,
+        user: state.user,
+        booked: state.booked,
         log: state.log,
         // getUserData,
       }}>
