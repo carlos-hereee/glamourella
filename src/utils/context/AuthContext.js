@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useReducer } from "react";
 import { axiosWithOutAuth } from "../axios";
 import authReducer from "./authReducer";
+import * as yup from "yup";
 
 export const AuthContext = createContext();
 
@@ -10,6 +11,20 @@ export const AuthState = (props) => {
     signInError: "",
     signUpError: "",
     accessToken: "",
+    signUpValues: { email: "", password: "", confirmPassword: "" },
+    signUpSchema: yup.object().shape({
+      email: yup.string().email().required("*Required field"),
+      password: yup.string().required("*Required field"),
+      confirmPassword: yup
+        .string()
+        .oneOf([yup.ref("password"), null], "Passwords must match")
+        .required("*Required field"),
+    }),
+    loginValues: { email: "", password: "" },
+    loginSchema: yup.object().shape({
+      email: yup.string().email().required("*Required field"),
+      password: yup.string().required("*Required field"),
+    }),
     appName: "Glamourella",
   };
   const [state, dispatch] = useReducer(authReducer, initialState);
@@ -30,22 +45,28 @@ export const AuthState = (props) => {
       dispatch({ type: "SIGNIN_ERROR", payload: err.response.data.message });
     }
   };
-  const register = async (values) => {
+  const signUp = async (values) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
-      const res = await axiosWithOutAuth.post("/users/register", values);
-      dispatch({ type: "SIGNUP_SUCCESS", payload: res.data });
+      const { data } = await axiosWithOutAuth.post("/users/register", values);
+      console.log("data", data);
+      dispatch({ type: "SIGNUP_SUCCESS", payload: data });
     } catch (error) {
-      const { message } = error.response.data;
-      dispatch({ type: "SIGNUP_ERROR", payload: message });
+      const { data, status } = error.response;
+      console.log("error.response", error.response);
+      dispatch({ type: "SIGNUP_ERROR", payload: data });
     }
   };
   const signIn = async (values) => {
     try {
       const res = await axiosWithOutAuth.post("/users/login", values);
+      console.log("res", res);
       dispatch({ type: "SIGNIN_SUCCESS", payload: res.data });
-    } catch (e) {
-      dispatch({ type: "SIGNIN_ERROR", payload: e.response.data.message });
+    } catch (err) {
+      const { data, status } = err.response;
+      console.log("sign in error", err.response);
+
+      dispatch({ type: "SIGNIN_ERROR", payload: data });
     }
   };
   const signOut = () => {
@@ -60,13 +81,17 @@ export const AuthState = (props) => {
     <AuthContext.Provider
       value={{
         error: state.error,
+        appName: state.appName,
         isLoading: state.isLoading,
+        signUpValues: state.signUpValues,
+        signUpSchema: state.signUpSchema,
+        loginValues: state.loginValues,
+        loginSchema: state.loginSchema,
+        accessToken: state.accessToken,
         signInError: state.signInError,
         signUpError: state.signUpError,
-        accessToken: state.accessToken,
-        appName: state.appName,
         signIn,
-        register,
+        signUp,
         signOut,
       }}>
       {props.children}

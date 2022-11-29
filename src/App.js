@@ -9,7 +9,7 @@ import Landing from "./pages/Landing";
 import NotFound from "./pages/NotFound";
 import OauthCallback from "./pages/OauthCallback";
 import Services from "./pages/Services";
-import Register from "./component/molecules/Register";
+import SignUp from "./component/molecules/Register";
 import Checkout from "./pages/Checkout";
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
         <Route path="/booking" element={<Booking />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/account" element={<Account />} />
-        <Route path="/sign-up" element={<Register />} />
+        <Route path="/sign-up" element={<SignUp />} />
         <Route path="/check-out" element={<Checkout />} />
         <Route path="/oauth2callback" element={<OauthCallback />} />
         <Route path="/*" element={<NotFound />} />

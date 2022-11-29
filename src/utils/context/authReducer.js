@@ -10,7 +10,7 @@ const signInSuccess = (state, action) => {
     user: action.payload.user,
   };
 };
-const signInERROR = (state, action) => {
+const signInError = (state, action) => {
   return { ...state, isLoading: false, signInError: action.payload };
 };
 const signUpSuccess = (state, action) => {
@@ -21,7 +21,7 @@ const signUpSuccess = (state, action) => {
     user: action.payload.user,
   };
 };
-const signUpERROR = (state, action) => {
+const signUpError = (state, action) => {
   return { ...state, signUpError: action.payload, isLoading: false };
 };
 const signOutSuccess = (state, action) => {
@@ -46,11 +46,11 @@ const authReducer = (state, action) => {
     case "SIGNIN_SUCCESS":
       return signInSuccess(state, action);
     case "SIGNIN_ERROR":
-      return signInERROR(state, action);
+      return signInError(state, action);
     case "SIGNUP_SUCCESS":
       return signUpSuccess(state, action);
     case "SIGNUP_ERROR":
-      return signUpERROR(state, action);
+      return signUpError(state, action);
     case "SIGNOUT_SUCCESS":
       return signOutSuccess(state, action);
     case "SIGNOUT_ERROR":
