@@ -1,28 +1,36 @@
 import { useContext } from "react";
 import { UserContext } from "../utils/context/UserContext";
 import Login from "../component/molecules/Login";
-import { Link } from "react-router-dom";
+import CustomLink from "../component/atoms/CustomLink";
 
 const Account = () => {
   const { user, booked } = useContext(UserContext);
+  const linkdata = {
+    link: "services",
+    content:
+      "Nothing yet, check out our services and book your next appointments",
+  };
   return (
     <main className="container">
       {user.uid ? (
-        <div className="card-container">
-          <h2>Dashboard</h2>
-          <div>
-            <p>
-              Username: <strong>{user.username}</strong>
-            </p>
-            <p>
-              Email: <strong>{user.email}</strong>
-            </p>
+        <>
+          <div className="card-container">
+            <h2>Dashboard</h2>
+            <div>
+              <p>
+                Username: <strong>{user.username}</strong>
+              </p>
+              <p>
+                Email: <strong>{user.email}</strong>
+              </p>
+            </div>
+            <button type="button">Edit</button>
           </div>
-          <div className="card-body">
+          <div className="card-container">
             {user.isAdmin ? (
               <h3>My schedule</h3>
             ) : (
-              <div>
+              <>
                 <h3>Upcoming appointments</h3>
                 {booked.length > 0 ? (
                   booked.map((b) => (
@@ -33,22 +41,13 @@ const Account = () => {
                   ))
                 ) : (
                   <div className="account-link">
-                    <p>
-                      Nothing yet, check out our services and book your next
-                      appointments
-                    </p>
-                    <Link to="/services">
-                      <button type="button" className="btn-primary">
-                        Go to services
-                      </button>
-                    </Link>
+                    <CustomLink data={linkdata} />
                   </div>
                 )}
-              </div>
+              </>
             )}
-            {/* <p></p> */}
           </div>
-        </div>
+        </>
       ) : (
         <Login />
       )}

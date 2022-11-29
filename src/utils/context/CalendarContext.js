@@ -12,7 +12,7 @@ export const CalendarState = ({ children }) => {
     events: [],
     selectedDay: [],
     appointment: {},
-    booked: {},
+    book: {},
   };
   const [state, dispatch] = useReducer(reducer, initialState);
 
