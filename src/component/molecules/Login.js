@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../utils/context/AuthContext";
 import Forms from "../forms/Forms";
 
-const Auth = () => {
+const Login = () => {
   const { signIn, loginValues, loginSchema, signInError } =
     useContext(AuthContext);
   const onSubmit = (e) => signIn(e);
@@ -19,4 +19,4 @@ const Auth = () => {
   );
 };
 
-export default Auth;
+export default Login;

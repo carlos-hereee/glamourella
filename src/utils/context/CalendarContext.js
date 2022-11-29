@@ -34,7 +34,7 @@ export const CalendarState = ({ children }) => {
       updateDay(isDateEqual(today, data));
     } catch (error) {
       const { status, data } = error.response;
-      console.log("data", data);
+      // console.log("data", data);
       dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data });
     }
   };

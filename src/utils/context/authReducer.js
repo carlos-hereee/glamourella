@@ -11,7 +11,12 @@ const signInSuccess = (state, action) => {
   };
 };
 const signInError = (state, action) => {
-  return { ...state, isLoading: false, signInError: action.payload };
+  return {
+    ...state,
+    isLoading: false,
+    signInError: "",
+    accessToken: action.payload.accessToken,
+  };
 };
 const signUpSuccess = (state, action) => {
   return {

@@ -28,21 +28,17 @@ export const AuthState = (props) => {
     appName: "Glamourella",
   };
   const [state, dispatch] = useReducer(authReducer, initialState);
-  const cookieName = process.env.REACT_APP_COOKIE_NAME;
   useEffect(() => {
-    if (document.cookie.indexOf(cookieName) !== -1) {
-      getAccessToken();
-    }
+    getAccessToken();
   }, []);
 
   const getAccessToken = async () => {
     try {
       const { data } = await axiosWithOutAuth.post("/users/refresh-token");
-      console.log("data", data);
       dispatch({ type: "SIGNIN_SUCCESS", payload: data });
     } catch (err) {
-      console.log("err", err);
-      dispatch({ type: "SIGNIN_ERROR", payload: err.response.data.message });
+      const { status, data } = err.response;
+      dispatch({ type: "SIGNIN_ERROR", payload: data });
     }
   };
   const signUp = async (values) => {
@@ -59,13 +55,10 @@ export const AuthState = (props) => {
   };
   const signIn = async (values) => {
     try {
-      const res = await axiosWithOutAuth.post("/users/login", values);
-      console.log("res", res);
-      dispatch({ type: "SIGNIN_SUCCESS", payload: res.data });
+      const { data } = await axiosWithOutAuth.post("/users/login", values);
+      dispatch({ type: "SIGNIN_SUCCESS", payload: data });
     } catch (err) {
       const { data, status } = err.response;
-      console.log("sign in error", err.response);
-
       dispatch({ type: "SIGNIN_ERROR", payload: data });
     }
   };
