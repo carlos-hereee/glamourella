@@ -24,7 +24,7 @@ export const GlamourellaState = ({ children }) => {
       dispatch({ type: "LOAD_CONTENT", payload: data });
     } catch (error) {
       dispatch({ type: "LOAD_CONTENT", payload: glamourella });
-      dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: error.response.message });
+      dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: error.response.data });
     }
   };
   return (

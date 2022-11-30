@@ -27,6 +27,7 @@ export const axiosOAuth2 = axios.create({
 });
 export const axiosCalendar = axios.create({
   baseURL: process.env.REACT_APP_DB_URL,
+  withCredentials: true,
   headers: {
     "Access-Control-Allow-Origin": process.env.REACT_APP_CLIENT_URL,
     Accept: "application/json",
