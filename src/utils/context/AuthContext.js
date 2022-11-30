@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useReducer } from "react";
 import { axiosWithOutAuth } from "../axios";
-import authReducer from "./authReducer";
+import authReducer from "../reducers/AuthReducer";
 import * as yup from "yup";
 
 export const AuthContext = createContext();
