@@ -12,7 +12,7 @@ export const ServicesState = ({ children }) => {
   };
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  useEffect(() => {
+  useEffect(() => { 
     getAllServices();
   }, []);
 

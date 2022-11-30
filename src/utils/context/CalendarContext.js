@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useReducer } from "react";
 import { axiosWithOutAuth, axiosWithAuth, axiosCalendar } from "../axios";
-import { reducer } from "./reducer";
+import { reducer } from "./calendarReducer";
 import moment from "moment";
 
 export const CalendarContext = createContext();

@@ -1,5 +1,11 @@
 import shortid from "shortid";
 
+const lorem10 =
+  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, neque?";
+const lorem20 =
+  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, molestias reprehenderit. Voluptates fugit tenetur itaque minus sed, assumenda delectus accusantium!";
+const lorem30 =
+  "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt explicabo accusantium vel. Quos, illo. Velit est voluptatum at dignissimos, amet alias veritatis obcaecati assumenda, repellat aliquid non quae nam! Nobis.";
 export const glamourella = {
   socials: [
     {
@@ -11,23 +17,20 @@ export const glamourella = {
   about: [
     {
       title: "Why choose Glamourella?",
-      description:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi, aliquam.",
+      description: lorem10 + lorem30,
       uid: shortid.generate(),
       lines: 5,
     },
     {
       title: "My Story",
-      description:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel, dolore velit saepe provident consequatur ipsum quidem officiis repellendus nulla doloremque!",
+      description: lorem30 + lorem30,
 
       uid: shortid.generate(),
       lines: 4,
     },
     {
       title: "Who am I?",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere distinctio unde provident quos eaque voluptates.",
+      description: lorem20 + lorem20,
       uid: shortid.generate(),
       lines: 3,
     },
@@ -37,7 +40,7 @@ export const glamourella = {
       uid: shortid.generate(),
       type: "pedicure",
       src:
-        process.env.DB_URL +
+        process.env.REACT_APP_DB_URL +
         "gallery/photo/?path=assets/pedicure/billie-unsplash.jpg",
       name: "classic ",
       length: "30 minutes",
@@ -49,7 +52,7 @@ export const glamourella = {
       uid: shortid.generate(),
       type: "pedicure",
       src:
-        process.env.DB_URL +
+        process.env.REACT_APP_DB_URL +
         "gallery/photo/?path=assets/pedicure/billie-unsplash.jpg",
       name: "REFRESHER ",
       length: "45 minutes",
@@ -61,7 +64,7 @@ export const glamourella = {
       uid: shortid.generate(),
       type: "manicure",
       src:
-        process.env.DB_URL +
+        process.env.REACT_APP_DB_URL +
         "gallery/photo/?path=assets/manicure/rashid-khreiss-unsplash.jpg",
       name: "classic ",
       length: "20 minutes",
@@ -73,7 +76,7 @@ export const glamourella = {
       uid: shortid.generate(),
       type: "manicure",
       src:
-        process.env.DB_URL +
+        process.env.REACT_APP_DB_URL +
         "gallery/photo/?path=assets/manicure/bryony-elena-unsplash.jpg",
       name: "refresher ",
       length: "30 minutes",
@@ -85,7 +88,7 @@ export const glamourella = {
       uid: shortid.generate(),
       type: "manicure",
       src:
-        process.env.DB_URL +
+        process.env.REACT_APP_DB_URL +
         "gallery/photo/?path=assets/manicure/kris-atomic-unsplash.jpg",
       name: "paris signature ",
       length: "56 minutes",

@@ -45,6 +45,18 @@ header {
   flex: 1;
   position: relative;
 }
+.custom-btn-link {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+  width: 100%;
+  background-color: #{$primary-bg-color-hover};
+  border-radius: 4px;
+  &:hover {
+    background-color: #{$primary-bg-color};
+  }
+}
 .notification-count {
   top: 0;
   right: 0.2rem;
