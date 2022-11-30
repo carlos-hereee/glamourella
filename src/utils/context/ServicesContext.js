@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useReducer } from "react";
 import { axiosWithOutAuth } from "../axios";
-import { reducer } from "./servicesReducer";
+import { reducer } from "../reducers/ServicesReducer";
 
 export const ServicesContext = createContext();
 export const ServicesState = ({ children }) => {
@@ -12,7 +12,7 @@ export const ServicesState = ({ children }) => {
   };
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  useEffect(() => { 
+  useEffect(() => {
     getAllServices();
   }, []);
 

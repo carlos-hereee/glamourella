@@ -1,7 +1,7 @@
 import React, { createContext, useReducer } from "react";
 import { useEffect } from "react";
 import { axiosWithOutAuth } from "../axios";
-import { reducer } from "./glamaurellaReducer";
+import { reducer } from "../reducers/GlamourellaReducer";
 import { glamourella } from "../../data";
 
 export const GlamourellaContext = createContext();
@@ -10,9 +10,9 @@ export const GlamourellaState = ({ children }) => {
   const initialState = {
     isLoading: false,
     glamourella: [],
-    socials: [],
-    about: [],
-    services: [],
+    socials: glamourella.socials,
+    about: glamourella.about,
+    services: glamourella.services,
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   useEffect(() => {

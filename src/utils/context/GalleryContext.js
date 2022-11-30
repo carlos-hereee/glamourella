@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useReducer } from "react";
 import { axiosWithOutAuth } from "../axios";
-import { reducer } from "./galleryReducer";
+import { reducer } from "../reducers/GalleryReducer";
 export const GalleryContext = createContext();
 
 export const GalleryState = ({ children }) => {

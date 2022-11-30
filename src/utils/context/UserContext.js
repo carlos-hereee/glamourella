@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useReducer } from "react";
 import { AuthContext } from "./AuthContext";
 import { axiosWithAuth } from "../axios";
-import { reducer } from "./userReducer";
+import { reducer } from "../reducers/UserReducer";
 export const UserContext = createContext();
 
 export const UserState = ({ children }) => {
