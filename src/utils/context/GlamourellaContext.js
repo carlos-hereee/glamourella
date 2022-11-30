@@ -2,7 +2,7 @@ import React, { createContext, useReducer } from "react";
 import { useEffect } from "react";
 import { axiosWithOutAuth } from "../axios";
 import { reducer } from "../reducers/GlamourellaReducer";
-import { glamourella } from "../../data";
+import { glamourella } from "../../config";
 
 export const GlamourellaContext = createContext();
 

@@ -6,6 +6,8 @@ const lorem20 =
   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, molestias reprehenderit. Voluptates fugit tenetur itaque minus sed, assumenda delectus accusantium!";
 const lorem30 =
   "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt explicabo accusantium vel. Quos, illo. Velit est voluptatum at dignissimos, amet alias veritatis obcaecati assumenda, repellat aliquid non quae nam! Nobis.";
+
+export const isDev = process.env.NODE_ENV === "development";
 export const glamourella = {
   socials: [
     {

@@ -2,6 +2,7 @@ import React, { createContext, useEffect, useReducer } from "react";
 import { axiosWithOutAuth } from "../axios";
 import authReducer from "../reducers/AuthReducer";
 import * as yup from "yup";
+import { isDev } from "../../config";
 
 export const AuthContext = createContext();
 
@@ -38,6 +39,7 @@ export const AuthState = (props) => {
       dispatch({ type: "SIGNIN_SUCCESS", payload: data });
     } catch (err) {
       const { status, data } = err.response;
+      isDev && console.log("status", status);
       dispatch({ type: "SIGNIN_ERROR", payload: data });
     }
   };
@@ -49,7 +51,7 @@ export const AuthState = (props) => {
       dispatch({ type: "SIGNUP_SUCCESS", payload: data });
     } catch (error) {
       const { data, status } = error.response;
-      console.log("error.response", error.response);
+      isDev && console.log("status", status);
       dispatch({ type: "SIGNUP_ERROR", payload: data });
     }
   };
@@ -59,6 +61,7 @@ export const AuthState = (props) => {
       dispatch({ type: "SIGNIN_SUCCESS", payload: data });
     } catch (err) {
       const { data, status } = err.response;
+      isDev && console.log("status", status);
       dispatch({ type: "SIGNIN_ERROR", payload: data });
     }
   };

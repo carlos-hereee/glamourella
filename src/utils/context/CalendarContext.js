@@ -1,7 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { createContext, useEffect, useReducer } from "react";
 import { axiosWithOutAuth, axiosWithAuth, axiosCalendar } from "../axios";
 import { reducer } from "../reducers/CalendarReducer";
 import moment from "moment";
+import { isDev } from "../../config";
 
 export const CalendarContext = createContext();
 export const CalendarState = ({ children }) => {
@@ -34,6 +36,7 @@ export const CalendarState = ({ children }) => {
       updateDay(isDateEqual(today, data));
     } catch (error) {
       const { status, data } = error.response;
+      isDev && console.log("status", status);
       // console.log("data", data);
       dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data });
     }
@@ -43,10 +46,10 @@ export const CalendarState = ({ children }) => {
     dispatch({ type: "IS_LOADING", payload: true });
     dispatch({ type: "UPDATE_EVENTS", payload: events });
   };
-  const updateCalendar = async (calendar) => {
-    dispatch({ type: "IS_LOADING", payload: true });
-    dispatch({ type: "UPDATE_CALENDAR", payload: calendar });
-  };
+  // const updateCalendar = async (calendar) => {
+  //   dispatch({ type: "IS_LOADING", payload: true });
+  //   dispatch({ type: "UPDATE_CALENDAR", payload: calendar });
+  // };
   const contactUs = async (values) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
