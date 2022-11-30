@@ -1,6 +1,6 @@
 import React, { createContext, useReducer } from "react";
 import { useEffect } from "react";
-import { axiosWithOutAuth } from "../axios";
+import { axiosWithAuth } from "../axios";
 import { reducer } from "../reducers/GlamourellaReducer";
 import { glamourella } from "../../config";
 
@@ -20,7 +20,7 @@ export const GlamourellaState = ({ children }) => {
   }, []);
   const getAssets = async () => {
     try {
-      const { data } = await axiosWithOutAuth.get("/glamourella");
+      const { data } = await axiosWithAuth.get("/glamourella");
       dispatch({ type: "LOAD_CONTENT", payload: data });
     } catch (error) {
       dispatch({ type: "LOAD_CONTENT", payload: glamourella });

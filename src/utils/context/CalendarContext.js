@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { createContext, useEffect, useReducer } from "react";
-import { axiosWithOutAuth, axiosWithAuth, axiosCalendar } from "../axios";
+import { axiosWithAuth, axiosCalendar } from "../axios";
 import { reducer } from "../reducers/CalendarReducer";
 import moment from "moment";
 import { isDev } from "../../config";
@@ -53,7 +53,7 @@ export const CalendarState = ({ children }) => {
   const contactUs = async (values) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
-      const data = await axiosWithOutAuth.post("/contact-me", values);
+      const data = await axiosWithAuth.post("/contact-me", values);
       dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data });
     } catch (e) {
       dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: true });
@@ -62,7 +62,7 @@ export const CalendarState = ({ children }) => {
   const getCalendarDay = async (day) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
-      const data = await axiosWithOutAuth.get(`/calendar/${day}`);
+      const data = await axiosWithAuth.get(`/calendar/${day}`);
       dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data });
     } catch (e) {
       dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: true });

@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useReducer } from "react";
-import { axiosWithOutAuth } from "../axios";
+import { axiosWithAuth } from "../axios";
 import authReducer from "../reducers/AuthReducer";
 import * as yup from "yup";
 import { isDev } from "../../config";
@@ -35,7 +35,7 @@ export const AuthState = (props) => {
 
   const getAccessToken = async () => {
     try {
-      const { data } = await axiosWithOutAuth.post("/users/refresh-token");
+      const { data } = await axiosWithAuth.post("/users/refresh-token");
       dispatch({ type: "SIGNIN_SUCCESS", payload: data });
     } catch (err) {
       const { status, data } = err.response;
@@ -46,7 +46,7 @@ export const AuthState = (props) => {
   const signUp = async (values) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
-      const { data } = await axiosWithOutAuth.post("/users/register", values);
+      const { data } = await axiosWithAuth.post("/users/register", values);
       console.log("data", data);
       dispatch({ type: "SIGNUP_SUCCESS", payload: data });
     } catch (error) {
@@ -57,7 +57,7 @@ export const AuthState = (props) => {
   };
   const signIn = async (values) => {
     try {
-      const { data } = await axiosWithOutAuth.post("/users/login", values);
+      const { data } = await axiosWithAuth.post("/users/login", values);
       dispatch({ type: "SIGNIN_SUCCESS", payload: data });
     } catch (err) {
       const { data, status } = err.response;

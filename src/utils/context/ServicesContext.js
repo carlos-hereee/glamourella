@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useReducer } from "react";
-import { axiosWithOutAuth } from "../axios";
+import { axiosWithAuth } from "../axios";
 import { reducer } from "../reducers/ServicesReducer";
 
 export const ServicesContext = createContext();
@@ -19,7 +19,7 @@ export const ServicesState = ({ children }) => {
   const getAllServices = async () => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
-      const { data } = await axiosWithOutAuth.get("services");
+      const { data } = await axiosWithAuth.get("services");
       dispatch({ type: "LOAD_SERVICES", payload: data });
     } catch (err) {
       const data = err.response.data;

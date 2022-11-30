@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useReducer } from "react";
-import { axiosWithOutAuth } from "../axios";
+import { axiosWithAuth } from "../axios";
 import { reducer } from "../reducers/GalleryReducer";
 export const GalleryContext = createContext();
 
@@ -19,7 +19,7 @@ export const GalleryState = ({ children }) => {
   const getAllAssets = async () => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
-      const { data } = await axiosWithOutAuth.get("/gallery/all?path=assets");
+      const { data } = await axiosWithAuth.get("/gallery/all?path=assets");
       dispatch({ type: "LOAD_ASSETS", payload: data });
     } catch (err) {
       const data = err.response.data;
