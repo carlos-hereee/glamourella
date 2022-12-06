@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useReducer } from "react";
+import { useRef } from "react";
 import { useContext, useEffect, useState } from "react";
 import BurgerButton from "../component/atoms/BugerButton";
 import Logo from "../component/atoms/Logo";
@@ -13,20 +14,28 @@ const Header = () => {
   const [active, setActive] = useState(false);
   const [isClose, setClose] = useState(false);
   const [notification, setNotification] = useState(0);
+  const navRef = useRef(null);
   const { cart } = useContext(ServicesContext);
   const { checkout } = useContext(GalleryContext);
   const { menu } = useContext(GlamourellaContext);
+
   // eslint-disable-next-line no-unused-vars
   const [_, dispatch] = useReducer(reducer);
   const getIdx = (n) => menu.findIndex((m) => m.name === n);
-
   useEffect(() => {
     const endAnimation = () => setClose(true);
-    document.addEventListener("animationend", endAnimation, { once: true });
+    // TODO: close navigation is clicks outside container
+    // const onClick = (event) => {
+    //   // console.log("navRef.current", navRef.current);
+    //   if (navRef.current && !navRef.current.contains(event.target)) {
+    //     setClose(true);
+    //   }
+    // };
+    document.addEventListener("animationend", endAnimation, true);
+    // document.addEventListener("mousedown", onClick, true);
     return () => {
-      document.removeEventListener("animationend", endAnimation, {
-        once: true,
-      });
+      document.removeEventListener("animationend", endAnimation, true);
+      // document.removeEventListener("mousedown", onClick, true);
     };
   }, []);
   useEffect(() => {
@@ -61,9 +70,12 @@ const Header = () => {
           handleClick={handleClick}
         />
         <ul
+          ref={navRef}
           className="navigation"
           data-state={active ? "open" : isClose ? "closing" : "close"}>
-          {menu.map((m) => m.name && <Navlink data={m} key={m.uid} />)}
+          {menu.map((m) => (
+            <Navlink data={m} key={m.uid} handleClick={handleClick} />
+          ))}
         </ul>
       </nav>
     </header>

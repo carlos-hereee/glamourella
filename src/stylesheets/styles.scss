@@ -41,11 +41,13 @@
   flex-direction: row;
   gap: 1rem;
   position: relative;
+  // width: 100%;
   .notification-count {
     top: -0.5rem;
     right: -0.5rem;
   }
 }
+
 .container {
   display: flex;
   justify-content: space-around;

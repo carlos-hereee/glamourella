@@ -7,7 +7,9 @@ const Buttons = ({ name, handleClick, notification, size }) => {
   return (
     <button type="button" onClick={handleClick} className={`${name} btn-icons`}>
       <Icons name={n} size={size} />
-      <span>{name[0].toUpperCase() + name.substring(1)}</span>
+      <span className="icon-label">
+        {name[0].toUpperCase() + name.substring(1)}
+      </span>
       {notification &&
         (notification.length > 9 ? (
           notification.map((n) => <NotificationCount num={n} />)

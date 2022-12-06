@@ -9,6 +9,7 @@ header {
   border-bottom: 1px solid #{$secondary-bg-color-hover};
   position: sticky;
   top: 0;
+  z-index: 1;
 }
 .primary-navigation {
   position: relative;
@@ -23,7 +24,6 @@ header {
   border-radius: 4px;
   padding: 1rem;
   gap: 1rem;
-  z-index: 1;
   top: 100%;
   right: 0%;
   transition: clip-path ease-in-out 700ms;
@@ -38,6 +38,12 @@ header {
 }
 .navigation[data-state="close"] {
   display: none;
+}
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 .nav-link {
   text-decoration: none;
@@ -59,9 +65,9 @@ header {
   }
 }
 .notification-count {
+  position: absolute;
   top: 0;
   right: 0.2rem;
-  position: absolute;
   width: 1rem;
   height: 1rem;
   background-color: #{$danger};
