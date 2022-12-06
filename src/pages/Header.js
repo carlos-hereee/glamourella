@@ -1,34 +1,29 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useContext, useEffect, useRef, useState } from "react";
-import shortid from "shortid";
-import Buttons from "../component/atoms/Buttons";
+import { useReducer } from "react";
+import { useContext, useEffect, useState } from "react";
+import BurgerButton from "../component/atoms/BugerButton";
 import Logo from "../component/atoms/Logo";
 import Navlink from "../component/atoms/Navlink";
 import { GalleryContext } from "../utils/context/GalleryContext";
+import { GlamourellaContext } from "../utils/context/GlamourellaContext";
 import { ServicesContext } from "../utils/context/ServicesContext";
+import { reducer } from "../utils/reducers/GlamourellaReducer";
 
 const Header = () => {
   const [active, setActive] = useState(false);
+  const [isClose, setClose] = useState(true);
   const [notification, setNotification] = useState(0);
-  const navRef = useRef(null);
   const { cart } = useContext(ServicesContext);
   const { checkout } = useContext(GalleryContext);
-  const [menu, setMenu] = useState([
-    { name: "home", uid: shortid.generate() },
-    { name: "about-us", uid: shortid.generate() },
-    { name: "services", uid: shortid.generate() },
-    { name: "booking", uid: shortid.generate() },
-    { name: "gallery", uid: shortid.generate() },
-    { name: "check-out", uid: shortid.generate() },
-    { name: "account", uid: shortid.generate() },
-  ]);
-
+  const { menu } = useContext(GlamourellaContext);
+  const [_, dispatch] = useReducer(reducer);
   const getIdx = (n) => menu.findIndex((m) => m.name === n);
+
   useEffect(() => {
-    const onClickOutside = () => setActive(false);
-    document.addEventListener("click", onClickOutside, true);
+    const endAnimation = () => setClose(!isClose);
+    document.addEventListener("animationend", endAnimation, true);
     return () => {
-      document.removeEventListener("click", onClickOutside, true);
+      document.removeEventListener("animationend", endAnimation, true);
     };
   }, []);
   useEffect(() => {
@@ -39,7 +34,7 @@ const Header = () => {
       // find index of booking
       const idx = getIdx("booking");
       newArr[idx].notification = cart.length;
-      setMenu(newArr);
+      dispatch({ type: "UPDATE_MENU", payload: newArr });
       setNotification(count);
     }
     if (checkout.length) {
@@ -48,7 +43,7 @@ const Header = () => {
       let newArr = [...menu];
       const idx = getIdx("check-out");
       newArr[idx].notification = checkout.length;
-      setMenu(newArr);
+      dispatch({ type: "UPDATE_MENU", payload: newArr });
       setNotification(count);
     }
   }, [cart, checkout]);
@@ -57,17 +52,17 @@ const Header = () => {
   return (
     <header>
       <Logo />
-      <nav ref={navRef} className={active ? "navbar-mobile" : "navbar"}>
-        {menu.map((m) => (
-          <Navlink data={m} key={m.uid} />
-        ))}
+      <nav>
+        <BurgerButton
+          data={{ name: active ? "x" : "burger", notification }}
+          handleClick={handleClick}
+        />
+        <ul
+          className="navigation"
+          data-state={active ? "open" : isClose ? "close" : "closing"}>
+          {menu.map((m) => m.name && <Navlink data={m} key={m.uid} />)}
+        </ul>
       </nav>
-      <Buttons
-        name="burger"
-        handleClick={handleClick}
-        notification={notification > 0 && notification}
-        size="2x"
-      />
     </header>
   );
 };

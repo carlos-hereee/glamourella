@@ -7,7 +7,20 @@ export const ServicesState = ({ children }) => {
   const initialState = {
     isLoading: false,
     isFiltered: false,
-    cart: [],
+    cart: [
+      {
+        uid: "qwerty",
+        type: "pedicure",
+        src:
+          process.env.REACT_APP_DB_URL +
+          "gallery/photo/?path=assets/pedicure/billie-unsplash.jpg",
+        name: "classic ",
+        length: "30 minutes",
+        cost: 25,
+        description:
+          "Your feet will be pampered, nails are professionally shaped and filed, cuticle trimmer, callus removed, followed by a hot oil massage and finish with a nail buff or polish.",
+      },
+    ],
     filteredServices: [],
   };
   const [state, dispatch] = useReducer(reducer, initialState);

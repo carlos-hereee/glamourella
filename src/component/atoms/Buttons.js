@@ -3,12 +3,11 @@ import Icons from "./Icons";
 import NotificationCount from "./NotificationCount";
 
 const Buttons = ({ name, handleClick, notification, size }) => {
+  const n = name && name.toLowerCase();
   return (
     <button type="button" onClick={handleClick} className={`${name} btn-icons`}>
-      <Icons name={name.toLowerCase()} size={size} />
-      {name !== "burger" && (
-        <span>{name[0].toUpperCase() + name.substring(1)}</span>
-      )}
+      <Icons name={n} size={size} />
+      <span>{name[0].toUpperCase() + name.substring(1)}</span>
       {notification &&
         (notification.length > 9 ? (
           notification.map((n) => <NotificationCount num={n} />)

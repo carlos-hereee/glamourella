@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { axiosWithAuth } from "../axios";
 import { reducer } from "../reducers/GlamourellaReducer";
 import { glamourella } from "../../config";
+import shortid from "shortid";
 
 export const GlamourellaContext = createContext();
 
@@ -10,6 +11,15 @@ export const GlamourellaState = ({ children }) => {
   const initialState = {
     isLoading: false,
     glamourella: [],
+    menu: [
+      { name: "home", uid: shortid.generate() },
+      { name: "about", uid: shortid.generate() },
+      { name: "services", uid: shortid.generate() },
+      { name: "booking", uid: shortid.generate() },
+      { name: "gallery", uid: shortid.generate() },
+      { name: "check-out", uid: shortid.generate() },
+      { name: "account", uid: shortid.generate() },
+    ],
     socials: glamourella.socials,
     about: glamourella.about,
     services: glamourella.services,
@@ -27,6 +37,7 @@ export const GlamourellaState = ({ children }) => {
       dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: error.response.data });
     }
   };
+
   return (
     <GlamourellaContext.Provider
       value={{
@@ -35,6 +46,7 @@ export const GlamourellaState = ({ children }) => {
         socials: state.socials,
         about: state.about,
         services: state.services,
+        menu: state.menu,
       }}>
       {children}
     </GlamourellaContext.Provider>

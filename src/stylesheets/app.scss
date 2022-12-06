@@ -15,9 +15,6 @@ span {
   background-color: $primary-bg-color;
   line-height: normal;
   margin: auto;
-  @include devices(mobile) {
-    padding-top: 5rem;
-  }
 }
 button {
   background-color: #{$secondary-bg-color-hover};
