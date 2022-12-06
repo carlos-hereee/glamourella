@@ -11,19 +11,25 @@ import { reducer } from "../utils/reducers/GlamourellaReducer";
 
 const Header = () => {
   const [active, setActive] = useState(false);
-  const [isClose, setClose] = useState(true);
+  const [isClose, setClose] = useState(false);
   const [notification, setNotification] = useState(0);
   const { cart } = useContext(ServicesContext);
   const { checkout } = useContext(GalleryContext);
   const { menu } = useContext(GlamourellaContext);
+  // eslint-disable-next-line no-unused-vars
   const [_, dispatch] = useReducer(reducer);
   const getIdx = (n) => menu.findIndex((m) => m.name === n);
 
   useEffect(() => {
-    const endAnimation = () => setClose(!isClose);
-    document.addEventListener("animationend", endAnimation, true);
+    // const startAnimation = () => setClose(false);
+    const endAnimation = () => setClose(true);
+    // document.addEventListener("animationstart", startAnimation, true);
+    document.addEventListener("animationend", endAnimation, { once: true });
     return () => {
-      document.removeEventListener("animationend", endAnimation, true);
+      // document.removeEventListener("animationstart", startAnimation, true);
+      document.removeEventListener("animationend", endAnimation, {
+        once: true,
+      });
     };
   }, []);
   useEffect(() => {
@@ -52,14 +58,14 @@ const Header = () => {
   return (
     <header>
       <Logo />
-      <nav>
+      <nav className="primary-navigation">
         <BurgerButton
           data={{ name: active ? "x" : "burger", notification }}
           handleClick={handleClick}
         />
         <ul
           className="navigation"
-          data-state={active ? "open" : isClose ? "close" : "closing"}>
+          data-state={active ? "open" : isClose ? "closing" : "close"}>
           {menu.map((m) => m.name && <Navlink data={m} key={m.uid} />)}
         </ul>
       </nav>

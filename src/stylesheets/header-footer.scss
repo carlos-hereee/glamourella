@@ -7,6 +7,8 @@ header {
   padding: 1rem;
   background-color: #{$secondary-bg-color};
   border-bottom: 1px solid #{$secondary-bg-color-hover};
+}
+.primary-navigation {
   position: relative;
 }
 .navigation {
@@ -16,6 +18,7 @@ header {
   position: absolute;
   list-style: none;
   background-color: #{$primary-bg-color-hover};
+  border-radius: 4px;
   padding: 1rem;
   gap: 1rem;
   z-index: 1;
@@ -28,8 +31,8 @@ header {
   display: block;
 }
 .navigation[data-state="closing"] {
-  animation: circleClose 750ms ease-in-out forwards;
   display: block;
+  animation: circleClose 750ms ease-in-out forwards;
 }
 .navigation[data-state="close"] {
   display: none;
