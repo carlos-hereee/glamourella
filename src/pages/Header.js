@@ -21,12 +21,9 @@ const Header = () => {
   const getIdx = (n) => menu.findIndex((m) => m.name === n);
 
   useEffect(() => {
-    // const startAnimation = () => setClose(false);
     const endAnimation = () => setClose(true);
-    // document.addEventListener("animationstart", startAnimation, true);
     document.addEventListener("animationend", endAnimation, { once: true });
     return () => {
-      // document.removeEventListener("animationstart", startAnimation, true);
       document.removeEventListener("animationend", endAnimation, {
         once: true,
       });
