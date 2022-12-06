@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { UserContext } from "../utils/context/UserContext";
-import Login from "../component/molecules/Login";
-import CustomLink from "../component/atoms/CustomLink";
-import Loading from "../component/atoms/Loading";
+import { UserContext } from "../../utils/context/UserContext";
+import Login from "../molecules/Login";
+import CustomLink from "../atoms/CustomLink";
+import Loading from "../atoms/Loading";
 
 const Account = () => {
   const { user, booked, isLoading } = useContext(UserContext);

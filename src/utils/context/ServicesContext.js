@@ -25,20 +25,6 @@ export const ServicesState = ({ children }) => {
   };
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  useEffect(() => {
-    getAllServices();
-  }, []);
-
-  const getAllServices = async () => {
-    dispatch({ type: "IS_LOADING", payload: true });
-    try {
-      const { data } = await axiosWithAuth.get("services");
-      dispatch({ type: "LOAD_SERVICES", payload: data });
-    } catch (err) {
-      const data = err.response.data;
-      dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data.message });
-    }
-  };
   const addToCart = (service) => {
     try {
       const services = { ...service, isService: true };

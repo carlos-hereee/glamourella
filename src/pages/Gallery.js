@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useContext } from "react";
 import { GalleryContext } from "../utils/context/GalleryContext";
-import Buttons from "../component/atoms/Buttons";
+import Buttons from "../component/molecules/Buttons";
 import GalleryPhotos from "../component/molecules/GalleryPhotos";
 
 const Gallery = () => {

@@ -30,7 +30,7 @@ export const GlamourellaState = ({ children }) => {
   }, []);
   const getAssets = async () => {
     try {
-      const { data } = await axiosWithAuth.get("/glamourella");
+      const { data } = await axiosWithAuth.get("/app/glamourella/services");
       dispatch({ type: "LOAD_CONTENT", payload: data });
     } catch (error) {
       dispatch({ type: "LOAD_CONTENT", payload: glamourella });

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Buttons from "../component/atoms/Buttons";
+import Buttons from "../component/molecules/Buttons";
 
 const NotFound = () => {
   return (

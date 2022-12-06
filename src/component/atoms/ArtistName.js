@@ -1,17 +1,18 @@
-const ArtistName = ({ name }) => (
-  <p>
-    Photo by:
-    <span className="artist">
-      {name
-        .split(" ")
-        .map((n) => {
-          if (n === "unsplash") {
-            return " | Unsplash";
-          }
-          return n.charAt(0).toUpperCase() + n.substring(1);
-        })
-        .join(" ")}
-    </span>
-  </p>
-);
+const ArtistName = ({ name }) => {
+  let artist = name.split(" ");
+  return (
+    <p>
+      Photo by:
+      <span className="artist">
+        {artist
+          .map((a) =>
+            a === "unsplash"
+              ? " | Unsplash"
+              : a.charAt(0).toUpperCase() + a.substring(1)
+          )
+          .join(" ")}
+      </span>
+    </p>
+  );
+};
 export default ArtistName;

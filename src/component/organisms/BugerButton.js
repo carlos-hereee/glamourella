@@ -1,6 +1,6 @@
 import React from "react";
-import Icons from "./Icons";
-import NotificationCount from "./NotificationCount";
+import Icons from "../atoms/Icons";
+import NotificationCount from "../atoms/NotificationCount";
 
 const BurgerButton = ({ data, handleClick }) => {
   return (

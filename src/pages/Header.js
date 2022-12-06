@@ -2,9 +2,9 @@
 import { useReducer } from "react";
 import { useRef } from "react";
 import { useContext, useEffect, useState } from "react";
-import BurgerButton from "../component/atoms/BugerButton";
+import BurgerButton from "../component/organisms/BugerButton";
 import Logo from "../component/atoms/Logo";
-import Navlink from "../component/atoms/Navlink";
+import Navlink from "../component/molecules/Navlink";
 import { GalleryContext } from "../utils/context/GalleryContext";
 import { GlamourellaContext } from "../utils/context/GlamourellaContext";
 import { ServicesContext } from "../utils/context/ServicesContext";
