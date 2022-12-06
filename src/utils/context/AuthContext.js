@@ -12,18 +12,18 @@ export const AuthState = (props) => {
     signInError: "",
     signUpError: "",
     accessToken: "",
-    signUpValues: { email: "", password: "", confirmPassword: "" },
+    signUpValues: { username: "", password: "", confirmPassword: "" },
     signUpSchema: yup.object().shape({
-      email: yup.string().email().required("*Required field"),
+      username: yup.string().required("*Required field"),
       password: yup.string().required("*Required field"),
       confirmPassword: yup
         .string()
         .oneOf([yup.ref("password"), null], "Passwords must match")
         .required("*Required field"),
     }),
-    loginValues: { email: "", password: "" },
+    loginValues: { username: "", password: "" },
     loginSchema: yup.object().shape({
-      email: yup.string().email().required("*Required field"),
+      username: yup.string().required("*Required field"),
       password: yup.string().required("*Required field"),
     }),
     appName: "Glamourella",
@@ -39,7 +39,7 @@ export const AuthState = (props) => {
       dispatch({ type: "SIGNIN_SUCCESS", payload: data });
     } catch (err) {
       const { status, data } = err.response;
-      isDev && console.log("status", status);
+      isDev && console.log("status", status, data);
       dispatch({ type: "SIGNIN_ERROR", payload: data });
     }
   };
@@ -61,15 +61,17 @@ export const AuthState = (props) => {
       dispatch({ type: "SIGNIN_SUCCESS", payload: data });
     } catch (err) {
       const { data, status } = err.response;
-      isDev && console.log("status", status);
+      isDev && console.log("status", status, data);
       dispatch({ type: "SIGNIN_ERROR", payload: data });
     }
   };
   const signOut = () => {
     try {
       dispatch({ type: "SIGNOUT_SUCCESS" });
-    } catch (error) {
-      dispatch({ type: "SIGNOUT_ERROR", payload: error.message });
+    } catch (err) {
+      const { data, status } = err.response;
+      isDev && console.log("status", status, data);
+      dispatch({ type: "SIGNOUT_ERROR", payload: data });
     }
   };
 

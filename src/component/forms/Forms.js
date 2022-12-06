@@ -50,10 +50,12 @@ const Forms = ({ data }) => {
               value={getIn(formik.values, ref)}
               onChange={handleChange}
               onBlur={formik.handleBlur}
+              autoComplete="on"
             />
           ) : (
             <input
               type={passwords.includes(ref) ? "password" : "text"}
+              autoComplete={data.isLogin ? "current-password" : "new-password"}
               name={ref}
               value={getIn(formik.values, ref)}
               onChange={handleChange}

@@ -6,7 +6,7 @@ import { isDev } from "../../config";
 export const UserContext = createContext();
 
 export const UserState = ({ children }) => {
-  const initialState = { isLoading: false, user: {}, booked: [], log: [] };
+  const initialState = { isLoading: true, user: {}, booked: [], log: [] };
   const [state, dispatch] = useReducer(reducer, initialState);
   const { accessToken } = useContext(AuthContext);
 

@@ -8,12 +8,14 @@ const addMessageToLog = (state, action) => {
   return {
     ...state,
     log: [...state.log, action.payload],
+    isLoading: false,
   };
 };
 const updateUserData = (state, action) => {
   return {
     ...state,
     user: action.payload,
+    isLoading: false,
   };
 };
 export const reducer = (state, action) => {

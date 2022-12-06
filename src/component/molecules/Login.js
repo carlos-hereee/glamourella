@@ -7,11 +7,17 @@ const Login = () => {
   const { signIn, loginValues, loginSchema, signInError } =
     useContext(AuthContext);
   const onSubmit = (e) => signIn(e);
+  let formData = {
+    values: loginValues,
+    schema: loginSchema,
+    onSubmit,
+    isLogin: true,
+  };
   return (
     <div className="card">
       <h2>Login</h2>
       {signInError && <p className="required">{signInError}</p>}
-      <Forms data={{ values: loginValues, schema: loginSchema, onSubmit }} />
+      <Forms data={formData} />
       <Link to="/sign-up" className="form-link">
         Create an account?
       </Link>

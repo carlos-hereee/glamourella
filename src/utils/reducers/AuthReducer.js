@@ -7,15 +7,14 @@ const signInSuccess = (state, action) => {
     isLoading: false,
     signInError: "",
     accessToken: action.payload.accessToken,
-    user: action.payload.user,
   };
 };
 const signInError = (state, action) => {
   return {
     ...state,
     isLoading: false,
-    signInError: "",
-    accessToken: action.payload.accessToken,
+    signInError: action.payload,
+    accessToken: "",
   };
 };
 const signUpSuccess = (state, action) => {
@@ -42,6 +41,7 @@ const signOutERROR = (state, action) => {
   return {
     ...state,
     signOutError: action.payload,
+    isLoading: false,
   };
 };
 const authReducer = (state, action) => {
