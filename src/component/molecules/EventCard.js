@@ -1,7 +1,6 @@
 import Photo from "../atoms/Photo";
 
 const EventCard = ({ data }) => {
-  // console.log("data.img", data.img);
   return (
     <div className="card event-card">
       <div>

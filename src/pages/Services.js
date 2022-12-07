@@ -16,22 +16,20 @@ const Services = () => {
   };
   const service = ["all", "manicure", "pedicure"];
   return (
-    <section className="container">
-      <div className="card-container">
-        <nav className="navbar">
-          {service.map((s) => (
-            <Buttons name={s} key={s} handleClick={filterClick} />
-          ))}
-        </nav>
-        <div className="service">
-          {isFiltered
-            ? filteredServices.map((fs) => (
-                <ServiceCard data={fs} key={fs.uid} handleClick={handleClick} />
-              ))
-            : services.map((s) => (
-                <ServiceCard data={s} key={s.uid} handleClick={handleClick} />
-              ))}
-        </div>
+    <section className="card-container">
+      <nav className="navbar">
+        {service.map((s) => (
+          <Buttons name={s} key={s} handleClick={filterClick} />
+        ))}
+      </nav>
+      <div className="service">
+        {isFiltered
+          ? filteredServices.map((fs) => (
+              <ServiceCard data={fs} key={fs.uid} handleClick={handleClick} />
+            ))
+          : services.map((s) => (
+              <ServiceCard data={s} key={s.uid} handleClick={handleClick} />
+            ))}
       </div>
     </section>
   );

@@ -13,27 +13,25 @@ const Gallery = () => {
     filterGallery(gallery, content);
   };
   return (
-    <section className="container">
-      <div className="card-container">
-        <h2>Gallery</h2>
-        <nav className="navbar">
-          {/* {
+    <section className="card-container">
+      <h2>Gallery</h2>
+      <nav className="navbar">
+        {/* {
           gallery && gallery.map(g=> <Buttons name={g.type}/>)
           } */}
-          <Buttons name="all" handleClick={handleClick} />
-          <Buttons name="promotion" handleClick={handleClick} />
-          <Buttons name="wig" handleClick={handleClick} />
-          <Buttons name="braids" handleClick={handleClick} />
-          <Buttons name="manicure" handleClick={handleClick} />
-          <Buttons name="pedicure" handleClick={handleClick} />
-        </nav>
-        <div className="gallery-photos">
-          {isFiltered
-            ? filteredGallery.map((fg) => (
-                <GalleryPhotos data={fg} key={fg.uid} />
-              ))
-            : gallery.map((g) => <GalleryPhotos data={g} key={g.uid} />)}
-        </div>
+        <Buttons name="all" handleClick={handleClick} />
+        <Buttons name="promotion" handleClick={handleClick} />
+        <Buttons name="wig" handleClick={handleClick} />
+        <Buttons name="braids" handleClick={handleClick} />
+        <Buttons name="manicure" handleClick={handleClick} />
+        <Buttons name="pedicure" handleClick={handleClick} />
+      </nav>
+      <div className="gallery-photos">
+        {isFiltered
+          ? filteredGallery.map((fg) => (
+              <GalleryPhotos data={fg} key={fg.uid} />
+            ))
+          : gallery.map((g) => <GalleryPhotos data={g} key={g.uid} />)}
       </div>
     </section>
   );

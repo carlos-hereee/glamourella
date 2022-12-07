@@ -16,18 +16,20 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Routes>
-        <Route exact path="/" element={<Landing />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/booking" element={<Booking />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/account" element={<Account />} />
-        <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/check-out" element={<Checkout />} />
-        <Route path="/oauth2callback" element={<OauthCallback />} />
-        <Route path="/*" element={<NotFound />} />
-      </Routes>
+      <div className="app-body">
+        <Routes>
+          <Route exact path="/" element={<Landing />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/booking" element={<Booking />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/check-out" element={<Checkout />} />
+          <Route path="/oauth2callback" element={<OauthCallback />} />
+          <Route path="/*" element={<NotFound />} />
+        </Routes>
+      </div>
       <Footer />
     </div>
   );

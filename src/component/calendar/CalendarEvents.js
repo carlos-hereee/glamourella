@@ -4,6 +4,8 @@ import Empty from "../atoms/Empty";
 import Icons from "../atoms/Icons";
 import * as yup from "yup";
 import Forms from "../forms/Forms";
+import { ServicesContext } from "../../utils/context/ServicesContext";
+import CheckoutCard from "../molecules/CheckoutCard";
 
 const schema = yup.object().shape({
   name: yup.string().required("*Required field"),
@@ -12,68 +14,77 @@ const schema = yup.object().shape({
 const CalendarEvents = () => {
   const { selectedDay, calendar, formatTime, bookNow, formatDate, log } =
     useContext(CalendarContext);
+  const { cart } = useContext(ServicesContext);
   const [appointment, setAppointment] = useState();
   const [confirmation, setConfirmation] = useState(false);
   const onSubmit = (values) => bookNow(values, appointment);
   return (
     <section className="card-container" id="calendar-events">
-      <div className="card-header">
-        <h2>{calendar.summary}</h2>
-        <p>{calendar.description}</p>
+      <div className="card">
+        <div className="card-header">
+          <h2>{calendar.summary}</h2>
+          <p>{calendar.description}</p>
+        </div>
+        {cart && cart.map((c) => <CheckoutCard data={c} key={c.uid} />)}
       </div>
-
-      {confirmation ? (
-        <>
-          <p>
-            Appointment set for{" "}
-            <strong>
-              {formatDate(appointment?.start.dateTime)} @{" "}
-              {formatTime(appointment?.start.dateTime)} -{" "}
-              {formatTime(appointment?.end.dateTime)}
-            </strong>
-          </p>
-          {log &&
-            log.map((l) => (
-              <p key={l} className={l.success ? "message-success" : "required"}>
-                {l.message}
-              </p>
-            ))}
-          <Forms data={{ values: { name: "", email: "" }, schema, onSubmit }} />
-        </>
-      ) : (
-        <>
-          <div className="list">
-            {selectedDay.length ? (
-              selectedDay.map((day) => (
-                <button
-                  type="button"
-                  className="btn list-item"
-                  key={day.id}
-                  onClick={() => setAppointment(day)}>
-                  {day.id === appointment?.id ? (
-                    <Icons name="check" />
-                  ) : (
-                    <Icons name="uncheck" />
-                  )}
-                  {formatTime(day.start.dateTime)} -{" "}
-                  {formatTime(day.end.dateTime)}
-                </button>
-              ))
-            ) : (
-              <Empty />
-            )}
-          </div>
-          <div className="card-footer">
-            <button
-              type="button"
-              className="btn-primary"
-              disabled={!appointment?.id}
-              onClick={() => setConfirmation(!confirmation)}>
-              Book Now!
-            </button>
-          </div>
-        </>
-      )}
+      <div className="card">
+        {confirmation ? (
+          <>
+            <p>
+              Appointment set for{" "}
+              <strong>
+                {formatDate(appointment?.start.dateTime)} @{" "}
+                {formatTime(appointment?.start.dateTime)} -{" "}
+                {formatTime(appointment?.end.dateTime)}
+              </strong>
+            </p>
+            {log &&
+              log.map((l) => (
+                <p
+                  key={l}
+                  className={l.success ? "message-success" : "required"}>
+                  {l.message}
+                </p>
+              ))}
+            <Forms
+              data={{ values: { name: "", email: "" }, schema, onSubmit }}
+            />
+          </>
+        ) : (
+          <>
+            <div className="list">
+              {selectedDay.length ? (
+                selectedDay.map((day) => (
+                  <button
+                    type="button"
+                    className="btn list-item"
+                    key={day.id}
+                    onClick={() => setAppointment(day)}>
+                    {day.id === appointment?.id ? (
+                      <Icons name="check" />
+                    ) : (
+                      <Icons name="uncheck" />
+                    )}
+                    {formatTime(day.start.dateTime)} -{" "}
+                    {formatTime(day.end.dateTime)}
+                  </button>
+                ))
+              ) : (
+                <Empty />
+              )}
+            </div>
+            <div className="card-footer">
+              <button
+                type="button"
+                className="btn-primary"
+                disabled={!appointment?.id}
+                onClick={() => setConfirmation(!confirmation)}>
+                Book Now!
+              </button>
+            </div>
+          </>
+        )}
+      </div>
     </section>
   );
 };

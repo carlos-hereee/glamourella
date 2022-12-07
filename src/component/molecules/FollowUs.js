@@ -6,7 +6,7 @@ import Icons from "../atoms/Icons";
 const FollowUs = () => {
   const { socials } = useContext(GlamourellaContext);
   return (
-    <div>
+    <div className="socials">
       <h4>Dont Miss a thing! Follow Us!</h4>
       {socials.map((s) => (
         <a href={s.link} key={s.uid} className={`social-link ${s.social}`}>

@@ -12,7 +12,7 @@ const CheckoutCard = ({ data }) => {
       <div className="card-body">
         <p>Our next avalible appointment is ....</p>
         <p>Price: ${data.cost}</p>
-        <button className="btn-primary">Book Now!</button>
+        <button className="btn-primary">Book next appointment</button>
       </div>
     </div>
   );

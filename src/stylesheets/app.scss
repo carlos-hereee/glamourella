@@ -16,6 +16,11 @@ span {
   line-height: normal;
   margin: auto;
 }
+.app-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 button {
   background-color: #{$secondary-bg-color-hover};
   color: #{$primary-text-color};
