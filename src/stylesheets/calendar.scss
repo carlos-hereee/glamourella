@@ -5,6 +5,7 @@
   box-shadow: 0 1px 5px 1px #{$secondary-shadow-color};
   @include devices(mobile) {
     width: 100%;
+    flex: none;
   }
 }
 .react-calendar__navigation {

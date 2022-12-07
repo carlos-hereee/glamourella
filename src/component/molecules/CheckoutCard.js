@@ -11,7 +11,7 @@ const CheckoutCard = ({ data }) => {
       <div className="checkout-description">
         <ReadMore data={data.description} lines={2} />
       </div>
-      <button className="btn-checkout">Next availible appointment</button>
+      <button className="btn-checkout">Find next availible appointment</button>
     </div>
   );
 };

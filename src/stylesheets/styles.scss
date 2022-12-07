@@ -53,6 +53,11 @@
   flex-wrap: wrap;
   gap: 1rem;
   padding: 1rem;
+  @include devices(mobile) {
+    .card {
+      width: 100%;
+    }
+  }
 }
 .ribbon {
   position: absolute;

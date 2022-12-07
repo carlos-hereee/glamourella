@@ -16,7 +16,7 @@ const CalendarEvents = () => {
   const [confirmation, setConfirmation] = useState(false);
   const onSubmit = (values) => bookNow(values, appointment);
   return (
-    <section className="card-container" id="calendar-events">
+    <section className="card" id="calendar-events">
       <div className="card-header">
         <h2>{calendar.summary}</h2>
         <p>{calendar.description}</p>
