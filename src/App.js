@@ -9,7 +9,7 @@ import Landing from "./pages/Landing";
 import NotFound from "./pages/NotFound";
 import OauthCallback from "./pages/OauthCallback";
 import Services from "./pages/Services";
-import SignUp from "./component/molecules/Register";
+import SignUp from "./component/organisms/SignUp";
 import Checkout from "./pages/Checkout";
 
 function App() {

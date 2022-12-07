@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { UserContext } from "../../utils/context/UserContext";
-import Login from "../molecules/Login";
+import Login from "./Login";
 import CustomLink from "../atoms/CustomLink";
 import Loading from "../atoms/Loading";
 

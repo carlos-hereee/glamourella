@@ -1,0 +1,19 @@
+.event-card {
+  .photo-accessory {
+    float: right;
+    width: 45%;
+    margin-left: 1rem;
+    margin-right: 0;
+  }
+  &:nth-child(even) {
+    .photo-accessory {
+      margin-left: 0;
+      margin-right: 1rem;
+      float: left;
+    }
+  }
+}
+.event-card > div {
+  align-items: center;
+  flex: 1;
+}

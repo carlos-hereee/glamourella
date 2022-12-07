@@ -6,11 +6,9 @@ import { GlamourellaContext } from "../utils/context/GlamourellaContext";
 const About = () => {
   const { about } = useContext(GlamourellaContext);
   return (
-    <main className="container">
-      <div className="card-container">
-        {about && about.map((a) => <EventCard data={a} key={a.uid} />)}
-        <FollowUs />
-      </div>
+    <main className="card-container">
+      {about && about.map((a) => <EventCard data={a} key={a.uid} />)}
+      <FollowUs />
     </main>
   );
 };
