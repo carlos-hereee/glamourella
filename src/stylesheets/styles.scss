@@ -96,15 +96,7 @@
     }
   }
 }
-.checkout-card {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  .card-header {
-    flex-direction: column;
-    justify-content: center;
-  }
-}
+
 .card-header {
   display: flex;
   // height: 100%;

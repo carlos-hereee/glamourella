@@ -4,16 +4,14 @@ import ReadMore from "./ReadMore";
 const CheckoutCard = ({ data }) => {
   return (
     <div className="checkout-card">
-      <div className="card-header">
+      <div className="checkout-title">
+        <h3>{data.type}</h3>
         <Photo data={data} />
-        <h2>{data.type}</h2>
+      </div>
+      <div className="checkout-description">
         <ReadMore data={data.description} lines={2} />
       </div>
-      <div className="card-body">
-        <p>Our next avalible appointment is ....</p>
-        <p>Price: ${data.cost}</p>
-        <button className="btn-primary">Book next appointment</button>
-      </div>
+      <button className="btn-checkout">Next availible appointment</button>
     </div>
   );
 };

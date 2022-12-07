@@ -4,6 +4,7 @@ import { Calendar } from "react-calendar";
 import { CalendarContext } from "../utils/context/CalendarContext";
 import Icons from "../component/atoms/Icons";
 import CalendarEvents from "../component/calendar/CalendarEvents";
+import BookingEvents from "../component/organisms/BookingEvents";
 
 const Booking = () => {
   const [value, onChange] = useState(null);
@@ -32,21 +33,20 @@ const Booking = () => {
   };
   return (
     <div className="container">
-      <main>
-        <Calendar
-          onChange={onChange}
-          value={value}
-          minDate={new Date()}
-          minDetail="month"
-          prev2Label={null}
-          next2Label={null}
-          navigationLabel={({ label }) => (
-            <h3>{label.charAt(0).toUpperCase() + label.slice(1)}</h3>
-          )}
-          showNeighboringMonth={false}
-          tileContent={({ date }) => tileContent(date)}
-        />
-      </main>
+      <BookingEvents />
+      <Calendar
+        onChange={onChange}
+        value={value}
+        minDate={new Date()}
+        minDetail="month"
+        prev2Label={null}
+        next2Label={null}
+        navigationLabel={({ label }) => (
+          <h3>{label.charAt(0).toUpperCase() + label.slice(1)}</h3>
+        )}
+        showNeighboringMonth={false}
+        tileContent={({ date }) => tileContent(date)}
+      />
       <CalendarEvents />
     </div>
   );

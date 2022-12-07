@@ -11,3 +11,31 @@
 .confirmation {
   height: 100%;
 }
+.booking-events {
+  background-color: #{$primary-text-color};
+  padding: 1rem;
+  border-radius: 4px;
+  width: 100%;
+  // max-height: 300px;
+  position: sticky;
+  top: 4rem;
+  z-index: 1;
+  overflow-y: scroll;
+}
+.checkout-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  border-bottom: dotted 1px #{$secondary-text-color};
+  .checkout-title {
+    float: left;
+    width: 45%;
+  }
+  .checkout-description {
+    width: 100%;
+  }
+  .photo-accessory {
+    height: 50px;
+    width: 50px;
+  }
+}
