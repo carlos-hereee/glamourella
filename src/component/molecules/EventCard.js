@@ -2,7 +2,7 @@ import Photo from "../atoms/Photo";
 
 const EventCard = ({ data }) => {
   return (
-    <div className="card event-card">
+    <div className="event-card">
       <div>
         <h3>{data.title}</h3>
       </div>

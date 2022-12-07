@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import { CalendarContext } from "../../utils/context/CalendarContext";
-import Empty from "../atoms/Empty";
 import Icons from "../atoms/Icons";
 import * as yup from "yup";
 import Forms from "../forms/Forms";
@@ -59,7 +58,7 @@ const CalendarEvents = () => {
                 </button>
               ))
             ) : (
-              <Empty />
+              <h4>All booked up, please come back tomorrow</h4>
             )}
           </div>
         </>

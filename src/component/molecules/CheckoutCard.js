@@ -1,7 +1,7 @@
 import Photo from "../atoms/Photo";
 import ReadMore from "./ReadMore";
 
-const CheckoutCard = ({ data }) => {
+const CheckoutCard = ({ data, handleClick }) => {
   return (
     <div className="checkout-card">
       <div className="checkout-title">
@@ -11,7 +11,9 @@ const CheckoutCard = ({ data }) => {
       <div className="checkout-description">
         <ReadMore data={data.description} lines={2} />
       </div>
-      <button className="btn-checkout">Find next availible appointment</button>
+      <button className="btn-checkout" onClick={() => handleClick(data)}>
+        Find next availible appointment
+      </button>
     </div>
   );
 };
