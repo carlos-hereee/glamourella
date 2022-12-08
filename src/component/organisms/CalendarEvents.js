@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { CalendarContext } from "../../utils/context/CalendarContext";
 import Icons from "../atoms/Icons";
 import * as yup from "yup";
-import Forms from "../forms/Forms";
+import Forms from "./Forms";
 
 const schema = yup.object().shape({
   name: yup.string().required("*Required field"),

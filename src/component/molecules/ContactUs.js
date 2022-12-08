@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import * as yup from "yup";
-import Forms from "../forms/Forms";
+import Forms from "../organisms/Forms";
 import { CalendarContext } from "../../utils/context/CalendarContext";
 import FollowUs from "./FollowUs";
 import { GlamourellaContext } from "../../utils/context/GlamourellaContext";

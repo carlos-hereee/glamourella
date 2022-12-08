@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import About from "./pages/About";
-import Account from "./component/organisms/Account";
+// import Account from "./component/template/Account";
 import Booking from "./pages/Booking";
 import Footer from "./pages/Footer";
 import Gallery from "./pages/Gallery";
@@ -9,8 +9,9 @@ import Landing from "./pages/Landing";
 import NotFound from "./pages/NotFound";
 import OauthCallback from "./pages/OauthCallback";
 import Services from "./pages/Services";
-import SignUp from "./component/organisms/SignUp";
+import SignUp from "./pages/SignUp";
 import Checkout from "./pages/Checkout";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/gallery" element={<Gallery />} />
-          <Route path="/account" element={<Account />} />
+          <Route path="/account" element={<Dashboard />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/check-out" element={<Checkout />} />
           <Route path="/oauth2callback" element={<OauthCallback />} />

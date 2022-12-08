@@ -1,4 +1,4 @@
-import Account from "../component/organisms/Account";
+import Account from "../component/template/Account";
 
 const Dashboard = () => {
   return (

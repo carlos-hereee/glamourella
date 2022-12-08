@@ -16,6 +16,12 @@ const CheckoutCard = ({ data, handleClick }) => {
       <button className="checkout-btn" onClick={() => handleClick(data)}>
         Find next availible appointment
       </button>
+      {
+        // TODO: REMOVE ITEM FROM CART
+      }
+      <button className="cancel-btn" onClick={() => handleClick(data)}>
+        x
+      </button>
     </div>
   );
 };

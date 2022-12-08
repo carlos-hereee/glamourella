@@ -3,13 +3,15 @@ import { useContext, useEffect, useState } from "react";
 import { Calendar } from "react-calendar";
 import { CalendarContext } from "../utils/context/CalendarContext";
 import Icons from "../component/atoms/Icons";
-import CalendarEvents from "../component/calendar/CalendarEvents";
+import CalendarEvents from "../component/organisms/CalendarEvents";
 import BookingEvents from "../component/organisms/BookingEvents";
+import { ServicesContext } from "../utils/context/ServicesContext";
 
 const Booking = () => {
   const [value, onChange] = useState(null);
   const { events, setDay, formatDate, isDateEqual } =
     useContext(CalendarContext);
+  const { cart } = useContext(ServicesContext);
 
   useEffect(() => {
     if (value) {
@@ -33,7 +35,7 @@ const Booking = () => {
   };
   return (
     <div className="container">
-      <BookingEvents />
+      {cart.length > 0 && <BookingEvents data={cart} />}
       <Calendar
         onChange={onChange}
         value={value}

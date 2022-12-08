@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import Forms from "../forms/Forms";
+import Forms from "../component/organisms/Forms";
 import { useContext } from "react";
-import { AuthContext } from "../../utils/context/AuthContext";
+import { AuthContext } from "../utils/context/AuthContext";
 
 const SignUp = () => {
   const { signUp, signUpValues, signUpSchema, signUpError } =
