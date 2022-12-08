@@ -5,12 +5,16 @@
   gap: 1rem;
 }
 .gallery-photo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
   padding: 1rem;
   flex: 1;
   min-width: 200px;
-  text-align: right;
-  position: relative;
-  overflow: hidden;
+  gap: 1rem;
   &:has(> .ribbon) {
     position: relative;
     border-color: #{$primary-shadow-color};
@@ -20,13 +24,13 @@
 }
 .photo {
   border-radius: 4px;
+  max-width: 30w;
+  max-height: 30vh;
   width: 100%;
 }
 .photo-accessory {
   border-radius: 1rem;
   max-height: 12rem;
   width: 100%;
-  @include devices(mobile) {
-    max-height: 8rem;
-  }
+  max-height: 30vh;
 }
