@@ -33,6 +33,9 @@ export const GlamourellaState = ({ children }) => {
       dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: error.response.data });
     }
   };
+  const updateBurger = (payload) => {
+    dispatch({ type: "UPDATE_BURGER", payload: payload });
+  };
 
   return (
     <GlamourellaContext.Provider
@@ -45,6 +48,7 @@ export const GlamourellaState = ({ children }) => {
         menu: state.menu,
         schedule: state.schedule,
         burgerOptions: state.burgerOptions,
+        updateBurger,
       }}>
       {children}
     </GlamourellaContext.Provider>

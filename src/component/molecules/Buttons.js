@@ -1,6 +1,6 @@
 import React from "react";
 import Icons from "../atoms/Icons";
-import NotificationCount from "../atoms/NotificationCount";
+import SetNotificationCount from "./SetNotificationCount";
 
 const Buttons = ({ name, handleClick, notification, size }) => {
   const n = name && name.toLowerCase();
@@ -10,12 +10,7 @@ const Buttons = ({ name, handleClick, notification, size }) => {
       <span className="icon-label">
         {name[0].toUpperCase() + name.substring(1)}
       </span>
-      {notification &&
-        (notification.length > 9 ? (
-          notification.map((n) => <NotificationCount num={n} />)
-        ) : (
-          <NotificationCount num={notification} />
-        ))}
+      <SetNotificationCount count={notification} />
     </button>
   );
 };

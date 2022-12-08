@@ -1,23 +1,21 @@
 import React from "react";
+import { useContext } from "react";
+import { GlamourellaContext } from "../../utils/context/GlamourellaContext";
 import Icons from "../atoms/Icons";
-import NotificationCount from "../atoms/NotificationCount";
+import SetNotificationCount from "../molecules/SetNotificationCount";
 
-const BurgerButton = ({ data, handleClick }) => {
+const BurgerButton = ({ handleClick }) => {
+  const { burgerOptions } = useContext(GlamourellaContext);
   return (
     <button
       type="button"
       onClick={handleClick}
-      className={`${data.name} btn-icons`}
+      className={`${burgerOptions.name} btn-icons`}
       aria-controls="primary-navigation"
-      aria-expanded={data.name === "x"}
+      aria-expanded={burgerOptions.name === "x"}
       aria-label="menu">
-      <Icons name={data.name.toLowerCase()} size="2x" />
-      {data.notification &&
-        (data.notification.length > 9 ? (
-          data.notification.map((n) => <NotificationCount num={n} />)
-        ) : (
-          <NotificationCount num={data.notification} />
-        ))}
+      <Icons name={burgerOptions.name.toLowerCase()} size="2x" />
+      <SetNotificationCount count={burgerOptions.notification} />
     </button>
   );
 };

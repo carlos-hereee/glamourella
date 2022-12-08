@@ -1,26 +1,22 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useReducer } from "react";
-import { useRef } from "react";
+import { useReducer, useRef } from "react";
 import { useContext, useEffect, useState } from "react";
 import BurgerButton from "../component/organisms/BugerButton";
 import Logo from "../component/atoms/Logo";
 import Navlink from "../component/molecules/Navlink";
-import { GalleryContext } from "../utils/context/GalleryContext";
 import { GlamourellaContext } from "../utils/context/GlamourellaContext";
 import { ServicesContext } from "../utils/context/ServicesContext";
 import { reducer } from "../utils/reducers/GlamourellaReducer";
 
 const Header = () => {
-  const [active, setActive] = useState(false);
+  const [isActive, setActive] = useState(false);
   const [isClose, setClose] = useState(false);
-  const [notification, setNotification] = useState(0);
   const navRef = useRef(null);
   const { cart } = useContext(ServicesContext);
-  const { menu, burgerOptions } = useContext(GlamourellaContext);
+  const { menu, updateBurger } = useContext(GlamourellaContext);
 
   // eslint-disable-next-line no-unused-vars
   const [_, dispatch] = useReducer(reducer);
-  const getIdx = (n) => menu.findIndex((m) => m.name === n);
   useEffect(() => {
     const endAnimation = () => setClose(true);
     // TODO: close navigation is clicks outside container
@@ -38,28 +34,30 @@ const Header = () => {
     };
   }, []);
   useEffect(() => {
-    if (cart.length) {
-      let newArr = [...menu];
-      let count = 0;
-      count += cart.length;
-      // find index of booking
-      const idx = getIdx("booking");
-      newArr[idx].notification = cart.length;
-      dispatch({ type: "UPDATE_MENU", payload: newArr });
-      setNotification(count);
-    }
-  }, [cart]);
-  const handleClick = () => setActive(!active);
+    console.log("cart.length", cart.length);
+    let menuPayload = [...menu];
+    const bookingIdx = menuPayload.findIndex((i) => i.name === "booking");
+    menuPayload[bookingIdx].notification = cart.length;
+    const burgerPayload = {
+      name: isActive ? "x" : "burger",
+      notification: cart.length,
+    };
+    dispatch({ type: "UPDATE_MENU", payload: menuPayload });
+    updateBurger(burgerPayload);
+  }, [cart, isActive]);
+  const handleClick = () => {
+    setActive(!isActive);
+  };
 
   return (
     <header>
       <Logo />
       <nav className="primary-navigation">
-        <BurgerButton data={burgerOptions} handleClick={handleClick} />
+        <BurgerButton handleClick={handleClick} />
         <ul
           ref={navRef}
           className="navigation"
-          data-state={active ? "open" : isClose ? "closing" : "close"}>
+          data-state={isActive ? "open" : isClose ? "closing" : "close"}>
           {menu.map((m) => (
             <Navlink data={m} key={m.uid} handleClick={handleClick} />
           ))}
