@@ -11,6 +11,7 @@ const loadContent = (state, action) => {
     socials: action.payload.socials,
     about: action.payload.about,
     services: action.payload.services,
+    schedule: action.payload.schedule,
   };
 };
 const updateMenu = (state, action) => {

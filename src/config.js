@@ -99,4 +99,22 @@ export const glamourella = {
         "Your nail will be professionally shaped and filed,  cuticle trimmer. Followed by lotion massage and finish with a nail buff or polish.",
     },
   ],
+  schedule: [
+    { day: "Monday", hours: "9:30am - 6:30pm", key: shortid.generate() },
+    { day: "Tuesday", hours: "9:30am - 6:30pm", key: shortid.generate() },
+    { day: "Wednesday", hours: "9:30am - 6:30pm", key: shortid.generate() },
+    { day: "Thursday", hours: "9:30am - 6:30pm", key: shortid.generate() },
+    { day: "Friday", hours: "9:30am - 6:30pm", key: shortid.generate() },
+    { day: "Saturday", hours: "9:30am - 6:30pm", key: shortid.generate() },
+    { day: "Sunday", hours: "9:30am - 6:30pm", key: shortid.generate() },
+  ],
+  menu: [
+    { name: "home", uid: shortid.generate() },
+    { name: "about", uid: shortid.generate() },
+    { name: "services", uid: shortid.generate() },
+    { name: "booking", uid: shortid.generate() },
+    { name: "gallery", uid: shortid.generate() },
+    { name: "check-out", uid: shortid.generate() },
+    { name: "account", uid: shortid.generate() },
+  ],
 };

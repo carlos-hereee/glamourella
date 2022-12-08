@@ -1,7 +1,7 @@
 const BusinessHours = ({ data }) => {
   return (
-    <section className="card">
-      <h3>Business Hours</h3>
+    <div>
+      <h4>Business Hours</h4>
       <table className="responsive-table">
         <thead>
           <tr className="table-header">
@@ -20,7 +20,7 @@ const BusinessHours = ({ data }) => {
           ))}
         </tbody>
       </table>
-    </section>
+    </div>
   );
 };
 

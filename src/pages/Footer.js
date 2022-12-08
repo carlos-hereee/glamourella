@@ -2,23 +2,17 @@ import Logo from "../component/atoms/Logo";
 import BusinessHours from "../component/molecules/BusinessHours";
 import shortid from "shortid";
 import ContactUs from "../component/molecules/ContactUs";
+import { useContext } from "react";
+import { GlamourellaContext } from "../utils/context/GlamourellaContext";
 
 const Footer = () => {
-  const schedule = [
-    { day: "Monday", hours: "9:30am - 6:30pm", key: shortid.generate() },
-    { day: "Tuesday", hours: "9:30am - 6:30pm", key: shortid.generate() },
-    { day: "Wednesday", hours: "9:30am - 6:30pm", key: shortid.generate() },
-    { day: "Thursday", hours: "9:30am - 6:30pm", key: shortid.generate() },
-    { day: "Friday", hours: "9:30am - 6:30pm", key: shortid.generate() },
-    { day: "Saturday", hours: "9:30am - 6:30pm", key: shortid.generate() },
-    { day: "Sunday", hours: "9:30am - 6:30pm", key: shortid.generate() },
-  ];
+  const { schedule } = useContext(GlamourellaContext);
   return (
     <footer>
-      <div>
+      <section className="card">
         <Logo />
         <BusinessHours data={schedule} />
-      </div>
+      </section>
       <ContactUs />
     </footer>
   );

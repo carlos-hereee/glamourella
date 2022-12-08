@@ -16,8 +16,7 @@ const Header = () => {
   const [notification, setNotification] = useState(0);
   const navRef = useRef(null);
   const { cart } = useContext(ServicesContext);
-  const { checkout } = useContext(GalleryContext);
-  const { menu } = useContext(GlamourellaContext);
+  const { menu, burgerOptions } = useContext(GlamourellaContext);
 
   // eslint-disable-next-line no-unused-vars
   const [_, dispatch] = useReducer(reducer);
@@ -41,7 +40,7 @@ const Header = () => {
   useEffect(() => {
     if (cart.length) {
       let newArr = [...menu];
-      let count = checkout.length || 0;
+      let count = 0;
       count += cart.length;
       // find index of booking
       const idx = getIdx("booking");
@@ -49,26 +48,14 @@ const Header = () => {
       dispatch({ type: "UPDATE_MENU", payload: newArr });
       setNotification(count);
     }
-    if (checkout.length) {
-      let count = cart.length || 0;
-      count += checkout.length;
-      let newArr = [...menu];
-      const idx = getIdx("check-out");
-      newArr[idx].notification = checkout.length;
-      dispatch({ type: "UPDATE_MENU", payload: newArr });
-      setNotification(count);
-    }
-  }, [cart, checkout]);
+  }, [cart]);
   const handleClick = () => setActive(!active);
 
   return (
     <header>
       <Logo />
       <nav className="primary-navigation">
-        <BurgerButton
-          data={{ name: active ? "x" : "burger", notification }}
-          handleClick={handleClick}
-        />
+        <BurgerButton data={burgerOptions} handleClick={handleClick} />
         <ul
           ref={navRef}
           className="navigation"

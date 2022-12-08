@@ -52,7 +52,7 @@
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 1rem;
-  padding: 1rem;
+  // padding: 1rem;
   @include devices(mobile) {
     .card {
       width: 100%;
@@ -87,6 +87,7 @@
   background-color: #{$primary-text-color};
   padding: 1rem;
   border-radius: 4px;
+  min-width: 200px;
   gap: 1rem;
   box-shadow: 0 1px 5px 1px #{$secondary-shadow-color};
   &:has(> .ribbon) {

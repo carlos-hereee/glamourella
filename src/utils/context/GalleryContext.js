@@ -10,7 +10,6 @@ export const GalleryState = ({ children }) => {
     filteredGallery: [],
     gallery: [],
     log: [],
-    checkout: [],
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   useEffect(() => {
@@ -50,7 +49,6 @@ export const GalleryState = ({ children }) => {
         isLoading: state.isLoading,
         isFiltered: state.isFiltered,
         filteredGallery: state.filteredGallery,
-        checkout: state.checkout,
         filterGallery,
         addToCart,
       }}>
