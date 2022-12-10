@@ -26,7 +26,7 @@ function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/account" element={<Dashboard />} />
           <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/check-out" element={<Checkout />} />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="/oauth2callback" element={<OauthCallback />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>

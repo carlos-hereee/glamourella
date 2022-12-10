@@ -6,24 +6,25 @@ import { isDev } from "../../config";
 export const UserContext = createContext();
 
 export const UserState = ({ children }) => {
-  const initialState = { isLoading: true, user: {}, booked: [], log: [] };
+  const initialState = { isLoading: false, user: {}, booked: [], log: [] };
   const [state, dispatch] = useReducer(reducer, initialState);
   const { accessToken } = useContext(AuthContext);
 
   useEffect(() => {
     if (accessToken) {
       getUserData();
-    } else clearUserData();
+    }
   }, [accessToken]);
 
-  const clearUserData = async () => {
-    dispatch({ type: "IS_LOADING", payload: true });
-    dispatch({ type: "UPDATE_USER_DATA", payload: "" });
-  };
+  // const clearUserData = async () => {
+  //   dispatch({ type: "IS_LOADING", payload: true });
+  //   dispatch({ type: "UPDATE_USER_DATA", payload: "" });
+  // };
   const getUserData = async () => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
       const { data } = await axiosWithAuth.get("/users");
+      console.log("data", data);
       dispatch({ type: "UPDATE_USER_DATA", payload: data });
     } catch (e) {
       const { data, status } = e.response;

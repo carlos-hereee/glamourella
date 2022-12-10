@@ -36,6 +36,7 @@ export const AuthState = (props) => {
   const getAccessToken = async () => {
     try {
       const { data } = await axiosWithAuth.post("/users/refresh-token");
+      console.log("data", data);
       dispatch({ type: "SIGNIN_SUCCESS", payload: data });
     } catch (err) {
       const { status, data } = err.response;

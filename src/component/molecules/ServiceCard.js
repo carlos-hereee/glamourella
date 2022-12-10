@@ -12,9 +12,6 @@ const ServiceCard = ({ data, handleClick }) => {
           <h3>{data.name}</h3>
           <p>{data.description}</p>
         </div>
-        <p>
-          Cost: ${data.cost} for {data.length}
-        </p>
         <button
           type="button"
           onClick={() => handleClick(data)}

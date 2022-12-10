@@ -39,7 +39,7 @@ const svg = {
   booking: faCalendarAlt,
   gallery: faImage,
   "contact us": faEnvelope,
-  "check out": faShoppingCart,
+  checkout: faShoppingCart,
   pricing: faUsd,
   check: faCheckCircle,
   uncheck: faCircle,

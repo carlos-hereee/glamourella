@@ -114,7 +114,7 @@ export const glamourella = {
     { name: "services", uid: shortid.generate() },
     { name: "booking", uid: shortid.generate() },
     { name: "gallery", uid: shortid.generate() },
-    { name: "check-out", uid: shortid.generate() },
+    { name: "checkout", uid: shortid.generate() },
     { name: "account", uid: shortid.generate() },
   ],
 };
