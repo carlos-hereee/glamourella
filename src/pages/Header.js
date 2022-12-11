@@ -7,12 +7,15 @@ import Navlink from "../component/molecules/Navlink";
 import { GlamourellaContext } from "../utils/context/GlamourellaContext";
 import { ServicesContext } from "../utils/context/ServicesContext";
 import { reducer } from "../utils/reducers/GlamourellaReducer";
+import { UserContext } from "../utils/context/UserContext";
+import { Navigate } from "react-router-dom";
 
 const Header = () => {
   const [isActive, setActive] = useState(false);
   const [isClose, setClose] = useState(false);
   const navRef = useRef(null);
   const { cart } = useContext(ServicesContext);
+  const { user } = useContext(UserContext);
   const { menu, updateBurger } = useContext(GlamourellaContext);
 
   // eslint-disable-next-line no-unused-vars
@@ -34,7 +37,7 @@ const Header = () => {
     };
   }, []);
   useEffect(() => {
-    console.log("cart.length", cart.length);
+    // console.log("cart.length", cart.length);
     let menuPayload = [...menu];
     const bookingIdx = menuPayload.findIndex((i) => i.name === "booking");
     menuPayload[bookingIdx].notification = cart.length;
@@ -44,10 +47,15 @@ const Header = () => {
     };
     dispatch({ type: "UPDATE_MENU", payload: menuPayload });
     updateBurger(burgerPayload);
+    // if ()
+    // if (user.isAdmin) {
+    //   <Navigate to="/admin-dashboard" replace />;
+    // }
   }, [cart, isActive]);
   const handleClick = () => {
     setActive(!isActive);
   };
+  // useEffect(() => {}, []);
 
   return (
     <header>

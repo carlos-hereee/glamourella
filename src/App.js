@@ -12,6 +12,7 @@ import Services from "./pages/Services";
 import SignUp from "./pages/SignUp";
 import Checkout from "./pages/Checkout";
 import Dashboard from "./pages/Dashboard";
+import AdminDashboard from "./pages/AdminDashboard";
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/gallery" element={<Gallery />} />
-          <Route path="/account" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/oauth2callback" element={<OauthCallback />} />

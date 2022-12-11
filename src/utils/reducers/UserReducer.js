@@ -15,6 +15,7 @@ const updateUserData = (state, action) => {
   return {
     ...state,
     user: action.payload,
+    isAdmin: action.payload.isAdmin,
     isLoading: false,
   };
 };
