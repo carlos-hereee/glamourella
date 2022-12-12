@@ -41,9 +41,9 @@ export const glamourella = {
     {
       uid: shortid.generate(),
       type: "pedicure",
-      src:
-        process.env.REACT_APP_DB_URL +
-        "gallery/photo/?path=assets/pedicure/billie-unsplash.jpg",
+      // src:
+      //   process.env.REACT_APP_DB_URL +
+      //   "gallery/photo/?path=assets/pedicure/billie-unsplash.jpg",
       name: "classic ",
       length: "30 minutes",
       cost: 25,
@@ -53,9 +53,9 @@ export const glamourella = {
     {
       uid: shortid.generate(),
       type: "pedicure",
-      src:
-        process.env.REACT_APP_DB_URL +
-        "gallery/photo/?path=assets/pedicure/billie-unsplash.jpg",
+      // src:
+      //   process.env.REACT_APP_DB_URL +
+      //   "gallery/photo/?path=assets/pedicure/billie-unsplash.jpg",
       name: "REFRESHER ",
       length: "45 minutes",
       cost: 35,
@@ -65,9 +65,9 @@ export const glamourella = {
     {
       uid: shortid.generate(),
       type: "manicure",
-      src:
-        process.env.REACT_APP_DB_URL +
-        "gallery/photo/?path=assets/manicure/rashid-khreiss-unsplash.jpg",
+      // src:
+      //   process.env.REACT_APP_DB_URL +
+      //   "gallery/photo/?path=assets/manicure/rashid-khreiss-unsplash.jpg",
       name: "classic ",
       length: "20 minutes",
       cost: 15,
@@ -77,9 +77,9 @@ export const glamourella = {
     {
       uid: shortid.generate(),
       type: "manicure",
-      src:
-        process.env.REACT_APP_DB_URL +
-        "gallery/photo/?path=assets/manicure/bryony-elena-unsplash.jpg",
+      // src:
+      //   process.env.REACT_APP_DB_URL +
+      //   "gallery/photo/?path=assets/manicure/bryony-elena-unsplash.jpg",
       name: "refresher ",
       length: "30 minutes",
       cost: 25,
@@ -89,9 +89,9 @@ export const glamourella = {
     {
       uid: shortid.generate(),
       type: "manicure",
-      src:
-        process.env.REACT_APP_DB_URL +
-        "gallery/photo/?path=assets/manicure/kris-atomic-unsplash.jpg",
+      // src:
+      //   process.env.REACT_APP_DB_URL +
+      //   "gallery/photo/?path=assets/manicure/kris-atomic-unsplash.jpg",
       name: "paris signature ",
       length: "56 minutes",
       cost: 29,

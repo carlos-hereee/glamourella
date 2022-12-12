@@ -104,7 +104,11 @@
     }
   }
 }
-
+.card-admin {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
 .card-header {
   display: flex;
 }

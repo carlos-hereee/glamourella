@@ -22,7 +22,7 @@ export const GlamourellaState = ({ children }) => {
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   useEffect(() => {
-    getAssets();
+    // getAssets();
   }, []);
   const getAssets = async () => {
     try {

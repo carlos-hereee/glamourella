@@ -48,7 +48,7 @@ export const AuthState = (props) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
       const { data } = await axiosWithAuth.post("/users/register", values);
-      console.log("data", data);
+      // console.log("data", data);
       dispatch({ type: "SIGNUP_SUCCESS", payload: data });
     } catch (error) {
       const { data, status } = error.response;

@@ -7,15 +7,14 @@ import Navlink from "../component/molecules/Navlink";
 import { GlamourellaContext } from "../utils/context/GlamourellaContext";
 import { ServicesContext } from "../utils/context/ServicesContext";
 import { reducer } from "../utils/reducers/GlamourellaReducer";
-import { UserContext } from "../utils/context/UserContext";
-import { Navigate } from "react-router-dom";
+// import { UserContext } from "../utils/context/UserContext";
 
 const Header = () => {
   const [isActive, setActive] = useState(false);
   const [isClose, setClose] = useState(false);
   const navRef = useRef(null);
   const { cart } = useContext(ServicesContext);
-  const { user } = useContext(UserContext);
+  // const { user } = useContext(UserContext);
   const { menu, updateBurger } = useContext(GlamourellaContext);
 
   // eslint-disable-next-line no-unused-vars

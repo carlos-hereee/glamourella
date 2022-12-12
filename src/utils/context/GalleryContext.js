@@ -13,7 +13,7 @@ export const GalleryState = ({ children }) => {
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   useEffect(() => {
-    getAllAssets();
+    // getAllAssets();
   }, []);
   const getAllAssets = async () => {
     dispatch({ type: "IS_LOADING", payload: true });

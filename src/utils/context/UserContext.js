@@ -30,7 +30,7 @@ export const UserState = ({ children }) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
       const { data } = await axiosWithAuth.get("/users");
-      console.log("data", data);
+      // console.log("data", data);
       dispatch({ type: "UPDATE_USER_DATA", payload: data });
     } catch (e) {
       const { data, status } = e.response;
