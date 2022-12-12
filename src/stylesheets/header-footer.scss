@@ -9,17 +9,19 @@ header {
   position: sticky;
   top: 0;
   z-index: 2;
+  .header-title {
+    display: flex;
+    justify-content: flex-start;
+  }
 }
 .primary-navigation {
   position: relative;
   .navigation {
-    display: flex;
     flex-direction: column;
     justify-content: space-around;
     position: absolute;
     list-style: none;
     background-color: #{$primary-bg-color-hover};
-    width: 100%;
     border-radius: 4px;
     padding: 1rem;
     gap: 1rem;
@@ -43,10 +45,12 @@ header {
   display: flex;
   align-items: flex-start;
   background-color: #{$secondary-bg-color};
-  border-radius: 4px;
-  padding: 1rem;
+  padding: 1rem 0.5rem;
   .list {
     overflow-y: auto;
+  }
+  .nav-link {
+    padding: 0;
   }
 }
 .card-secondary {

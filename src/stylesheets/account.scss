@@ -6,3 +6,21 @@
     text-decoration: none;
   }
 }
+.admin-container {
+  background-color: #{$primary-text-color};
+  display: flex;
+  gap: 1rem;
+}
+.app-body:has(.admin-container) {
+  padding: 1rem 0;
+}
+.admin-content {
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .list-item {
+    flex: none;
+    width: 100%;
+  }
+}
