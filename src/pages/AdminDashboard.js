@@ -92,7 +92,7 @@ const AdminDashboard = () => {
             ))}
           </ul>
         </nav>
-        <div className="">
+        <div className="card-secondary">
           <h3>My schedule</h3>
           {schedule.length > 0 &&
             schedule.map((s) => (

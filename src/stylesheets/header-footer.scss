@@ -19,6 +19,7 @@ header {
     position: absolute;
     list-style: none;
     background-color: #{$primary-bg-color-hover};
+    width: 100%;
     border-radius: 4px;
     padding: 1rem;
     gap: 1rem;
@@ -39,8 +40,17 @@ header {
   }
 }
 .secondary-navigation {
+  display: flex;
+  align-items: flex-start;
   background-color: #{$secondary-bg-color};
   border-radius: 4px;
+  padding: 1rem;
+  .list {
+    overflow-y: auto;
+  }
+}
+.card-secondary {
+  width: 100%;
   padding: 1rem;
 }
 
