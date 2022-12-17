@@ -4,8 +4,8 @@ header {
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem;
-  background-color: #{$secondary-bg-color};
-  border-bottom: 1px solid #{$secondary-bg-color-hover};
+  background-color: #{$secondary-color};
+  border-bottom: 1px solid #{$secondary-color2};
   position: sticky;
   top: 0;
   z-index: 2;
@@ -21,7 +21,7 @@ header {
     justify-content: space-around;
     position: absolute;
     list-style: none;
-    background-color: #{$primary-bg-color-hover};
+    background-color: #{$primary-color2};
     border-radius: 4px;
     padding: 1rem;
     gap: 1rem;
@@ -44,7 +44,7 @@ header {
 .secondary-navigation {
   display: flex;
   align-items: flex-start;
-  background-color: #{$secondary-bg-color};
+  background-color: #{$secondary-color};
   padding: 1rem 0.5rem;
   .list {
     overflow-y: auto;
@@ -77,10 +77,10 @@ header {
   justify-content: center;
   padding: 0.5rem;
   width: 100%;
-  background-color: #{$primary-bg-color-hover};
+  background-color: #{$primary-color2};
   border-radius: 4px;
   &:hover {
-    background-color: #{$primary-bg-color};
+    background-color: #{$primary-color};
   }
 }
 .notification-count {
@@ -90,7 +90,7 @@ header {
   align-items: center;
   justify-content: center;
   background-color: #{$danger};
-  color: #{$primary-text-color};
+  color: #{$primary-color};
   border-radius: 50%;
   padding: 0.35rem;
 }
@@ -99,8 +99,8 @@ footer {
   align-items: flex-start;
   justify-content: space-around;
   flex-wrap: wrap;
-  background-color: #{$secondary-bg-color};
-  border-top: 1px solid #{$secondary-bg-color-hover};
+  background-color: #{$secondary-color};
+  border-top: 1px solid #{$secondary-color2};
   padding: 1rem;
   gap: 1rem;
 }

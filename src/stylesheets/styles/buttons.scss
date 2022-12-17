@@ -1,0 +1,50 @@
+.btn-primary {
+  background-color: #{$primary-color};
+  color: #{$text-color};
+  flex: 1;
+  box-shadow: 0 0 3px 0px #{$shadow-color2};
+  &:hover {
+    background-color: #{$primary-color2};
+    color: #{$text-color};
+  }
+  &:disabled {
+    background-color: #{$primary-color3};
+    color: #{$text-color};
+  }
+  &:focus {
+    background-color: #{$primary-color2};
+    color: #{$text-color};
+  }
+}
+.btn-secondary {
+  box-shadow: none;
+  position: absolute;
+  background-color: #{$third-color};
+  color: #{$text-color};
+  right: 0;
+  padding: 1rem;
+  bottom: 3rem;
+  &:hover {
+    background-color: #{$secondary-color};
+    color: #{$text-color};
+  }
+  &:disabled {
+    background-color: #{$secondary-color2};
+    color: #{$text-color};
+  }
+  &:focus {
+    background-color: #{$secondary-color};
+    color: #{$text-color};
+  }
+}
+.btn-icons {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  position: relative;
+  background-color: #{$secondary-color2};
+  .notification-count {
+    top: -0.5rem;
+    right: -0.5rem;
+  }
+}

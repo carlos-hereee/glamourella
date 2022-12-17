@@ -17,9 +17,9 @@
   gap: 1rem;
   &:has(> .ribbon) {
     position: relative;
-    border-color: #{$primary-shadow-color};
-    box-shadow: 0 1px 5px 1px #{$primary-shadow-color};
-    color: #{$primary-shadow-color};
+    border-color: #{$shadow-color};
+    box-shadow: 0 1px 5px 1px #{$shadow-color};
+    color: #{$shadow-color};
   }
 }
 .photo {

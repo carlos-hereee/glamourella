@@ -7,7 +7,9 @@ const Dashboard = () => {
   const { isAdmin, user } = useContext(UserContext);
   const navigate = useNavigate();
   useEffect(() => {
-    navigate("/admin-dashboard");
+    if (isAdmin) {
+      navigate("/admin-dashboard");
+    }
   }, [isAdmin]);
   return <Account />;
 };

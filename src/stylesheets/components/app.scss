@@ -13,20 +13,22 @@ span {
 }
 .App {
   max-width: 1200px;
-  background-color: $primary-bg-color;
+  background-color: $primary-color;
   line-height: normal;
   margin: auto;
 }
 .app-body {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+  margin: auto;
   padding: 1rem;
   gap: 1rem;
 }
 button {
-  background-color: #{$secondary-bg-color-hover};
-  color: #{$primary-text-color};
-  box-shadow: 0 1px 5px 1px #{$secondary-shadow-color};
+  background-color: #{$secondary-color2};
+  color: #{$primary-color};
+  box-shadow: 0 1px 5px 1px #{$shadow-color};
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
@@ -36,12 +38,12 @@ button {
   flex: 1;
   cursor: pointer;
   &:hover {
-    background-color: #{$secondary-bg-color};
-    color: #{$primary-text-color};
+    background-color: #{$secondary-color};
+    color: #{$primary-color};
   }
   &:focus {
-    background-color: #{$secondary-bg-color};
-    color: #{$primary-text-color};
+    background-color: #{$secondary-color};
+    color: #{$primary-color};
   }
   &:disabled {
     cursor: not-allowed;

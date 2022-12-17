@@ -12,7 +12,7 @@ import { reducer } from "../utils/reducers/GlamourellaReducer";
 const Header = () => {
   const [isActive, setActive] = useState(false);
   const [isClose, setClose] = useState(false);
-  const navRef = useRef(null);
+  // const navRef = useRef(null);
   const { cart } = useContext(ServicesContext);
   // const { user } = useContext(UserContext);
   const { menu, updateBurger } = useContext(GlamourellaContext);
@@ -60,9 +60,8 @@ const Header = () => {
     <header>
       <Logo />
       <nav className="primary-navigation">
-        <BurgerButton handleClick={handleClick} />
+        <BurgerButton isBurger={isActive} handleClick={handleClick} />
         <ul
-          ref={navRef}
           className="navigation"
           data-state={isActive ? "open" : isClose ? "closing" : "close"}>
           {menu.map((m) => (

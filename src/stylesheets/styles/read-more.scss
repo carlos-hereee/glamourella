@@ -1,0 +1,40 @@
+.read-more {
+  --max-lines: 2;
+  --line-height: 1.4;
+  max-height: calc(var(--max-lines) * 1em * var(--line-height));
+  line-height: var(--line-height);
+  position: relative;
+  overflow: hidden;
+  &:has(+ .read-more-toggle:not(:checked))::before {
+    content: "";
+    position: absolute;
+    height: calc(1em * var(--line-height));
+    width: 100%;
+    bottom: 0;
+    pointer-events: none;
+    background: linear-gradient(to bottom, transparent, white);
+  }
+  &:has(+ .read-more-toggle:checked) {
+    max-height: none;
+  }
+}
+.read-more-toggle {
+  color: #{$text-color};
+  appearance: none;
+  cursor: pointer;
+  text-align: right;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  &::before {
+    content: "Read More";
+  }
+  &:checked::before {
+    content: "Collapse";
+  }
+}
+.message-success {
+  border-radius: 4px;
+  padding: 1rem;
+  color: #{$text-color};
+  background-color: #{$primary-color2};
+}

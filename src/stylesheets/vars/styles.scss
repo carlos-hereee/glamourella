@@ -1,0 +1,187 @@
+// .btn-primary {
+//   background-color: #{$third-color2};
+//   color: #{$text-color2};
+//   flex: 1;
+//   &:hover {
+//     background-color: #{$active-bg-color};
+//     color: #{$text-color2};
+//   }
+//   &:disabled {
+//     background-color: #{$third-color2};
+//     color: #{$text-color2};
+//   }
+//   &:focus {
+//     background-color: #{$third-color2};
+//     color: #{$text-color2};
+//   }
+// }
+// .btn-secondary {
+//   // box-shadow: none;
+//   position: absolute;
+//   background-color: #{$active-bg-color};
+//   color: #{$text-color2};
+//   right: 0;
+//   padding: 1rem;
+//   bottom: 3rem;
+//   &:hover {
+//     background-color: #{$active-bg-color};
+//     color: #{$text-color2};
+//   }
+//   &:disabled {
+//     background-color: #{$third-color2};
+//     color: #{$text-color2};
+//   }
+//   &:focus {
+//     background-color: #{$third-color2};
+//     color: #{$text-color2};
+//   }
+// }
+// .btn-icons {
+//   display: flex;
+//   flex-direction: row;
+//   gap: 1rem;
+//   position: relative;
+//   .notification-count {
+//     top: -0.5rem;
+//     right: -0.5rem;
+//   }
+// }
+
+// .container {
+//   display: flex;
+//   justify-content: space-around;
+//   flex-wrap: wrap;
+//   gap: 1rem;
+//   // padding: 1rem;
+//   @include devices(mobile) {
+//     .card {
+//       width: 100%;
+//     }
+//   }
+// }
+// .ribbon {
+//   position: absolute;
+//   top: 0.3rem;
+//   right: -2.5rem;
+//   rotate: 35deg;
+//   background-color: purple;
+//   border: 1px solid white;
+//   color: white;
+//   padding: 0.25rem 4rem;
+// }
+// .card-container {
+//   display: flex;
+//   flex-wrap: wrap;
+//   flex-direction: column;
+//   justify-content: center;
+//   gap: 1rem;
+//   background-color: #{$primary-color};
+//   padding: 1rem;
+//   border-radius: 4px;
+// }
+// .card {
+//   flex: 1;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   overflow: hidden;
+//   background-color: #{$primary-color};
+//   padding: 1rem;
+//   border-radius: 4px;
+//   min-width: 200px;
+//   max-width: 600px;
+//   gap: 1rem;
+//   box-shadow: 0 1px 5px 1px #{$shadow-color};
+//   &:has(> .ribbon) {
+//     position: relative;
+//     border-color: #{$shadow-color};
+//     box-shadow: 0 1px 5px 1px #{$shadow-color};
+//     color: #{$shadow-color};
+//   }
+//   &:has(> .card-body) {
+//     .card-body {
+//       height: 100%;
+//     }
+//   }
+// }
+// .card-header {
+//   display: flex;
+// }
+// .card-body {
+//   display: flex;
+//   flex-direction: column;
+//   max-height: 15rem;
+//   &:has(> .btn-primary) {
+//     justify-content: space-between;
+//     .btn-primary {
+//       flex: none;
+//     }
+//   }
+// }
+// .card-footer {
+//   width: 100%;
+//   margin: auto;
+// }
+// .read-more {
+//   --max-lines: 2;
+//   --line-height: 1.4;
+//   max-height: calc(var(--max-lines) * 1em * var(--line-height));
+//   line-height: var(--line-height);
+//   position: relative;
+//   overflow: hidden;
+//   &:has(+ .read-more-toggle:not(:checked))::before {
+//     content: "";
+//     position: absolute;
+//     height: calc(1em * var(--line-height));
+//     width: 100%;
+//     bottom: 0;
+//     pointer-events: none;
+//     background: linear-gradient(to bottom, transparent, white);
+//   }
+//   &:has(+ .read-more-toggle:checked) {
+//     max-height: none;
+//   }
+// }
+// .read-more-toggle {
+//   color: #{$active-text-color};
+//   appearance: none;
+//   cursor: pointer;
+//   text-align: right;
+//   padding: 0.5rem;
+//   border-radius: 0.25rem;
+//   &::before {
+//     content: "Read More";
+//   }
+//   &:checked::before {
+//     content: "Collapse";
+//   }
+// }
+// .message-success {
+//   border-radius: 4px;
+//   padding: 1rem;
+//   color: #{$primary-color-hover};
+//   background-color: #{$third-color2};
+// }
+
+// $primary-color: #fae7eb;
+// $primary-color2: #f2d7e8;
+// $secondary-color: #d8bbd3;
+// $secondary-color2: #b58ebc;
+// $active-bg-color: #feef7b;
+// $third-color2: #d3c454;
+// // text color
+// $active-text-color: #459be2;
+// $primary-color: white;
+// $primary-color-hover: #333;
+// $primary-color5: gray;
+// $text-color2: #333;
+// $text-color2-hover: white;
+// // box shadow color
+// $shadow-color: purple;
+// $shadow-color: #bb96c2;
+// // // readmore lines
+// $max-lines: 2;
+// $line-height: 1.4;
+// //  media queries
+// $table: 680px;
+// $mobile: 501px;
