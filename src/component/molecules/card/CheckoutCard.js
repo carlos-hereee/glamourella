@@ -1,5 +1,5 @@
-import Photo from "../atoms/Photo";
-import ReadMore from "./ReadMore";
+import Photo from "../../atoms/Photo";
+import ReadMore from "../ReadMore";
 
 const CheckoutCard = ({ data, handleClick }) => {
   return (

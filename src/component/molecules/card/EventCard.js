@@ -1,4 +1,4 @@
-import Photo from "../atoms/Photo";
+import Photo from "../../atoms/Photo";
 
 const EventCard = ({ data }) => {
   return (

@@ -47,18 +47,18 @@
 //   }
 // }
 
-// .container {
-//   display: flex;
-//   justify-content: space-around;
-//   flex-wrap: wrap;
-//   gap: 1rem;
-//   // padding: 1rem;
-//   @include devices(mobile) {
-//     .card {
-//       width: 100%;
-//     }
-//   }
-// }
+.container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+  // padding: 1rem;
+  @include devices(mobile) {
+    .card {
+      width: 100%;
+    }
+  }
+}
 // .ribbon {
 //   position: absolute;
 //   top: 0.3rem;

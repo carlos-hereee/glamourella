@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import CheckoutCard from "../component/molecules/CheckoutCard";
+import CheckoutCard from "../component/molecules/card/CheckoutCard";
 import { ServicesContext } from "../utils/context/ServicesContext";
 import CustomLink from "../component/atoms/CustomLink";
 

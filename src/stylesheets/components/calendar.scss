@@ -23,11 +23,12 @@
   color: #{$primary-color};
   box-shadow: none;
   &:hover {
-    background-color: #{$third-color2};
+    background-color: #{$third-color};
+    color: #{$text-color3};
   }
   &:disabled {
     background-color: #{$secondary-color};
-    color: #{$primary-color5};
+    color: #{$text-color2};
     cursor: not-allowed;
   }
   .match {
