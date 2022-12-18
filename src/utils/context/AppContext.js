@@ -1,5 +1,5 @@
+// import { useEffect } from "react";
 import React, { createContext, useReducer } from "react";
-import { useEffect } from "react";
 import { axiosWithAuth } from "../axios";
 import { reducer } from "../reducers/GlamourellaReducer";
 import { glamourella } from "../../config";

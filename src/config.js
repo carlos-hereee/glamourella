@@ -30,7 +30,7 @@ export const glamourella = {
     sections: [
       {
         title: "Why choose Glamourella?",
-        description: lorem10 + lorem30,
+        response: lorem10 + lorem30,
         uid: shortid.generate(),
         hero: {
           isEmpty: true,
@@ -48,8 +48,7 @@ export const glamourella = {
       },
       {
         title: "My Story",
-        description: lorem30 + lorem30,
-
+        response: lorem30 + lorem30,
         uid: shortid.generate(),
         hero: {
           isEmpty: true,
@@ -67,7 +66,7 @@ export const glamourella = {
       },
       {
         title: "Who am I?",
-        description: lorem20 + lorem20,
+        response: lorem20 + lorem20,
         uid: shortid.generate(),
         hero: {
           isEmpty: true,
