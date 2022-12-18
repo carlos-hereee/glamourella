@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import Buttons from "../component/molecules/Buttons";
-import ServiceCard from "../component/molecules/card/ServiceCard";
+import ServiceCard from "../component/organisms/ServiceCard";
 import { AppContext } from "../utils/context/AppContext";
 import { ServicesContext } from "../utils/context/ServicesContext";
 

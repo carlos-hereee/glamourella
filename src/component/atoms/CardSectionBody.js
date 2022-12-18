@@ -1,13 +1,26 @@
 import Hero from "../atoms/Hero";
+import HyperlinkText from "./HyperlinkText";
 
 const CardSectionBody = ({ data }) => {
-  const hasLink = data.hyperlink.filter((link) => link.isEmpty);
-  console.log("hasLink", hasLink);
+  const { hyperlink, response, hero } = data;
+  const { word, link } = hyperlink;
+
+  // TODO: CREATE HYPERLINK INSIDE THE TEXT
+  const hasLink = hyperlink.filter((link) => link.isEmpty);
+  // console.log("hasLink", hasLink);
+  const responseArr = response.split(word);
+  console.log("responseArr", responseArr, link);
   return (
     <div className="card-section-body">
-      {!data.hero.isEmpty && <Hero data={data.hero} />}
-      {/* {map((l) => l.isEmpty ? <p>{l.response}</p> : <HyperLinkText data={{    }} /> )} */}
-      {data.response && <p>{data.response}</p>}
+      {!hero.isEmpty && <Hero data={hero} />}
+      {hyperlink.map(({ isEmpty, uid }) =>
+        isEmpty ? (
+          <p key={uid}>{response}</p>
+        ) : (
+          <HyperlinkText data={{ word, responseArr, link }} key={uid} />
+        )
+      )}
+      {/* {data.response && <p>{data.response}</p>} */}
     </div>
   );
 };

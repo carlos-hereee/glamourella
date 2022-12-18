@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useContext } from "react";
 import { CalendarContext } from "../../utils/context/CalendarContext";
-import CheckoutCard from "../molecules/card/CheckoutCard";
+import CheckoutCard from "./CheckoutCard";
 
 const BookingEvents = ({ data }) => {
   const { events } = useContext(CalendarContext);

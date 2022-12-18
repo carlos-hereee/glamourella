@@ -1,11 +1,11 @@
-const HyperLinkText = ({ data }) => {
+const HyperlinkText = ({ data }) => {
   return (
     <p>
       <span>{data.responseArr[0]}</span>
-      <a href={data.src}> {data.word}</a>
+      <a href={data.link}>{data.word}</a>
       <span>{data.responseArr[1]}</span>
     </p>
   );
 };
 
-export default HyperLinkText;
+export default HyperlinkText;

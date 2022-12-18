@@ -32,19 +32,8 @@ export const glamourella = {
         title: "Why choose Glamourella?",
         response: lorem10 + lorem30,
         uid: shortid.generate(),
-        hero: {
-          isEmpty: true,
-          src: "",
-          alt: "",
-        },
-        hyperlink: [
-          {
-            isEmpty: true,
-            word: "",
-            src: "",
-          },
-        ],
-        lines: 5,
+        hero: { isEmpty: true, link: "/lorem", alt: "lorem ipsum" },
+        hyperlink: [{ isEmpty: true, word: "Maiores", link: "/lorem" }],
       },
       {
         title: "My Story",
@@ -52,17 +41,16 @@ export const glamourella = {
         uid: shortid.generate(),
         hero: {
           isEmpty: true,
-          src: "",
+          link: "",
           alt: "",
         },
         hyperlink: [
           {
             isEmpty: true,
-            word: "",
-            src: "",
+            word: "Distinctio, molestias reprehenderit.",
+            link: "/lorem",
           },
         ],
-        lines: 4,
       },
       {
         title: "Who am I?",
@@ -70,17 +58,16 @@ export const glamourella = {
         uid: shortid.generate(),
         hero: {
           isEmpty: true,
-          src: "",
+          link: "",
           alt: "",
         },
         hyperlink: [
           {
             isEmpty: true,
-            word: "",
-            src: "",
+            word: "amet alias veritatis obcaecati assumenda",
+            link: "/lorem",
           },
         ],
-        lines: 3,
       },
     ],
   },
@@ -88,7 +75,7 @@ export const glamourella = {
     {
       uid: shortid.generate(),
       type: "pedicure",
-      // src:
+      //link:
       //   process.env.REACT_APP_DB_URL +
       //   "gallery/photo/?path=assets/pedicure/billie-unsplash.jpg",
       name: "classic ",
@@ -100,7 +87,7 @@ export const glamourella = {
     {
       uid: shortid.generate(),
       type: "pedicure",
-      // src:
+      //link:
       //   process.env.REACT_APP_DB_URL +
       //   "gallery/photo/?path=assets/pedicure/billie-unsplash.jpg",
       name: "REFRESHER ",
@@ -112,7 +99,7 @@ export const glamourella = {
     {
       uid: shortid.generate(),
       type: "manicure",
-      // src:
+      //link:
       //   process.env.REACT_APP_DB_URL +
       //   "gallery/photo/?path=assets/manicure/rashid-khreiss-unsplash.jpg",
       name: "classic ",
@@ -124,7 +111,7 @@ export const glamourella = {
     {
       uid: shortid.generate(),
       type: "manicure",
-      // src:
+      //link:
       //   process.env.REACT_APP_DB_URL +
       //   "gallery/photo/?path=assets/manicure/bryony-elena-unsplash.jpg",
       name: "refresher ",
@@ -136,7 +123,7 @@ export const glamourella = {
     {
       uid: shortid.generate(),
       type: "manicure",
-      // src:
+      //link:
       //   process.env.REACT_APP_DB_URL +
       //   "gallery/photo/?path=assets/manicure/kris-atomic-unsplash.jpg",
       name: "paris signature ",

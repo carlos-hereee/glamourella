@@ -1,5 +1,5 @@
-import Hero from "../../atoms/Hero";
-import ReadMore from "../ReadMore";
+import Hero from "../atoms/Hero";
+import ReadMore from "../molecules/ReadMore";
 
 const CheckoutCard = ({ data, handleClick }) => {
   return (
