@@ -1,13 +1,14 @@
 import { useContext } from "react";
-import EventCard from "../component/molecules/card/EventCard";
 import FollowUs from "../component/molecules/FollowUs";
-import { GlamourellaContext } from "../utils/context/GlamourellaContext";
-
+import { AppContext } from "../utils/context/AppContext";
+import CardHeader from "../component/molecules/card/CardHeader";
 const About = () => {
-  const { about } = useContext(GlamourellaContext);
+  const { about } = useContext(AppContext);
+  console.log("about", about);
   return (
     <section className="card">
-      {about && about.map((a) => <EventCard data={a} key={a.uid} />)}
+      <CardHeader data={about} />
+      {/* {about && about.map((a) => <EventCard data={a} key={a.uid} />)} */}
       <FollowUs />
     </section>
   );

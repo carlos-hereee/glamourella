@@ -17,27 +17,74 @@ export const glamourella = {
       uid: shortid.generate(),
     },
   ],
-  about: [
-    {
-      title: "Why choose Glamourella?",
-      description: lorem10 + lorem30,
-      uid: shortid.generate(),
-      lines: 5,
+  about: {
+    uid: shortid.generate(),
+    title: "Welcome to Glamourella",
+    description: "",
+    hero: {
+      // isEmpty: false,
+      isEmpty: true,
+      link: "",
+      alt: "main-hero",
     },
-    {
-      title: "My Story",
-      description: lorem30 + lorem30,
+    sections: [
+      {
+        title: "Why choose Glamourella?",
+        description: lorem10 + lorem30,
+        uid: shortid.generate(),
+        hero: {
+          isEmpty: true,
+          src: "",
+          alt: "",
+        },
+        hyperlink: [
+          {
+            isEmpty: true,
+            word: "",
+            src: "",
+          },
+        ],
+        lines: 5,
+      },
+      {
+        title: "My Story",
+        description: lorem30 + lorem30,
 
-      uid: shortid.generate(),
-      lines: 4,
-    },
-    {
-      title: "Who am I?",
-      description: lorem20 + lorem20,
-      uid: shortid.generate(),
-      lines: 3,
-    },
-  ],
+        uid: shortid.generate(),
+        hero: {
+          isEmpty: true,
+          src: "",
+          alt: "",
+        },
+        hyperlink: [
+          {
+            isEmpty: true,
+            word: "",
+            src: "",
+          },
+        ],
+        lines: 4,
+      },
+      {
+        title: "Who am I?",
+        description: lorem20 + lorem20,
+        uid: shortid.generate(),
+        hero: {
+          isEmpty: true,
+          src: "",
+          alt: "",
+        },
+        hyperlink: [
+          {
+            isEmpty: true,
+            word: "",
+            src: "",
+          },
+        ],
+        lines: 3,
+      },
+    ],
+  },
   services: [
     {
       uid: shortid.generate(),

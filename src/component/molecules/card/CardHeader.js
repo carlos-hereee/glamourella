@@ -1,4 +1,4 @@
-import Hero from "../atoms/Hero";
+import Hero from "../../atoms/Hero";
 
 const CardHeader = ({ data }) => {
   return (

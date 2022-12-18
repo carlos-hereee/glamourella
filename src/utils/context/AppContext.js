@@ -4,7 +4,7 @@ import { axiosWithAuth } from "../axios";
 import { reducer } from "../reducers/GlamourellaReducer";
 import { glamourella } from "../../config";
 
-export const GlamourellaContext = createContext();
+export const AppContext = createContext();
 
 export const GlamourellaState = ({ children }) => {
   const initialState = {
@@ -38,7 +38,7 @@ export const GlamourellaState = ({ children }) => {
   };
 
   return (
-    <GlamourellaContext.Provider
+    <AppContext.Provider
       value={{
         glamourella: state.glamourella,
         isLoading: state.isLoading,
@@ -51,6 +51,6 @@ export const GlamourellaState = ({ children }) => {
         updateBurger,
       }}>
       {children}
-    </GlamourellaContext.Provider>
+    </AppContext.Provider>
   );
 };

@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import BurgerButton from "../component/molecules/BugerButton";
 import Logo from "../component/atoms/Logo";
 import Navlink from "../component/molecules/Navlink";
-import { GlamourellaContext } from "../utils/context/GlamourellaContext";
+import { AppContext } from "../utils/context/AppContext";
 import { ServicesContext } from "../utils/context/ServicesContext";
 import { reducer } from "../utils/reducers/GlamourellaReducer";
 // import { UserContext } from "../utils/context/UserContext";
@@ -14,7 +14,7 @@ const Header = () => {
   const [isClose, setClose] = useState(false);
   const { cart } = useContext(ServicesContext);
   // const { user } = useContext(UserContext);
-  const { menu, updateBurger } = useContext(GlamourellaContext);
+  const { menu, updateBurger } = useContext(AppContext);
 
   // eslint-disable-next-line no-unused-vars
   const [_, dispatch] = useReducer(reducer);

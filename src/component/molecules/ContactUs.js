@@ -3,7 +3,7 @@ import * as yup from "yup";
 import Forms from "../organisms/Forms";
 import { CalendarContext } from "../../utils/context/CalendarContext";
 import FollowUs from "./FollowUs";
-import { GlamourellaContext } from "../../utils/context/GlamourellaContext";
+import { AppContext } from "../../utils/context/AppContext";
 
 const schema = yup.object().shape({
   name: yup.string().required("*Required field"),
@@ -13,7 +13,7 @@ const schema = yup.object().shape({
 const values = { name: "", email: "", message: "" };
 const ContactUs = () => {
   const { contactUs } = useContext(CalendarContext);
-  const { socials } = useContext(GlamourellaContext);
+  const { socials } = useContext(AppContext);
   // const socials = ;
   return (
     <section className="card">

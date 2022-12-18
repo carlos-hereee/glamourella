@@ -1,12 +1,11 @@
 import Logo from "../component/atoms/Logo";
 import BusinessHours from "../component/molecules/BusinessHours";
-import shortid from "shortid";
 import ContactUs from "../component/molecules/ContactUs";
 import { useContext } from "react";
-import { GlamourellaContext } from "../utils/context/GlamourellaContext";
+import { AppContext } from "../utils/context/AppContext";
 
 const Footer = () => {
-  const { schedule } = useContext(GlamourellaContext);
+  const { schedule } = useContext(AppContext);
   return (
     <footer>
       <section className="card">

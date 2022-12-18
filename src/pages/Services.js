@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import Buttons from "../component/molecules/Buttons";
 import ServiceCard from "../component/molecules/card/ServiceCard";
-import { GlamourellaContext } from "../utils/context/GlamourellaContext";
+import { AppContext } from "../utils/context/AppContext";
 import { ServicesContext } from "../utils/context/ServicesContext";
 
 const Services = () => {
-  const { services } = useContext(GlamourellaContext);
+  const { services } = useContext(AppContext);
   const { addToCart, filteredServices, filterServices, isFiltered } =
     useContext(ServicesContext);
 

@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useReducer } from "react";
 import { useContext } from "react";
 import { axiosWithAuth } from "../axios";
 import { reducer } from "../reducers/ServicesReducer";
-import { GlamourellaContext } from "./GlamourellaContext";
+import { AppContext } from "./AppContext";
 
 export const ServicesContext = createContext();
 export const ServicesState = ({ children }) => {

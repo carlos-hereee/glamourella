@@ -7,7 +7,7 @@ import { UserState } from "./utils/context/UserContext";
 import { AuthState } from "./utils/context/AuthContext";
 import { GalleryState } from "./utils/context/GalleryContext";
 import { ServicesState } from "./utils/context/ServicesContext";
-import { GlamourellaState } from "./utils/context/GlamourellaContext";
+import { GlamourellaState } from "./utils/context/AppContext";
 import "./stylesheets/index.scss";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
