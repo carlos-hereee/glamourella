@@ -1,4 +1,4 @@
-import Photo from "../../atoms/Photo";
+import Hero from "../../atoms/Hero";
 import ReadMore from "../ReadMore";
 
 const CheckoutCard = ({ data, handleClick }) => {
@@ -7,7 +7,7 @@ const CheckoutCard = ({ data, handleClick }) => {
       <div className="checkout-wrapper">
         <div className="checkout-title">
           <h3>{data.type}</h3>
-          <Photo data={data} />
+          <Hero data={data} />
         </div>
         <div className="checkout-description">
           <ReadMore data={data.description} lines={2} />

@@ -1,4 +1,4 @@
-import Photo from "../../atoms/Photo";
+import Hero from "../../atoms/Hero";
 
 const EventCard = ({ data }) => {
   return (
@@ -7,7 +7,7 @@ const EventCard = ({ data }) => {
         <h3>{data.title}</h3>
       </div>
       <div className="event-body">
-        {data.img && <Photo data={data.img} />}
+        {data.img && <Hero data={data.img} />}
         <p>{data.description}</p>
       </div>
     </div>

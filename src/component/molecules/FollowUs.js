@@ -26,11 +26,13 @@ const FollowUs = () => {
   return (
     <div className="socials">
       <h4 className="title">Dont miss a thing, Follow us on our socials</h4>
-      <div className="socials-icons">
-        {socials.map((s) => (
-          <SocialLink data={s} key={s.uid} />
-        ))}
-      </div>
+      {socials.length > 0 && (
+        <div className="socials-icons">
+          {socials.map(({ name, isEmpty, uid }) => (
+            <SocialLink data={{ name, isEmpty }} key={uid} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

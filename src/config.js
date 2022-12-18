@@ -11,7 +11,8 @@ export const isDev = process.env.NODE_ENV === "development";
 export const glamourella = {
   socials: [
     {
-      social: "instagram",
+      isEmpty: true,
+      name: "instagram",
       link: "https://www.instagram.com/glamourrella/",
       uid: shortid.generate(),
     },

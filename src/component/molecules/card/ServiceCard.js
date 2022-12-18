@@ -1,11 +1,11 @@
-import Photo from "../../atoms/Photo";
+import Hero from "../../atoms/Hero";
 
 const ServiceCard = ({ data, handleClick }) => {
   return (
     <div className="card">
       <strong className="ribbon">${data.cost}</strong>
       <div className="card-header">
-        <Photo data={data} />
+        <Hero data={data} />
       </div>
       <div className="card-body">
         <div>
