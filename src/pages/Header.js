@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useReducer, useRef } from "react";
+import { useReducer } from "react";
 import { useContext, useEffect, useState } from "react";
-import BurgerButton from "../component/organisms/BugerButton";
+import BurgerButton from "../component/molecules/BugerButton";
 import Logo from "../component/atoms/Logo";
 import Navlink from "../component/molecules/Navlink";
 import { GlamourellaContext } from "../utils/context/GlamourellaContext";
@@ -12,7 +12,6 @@ import { reducer } from "../utils/reducers/GlamourellaReducer";
 const Header = () => {
   const [isActive, setActive] = useState(false);
   const [isClose, setClose] = useState(false);
-  // const navRef = useRef(null);
   const { cart } = useContext(ServicesContext);
   // const { user } = useContext(UserContext);
   const { menu, updateBurger } = useContext(GlamourellaContext);

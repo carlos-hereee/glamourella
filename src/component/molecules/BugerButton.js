@@ -2,7 +2,7 @@
 // import { useContext } from "react";
 // import { GlamourellaContext } from "../../utils/context/GlamourellaContext";
 import Icons from "../atoms/Icons";
-import SetNotificationCount from "../molecules/SetNotificationCount";
+import SetNotificationCount from "./SetNotificationCount";
 
 const BurgerButton = ({ isBurger, handleClick }) => {
   // const { burgerOptions } = useContext(GlamourellaContext);

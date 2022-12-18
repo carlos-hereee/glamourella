@@ -14,6 +14,10 @@
     }
   }
 }
+// retrieve css variable
+@function color($color-name) {
+  @return var(--data-color-#{$color-name});
+}
 @keyframes slide-left {
   0% {
     overflow: hidden;
@@ -24,14 +28,26 @@
     transform: translateX(0px);
   }
 }
-// retrieve css variable
-@function color($color-name) {
-  @return var(--data-color-#{$color-name});
-}
 @mixin card() {
   display: flex;
   padding: 1rem;
   gap: 1rem;
   box-shadow: 0 1px 5px 1px #{$shadow-color};
   border-radius: 4px;
+}
+@keyframes circleOpen {
+  0% {
+    clip-path: circle(0% at top right);
+  }
+  100% {
+    clip-path: circle(250% at top right);
+  }
+}
+@keyframes circleClose {
+  0% {
+    clip-path: circle(250% at top right);
+  }
+  100% {
+    clip-path: circle(0% at top right);
+  }
 }

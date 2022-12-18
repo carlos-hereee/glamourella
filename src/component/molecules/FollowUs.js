@@ -24,15 +24,13 @@ import SocialLink from "../atoms/SocialLink";
 const FollowUs = () => {
   const { socials } = useContext(GlamourellaContext);
   return (
-    <div className="socials">
+    <div className="social">
       <h4 className="title">Dont miss a thing, Follow us on our socials</h4>
-      {socials.length > 0 && (
-        <div className="socials-icons">
-          {socials.map(({ name, isEmpty, uid }) => (
-            <SocialLink data={{ name, isEmpty }} key={uid} />
-          ))}
-        </div>
-      )}
+      <div className="social-icons">
+        {socials.map(({ name, isEmpty, uid }) => (
+          <SocialLink data={{ name, isEmpty }} key={uid} />
+        ))}
+      </div>
     </div>
   );
 };
