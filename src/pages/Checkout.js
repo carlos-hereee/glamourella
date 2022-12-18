@@ -6,7 +6,6 @@ import CustomLink from "../component/atoms/CustomLink";
 const Checkout = () => {
   const { cart } = useContext(ServicesContext);
   const [total, setTotal] = useState(0);
-
   const checkoutLink = {
     content: "Add some accessories to your collection",
     link: "gallery",
@@ -20,7 +19,7 @@ const Checkout = () => {
   }, [cart]);
   return (
     <section className="checkout-container">
-      <h2>Check Out</h2>
+      <h3>Check Out</h3>
       {total < 0 && <p>Link to Services and Gallery</p>}
       {cart ? (
         cart.map((c) => <CheckoutCard key={c.uid} data={c} />)

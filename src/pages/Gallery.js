@@ -14,7 +14,7 @@ const Gallery = () => {
   };
   return (
     <section className="card-container">
-      <h2>Gallery</h2>
+      <h3>Gallery</h3>
       <nav className="navbar">
         {/* {
           gallery && gallery.map(g=> <Buttons name={g.type}/>)

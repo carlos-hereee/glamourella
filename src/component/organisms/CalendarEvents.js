@@ -17,7 +17,7 @@ const CalendarEvents = () => {
   return (
     <section className="card" id="calendar-events">
       <div className="card-header">
-        <h2>{calendar.summary}</h2>
+        <h3>{calendar.summary}</h3>
         <p>{calendar.description}</p>
       </div>
       {confirmation ? (

@@ -18,7 +18,8 @@
 .react-calendar__tile {
   position: relative;
   cursor: pointer;
-  padding: 2rem 0;
+  flex: 1;
+  padding: 1.25rem;
   background-color: #{$secondary-color};
   color: #{$primary-color};
   box-shadow: none;
@@ -44,6 +45,7 @@
 }
 .react-calendar__month-view__weekdays {
   color: #{$text-color2};
+  text-align: center;
 }
 .react-calendar__navigation__arrow {
   box-shadow: none;
@@ -52,7 +54,7 @@
     background-color: #{$third-color2};
   }
   &:disabled {
-    color: #{$primary-color5};
+    color: #{$text-color2};
     cursor: not-allowed;
   }
 }

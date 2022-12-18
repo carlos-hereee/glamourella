@@ -76,17 +76,16 @@
   color: white;
   padding: 0.25rem 4rem;
 }
-.socials {
+
+.container {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
+  flex-wrap: wrap;
   gap: 1rem;
-  .title {
-    text-align: center;
-  }
-  .socials-icons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    width: 100%;
+  // padding: 1rem;
+  @include devices(mobile) {
+    .card {
+      width: 100%;
+    }
   }
 }

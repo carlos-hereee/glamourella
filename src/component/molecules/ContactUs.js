@@ -17,7 +17,7 @@ const ContactUs = () => {
   // const socials = ;
   return (
     <section className="card">
-      <h2>Contact Us</h2>
+      <h3>Contact Us</h3>
       <Forms data={{ values, schema, onSubmit: contactUs }} />
       <FollowUs socials={socials} />
     </section>

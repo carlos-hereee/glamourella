@@ -85,7 +85,7 @@ const AdminDashboard = () => {
       {booked.length > 0 &&
         booked.map((b) => (
           <div key={b.uid}>
-            <h2>{b.type}</h2>
+            <h3>{b.type}</h3>
             <p>Start count</p>
           </div>
         ))}

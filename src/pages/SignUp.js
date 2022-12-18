@@ -12,7 +12,7 @@ const SignUp = () => {
   return (
     <main className="container">
       <section className="card">
-        <h2>Create Account</h2>
+        <h3>Create Account</h3>
         {signUpError && <p className="required">{signUpError}</p>}
         <Forms data={data} />
         <Link to="/account" className="form-link">

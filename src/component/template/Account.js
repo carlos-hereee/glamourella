@@ -18,7 +18,7 @@ const Account = () => {
     <main className="container">
       {user.uid ? (
         <div className="card-container">
-          <h2>Dashboard</h2>
+          <h3>Dashboard</h3>
           <div>
             <p>
               Username: <strong>{user.username}</strong>
@@ -31,7 +31,7 @@ const Account = () => {
           {booked && booked.length ? (
             booked.map((b) => (
               <div key={b.uid}>
-                <h2>{b.type}</h2>
+                <h3>{b.type}</h3>
                 <p>Start count</p>
               </div>
             ))

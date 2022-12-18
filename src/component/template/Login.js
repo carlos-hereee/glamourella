@@ -15,7 +15,7 @@ const Login = () => {
   };
   return (
     <div className="card">
-      <h2>Login</h2>
+      <h3>Login</h3>
       {signInError && <p className="required">{signInError}</p>}
       <Forms data={formData} />
       <Link to="/sign-up" className="form-link">
