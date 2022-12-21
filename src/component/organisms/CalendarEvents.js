@@ -15,7 +15,7 @@ const CalendarEvents = () => {
   const [confirmation, setConfirmation] = useState(false);
   const onSubmit = (values) => bookNow(values, appointment);
   return (
-    <section className="card" id="calendar-events">
+    <div className="card" id="calendar-events">
       <div className="card-header">
         <h3>{calendar.summary}</h3>
         <p>{calendar.description}</p>
@@ -63,7 +63,7 @@ const CalendarEvents = () => {
           </div>
         </>
       )}
-    </section>
+    </div>
   );
 };
 export default CalendarEvents;

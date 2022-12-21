@@ -16,13 +16,13 @@ const Services = () => {
   };
   const service = ["all", "manicure", "pedicure"];
   return (
-    <section className="card-container">
+    <section className="service">
       <nav className="navbar">
         {service.map((s) => (
           <Buttons name={s} key={s} handleClick={filterClick} />
         ))}
       </nav>
-      <div className="service">
+      <div className="card-container">
         {isFiltered
           ? filteredServices.map((fs) => (
               <ServiceCard data={fs} key={fs.uid} handleClick={handleClick} />

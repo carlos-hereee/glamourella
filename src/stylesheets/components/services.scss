@@ -1,6 +1,9 @@
 .service {
   display: flex;
-  flex-wrap: wrap;
+  background-color: #{$text-color};
+  // flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
   gap: 1rem;
+  padding: 1rem;
 }

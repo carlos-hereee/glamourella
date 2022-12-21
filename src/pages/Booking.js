@@ -34,7 +34,7 @@ const Booking = () => {
     }
   };
   return (
-    <div className="container">
+    <section className="container">
       {cart.length > 0 && <BookingEvents data={cart} />}
       <Calendar
         onChange={onChange}
@@ -50,7 +50,7 @@ const Booking = () => {
         tileContent={({ date }) => tileContent(date)}
       />
       <CalendarEvents />
-    </div>
+    </section>
   );
 };
 
