@@ -15,10 +15,10 @@ export const GlamourellaState = ({ children }) => {
     socials: glamourella.socials,
     about: glamourella.about,
     services: glamourella.services,
-    burgerOptions: {
-      name: "burger",
-      notification: 0,
-    },
+    // burgerOptions: {
+    //   name: "burger",
+    //   notification: 0,
+    // },
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   // useEffect(() => {

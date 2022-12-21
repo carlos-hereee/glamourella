@@ -7,7 +7,7 @@ const CardHeader = ({ data }) => {
       {!data.hero.isEmpty && <Hero data={data.hero} />}
       {data.hero.isIcon && <Icons name={data.hero.icon} size="3x" />}
       {data.title && <h3 className="title">{data.title}</h3>}
-      {data.description && <p>{data.description}</p>}
+      {data.subtitle && <p>{data.subtitle}</p>}
     </div>
   );
 };

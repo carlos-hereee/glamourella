@@ -27,7 +27,7 @@ const Services = () => {
           ? filteredServices.map((fs) => (
               <ServiceCard data={fs} key={fs.uid} handleClick={handleClick} />
             ))
-          : services.map((s) => (
+          : services.sections.map((s) => (
               <ServiceCard data={s} key={s.uid} handleClick={handleClick} />
             ))}
       </div>

@@ -7,9 +7,10 @@ const CardSectionBody = ({ data }) => {
 
   // TODO: CREATE HYPERLINK INSIDE THE TEXT
   const hasLink = hyperlink.filter((link) => link.isEmpty);
-  // console.log("hasLink", hasLink);
+  console.log("hasLink", hasLink);
+  console.log("hyperlink", hyperlink);
   const responseArr = response.split(word);
-  console.log("responseArr", responseArr, link);
+  // console.log("responseArr", responseArr, link);
   return (
     <div className="card-section-body">
       {!hero.isEmpty && <Hero data={hero} />}

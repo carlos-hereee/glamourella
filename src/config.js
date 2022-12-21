@@ -20,7 +20,7 @@ export const glamourella = {
   about: {
     uid: shortid.generate(),
     title: "Welcome to Glamourella",
-    description: "",
+    subtitle: "",
     hero: {
       // isEmpty: false,
       isEmpty: true,
@@ -71,68 +71,89 @@ export const glamourella = {
       },
     ],
   },
-  services: [
-    {
-      uid: shortid.generate(),
-      type: "pedicure",
-      //link:
-      //   process.env.REACT_APP_DB_URL +
-      //   "gallery/photo/?path=assets/pedicure/billie-unsplash.jpg",
-      name: "classic ",
-      length: "30 minutes",
-      cost: 25,
-      description:
-        "Your feet will be pampered, nails are professionally shaped and filed, cuticle trimmer, callus removed, followed by a hot oil massage and finish with a nail buff or polish.",
+  services: {
+    uid: shortid.generate(),
+    title: "Featured Services",
+    subtitle: "",
+    hero: {
+      // isEmpty: false,
+      isEmpty: false,
+      isIcon: false,
+      link: "",
+      alt: "main-hero",
     },
-    {
-      uid: shortid.generate(),
-      type: "pedicure",
-      //link:
-      //   process.env.REACT_APP_DB_URL +
-      //   "gallery/photo/?path=assets/pedicure/billie-unsplash.jpg",
-      name: "REFRESHER ",
-      length: "45 minutes",
-      cost: 35,
-      description:
-        "A combination of our Classic Pedicure with an exfoliation pink salt, deep massage with hot stones, warm towel wrap. Finish with a nail buff or polish.",
-    },
-    {
-      uid: shortid.generate(),
-      type: "manicure",
-      //link:
-      //   process.env.REACT_APP_DB_URL +
-      //   "gallery/photo/?path=assets/manicure/rashid-khreiss-unsplash.jpg",
-      name: "classic ",
-      length: "20 minutes",
-      cost: 15,
-      description:
-        "Your nail will be professionally shaped and filed,  cuticle trimmer. Followed by lotion massage and finish with a nail buff or polish.",
-    },
-    {
-      uid: shortid.generate(),
-      type: "manicure",
-      //link:
-      //   process.env.REACT_APP_DB_URL +
-      //   "gallery/photo/?path=assets/manicure/bryony-elena-unsplash.jpg",
-      name: "refresher ",
-      length: "30 minutes",
-      cost: 25,
-      description:
-        "A combination of Classic Manicure, your hand will be soaked in moisturized lotion gloves and rubbed with an exfoliation pink salt. Follow by a deep massage with hot stones, warm towel wrap and finish with a nail buff or polish.",
-    },
-    {
-      uid: shortid.generate(),
-      type: "manicure",
-      //link:
-      //   process.env.REACT_APP_DB_URL +
-      //   "gallery/photo/?path=assets/manicure/kris-atomic-unsplash.jpg",
-      name: "paris signature ",
-      length: "56 minutes",
-      cost: 29,
-      description:
-        "Your nail will be professionally shaped and filed,  cuticle trimmer. Followed by lotion massage and finish with a nail buff or polish.",
-    },
-  ],
+    sections: [
+      {
+        uid: shortid.generate(),
+        type: "pedicure",
+        hero: { isEmpty: true, link: "/lorem", alt: "lorem ipsum" },
+        //link:
+        //   process.env.REACT_APP_DB_URL +
+        //   "gallery/photo/?path=assets/pedicure/billie-unsplash.jpg",
+        title: "classic",
+        length: "30 minutes",
+        cost: 25,
+        description:
+          "Your feet will be pampered, nails are professionally shaped and filed, cuticle trimmer, callus removed, followed by a hot oil massage and finish with a nail buff or polish.",
+      },
+      {
+        uid: shortid.generate(),
+        hero: { isEmpty: true, link: "/lorem", alt: "lorem ipsum" },
+
+        type: "pedicure",
+        //link:
+        //   process.env.REACT_APP_DB_URL +
+        //   "gallery/photo/?path=assets/pedicure/billie-unsplash.jpg",
+        title: "REFRESHER ",
+        length: "45 minutes",
+        cost: 35,
+        description:
+          "A combination of our Classic Pedicure with an exfoliation pink salt, deep massage with hot stones, warm towel wrap. Finish with a nail buff or polish.",
+      },
+      {
+        uid: shortid.generate(),
+        hero: { isEmpty: true, link: "/lorem", alt: "lorem ipsum" },
+
+        type: "manicure",
+        //link:
+        //   process.env.REACT_APP_DB_URL +
+        //   "gallery/photo/?path=assets/manicure/rashid-khreiss-unsplash.jpg",
+        title: "classic",
+        length: "20 minutes",
+        cost: 15,
+        description:
+          "Your nail will be professionally shaped and filed,  cuticle trimmer. Followed by lotion massage and finish with a nail buff or polish.",
+      },
+      {
+        uid: shortid.generate(),
+        hero: { isEmpty: true, link: "/lorem", alt: "lorem ipsum" },
+
+        type: "manicure",
+        //link:
+        //   process.env.REACT_APP_DB_URL +
+        //   "gallery/photo/?path=assets/manicure/bryony-elena-unsplash.jpg",
+        title: "refresher ",
+        length: "30 minutes",
+        cost: 25,
+        description:
+          "A combination of Classic Manicure, your hand will be soaked in moisturized lotion gloves and rubbed with an exfoliation pink salt. Follow by a deep massage with hot stones, warm towel wrap and finish with a nail buff or polish.",
+      },
+      {
+        uid: shortid.generate(),
+        type: "manicure",
+        hero: { isEmpty: true, link: "/lorem", alt: "lorem ipsum" },
+
+        //link:
+        //   process.env.REACT_APP_DB_URL +
+        //   "gallery/photo/?path=assets/manicure/kris-atomic-unsplash.jpg",
+        name: "paris signature ",
+        length: "56 minutes",
+        cost: 29,
+        description:
+          "Your nail will be professionally shaped and filed,  cuticle trimmer. Followed by lotion massage and finish with a nail buff or polish.",
+      },
+    ],
+  },
   schedule: [
     { day: "Monday", hours: "9:30am - 6:30pm", key: shortid.generate() },
     { day: "Tuesday", hours: "9:30am - 6:30pm", key: shortid.generate() },
