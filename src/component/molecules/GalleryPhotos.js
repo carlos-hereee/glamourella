@@ -6,7 +6,7 @@ import ArtistPhoto from "../atoms/ArtistPhoto";
 const GalleryPhotos = ({ data }) => {
   const { addToCart } = useContext(ServicesContext);
   return (
-    <div key={data.uid} className="gallery-photo">
+    <div className="card">
       <ArtistPhoto data={data} />
       {data.artistName && data.artistName.split("unsplash") && (
         <ArtistName name={data.artistName} />

@@ -3,18 +3,21 @@ import { useContext } from "react";
 import { GalleryContext } from "../utils/context/GalleryContext";
 import Buttons from "../component/molecules/Buttons";
 import GalleryPhotos from "../component/molecules/GalleryPhotos";
+import { AppContext } from "../utils/context/AppContext";
+import CardHeader from "../component/molecules/card/CardHeader";
 
 const Gallery = () => {
-  const { gallery, filterGallery, filteredGallery, isFiltered } =
+  const { filterGallery, filteredGallery, isFiltered } =
     useContext(GalleryContext);
+  const { gallery } = useContext(AppContext);
 
   const handleClick = (e) => {
     let content = e.currentTarget.textContent.split(" ").join("").toLowerCase();
     filterGallery(gallery, content);
   };
   return (
-    <section className="card-container">
-      <h3>Gallery</h3>
+    <section className="primary-container">
+      <CardHeader data={gallery} />
       <nav className="navbar">
         {/* {
           gallery && gallery.map(g=> <Buttons name={g.type}/>)
@@ -26,12 +29,12 @@ const Gallery = () => {
         <Buttons name="manicure" handleClick={handleClick} />
         <Buttons name="pedicure" handleClick={handleClick} />
       </nav>
-      <div className="gallery-photos">
+      <div className="card-container">
         {isFiltered
           ? filteredGallery.map((fg) => (
               <GalleryPhotos data={fg} key={fg.uid} />
             ))
-          : gallery.map((g) => <GalleryPhotos data={g} key={g.uid} />)}
+          : gallery.sections.map((g) => <GalleryPhotos data={g} key={g.uid} />)}
       </div>
     </section>
   );

@@ -8,23 +8,14 @@ export const GalleryState = ({ children }) => {
     isLoading: false,
     isFiltered: false,
     filteredGallery: [],
-    gallery: [],
+    // gallery: [],
     log: [],
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   useEffect(() => {
     // getAllAssets();
   }, []);
-  const getAllAssets = async () => {
-    dispatch({ type: "IS_LOADING", payload: true });
-    try {
-      const { data } = await axiosWithAuth.get("/gallery/all?path=assets");
-      dispatch({ type: "LOAD_ASSETS", payload: data });
-    } catch (err) {
-      const data = err.response.data;
-      dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data });
-    }
-  };
+
   const addToCart = (service) => {
     try {
       const services = { ...service, isCheckout: true };

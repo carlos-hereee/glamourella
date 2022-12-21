@@ -16,7 +16,7 @@ const Services = () => {
   };
   const service = ["all", "manicure", "pedicure"];
   return (
-    <section className="service">
+    <section className="primary-container">
       <nav className="navbar">
         {service.map((s) => (
           <Buttons name={s} key={s} handleClick={filterClick} />

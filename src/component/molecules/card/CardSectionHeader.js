@@ -1,7 +1,7 @@
 import Hero from "../../atoms/Hero";
 import Icons from "../../atoms/Icons";
 
-const CardHeader = ({ data }) => {
+const CardSectionHeader = ({ data }) => {
   return (
     <div className="card-section-header">
       {!data.hero.isEmpty && <Hero data={data.hero} />}
@@ -12,4 +12,4 @@ const CardHeader = ({ data }) => {
   );
 };
 
-export default CardHeader;
+export default CardSectionHeader;
