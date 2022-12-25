@@ -3,7 +3,7 @@ import CardSectionHeader from "../molecules/card/CardSectionHeader";
 
 const CardSection = ({ data }) => {
   return (
-    <div className="card-section">
+    <div className="card-sectioresponsive n">
       <CardSectionHeader data={data} />
       <CardSectionBody data={data} />
     </div>

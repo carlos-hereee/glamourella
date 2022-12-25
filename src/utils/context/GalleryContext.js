@@ -30,7 +30,7 @@ export const GalleryState = ({ children }) => {
     if (filter === "all") {
       return dispatch({ type: "LOAD_ASSETS", payload: gallery });
     }
-    const data = gallery.filter((g) => g.path.includes(filter));
+    const data = gallery.sections.filter((g) => g.path.includes(filter));
     dispatch({ type: "UPDATE_ASSETS", payload: data });
   };
   return (

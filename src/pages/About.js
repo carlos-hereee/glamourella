@@ -7,7 +7,7 @@ const About = () => {
   const { about } = useContext(AppContext);
   // console.log("about", about.sections);
   return (
-    <section className="card">
+    <section className="primary-container">
       <CardHeader data={about} />
       <div className="card-body">
         {about.sections.map((section) => (

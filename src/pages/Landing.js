@@ -5,6 +5,12 @@ import Services from "./Services";
 
 const Landing = () => {
   return (
+    // <div className="container">
+    //   <About />
+    //   <Booking />
+    //   <Services />
+    //   <Gallery />
+    // </div>
     <>
       <About />
       <Booking />

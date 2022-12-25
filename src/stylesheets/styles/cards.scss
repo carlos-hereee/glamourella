@@ -2,7 +2,7 @@
   @include card();
   // flex: 1;
   // width: 100%;
-  max-width: 450px;
+  min-width: 200px;
   flex-direction: column;
   justify-content: space-between;
   background-color: #{$text-color};
@@ -18,6 +18,10 @@
       margin: auto;
     }
   }
+  @include devices(mobile) {
+    // width: 100%;
+    min-width: auto;
+  }
   // &:has(> .card-body) {
   //   .card-body {
   //     height: 100%;
@@ -27,16 +31,17 @@
 .card-header {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  // flex: 1;
   .title {
     text-align: center;
   }
 }
 .card-body {
   display: flex;
-  flex: 1;
+  // flex: 1;
   // flex-direction: column;
   // justify-content: center;
+  width: 100%;
   flex-wrap: wrap;
   gap: 1rem;
   // .sub-title {
@@ -100,6 +105,7 @@
   flex-wrap: wrap;
   gap: 1rem;
   // background-color: #{$text-color};
+  // background-color: #{$text-color};
   // padding: 1rem;
   @include devices(mobile) {
     .card {
@@ -115,4 +121,11 @@
   background-color: #{$text-color};
   // padding: 1rem;
   gap: 1rem;
+  .card {
+    max-width: 450px;
+    flex: 1;
+    @include devices(mobile) {
+      min-width: 200px;
+    }
+  }
 }
