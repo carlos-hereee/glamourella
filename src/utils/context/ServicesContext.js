@@ -27,6 +27,7 @@ export const ServicesState = ({ children }) => {
     if (filter === "all") {
       return dispatch({ type: "LOAD_SERVICES", payload: services });
     }
+    console.log("services", services);
     const data = services.filter((s) => s.type === filter);
     dispatch({ type: "UPDATE_SERVICES", payload: data });
   };

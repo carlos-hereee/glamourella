@@ -75,6 +75,8 @@ export const glamourella = {
     uid: shortid.generate(),
     title: "Featured Services",
     subtitle: "",
+    isNav: true,
+    nav: ["all", "manicure", "pedicure"],
     hero: {
       // isEmpty: false,
       isEmpty: false,
@@ -99,7 +101,6 @@ export const glamourella = {
       {
         uid: shortid.generate(),
         hero: { isEmpty: true, link: "/lorem", alt: "lorem ipsum" },
-
         type: "pedicure",
         //link:
         //   process.env.REACT_APP_DB_URL +
@@ -113,7 +114,6 @@ export const glamourella = {
       {
         uid: shortid.generate(),
         hero: { isEmpty: true, link: "/lorem", alt: "lorem ipsum" },
-
         type: "manicure",
         //link:
         //   process.env.REACT_APP_DB_URL +
@@ -127,12 +127,11 @@ export const glamourella = {
       {
         uid: shortid.generate(),
         hero: { isEmpty: true, link: "/lorem", alt: "lorem ipsum" },
-
         type: "manicure",
         //link:
         //   process.env.REACT_APP_DB_URL +
         //   "gallery/photo/?path=assets/manicure/bryony-elena-unsplash.jpg",
-        title: "refresher ",
+        title: "refresher",
         length: "30 minutes",
         cost: 25,
         description:
@@ -142,11 +141,10 @@ export const glamourella = {
         uid: shortid.generate(),
         type: "manicure",
         hero: { isEmpty: true, link: "/lorem", alt: "lorem ipsum" },
-
         //link:
         //   process.env.REACT_APP_DB_URL +
         //   "gallery/photo/?path=assets/manicure/kris-atomic-unsplash.jpg",
-        name: "paris signature ",
+        title: "paris signature ",
         length: "56 minutes",
         cost: 29,
         description:

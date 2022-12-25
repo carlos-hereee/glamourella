@@ -12,16 +12,17 @@ const Services = () => {
   const handleClick = (e) => addToCart(e, true);
   const filterClick = (e) => {
     let content = e.currentTarget.textContent.split(" ").join("");
-    filterServices(services, content.toLowerCase());
+    filterServices(services.sections, content.toLowerCase());
   };
-  const service = ["all", "manicure", "pedicure"];
   return (
     <section className="primary-container">
-      <nav className="navbar">
-        {service.map((s) => (
-          <Buttons name={s} key={s} handleClick={filterClick} />
-        ))}
-      </nav>
+      {services.isNav && (
+        <nav className="navbar">
+          {services.nav.map((s) => (
+            <Buttons name={s} key={s} handleClick={filterClick} />
+          ))}
+        </nav>
+      )}
       <div className="card-container">
         {isFiltered
           ? filteredServices.map((fs) => (

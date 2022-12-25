@@ -2,7 +2,7 @@
 import CardHeader from "../molecules/card/CardHeader";
 
 const ServiceCard = ({ data, handleClick }) => {
-  console.log("data", data);
+  // console.log("data", data);
   return (
     <div className="card">
       <strong className="ribbon">${data.cost}</strong>
