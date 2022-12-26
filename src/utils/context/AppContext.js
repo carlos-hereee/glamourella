@@ -16,10 +16,6 @@ export const GlamourellaState = ({ children }) => {
     about: glamourella.about,
     services: glamourella.services,
     gallery: glamourella.gallery,
-    // burgerOptions: {
-    //   name: "burger",
-    //   notification: 0,
-    // },
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   useEffect(() => {
@@ -48,6 +44,15 @@ export const GlamourellaState = ({ children }) => {
   const updateBurger = (payload) => {
     dispatch({ type: "UPDATE_BURGER", payload: payload });
   };
+  const newsletter = async (values) => {
+    dispatch({ type: "IS_LOADING", payload: true });
+    try {
+      const data = await axiosWithAuth.post("/newsletter", values);
+      dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data });
+    } catch (e) {
+      dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: true });
+    }
+  };
 
   return (
     <AppContext.Provider
@@ -62,6 +67,7 @@ export const GlamourellaState = ({ children }) => {
         burgerOptions: state.burgerOptions,
         gallery: state.gallery,
         updateBurger,
+        newsletter,
       }}>
       {children}
     </AppContext.Provider>
