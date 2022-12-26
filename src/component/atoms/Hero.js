@@ -2,8 +2,8 @@ const Hero = ({ data }) => {
   return (
     <img
       className="hero"
-      src={data.src}
-      alt={data.alt}
+      src={data.link}
+      alt={data.name}
       crossOrigin="anonymous"
     />
   );

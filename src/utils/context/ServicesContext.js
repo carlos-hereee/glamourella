@@ -14,6 +14,7 @@ export const ServicesState = ({ children }) => {
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   const addToCart = (service) => {
+    console.log("service", service);
     try {
       const services = { ...service, isService: true };
       dispatch({ type: "ADD_TO_CART", payload: services });

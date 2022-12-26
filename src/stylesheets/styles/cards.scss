@@ -7,6 +7,9 @@
   justify-content: space-between;
   background-color: #{$text-color};
   overflow: hidden;
+  .hero {
+    border-radius: 1rem;
+  }
   &:has(> .ribbon) {
     position: relative;
     border-color: #{$shadow-color2};

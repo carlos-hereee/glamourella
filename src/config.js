@@ -21,25 +21,29 @@ export const glamourella = {
     uid: shortid.generate(),
     title: "Welcome to Glamourella",
     subtitle: "",
+    isHeroEmpty: true,
+    isIcon: false,
     hero: {
-      // isEmpty: false,
-      isEmpty: true,
       link: "",
-      alt: "main-hero",
+      name: "main-hero",
     },
     sections: [
       {
         title: "Why choose Glamourella?",
         response: lorem10 + lorem30,
         uid: shortid.generate(),
-        hero: { isEmpty: true, link: "/lorem", alt: "lorem ipsum" },
+        isHeroEmpty: true,
+        isIcon: false,
+        hero: { link: "/lorem", name: "lorem ipsum" },
         hyperlink: [{ isEmpty: true, word: "Maiores", link: "/lorem" }],
       },
       {
         title: "My Story",
         response: lorem30 + lorem30,
         uid: shortid.generate(),
-        hero: { isEmpty: true, link: "", alt: "" },
+        isHeroEmpty: true,
+        isIcon: false,
+        hero: { link: "", name: "" },
         hyperlink: [
           { isEmpty: true, word: "Distinctio, molestias", link: "/lorem" },
         ],
@@ -48,11 +52,9 @@ export const glamourella = {
         title: "Who am I?",
         response: lorem20 + lorem20,
         uid: shortid.generate(),
-        hero: {
-          isEmpty: true,
-          link: "",
-          alt: "",
-        },
+        isHeroEmpty: true,
+        isIcon: false,
+        hero: { link: "", name: "" },
         hyperlink: [
           { isEmpty: true, word: "obcaecati assumenda", link: "/lorem" },
         ],
@@ -70,13 +72,15 @@ export const glamourella = {
       isEmpty: false,
       isIcon: false,
       link: "",
-      alt: "main-hero",
+      name: "main-hero",
     },
     sections: [
       {
         uid: shortid.generate(),
         type: "pedicure",
-        hero: { isEmpty: true, link: "/lorem", alt: "lorem ipsum" },
+        isHeroEmpty: true,
+        isIcon: false,
+        hero: { link: "/lorem", name: "lorem ipsum" },
         //link:
         //   process.env.REACT_APP_DB_URL +
         //   "gallery/photo/?path=assets/pedicure/billie-unsplash.jpg",
@@ -88,7 +92,9 @@ export const glamourella = {
       },
       {
         uid: shortid.generate(),
-        hero: { isEmpty: true, link: "/lorem", alt: "lorem ipsum" },
+        isHeroEmpty: true,
+        isIcon: false,
+        hero: { link: "/lorem", name: "lorem ipsum" },
         type: "pedicure",
         //link:
         //   process.env.REACT_APP_DB_URL +
@@ -101,7 +107,9 @@ export const glamourella = {
       },
       {
         uid: shortid.generate(),
-        hero: { isEmpty: true, link: "/lorem", alt: "lorem ipsum" },
+        isHeroEmpty: true,
+        isIcon: false,
+        hero: { link: "/lorem", name: "lorem ipsum" },
         type: "manicure",
         //link:
         //   process.env.REACT_APP_DB_URL +
@@ -114,7 +122,9 @@ export const glamourella = {
       },
       {
         uid: shortid.generate(),
-        hero: { isEmpty: true, link: "/lorem", alt: "lorem ipsum" },
+        isHeroEmpty: true,
+        isIcon: false,
+        hero: { link: "/lorem", name: "lorem ipsum" },
         type: "manicure",
         //link:
         //   process.env.REACT_APP_DB_URL +
@@ -128,7 +138,9 @@ export const glamourella = {
       {
         uid: shortid.generate(),
         type: "manicure",
-        hero: { isEmpty: true, link: "/lorem", alt: "lorem ipsum" },
+        isHeroEmpty: true,
+        isIcon: false,
+        hero: { link: "/lorem", name: "lorem ipsum" },
         //link:
         //   process.env.REACT_APP_DB_URL +
         //   "gallery/photo/?path=assets/manicure/kris-atomic-unsplash.jpg",
@@ -163,121 +175,119 @@ export const glamourella = {
     title: "Check out my collection",
     subtitle: "",
     isNav: true,
+    isIcon: false,
+    isHeroEmpty: true,
     nav: ["all", "promotion", "wig", "braids", "manicure", "pedicure"],
-    hero: {
-      // isEmpty: false,
-      isEmpty: true,
-      isIcon: false,
-      link: "",
-      alt: "main-hero",
-    },
+    hero: { link: "", name: "main-hero" },
     sections: [
       {
+        isIcon: false,
+        isHeroEmpty: false,
         hero: {
-          // isEmpty: false,
-          isIcon: false,
-          isEmpty: true,
           link: "http://localhost:4937/gallery/photo/?path=assets/hair/braids/gustavo-spindula-unsplash.jpg",
-          alt: "gustavo spindula unsplash",
+          name: "gustavo spindula unsplash",
           file: "gustavo-spindula-unsplash.jpg",
           path: "assets/hair/braids/gustavo-spindula-unsplash.jpg",
         },
+        hyperlink: [{ isEmpty: true, word: "Maiores", link: "/lorem" }],
         // artistName: "",
         cost: 24,
         description:
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit.Dolor facilis commodi qui optio, quos quidem odio a vitaenulla facere? Rem facilis esse cum earum amet, enim iuretempora eveniet.",
         // src: "",
-        type: "braids",
+        title: "braids",
         uid: "39c68aab-4071-4b05-a8b3-a224b8fbba69",
       },
       {
+        isIcon: false,
+        isHeroEmpty: false,
         hero: {
-          // isEmpty: false,
-          isIcon: false,
-          isEmpty: true,
           link: "http://localhost:4937/gallery/photo/?path=assets/hair/braids/gustavo-spindula-unsplash.jpg",
-          alt: "gustavo spindula unsplash",
+          name: "gustavo spindula unsplash",
           file: "gustavo-spindula-unsplash.jpg",
           path: "assets/hair/braids/gustavo-spindula-unsplash.jpg",
         },
+        hyperlink: [{ isEmpty: true, word: "Maiores", link: "/lorem" }],
         // artistName: "",
         cost: 24,
         description:
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit.Dolor facilis commodi qui optio, quos quidem odio a vitaenulla facere? Rem facilis esse cum earum amet, enim iuretempora eveniet.",
         // src: "",
-        type: "braids",
+        title: "braids",
         uid: "39c68aab-4071-4b05-a8b3-",
       },
       {
+        isIcon: false,
+        isHeroEmpty: false,
         hero: {
-          // isEmpty: false,
-          isIcon: false,
-          isEmpty: true,
           link: "http://localhost:4937/gallery/photo/?path=assets/hair/braids/gustavo-spindula-unsplash.jpg",
-          alt: "gustavo spindula unsplash",
+          name: "gustavo spindula unsplash",
           file: "gustavo-spindula-unsplash.jpg",
           path: "assets/hair/braids/gustavo-spindula-unsplash.jpg",
         },
+        hyperlink: [{ isEmpty: true, word: "Maiores", link: "/lorem" }],
         // artistName: "",
         cost: 24,
         description:
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit.Dolor facilis commodi qui optio, quos quidem odio a vitaenulla facere? Rem facilis esse cum earum amet, enim iuretempora eveniet.",
         // src: "",
-        type: "braids",
+        title: "braids",
         uid: "39c68aab-4071-4b05--a224b8fbba69",
       },
       {
+        isIcon: false,
+        isHeroEmpty: false,
         hero: {
-          // isEmpty: false,
-          isIcon: false,
-          isEmpty: true,
           link: "http://localhost:4937/gallery/photo/?path=assets/hair/braids/gustavo-spindula-unsplash.jpg",
-          alt: "gustavo spindula unsplash",
+          name: "gustavo spindula unsplash",
           file: "gustavo-spindula-unsplash.jpg",
           path: "assets/hair/braids/gustavo-spindula-unsplash.jpg",
         },
+        hyperlink: [{ isEmpty: true, word: "Maiores", link: "/lorem" }],
+
         // artistName: "",
         cost: 24,
         description:
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit.Dolor facilis commodi qui optio, quos quidem odio a vitaenulla facere? Rem facilis esse cum earum amet, enim iuretempora eveniet.",
         // src: "",
-        type: "braids",
+        title: "braids",
         uid: "39c68aab-4071--a8b3-a224b8fbba69",
       },
       {
+        isIcon: false,
+        isHeroEmpty: false,
         hero: {
-          // isEmpty: false,
-          isIcon: false,
-          isEmpty: true,
           link: "http://localhost:4937/gallery/photo/?path=assets/hair/braids/gustavo-spindula-unsplash.jpg",
-          alt: "gustavo spindula unsplash",
+          name: "gustavo spindula unsplash",
           file: "gustavo-spindula-unsplash.jpg",
           path: "assets/hair/braids/gustavo-spindula-unsplash.jpg",
         },
+        hyperlink: [{ isEmpty: true, word: "Maiores", link: "/lorem" }],
+
         // artistName: "",
         cost: 24,
         description:
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit.Dolor facilis commodi qui optio, quos quidem odio a vitaenulla facere? Rem facilis esse cum earum amet, enim iuretempora eveniet.",
         // src: "",
-        type: "braids",
+        title: "braids",
         uid: "39c68aab--4b05-a8b3-a224b8fbba69",
       },
       {
+        isIcon: false,
+        isHeroEmpty: false,
         hero: {
-          // isEmpty: false,
-          isIcon: false,
-          isEmpty: true,
           link: "http://localhost:4937/gallery/photo/?path=assets/hair/braids/gustavo-spindula-unsplash.jpg",
-          alt: "gustavo spindula unsplash",
+          name: "gustavo spindula unsplash",
           file: "gustavo-spindula-unsplash.jpg",
           path: "assets/hair/braids/gustavo-spindula-unsplash.jpg",
         },
+        hyperlink: [{ isEmpty: true, word: "Maiores", link: "/lorem" }],
         // artistName: "",
         cost: 24,
         description:
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit.Dolor facilis commodi qui optio, quos quidem odio a vitaenulla facere? Rem facilis esse cum earum amet, enim iuretempora eveniet.",
         // src: "",
-        type: "braids",
+        title: "braids",
         uid: "-4071-4b05-a8b3-a224b8fbba69",
       },
     ],
