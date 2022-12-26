@@ -23,10 +23,7 @@ export const glamourella = {
     subtitle: "",
     isHeroEmpty: true,
     isIcon: false,
-    hero: {
-      link: "",
-      name: "main-hero",
-    },
+    hero: { link: "", name: "main-hero" },
     sections: [
       {
         title: "Why choose Glamourella?",
@@ -34,8 +31,9 @@ export const glamourella = {
         uid: shortid.generate(),
         isHeroEmpty: true,
         isIcon: false,
+        isLinkEmpty: true,
         hero: { link: "/lorem", name: "lorem ipsum" },
-        hyperlink: [{ isEmpty: true, word: "Maiores", link: "/lorem" }],
+        hyperlink: [{ word: "Maiores", link: "/lorem" }],
       },
       {
         title: "My Story",
@@ -44,9 +42,8 @@ export const glamourella = {
         isHeroEmpty: true,
         isIcon: false,
         hero: { link: "", name: "" },
-        hyperlink: [
-          { isEmpty: true, word: "Distinctio, molestias", link: "/lorem" },
-        ],
+        isLinkEmpty: true,
+        hyperlink: [{ word: "Distinctio, molestias", link: "/lorem" }],
       },
       {
         title: "Who am I?",
@@ -55,9 +52,8 @@ export const glamourella = {
         isHeroEmpty: true,
         isIcon: false,
         hero: { link: "", name: "" },
-        hyperlink: [
-          { isEmpty: true, word: "obcaecati assumenda", link: "/lorem" },
-        ],
+        isLinkEmpty: true,
+        hyperlink: [{ word: "obcaecati assumenda", link: "/lorem" }],
       },
     ],
   },
@@ -67,13 +63,9 @@ export const glamourella = {
     subtitle: "",
     isNav: true,
     nav: ["all", "manicure", "pedicure"],
-    hero: {
-      // isEmpty: false,
-      isEmpty: false,
-      isIcon: false,
-      link: "",
-      name: "main-hero",
-    },
+    isHeroEmpty: false,
+    isIcon: false,
+    hero: { link: "", name: "main-hero" },
     sections: [
       {
         uid: shortid.generate(),
@@ -87,7 +79,7 @@ export const glamourella = {
         title: "classic",
         length: "30 minutes",
         cost: 25,
-        description:
+        response:
           "Your feet will be pampered, nails are professionally shaped and filed, cuticle trimmer, callus removed, followed by a hot oil massage and finish with a nail buff or polish.",
       },
       {
@@ -102,7 +94,7 @@ export const glamourella = {
         title: "REFRESHER ",
         length: "45 minutes",
         cost: 35,
-        description:
+        response:
           "A combination of our Classic Pedicure with an exfoliation pink salt, deep massage with hot stones, warm towel wrap. Finish with a nail buff or polish.",
       },
       {
@@ -117,7 +109,7 @@ export const glamourella = {
         title: "classic",
         length: "20 minutes",
         cost: 15,
-        description:
+        response:
           "Your nail will be professionally shaped and filed,  cuticle trimmer. Followed by lotion massage and finish with a nail buff or polish.",
       },
       {
@@ -132,7 +124,7 @@ export const glamourella = {
         title: "refresher",
         length: "30 minutes",
         cost: 25,
-        description:
+        response:
           "A combination of Classic Manicure, your hand will be soaked in moisturized lotion gloves and rubbed with an exfoliation pink salt. Follow by a deep massage with hot stones, warm towel wrap and finish with a nail buff or polish.",
       },
       {
@@ -147,7 +139,7 @@ export const glamourella = {
         title: "paris signature ",
         length: "56 minutes",
         cost: 29,
-        description:
+        response:
           "Your nail will be professionally shaped and filed,  cuticle trimmer. Followed by lotion massage and finish with a nail buff or polish.",
       },
     ],
@@ -189,10 +181,11 @@ export const glamourella = {
           file: "gustavo-spindula-unsplash.jpg",
           path: "assets/hair/braids/gustavo-spindula-unsplash.jpg",
         },
-        hyperlink: [{ isEmpty: true, word: "Maiores", link: "/lorem" }],
+        isLinkEmpty: false,
+        hyperlink: [{ word: "Maiores", link: "/lorem" }],
         // artistName: "",
         cost: 24,
-        description:
+        response:
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit.Dolor facilis commodi qui optio, quos quidem odio a vitaenulla facere? Rem facilis esse cum earum amet, enim iuretempora eveniet.",
         // src: "",
         title: "braids",
@@ -207,10 +200,11 @@ export const glamourella = {
           file: "gustavo-spindula-unsplash.jpg",
           path: "assets/hair/braids/gustavo-spindula-unsplash.jpg",
         },
-        hyperlink: [{ isEmpty: true, word: "Maiores", link: "/lorem" }],
+        isLinkEmpty: true,
+        hyperlink: [{ word: "Maiores", link: "/lorem" }],
         // artistName: "",
         cost: 24,
-        description:
+        response:
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit.Dolor facilis commodi qui optio, quos quidem odio a vitaenulla facere? Rem facilis esse cum earum amet, enim iuretempora eveniet.",
         // src: "",
         title: "braids",
@@ -225,10 +219,11 @@ export const glamourella = {
           file: "gustavo-spindula-unsplash.jpg",
           path: "assets/hair/braids/gustavo-spindula-unsplash.jpg",
         },
-        hyperlink: [{ isEmpty: true, word: "Maiores", link: "/lorem" }],
+        isLinkEmpty: true,
+        hyperlink: [{ word: "Maiores", link: "/lorem" }],
         // artistName: "",
         cost: 24,
-        description:
+        response:
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit.Dolor facilis commodi qui optio, quos quidem odio a vitaenulla facere? Rem facilis esse cum earum amet, enim iuretempora eveniet.",
         // src: "",
         title: "braids",
@@ -243,11 +238,12 @@ export const glamourella = {
           file: "gustavo-spindula-unsplash.jpg",
           path: "assets/hair/braids/gustavo-spindula-unsplash.jpg",
         },
-        hyperlink: [{ isEmpty: true, word: "Maiores", link: "/lorem" }],
+        isLinkEmpty: true,
+        hyperlink: [{ word: "Maiores", link: "/lorem" }],
 
         // artistName: "",
         cost: 24,
-        description:
+        response:
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit.Dolor facilis commodi qui optio, quos quidem odio a vitaenulla facere? Rem facilis esse cum earum amet, enim iuretempora eveniet.",
         // src: "",
         title: "braids",
@@ -262,11 +258,12 @@ export const glamourella = {
           file: "gustavo-spindula-unsplash.jpg",
           path: "assets/hair/braids/gustavo-spindula-unsplash.jpg",
         },
-        hyperlink: [{ isEmpty: true, word: "Maiores", link: "/lorem" }],
+        isLinkEmpty: true,
+        hyperlink: [{ word: "Maiores", link: "/lorem" }],
 
         // artistName: "",
         cost: 24,
-        description:
+        response:
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit.Dolor facilis commodi qui optio, quos quidem odio a vitaenulla facere? Rem facilis esse cum earum amet, enim iuretempora eveniet.",
         // src: "",
         title: "braids",
@@ -281,10 +278,11 @@ export const glamourella = {
           file: "gustavo-spindula-unsplash.jpg",
           path: "assets/hair/braids/gustavo-spindula-unsplash.jpg",
         },
-        hyperlink: [{ isEmpty: true, word: "Maiores", link: "/lorem" }],
+        isLinkEmpty: true,
+        hyperlink: [{ word: "Maiores", link: "/lorem" }],
         // artistName: "",
         cost: 24,
-        description:
+        response:
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit.Dolor facilis commodi qui optio, quos quidem odio a vitaenulla facere? Rem facilis esse cum earum amet, enim iuretempora eveniet.",
         // src: "",
         title: "braids",
