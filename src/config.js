@@ -69,7 +69,7 @@ export const glamourella = {
     sections: [
       {
         uid: shortid.generate(),
-        type: "pedicure",
+        subtitle: "pedicure",
         isHeroEmpty: true,
         isIcon: false,
         hero: { link: "/lorem", name: "lorem ipsum" },
@@ -93,7 +93,7 @@ export const glamourella = {
         isLinkEmpty: true,
         hyperlink: [{ word: "Maiores", link: "/lorem" }],
         isForSale: true,
-        type: "pedicure",
+        subtitle: "pedicure",
         //link:
         //   process.env.REACT_APP_DB_URL +
         //   "gallery/photo/?path=assets/pedicure/billie-unsplash.jpg",
@@ -111,7 +111,7 @@ export const glamourella = {
         hero: { link: "/lorem", name: "lorem ipsum" },
         isLinkEmpty: true,
         hyperlink: [{ word: "Maiores", link: "/lorem" }],
-        type: "manicure",
+        subtitle: "manicure",
         //link:
         //   process.env.REACT_APP_DB_URL +
         //   "gallery/photo/?path=assets/manicure/rashid-khreiss-unsplash.jpg",
@@ -129,7 +129,7 @@ export const glamourella = {
         isLinkEmpty: true,
         isForSale: true,
         hyperlink: [{ word: "Maiores", link: "/lorem" }],
-        type: "manicure",
+        subtitle: "manicure",
         //link:
         //   process.env.REACT_APP_DB_URL +
         //   "gallery/photo/?path=assets/manicure/bryony-elena-unsplash.jpg",
@@ -141,7 +141,7 @@ export const glamourella = {
       },
       {
         uid: shortid.generate(),
-        type: "manicure",
+        subtitle: "manicure",
         isHeroEmpty: true,
         isIcon: false,
         hero: { link: "/lorem", name: "lorem ipsum" },

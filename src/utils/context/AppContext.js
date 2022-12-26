@@ -18,9 +18,9 @@ export const GlamourellaState = ({ children }) => {
     gallery: glamourella.gallery,
   };
   const [state, dispatch] = useReducer(reducer, initialState);
-  useEffect(() => {
-    // getAllAssets();
-  }, []);
+  // useEffect(() => {
+  //   // getAllAssets();
+  // }, []);
   // const getAssets = async () => {
   //   try {
   //     const { data } = await axiosWithAuth.get("/app/glamourella");

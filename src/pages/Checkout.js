@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import CheckoutCard from "../component/organisms/CheckoutCard";
+import CardRow from "../component/organisms/CardRow";
 import { ServicesContext } from "../utils/context/ServicesContext";
 import CustomLink from "../component/atoms/CustomLink";
 
@@ -22,11 +22,11 @@ const Checkout = () => {
       <h3>Check Out</h3>
       {total < 0 && <p>Link to Services and Gallery</p>}
       {cart ? (
-        cart.map((c) => <CheckoutCard key={c.uid} data={c} />)
+        cart.map((c) => <CardRow key={c.uid} data={c} />)
       ) : (
         <CustomLink data={checkoutLink} />
       )}
-      {/* {checkout && checkout.map((c) => <CheckoutCard key={c.uid} data={c} />)} */}
+      {/* {checkout && checkout.map((c) => <CardRow key={c.uid} data={c} />)} */}
       <h4>Total ${total}</h4>
       {/* <button >Pay now</button> */}
     </section>

@@ -27,6 +27,14 @@ const addToCart = (state, action) => {
     cart: [...state.cart, action.payload],
   };
 };
+const removeFromCart = (state, action) => {
+  return {
+    ...state,
+    isLoading: false,
+    // cart: [...state.cart, action.payload],
+    cart: state.cart.filter((c) => c.uid !== action.payload.uid),
+  };
+};
 export const reducer = (state, action) => {
   switch (action.type) {
     case "IS_LOADING":
@@ -35,6 +43,8 @@ export const reducer = (state, action) => {
       return loadServices(state, action);
     case "ADD_TO_CART":
       return addToCart(state, action);
+    case "REMOVE_FROM_CART":
+      return removeFromCart(state, action);
     case "UPDATE_SERVICES":
       return updateAssets(state, action);
     default:

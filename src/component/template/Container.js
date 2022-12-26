@@ -1,10 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-// import { useContext } from "react";
-// import Buttons from "../component/molecules/Buttons";
-// import CardHeader from "../component/molecules/card/CardHeader";
-// // import { ServicesContext } from "../utils/context/ServicesContext";
-// import Card from "../component/organisms/Card";
-
 import Buttons from "../molecules/Buttons";
 import CardHeader from "../molecules/card/CardHeader";
 import Card from "../organisms/Card";
