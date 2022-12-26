@@ -12,14 +12,11 @@ const AdminDashboard = () => {
   const { user, booked } = useContext(UserContext);
   const { formatDate } = useContext(CalendarContext);
   const [menu, setMenu] = useState([
-    {
-      name: "Schedule",
-      uid: shortid.generate(),
-    },
+    { name: "Schedule", uid: shortid.generate() },
   ]);
   const [schedule, setSchedule] = useState([
     {
-      day: formatDate(new Date()),
+      day: `${formatDate(new Date())} (Today)`,
       uid: shortid.generate(),
       shift: [
         { uid: shortid.generate(), time: "9am - 10am", isOpen: true },
@@ -29,7 +26,7 @@ const AdminDashboard = () => {
       ],
     },
     {
-      day: "tuesday",
+      day: formatDate(new Date().setDate(new Date().getDate() + 1)),
       uid: shortid.generate(),
       shift: [
         { uid: shortid.generate(), time: "9am - 10am", isOpen: true },
@@ -39,7 +36,7 @@ const AdminDashboard = () => {
       ],
     },
     {
-      day: "wednesday",
+      day: formatDate(new Date().setDate(new Date().getDate() + 2)),
       uid: shortid.generate(),
       shift: [
         { uid: shortid.generate(), time: "9am - 10am", isOpen: true },
@@ -49,7 +46,7 @@ const AdminDashboard = () => {
       ],
     },
     {
-      day: "friday",
+      day: formatDate(new Date().setDate(new Date().getDate() + 3)),
       uid: shortid.generate(),
       shift: [
         { uid: shortid.generate(), time: "9am - 10am", isOpen: true },
@@ -59,7 +56,7 @@ const AdminDashboard = () => {
       ],
     },
     {
-      day: "saturday",
+      day: formatDate(new Date().setDate(new Date().getDate() + 4)),
       uid: shortid.generate(),
       shift: [
         { uid: shortid.generate(), time: "9am - 10am", isOpen: true },
@@ -69,7 +66,7 @@ const AdminDashboard = () => {
       ],
     },
     {
-      day: "sunday",
+      day: formatDate(new Date().setDate(new Date().getDate() + 5)),
       uid: shortid.generate(),
       shift: [
         { uid: shortid.generate(), time: "9am - 10am", isOpen: true },
@@ -105,8 +102,8 @@ const AdminDashboard = () => {
           ))}
         </ul>
       </nav>
-      <div className="card-secondary">
-        <h3>My schedule</h3>
+      <div className="primary-container">
+        <h3 className="title">My schedule</h3>
         {schedule.length > 0 &&
           schedule.map((s) => (
             <div className="admin-content" key={s.uid}>

@@ -12,7 +12,7 @@
   gap: 1rem;
 }
 .app-body:has(.admin-container) {
-  padding: 1rem 0;
+  padding: 0;
 }
 .admin-content {
   .list {
@@ -20,7 +20,7 @@
     flex-wrap: wrap;
   }
   .list-item {
-    flex: none;
-    width: 100%;
+    flex: 1;
+    // width: 100%;
   }
 }

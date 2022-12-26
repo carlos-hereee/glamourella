@@ -1,5 +1,5 @@
 import CardHeader from "../molecules/card/CardHeader";
-import ReadMore from "../molecules/ReadMore";
+// import ReadMore from "../molecules/ReadMore";
 
 const CardRow = ({ data, handleClick }) => {
   return (
