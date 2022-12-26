@@ -62,9 +62,9 @@ export const glamourella = {
     title: "Featured Services",
     subtitle: "",
     isNav: true,
-    nav: ["all", "manicure", "pedicure"],
-    isHeroEmpty: false,
+    isHeroEmpty: true,
     isIcon: false,
+    nav: ["all", "manicure", "pedicure"],
     hero: { link: "", name: "main-hero" },
     sections: [
       {
@@ -73,6 +73,9 @@ export const glamourella = {
         isHeroEmpty: true,
         isIcon: false,
         hero: { link: "/lorem", name: "lorem ipsum" },
+        isLinkEmpty: true,
+        isForSale: true,
+        hyperlink: [{ word: "Maiores", link: "/lorem" }],
         //link:
         //   process.env.REACT_APP_DB_URL +
         //   "gallery/photo/?path=assets/pedicure/billie-unsplash.jpg",
@@ -87,6 +90,9 @@ export const glamourella = {
         isHeroEmpty: true,
         isIcon: false,
         hero: { link: "/lorem", name: "lorem ipsum" },
+        isLinkEmpty: true,
+        hyperlink: [{ word: "Maiores", link: "/lorem" }],
+        isForSale: true,
         type: "pedicure",
         //link:
         //   process.env.REACT_APP_DB_URL +
@@ -101,7 +107,10 @@ export const glamourella = {
         uid: shortid.generate(),
         isHeroEmpty: true,
         isIcon: false,
+        isForSale: true,
         hero: { link: "/lorem", name: "lorem ipsum" },
+        isLinkEmpty: true,
+        hyperlink: [{ word: "Maiores", link: "/lorem" }],
         type: "manicure",
         //link:
         //   process.env.REACT_APP_DB_URL +
@@ -117,6 +126,9 @@ export const glamourella = {
         isHeroEmpty: true,
         isIcon: false,
         hero: { link: "/lorem", name: "lorem ipsum" },
+        isLinkEmpty: true,
+        isForSale: true,
+        hyperlink: [{ word: "Maiores", link: "/lorem" }],
         type: "manicure",
         //link:
         //   process.env.REACT_APP_DB_URL +
@@ -133,6 +145,9 @@ export const glamourella = {
         isHeroEmpty: true,
         isIcon: false,
         hero: { link: "/lorem", name: "lorem ipsum" },
+        isForSale: true,
+        isLinkEmpty: true,
+        hyperlink: [{ word: "Maiores", link: "/lorem" }],
         //link:
         //   process.env.REACT_APP_DB_URL +
         //   "gallery/photo/?path=assets/manicure/kris-atomic-unsplash.jpg",

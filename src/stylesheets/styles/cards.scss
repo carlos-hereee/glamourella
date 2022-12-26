@@ -3,12 +3,15 @@
   // flex: 1;
   // width: 100%;
   min-width: 200px;
+  max-width: 300px;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: space-between;
   background-color: #{$text-color};
   overflow: hidden;
   .hero {
     border-radius: 1rem;
+    width: 100%;
   }
   &:has(> .ribbon) {
     position: relative;
@@ -24,6 +27,7 @@
   @include devices(mobile) {
     // width: 100%;
     min-width: auto;
+    max-width: auto;
   }
   // &:has(> .card-body) {
   //   .card-body {
@@ -96,9 +100,9 @@
 }
 .primary-container {
   display: flex;
-  background-color: #{$text-color};
   flex-direction: column;
   justify-content: center;
+  background-color: #{$text-color};
   gap: 1rem;
   padding: 1rem;
 }
@@ -118,17 +122,8 @@
 }
 .card-container {
   display: flex;
-  // flex-direction: column;
   justify-content: center;
   flex-wrap: wrap;
   background-color: #{$text-color};
-  // padding: 1rem;
   gap: 1rem;
-  .card {
-    max-width: 450px;
-    flex: 1;
-    @include devices(mobile) {
-      min-width: 200px;
-    }
-  }
 }
