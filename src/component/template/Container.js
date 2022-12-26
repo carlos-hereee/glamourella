@@ -10,10 +10,6 @@ import CardHeader from "../molecules/card/CardHeader";
 import Card from "../organisms/Card";
 
 const Container = ({ filter, filtered, isFiltered, data, addToCart }) => {
-  // const { filterGallery, filteredGallery, isFiltered } =
-  //   useContext(GalleryContext);
-  // const { gallery } = useContext(AppContext);
-  // const { addToCart } = useContext(ServicesContext);
   const handleClick = (e) => {
     let content = e.currentTarget.textContent.split(" ").join("").toLowerCase();
     filter(data.sections, content);
