@@ -18,7 +18,7 @@ const Checkout = () => {
     }
   }, [cart]);
   return (
-    <section className="checkout-container">
+    <section className="primary-container">
       <h3>Check Out</h3>
       {total < 0 && <p>Link to Services and Gallery</p>}
       {cart ? (

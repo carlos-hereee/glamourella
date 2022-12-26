@@ -1,6 +1,6 @@
 const BusinessHours = ({ data }) => {
   return (
-    <div>
+    <div className="card">
       <h4>Business Hours</h4>
       <table className="responsive-table">
         <thead>

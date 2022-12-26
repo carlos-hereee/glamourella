@@ -1,6 +1,6 @@
 import Logo from "../component/atoms/Logo";
 import BusinessHours from "../component/molecules/BusinessHours";
-import ContactUs from "../component/molecules/ContactUs";
+// import ContactUs from "../component/molecules/ContactUs";
 import { useContext } from "react";
 import { AppContext } from "../utils/context/AppContext";
 import Newsletter from "../component/molecules/Newsletter";
@@ -11,8 +11,8 @@ const Footer = () => {
     <footer>
       {/* <section className="card"> */}
       <Logo />
-      <BusinessHours data={schedule} />
       <Newsletter />
+      <BusinessHours data={schedule} />
       {/* </section> */}
     </footer>
   );
