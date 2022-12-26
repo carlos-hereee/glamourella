@@ -17,7 +17,6 @@ const Gallery = () => {
     let content = e.currentTarget.textContent.split(" ").join("").toLowerCase();
     filterGallery(gallery.sections, content);
   };
-  console.log("data.sections", gallery);
   return (
     <section className="primary-container">
       <CardHeader data={gallery} />
