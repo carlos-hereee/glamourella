@@ -5,7 +5,6 @@ import CardHeader from "../component/molecules/card/CardHeader";
 import CardSection from "../component/organisms/CardSection";
 const About = () => {
   const { about } = useContext(AppContext);
-  // console.log("about", about.sections);
   return (
     <section className="primary-container">
       <CardHeader data={about} />

@@ -2,11 +2,10 @@
 import { useContext } from "react";
 import { GalleryContext } from "../utils/context/GalleryContext";
 import Buttons from "../component/molecules/Buttons";
-import GalleryPhotos from "../component/molecules/GalleryPhotos";
 import { AppContext } from "../utils/context/AppContext";
 import CardHeader from "../component/molecules/card/CardHeader";
 import { ServicesContext } from "../utils/context/ServicesContext";
-// import Card from "../component/organisms/Card";
+import Card from "../component/organisms/Card";
 
 const Gallery = () => {
   const { filterGallery, filteredGallery, isFiltered } =
@@ -32,10 +31,10 @@ const Gallery = () => {
       <div className="card-container">
         {isFiltered
           ? filteredGallery.map((fg) => (
-              <GalleryPhotos data={fg} key={fg.uid} click={addToCart} />
+              <Card data={fg} key={fg.uid} click={addToCart} />
             ))
           : gallery.sections.map((g) => (
-              <GalleryPhotos data={g} key={g.uid} click={addToCart} />
+              <Card data={g} key={g.uid} click={addToCart} />
             ))}
       </div>
     </section>

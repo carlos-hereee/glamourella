@@ -175,13 +175,14 @@ export const glamourella = {
       {
         isIcon: false,
         isHeroEmpty: false,
+        isForSale: true,
         hero: {
           link: "http://localhost:4937/gallery/photo/?path=assets/hair/braids/gustavo-spindula-unsplash.jpg",
           name: "gustavo spindula unsplash",
           file: "gustavo-spindula-unsplash.jpg",
           path: "assets/hair/braids/gustavo-spindula-unsplash.jpg",
         },
-        isLinkEmpty: false,
+        isLinkEmpty: true,
         hyperlink: [{ word: "Maiores", link: "/lorem" }],
         // artistName: "",
         cost: 24,
@@ -194,6 +195,7 @@ export const glamourella = {
       {
         isIcon: false,
         isHeroEmpty: false,
+        isForSale: true,
         hero: {
           link: "http://localhost:4937/gallery/photo/?path=assets/hair/braids/gustavo-spindula-unsplash.jpg",
           name: "gustavo spindula unsplash",
@@ -213,6 +215,7 @@ export const glamourella = {
       {
         isIcon: false,
         isHeroEmpty: false,
+        isForSale: true,
         hero: {
           link: "http://localhost:4937/gallery/photo/?path=assets/hair/braids/gustavo-spindula-unsplash.jpg",
           name: "gustavo spindula unsplash",
@@ -232,6 +235,7 @@ export const glamourella = {
       {
         isIcon: false,
         isHeroEmpty: false,
+        isForSale: true,
         hero: {
           link: "http://localhost:4937/gallery/photo/?path=assets/hair/braids/gustavo-spindula-unsplash.jpg",
           name: "gustavo spindula unsplash",
@@ -252,6 +256,7 @@ export const glamourella = {
       {
         isIcon: false,
         isHeroEmpty: false,
+        isForSale: true,
         hero: {
           link: "http://localhost:4937/gallery/photo/?path=assets/hair/braids/gustavo-spindula-unsplash.jpg",
           name: "gustavo spindula unsplash",
@@ -272,6 +277,7 @@ export const glamourella = {
       {
         isIcon: false,
         isHeroEmpty: false,
+        isForSale: true,
         hero: {
           link: "http://localhost:4937/gallery/photo/?path=assets/hair/braids/gustavo-spindula-unsplash.jpg",
           name: "gustavo spindula unsplash",
