@@ -7,8 +7,9 @@ export const AdminContext = createContext();
 export const AdminState = ({ children }) => {
   const initialState = {
     isLoading: false,
-    menu: [{ name: "Schedule", uid: shortid.generate() }],
+    menu: [{ name: "schedule", uid: shortid.generate(), isActive: true }],
     isAdmin: true,
+    active: { name: "schedule", uid: shortid.generate(), isActive: true },
     schedule: [
       {
         day: formatDate(new Date()),
@@ -79,6 +80,16 @@ export const AdminState = ({ children }) => {
     ],
   };
   const [state, dispatch] = useReducer(reducer, initialState);
+  const setMenuActive = (menu, e) => {
+    menu.filter((m) => {
+      if (m.isActive) m.isActive = false;
+      if (m.uid === e.uid) m.isActive = true;
+      return m;
+    });
+    // console.log("menu", menu);
+    dispatch({ type: "IS_LOADING", payload: true });
+    dispatch({ type: "SET_MENU_ACTIVE", payload: e, menu: menu });
+  };
   return (
     <AdminContext.Provider
       value={{
@@ -86,6 +97,8 @@ export const AdminState = ({ children }) => {
         isAdmin: state.isAdmin,
         menu: state.menu,
         schedule: state.schedule,
+        active: state.active,
+        setMenuActive,
       }}>
       {children}
     </AdminContext.Provider>

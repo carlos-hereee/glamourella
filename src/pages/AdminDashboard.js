@@ -4,6 +4,7 @@ import { useContext } from "react";
 import MenuLink from "../component/molecules/MenuLink";
 import { CalendarContext } from "../utils/context/CalendarContext";
 import { AdminContext } from "../utils/context/AdminContext";
+import Schedule from "../component/organisms/Schedule";
 
 const Appointment = (
   <>
@@ -21,44 +22,23 @@ const AdminDashboard = () => {
   // TODO: LET ADMIN ADD THEIR WORK SCHEDULE
   // TODO: LET ADMIN REMOVE APPOINTMENTS FROM WORK SCHEDULE
   // const { booked,  } = useContext(UserContext);
-  const { schedule, menu } = useContext(AdminContext);
+  const { menu, active, setMenuActive } = useContext(AdminContext);
 
-  const handleClick = (e) => {
-    let item = e.target.innerText;
-    menu.findIndex((m) => m.uid);
-  };
+  const handleClick = (e) => setMenuActive(menu, e);
   // TODO, FORMAT DATE WITH COMA, AND PERIOD.
+  const container = {
+    schedule: <Schedule />,
+  };
   return (
     <section className="admin-container">
       <nav className="secondary-navigation">
         <ul className="navigation" data-state="open">
           {menu.map((m) => (
-            <MenuLink data={m} key={m.uid} handleClick={handleClick} />
+            <MenuLink data={m} key={m.uid} click={handleClick} />
           ))}
         </ul>
       </nav>
-      <div className="primary-container">
-        <h3 className="title">My schedule</h3>
-        {schedule.length > 0 &&
-          schedule.map((s) => (
-            <div className="admin-content" key={s.uid}>
-              <p>
-                <strong>{s.day}</strong>
-              </p>
-              <div className="list">
-                {s.shift.length > 0 &&
-                  s.shift.map((sh) => (
-                    <button
-                      type="button"
-                      className="btn list-item"
-                      key={sh.uid}>
-                      {sh.time}
-                    </button>
-                  ))}
-              </div>
-            </div>
-          ))}
-      </div>
+      {container[active.name]}
     </section>
   );
 };
