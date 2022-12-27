@@ -67,12 +67,21 @@ header {
   align-items: flex-start;
   background-color: #{$secondary-color};
   padding: 1rem 0.5rem;
-  .list {
-    overflow-y: auto;
+  .navigation {
+    flex-direction: column;
+    justify-content: space-around;
+    list-style: none;
+    border-radius: 4px;
+    padding: 1rem;
+    gap: 1rem;
   }
-  .nav-link {
-    padding: 0;
-  }
+
+  // .list {
+  //   overflow-y: auto;
+  // }
+  // .nav-link {
+  //   padding: 0;
+  // }
 }
 .card-secondary {
   width: 100%;

@@ -9,22 +9,25 @@ import { GalleryState } from "./utils/context/GalleryContext";
 import { ServicesState } from "./utils/context/ServicesContext";
 import { GlamourellaState } from "./utils/context/AppContext";
 import "./stylesheets/index.scss";
+import { AdminState } from "./utils/context/AdminContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <AuthState>
-      <UserState>
-        <GlamourellaState>
-          <ServicesState>
-            <GalleryState>
-              <CalendarState>
-                <App />
-              </CalendarState>
-            </GalleryState>
-          </ServicesState>
-        </GlamourellaState>
-      </UserState>
+      <AdminState>
+        <UserState>
+          <GlamourellaState>
+            <ServicesState>
+              <GalleryState>
+                <CalendarState>
+                  <App />
+                </CalendarState>
+              </GalleryState>
+            </ServicesState>
+          </GlamourellaState>
+        </UserState>
+      </AdminState>
     </AuthState>
   </BrowserRouter>
 );

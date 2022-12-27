@@ -2,8 +2,8 @@
 import React, { createContext, useEffect, useReducer } from "react";
 import { axiosWithAuth, axiosCalendar } from "../axios";
 import { reducer } from "../reducers/CalendarReducer";
-import moment from "moment";
 import { isDev } from "../../config";
+import { formatDate, formatTime, today } from "../moment";
 
 export const CalendarContext = createContext();
 export const CalendarState = ({ children }) => {
@@ -24,9 +24,6 @@ export const CalendarState = ({ children }) => {
     getCalendar();
   }, []);
 
-  const formatDate = (t) => moment(t).format("dddd MMM DD YYYY");
-  const formatTime = (t) => moment(t).format("hh:mm a");
-  const today = formatDate(new Date());
   const getCalendar = async () => {
     try {
       const { data } = await axiosCalendar.get("/calendar/events");
@@ -107,8 +104,6 @@ export const CalendarState = ({ children }) => {
         contactUs,
         getCalendarDay,
         setDay: updateDay,
-        formatDate,
-        formatTime,
         bookNow,
         isDateEqual,
       }}>

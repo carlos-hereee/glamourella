@@ -46,6 +46,7 @@ export const UserState = ({ children }) => {
         booked: state.booked,
         log: state.log,
         isAdmin: state.isAdmin,
+        admin: state.admin,
         // getUserData,
       }}>
       {children}

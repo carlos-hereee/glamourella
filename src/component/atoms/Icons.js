@@ -54,6 +54,7 @@ const svg = {
   manicure: faHands,
   pedicure: faShoePrints,
   promotion: faBullseye,
+  schedule: faCalendarAlt,
   x: faX,
   1: fa1,
   2: fa2,
