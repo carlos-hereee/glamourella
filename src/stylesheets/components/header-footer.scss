@@ -14,8 +14,29 @@ header {
     justify-content: flex-start;
   }
 }
+.logo-wrapper {
+  display: flex;
+  gap: 0.5rem;
+  .logo {
+    border-radius: 100%;
+    width: 90px;
+    display: flex;
+    // aspect-ratio: 1/1;
+    // height: 100px;
+  }
+  @include devices(mobile) {
+    flex-direction: row;
+    align-items: center;
+    .logo {
+      width: 70px;
+      height: 70px;
+      // aspect-ratio: 1/1;
+    }
+  }
+}
 .primary-navigation {
   position: relative;
+  // flex: 1;
   .navigation {
     flex-direction: column;
     justify-content: space-around;
@@ -57,7 +78,6 @@ header {
   width: 100%;
   padding: 1rem;
 }
-
 .navbar {
   // width: 100%;
   display: flex;

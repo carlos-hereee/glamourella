@@ -7,17 +7,19 @@ import MenuLink from "../component/molecules/MenuLink";
 import { CalendarContext } from "../utils/context/CalendarContext";
 
 const AdminDashboard = () => {
-  // TODO: ADMIN ADD THEIR WORK SCHEDULE
-  // TODO:
+  // TODO: LET ADMIN ADD THEIR WORK SCHEDULE
+  // TODO: LET ADMIN REMOVE APPOINTMENTS FROM WORK SCHEDULE
   const { user, booked } = useContext(UserContext);
   const { formatDate } = useContext(CalendarContext);
   const [menu, setMenu] = useState([
     { name: "Schedule", uid: shortid.generate() },
   ]);
+  const today = formatDate(new Date());
   const [schedule, setSchedule] = useState([
     {
-      day: `${formatDate(new Date())} (Today)`,
+      day: formatDate(new Date()),
       uid: shortid.generate(),
+      isToday: true,
       shift: [
         { uid: shortid.generate(), time: "9am - 10am", isOpen: true },
         { uid: shortid.generate(), time: "11am -12pm", isOpen: true },
@@ -28,6 +30,7 @@ const AdminDashboard = () => {
     {
       day: formatDate(new Date().setDate(new Date().getDate() + 1)),
       uid: shortid.generate(),
+      isToday: false,
       shift: [
         { uid: shortid.generate(), time: "9am - 10am", isOpen: true },
         { uid: shortid.generate(), time: "11am - 12pm", isOpen: true },
@@ -38,6 +41,7 @@ const AdminDashboard = () => {
     {
       day: formatDate(new Date().setDate(new Date().getDate() + 2)),
       uid: shortid.generate(),
+      isToday: false,
       shift: [
         { uid: shortid.generate(), time: "9am - 10am", isOpen: true },
         { uid: shortid.generate(), time: "11am - 12pm", isOpen: true },
@@ -48,6 +52,7 @@ const AdminDashboard = () => {
     {
       day: formatDate(new Date().setDate(new Date().getDate() + 3)),
       uid: shortid.generate(),
+      isToday: false,
       shift: [
         { uid: shortid.generate(), time: "9am - 10am", isOpen: true },
         { uid: shortid.generate(), time: "11am - 12pm", isOpen: true },
@@ -58,6 +63,7 @@ const AdminDashboard = () => {
     {
       day: formatDate(new Date().setDate(new Date().getDate() + 4)),
       uid: shortid.generate(),
+      isToday: false,
       shift: [
         { uid: shortid.generate(), time: "9am - 10am", isOpen: true },
         { uid: shortid.generate(), time: "11am - 12pm", isOpen: true },
@@ -68,6 +74,7 @@ const AdminDashboard = () => {
     {
       day: formatDate(new Date().setDate(new Date().getDate() + 5)),
       uid: shortid.generate(),
+      isToday: false,
       shift: [
         { uid: shortid.generate(), time: "9am - 10am", isOpen: true },
         { uid: shortid.generate(), time: "11am - 12pm", isOpen: true },

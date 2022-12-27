@@ -1,5 +1,4 @@
-// import { useEffect } from "react";
-import React, { createContext, useEffect, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
 import { axiosWithAuth } from "../axios";
 import { reducer } from "../reducers/GlamourellaReducer";
 import { glamourella } from "../../config";
@@ -16,6 +15,11 @@ export const GlamourellaState = ({ children }) => {
     about: glamourella.about,
     services: glamourella.services,
     gallery: glamourella.gallery,
+    app: {
+      title: "Glamour Beauty Collection",
+      link: require("../../assets/glamour-logo.jpg"),
+      alt: "industry brand",
+    },
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   // useEffect(() => {
@@ -30,17 +34,17 @@ export const GlamourellaState = ({ children }) => {
   //     dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: error.response.data });
   //   }
   // };
-  const getAllAssets = async () => {
-    dispatch({ type: "IS_LOADING", payload: true });
-    try {
-      const { data } = await axiosWithAuth.get("/gallery/all?path=assets");
-      console.log("data", data);
-      dispatch({ type: "LOAD_ASSETS", payload: data });
-    } catch (err) {
-      const data = err.response.data;
-      dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data });
-    }
-  };
+  // const getAllAssets = async () => {
+  //   dispatch({ type: "IS_LOADING", payload: true });
+  //   try {
+  //     const { data } = await axiosWithAuth.get("/gallery/all?path=assets");
+  //     console.log("data", data);
+  //     dispatch({ type: "LOAD_ASSETS", payload: data });
+  //   } catch (err) {
+  //     const data = err.response.data;
+  //     dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data });
+  //   }
+  // };
   const updateBurger = (payload) => {
     dispatch({ type: "UPDATE_BURGER", payload: payload });
   };
@@ -66,6 +70,7 @@ export const GlamourellaState = ({ children }) => {
         schedule: state.schedule,
         burgerOptions: state.burgerOptions,
         gallery: state.gallery,
+        app: state.app,
         updateBurger,
         newsletter,
       }}>
