@@ -127,6 +127,9 @@
   background-color: #{$text-color};
   gap: 1rem;
   padding: 1rem;
+  @include devices(mobile) {
+    width: auto;
+  }
 }
 .container {
   display: flex;

@@ -95,7 +95,7 @@ export const AdminState = ({ children }) => {
             { uid: shortid.generate(), response: "9am - 10am", isOpen: true },
             { uid: shortid.generate(), response: "11am - 12pm", isOpen: true },
             { uid: shortid.generate(), response: "2pm - 3pm", isOpen: true },
-            { uid: shortid.generate(), response: "4pm - 5pm", isOpen: true },
+            { uid: shortid.generate(), response: "4pm - 5pm", isOpen: false },
           ],
         },
       ],
@@ -120,6 +120,13 @@ export const AdminState = ({ children }) => {
     if (option === "today") {
       let today = content.filter((c) => c.title === formatDate(new Date()));
       return dispatch({ type: "FILTER_PLANNER", payload: today });
+    }
+    if (option === "booked") {
+      let sorted = content.filter((c) => {
+        let booked = c.list.filter((l) => l.isOpen === false);
+        return booked.length > 0 && c;
+      });
+      return dispatch({ type: "FILTER_PLANNER", payload: sorted });
     }
     // const data = data.option((s) => s.type === option);
     // dispatch({ type: "UPDATE_SERVICES", payload: data });

@@ -3,12 +3,10 @@ import CardHeader from "../molecules/card/CardHeader";
 import SecondaryCard from "../molecules/card/SecondaryCard";
 
 const AdminContainer = ({ filter, filtered, isFiltered, data }) => {
-  // const {}
   const navClick = (e) => {
     let content = e.currentTarget.textContent.split(" ").join("").toLowerCase();
     filter(data.sections, content);
   };
-  console.log("filtered", filtered, isFiltered);
   return (
     <section className="primary-container">
       <CardHeader data={data} />
