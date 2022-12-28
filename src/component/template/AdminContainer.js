@@ -1,39 +1,31 @@
 import Buttons from "../molecules/Buttons";
 import CardHeader from "../molecules/card/CardHeader";
-import CardSectionHeader from "../molecules/card/CardSectionHeader";
-import SecondaryCardBody from "../molecules/card/SecondaryCardBody";
+import SecondaryCard from "../molecules/card/SecondaryCard";
 
-const AdminContainer = ({ filter, filtered, isFiltered, data, addToCart }) => {
-  const handleClick = (e) => {
+const AdminContainer = ({ filter, filtered, isFiltered, data }) => {
+  // const {}
+  const navClick = (e) => {
     let content = e.currentTarget.textContent.split(" ").join("").toLowerCase();
     filter(data.sections, content);
   };
+  console.log("filtered", filtered, isFiltered);
   return (
     <section className="primary-container">
       <CardHeader data={data} />
       {data.isNav && (
         <nav className="navbar">
           {data.nav.map((g) => (
-            <Buttons name={g} handleClick={handleClick} key={g} />
+            <Buttons name={g} handleClick={navClick} key={g} />
           ))}
         </nav>
       )}
       <div className="card-container">
         {isFiltered
-          ? filtered.map((fg) => (
-              // <CardSection data={fg} key={fg.uid} click={addToCart} />
-              <p>{fg.day}</p>
+          ? filtered.map((sorted) => (
+              <SecondaryCard data={sorted} key={sorted.uid} />
             ))
           : data.sections.map((section) => (
-              <div className="secondary-card" key={section.uid}>
-                <CardSectionHeader data={section} click={addToCart} />
-                <div className="secondary-card-body">
-                  {!section.isListEmpty &&
-                    section.list.map((sl) => (
-                      <SecondaryCardBody data={sl} key={sl.uid} />
-                    ))}
-                </div>
-              </div>
+              <SecondaryCard data={section} key={section.uid} />
             ))}
       </div>
     </section>

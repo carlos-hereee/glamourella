@@ -13,11 +13,7 @@ const loadPlanner = (state, action) => {
   return {
     ...state,
     isLoading: false,
-    isFiltered: false,
-    schedule: {
-      ...state.schedule,
-      planner: action.payload,
-    },
+    isFiltered: action.payload,
   };
 };
 const filterPlanner = (state, action) => {

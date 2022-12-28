@@ -115,12 +115,10 @@ export const AdminState = ({ children }) => {
   const filter = (content, option) => {
     dispatch({ type: "IS_LOADING", payload: true });
     if (option === "all") {
-      return dispatch({ type: "LOAD_PLANNER", payload: content });
+      return dispatch({ type: "LOAD_PLANNER", payload: false });
     }
     if (option === "today") {
-      let today = content.filter(
-        (c) => c.day === formatDate(new Date()) && c.isToday === true
-      );
+      let today = content.filter((c) => c.title === formatDate(new Date()));
       return dispatch({ type: "FILTER_PLANNER", payload: today });
     }
     // const data = data.option((s) => s.type === option);
