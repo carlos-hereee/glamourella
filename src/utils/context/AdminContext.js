@@ -7,7 +7,10 @@ export const AdminContext = createContext();
 export const AdminState = ({ children }) => {
   const initialState = {
     isLoading: false,
-    menu: [{ name: "schedule", uid: shortid.generate(), isActive: true }],
+    menu: [
+      { name: "schedule", uid: shortid.generate(), isActive: true },
+      { name: "appointment", uid: shortid.generate(), isActive: false },
+    ],
     isAdmin: true,
     active: { name: "schedule", uid: shortid.generate(), isActive: true },
     isFiltered: false,

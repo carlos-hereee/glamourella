@@ -2,7 +2,7 @@ import Buttons from "../molecules/Buttons";
 import CardHeader from "../molecules/card/CardHeader";
 import SecondaryCard from "../molecules/card/SecondaryCard";
 
-const AdminContainer = ({ filter, filtered, isFiltered, data }) => {
+const SecondaryContainer = ({ filter, filtered, isFiltered, data }) => {
   const navClick = (e) => {
     let content = e.currentTarget.textContent.split(" ").join("").toLowerCase();
     filter(data.sections, content);
@@ -30,4 +30,4 @@ const AdminContainer = ({ filter, filtered, isFiltered, data }) => {
   );
 };
 
-export default AdminContainer;
+export default SecondaryContainer;

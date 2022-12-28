@@ -12,7 +12,7 @@ import Services from "./pages/Services";
 import SignUp from "./pages/SignUp";
 import Checkout from "./pages/Checkout";
 import Dashboard from "./pages/Dashboard";
-import AdminDashboard from "./pages/AdminDashboard";
+import AdminDashboard from "./pages/admin/AdminDashboard";
 
 function App() {
   return (

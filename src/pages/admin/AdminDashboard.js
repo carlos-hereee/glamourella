@@ -1,10 +1,10 @@
 import { useContext } from "react";
 // import { NavLink } from "react-router-dom";
 // import { UserContext } from "../utils/context/UserContext";
-import MenuLink from "../component/molecules/MenuLink";
-import { CalendarContext } from "../utils/context/CalendarContext";
-import { AdminContext } from "../utils/context/AdminContext";
-import Schedule from "../component/organisms/Schedule";
+import MenuLink from "../../component/molecules/MenuLink";
+import { CalendarContext } from "../../utils/context/CalendarContext";
+import { AdminContext } from "../../utils/context/AdminContext";
+import Schedule from "./AdminSchedule";
 
 const Appointment = (
   <>
@@ -28,6 +28,7 @@ const AdminDashboard = () => {
   // TODO, FORMAT DATE WITH COMA, AND PERIOD.
   const container = {
     schedule: <Schedule />,
+    appointment: <Appointment />,
   };
   return (
     <section className="admin-container">
