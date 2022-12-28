@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { AdminContext } from "../../utils/context/AdminContext";
-import AdminContainer from "../../component/template/SecondaryContainer";
+import SecondaryCard from "../../component/template/SecondaryContainer";
 
 const Schedule = () => {
   const { schedule, filter, isFiltered, planner } = useContext(AdminContext);
   return (
-    <AdminContainer
+    <SecondaryCard
       data={schedule}
       filtered={planner}
       filter={filter}

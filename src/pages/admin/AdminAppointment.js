@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { AdminContext } from "../../utils/context/AdminContext";
-import AdminContainer from "../../component/template/SecondaryContainer";
+import SecondaryContainer from "../../component/template/SecondaryContainer";
 
 const Appointment = () => {
-  const { booked, filter, isFiltered, planner } = useContext(AdminContext);
+  const { booked, filter, isFiltered } = useContext(AdminContext);
 
   return (
-    <AdminContainer
+    <SecondaryContainer
       data={booked}
       // filtered={planner}
       filter={filter}

@@ -21,10 +21,12 @@ export const AdminState = ({ children }) => {
 
   useEffect(() => {
     dispatch({ type: "IS_LOADING", payload: true });
-    let sorted = filterBooked(state.schedule.sections, true);
-    // let s = filterSortedBooked(sorted);
-    // console.log("sorted", s);
-    dispatch({ type: "LOAD_BOOKED", payload: sorted });
+    let filtered = [];
+    state.schedule.sections.filter((s) => {
+      let filter = s.list.filter((l) => !l.isOpen);
+      return filter.length > 0 && filtered.push({ ...s, list: filter });
+    });
+    dispatch({ type: "LOAD_BOOKED", payload: filtered });
   }, []);
   const setMenuActive = (menu, e) => {
     dispatch({ type: "IS_LOADING", payload: true });
