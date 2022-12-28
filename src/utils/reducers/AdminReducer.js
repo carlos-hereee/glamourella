@@ -1,8 +1,5 @@
 const isLoading = (state, action) => {
-  return {
-    ...state,
-    isLoading: action.payload,
-  };
+  return { ...state, isLoading: action.payload };
 };
 const setMenuActive = (state, action) => {
   return {
@@ -12,12 +9,35 @@ const setMenuActive = (state, action) => {
     menu: action.menu,
   };
 };
+const loadPlanner = (state, action) => {
+  return {
+    ...state,
+    isLoading: false,
+    isFiltered: false,
+    schedule: {
+      ...state.schedule,
+      planner: action.payload,
+    },
+  };
+};
+const filterPlanner = (state, action) => {
+  return {
+    ...state,
+    isLoading: false,
+    isFiltered: true,
+    planner: action.payload,
+  };
+};
 export const reducer = (state, action) => {
   switch (action.type) {
     case "IS_LOADING":
       return isLoading(state, action);
     case "SET_MENU_ACTIVE":
       return setMenuActive(state, action);
+    case "LOAD_PLANNER":
+      return loadPlanner(state, action);
+    case "FILTER_PLANNER":
+      return filterPlanner(state, action);
     default:
       return state;
   }

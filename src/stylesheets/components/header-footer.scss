@@ -8,15 +8,18 @@ header {
   border-bottom: 1px solid #{$secondary-color2};
   position: sticky;
   top: 0;
-  z-index: 2;
+  z-index: 3;
+  max-height: 15vh;
   .header-title {
     display: flex;
     justify-content: flex-start;
+    margin: 0.5rem 0;
   }
 }
 .logo-wrapper {
   display: flex;
   gap: 0.5rem;
+  align-items: center;
   .logo {
     border-radius: 100%;
     width: 90px;

@@ -5,7 +5,7 @@ const CardSection = ({ data }) => {
   return (
     <div className="card-section">
       <CardSectionHeader data={data} />
-      <CardSectionBody data={data} />
+      {data.response && <CardSectionBody data={data} />}
     </div>
   );
 };

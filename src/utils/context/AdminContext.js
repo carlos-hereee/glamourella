@@ -10,6 +10,8 @@ export const AdminState = ({ children }) => {
     menu: [{ name: "schedule", uid: shortid.generate(), isActive: true }],
     isAdmin: true,
     active: { name: "schedule", uid: shortid.generate(), isActive: true },
+    isFiltered: false,
+    planner: {},
     schedule: {
       title: "My Schedule",
       subtitle: "",
@@ -17,11 +19,12 @@ export const AdminState = ({ children }) => {
       isNav: true,
       nav: ["all", "today", "booked"],
       isIcon: false,
-      planner: [
+      sections: [
         {
-          day: formatDate(new Date()),
+          title: formatDate(new Date()),
           uid: shortid.generate(),
-          isToday: true,
+          isHeroEmpty: true,
+          isLinkEmpty: true,
           shift: [
             { uid: shortid.generate(), time: "9am - 10am", isOpen: true },
             { uid: shortid.generate(), time: "11am -12pm", isOpen: true },
@@ -30,9 +33,10 @@ export const AdminState = ({ children }) => {
           ],
         },
         {
-          day: formatDate(new Date().setDate(new Date().getDate() + 1)),
+          title: formatDate(new Date().setDate(new Date().getDate() + 1)),
           uid: shortid.generate(),
-          isToday: false,
+          isHeroEmpty: true,
+          isLinkEmpty: true,
           shift: [
             { uid: shortid.generate(), time: "9am - 10am", isOpen: true },
             { uid: shortid.generate(), time: "11am - 12pm", isOpen: true },
@@ -41,9 +45,10 @@ export const AdminState = ({ children }) => {
           ],
         },
         {
-          day: formatDate(new Date().setDate(new Date().getDate() + 2)),
+          title: formatDate(new Date().setDate(new Date().getDate() + 2)),
           uid: shortid.generate(),
-          isToday: false,
+          isHeroEmpty: true,
+          isLinkEmpty: true,
           shift: [
             { uid: shortid.generate(), time: "9am - 10am", isOpen: true },
             { uid: shortid.generate(), time: "11am - 12pm", isOpen: true },
@@ -52,9 +57,10 @@ export const AdminState = ({ children }) => {
           ],
         },
         {
-          day: formatDate(new Date().setDate(new Date().getDate() + 3)),
+          title: formatDate(new Date().setDate(new Date().getDate() + 3)),
           uid: shortid.generate(),
-          isToday: false,
+          isHeroEmpty: true,
+          isLinkEmpty: true,
           shift: [
             { uid: shortid.generate(), time: "9am - 10am", isOpen: true },
             { uid: shortid.generate(), time: "11am - 12pm", isOpen: true },
@@ -63,9 +69,10 @@ export const AdminState = ({ children }) => {
           ],
         },
         {
-          day: formatDate(new Date().setDate(new Date().getDate() + 4)),
+          title: formatDate(new Date().setDate(new Date().getDate() + 4)),
           uid: shortid.generate(),
-          isToday: false,
+          isHeroEmpty: true,
+          isLinkEmpty: true,
           shift: [
             { uid: shortid.generate(), time: "9am - 10am", isOpen: true },
             { uid: shortid.generate(), time: "11am - 12pm", isOpen: true },
@@ -74,9 +81,10 @@ export const AdminState = ({ children }) => {
           ],
         },
         {
-          day: formatDate(new Date().setDate(new Date().getDate() + 5)),
+          title: formatDate(new Date().setDate(new Date().getDate() + 5)),
           uid: shortid.generate(),
-          isToday: false,
+          isHeroEmpty: true,
+          isLinkEmpty: true,
           shift: [
             { uid: shortid.generate(), time: "9am - 10am", isOpen: true },
             { uid: shortid.generate(), time: "11am - 12pm", isOpen: true },
@@ -101,9 +109,14 @@ export const AdminState = ({ children }) => {
   const filter = (content, option) => {
     dispatch({ type: "IS_LOADING", payload: true });
     if (option === "all") {
-      return dispatch({ type: "LOAD_SERVICES", payload: content });
+      return dispatch({ type: "LOAD_PLANNER", payload: content });
     }
-    console.log("data", content);
+    if (option === "today") {
+      let today = content.filter(
+        (c) => c.day === formatDate(new Date()) && c.isToday === true
+      );
+      return dispatch({ type: "FILTER_PLANNER", payload: today });
+    }
     // const data = data.option((s) => s.type === option);
     // dispatch({ type: "UPDATE_SERVICES", payload: data });
   };
@@ -115,6 +128,8 @@ export const AdminState = ({ children }) => {
         menu: state.menu,
         schedule: state.schedule,
         active: state.active,
+        isFiltered: state.isFiltered,
+        planner: state.planner,
         setMenuActive,
         filter,
       }}>
