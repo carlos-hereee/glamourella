@@ -25,11 +25,12 @@ export const AdminState = ({ children }) => {
           uid: shortid.generate(),
           isHeroEmpty: true,
           isLinkEmpty: true,
-          shift: [
-            { uid: shortid.generate(), time: "9am - 10am", isOpen: true },
-            { uid: shortid.generate(), time: "11am -12pm", isOpen: true },
-            { uid: shortid.generate(), time: "2pm - 3pm", isOpen: true },
-            { uid: shortid.generate(), time: "4pm - 5pm", isOpen: true },
+          isListEmpty: false,
+          list: [
+            { uid: shortid.generate(), response: "9am - 10am", isOpen: false },
+            { uid: shortid.generate(), response: "11am - 12pm", isOpen: true },
+            { uid: shortid.generate(), response: "2pm - 3pm", isOpen: true },
+            { uid: shortid.generate(), response: "4pm - 5pm", isOpen: true },
           ],
         },
         {
@@ -37,11 +38,12 @@ export const AdminState = ({ children }) => {
           uid: shortid.generate(),
           isHeroEmpty: true,
           isLinkEmpty: true,
-          shift: [
-            { uid: shortid.generate(), time: "9am - 10am", isOpen: true },
-            { uid: shortid.generate(), time: "11am - 12pm", isOpen: true },
-            { uid: shortid.generate(), time: "2pm - 3pm", isOpen: true },
-            { uid: shortid.generate(), time: "4pm - 5pm", isOpen: true },
+          isListEmpty: false,
+          list: [
+            { uid: shortid.generate(), response: "9am - 10am", isOpen: true },
+            { uid: shortid.generate(), response: "11am - 12pm", isOpen: true },
+            { uid: shortid.generate(), response: "2pm - 3pm", isOpen: true },
+            { uid: shortid.generate(), response: "4pm - 5pm", isOpen: true },
           ],
         },
         {
@@ -49,11 +51,12 @@ export const AdminState = ({ children }) => {
           uid: shortid.generate(),
           isHeroEmpty: true,
           isLinkEmpty: true,
-          shift: [
-            { uid: shortid.generate(), time: "9am - 10am", isOpen: true },
-            { uid: shortid.generate(), time: "11am - 12pm", isOpen: true },
-            { uid: shortid.generate(), time: "2pm - 3pm", isOpen: true },
-            { uid: shortid.generate(), time: "4pm - 5pm", isOpen: true },
+          isListEmpty: false,
+          list: [
+            { uid: shortid.generate(), response: "9am - 10am", isOpen: true },
+            { uid: shortid.generate(), response: "11am - 12pm", isOpen: true },
+            { uid: shortid.generate(), response: "2pm - 3pm", isOpen: true },
+            { uid: shortid.generate(), response: "4pm - 5pm", isOpen: true },
           ],
         },
         {
@@ -61,11 +64,12 @@ export const AdminState = ({ children }) => {
           uid: shortid.generate(),
           isHeroEmpty: true,
           isLinkEmpty: true,
-          shift: [
-            { uid: shortid.generate(), time: "9am - 10am", isOpen: true },
-            { uid: shortid.generate(), time: "11am - 12pm", isOpen: true },
-            { uid: shortid.generate(), time: "2pm - 3pm", isOpen: true },
-            { uid: shortid.generate(), time: "4pm - 5pm", isOpen: true },
+          isListEmpty: false,
+          list: [
+            { uid: shortid.generate(), response: "9am - 10am", isOpen: true },
+            { uid: shortid.generate(), response: "11am - 12pm", isOpen: true },
+            { uid: shortid.generate(), response: "2pm - 3pm", isOpen: true },
+            { uid: shortid.generate(), response: "4pm - 5pm", isOpen: true },
           ],
         },
         {
@@ -73,11 +77,12 @@ export const AdminState = ({ children }) => {
           uid: shortid.generate(),
           isHeroEmpty: true,
           isLinkEmpty: true,
-          shift: [
-            { uid: shortid.generate(), time: "9am - 10am", isOpen: true },
-            { uid: shortid.generate(), time: "11am - 12pm", isOpen: true },
-            { uid: shortid.generate(), time: "2pm - 3pm", isOpen: true },
-            { uid: shortid.generate(), time: "4pm - 5pm", isOpen: true },
+          isListEmpty: false,
+          list: [
+            { uid: shortid.generate(), response: "9am - 10am", isOpen: true },
+            { uid: shortid.generate(), response: "11am - 12pm", isOpen: true },
+            { uid: shortid.generate(), response: "2pm - 3pm", isOpen: true },
+            { uid: shortid.generate(), response: "4pm - 5pm", isOpen: true },
           ],
         },
         {
@@ -85,11 +90,12 @@ export const AdminState = ({ children }) => {
           uid: shortid.generate(),
           isHeroEmpty: true,
           isLinkEmpty: true,
-          shift: [
-            { uid: shortid.generate(), time: "9am - 10am", isOpen: true },
-            { uid: shortid.generate(), time: "11am - 12pm", isOpen: true },
-            { uid: shortid.generate(), time: "2pm - 3pm", isOpen: true },
-            { uid: shortid.generate(), time: "4pm - 5pm", isOpen: true },
+          isListEmpty: false,
+          list: [
+            { uid: shortid.generate(), response: "9am - 10am", isOpen: true },
+            { uid: shortid.generate(), response: "11am - 12pm", isOpen: true },
+            { uid: shortid.generate(), response: "2pm - 3pm", isOpen: true },
+            { uid: shortid.generate(), response: "4pm - 5pm", isOpen: true },
           ],
         },
       ],

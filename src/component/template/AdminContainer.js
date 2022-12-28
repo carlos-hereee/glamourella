@@ -1,6 +1,7 @@
 import Buttons from "../molecules/Buttons";
 import CardHeader from "../molecules/card/CardHeader";
-import CardSection from "../organisms/CardSection";
+import CardSectionHeader from "../molecules/card/CardSectionHeader";
+import SecondaryCardBody from "../molecules/card/SecondaryCardBody";
 
 const AdminContainer = ({ filter, filtered, isFiltered, data, addToCart }) => {
   const handleClick = (e) => {
@@ -23,8 +24,16 @@ const AdminContainer = ({ filter, filtered, isFiltered, data, addToCart }) => {
               // <CardSection data={fg} key={fg.uid} click={addToCart} />
               <p>{fg.day}</p>
             ))
-          : data.sections.map((g) => (
-              <CardSection data={g} key={g.uid} click={addToCart} />
+          : data.sections.map((section) => (
+              <div className="secondary-card" key={section.uid}>
+                <CardSectionHeader data={section} click={addToCart} />
+                <div className="secondary-card-body">
+                  {!section.isListEmpty &&
+                    section.list.map((sl) => (
+                      <SecondaryCardBody data={sl} key={sl.uid} />
+                    ))}
+                </div>
+              </div>
             ))}
       </div>
     </section>

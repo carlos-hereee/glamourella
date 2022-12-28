@@ -67,24 +67,46 @@
   flex-direction: column;
   min-width: 270px;
   gap: 1rem;
-  .card-section-header {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-end;
-    .icons {
-      background-color: #{$text-color};
-      color: #{$secondary-color};
-    }
+}
+.card-section-header {
+  display: flex;
+  gap: 1rem;
+  .icons {
+    background-color: #{$text-color};
+    color: #{$secondary-color};
   }
-  .card-section-title {
-    display: flex;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-  }
+}
+.card-section-title {
+  display: flex;
+  text-transform: uppercase;
+  letter-spacing: 4px;
 }
 .card-footer {
   width: 100%;
   margin: auto;
+}
+.secondary-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  min-width: 270px;
+  gap: 1rem;
+  .secondary-card-body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    .third-btn {
+      flex: none;
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-start;
+      width: 100%;
+    }
+    .third-btn[data-state="booked"] {
+      background-color: #{$third-color2};
+    }
+  }
 }
 .ribbon {
   position: absolute;
@@ -101,6 +123,7 @@
   flex-direction: column;
   justify-content: center;
   // flex-wrap: wrap;
+  width: 100%;
   background-color: #{$text-color};
   gap: 1rem;
   padding: 1rem;
