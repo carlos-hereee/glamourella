@@ -18,7 +18,6 @@ export const glamourella = {
     },
   ],
   about: {
-    uid: shortid.generate(),
     title: "Welcome to Glamourella",
     subtitle: "",
     isHeroEmpty: true,
@@ -58,7 +57,6 @@ export const glamourella = {
     ],
   },
   services: {
-    uid: shortid.generate(),
     title: "Featured Services",
     subtitle: "",
     isNav: true,
@@ -178,7 +176,6 @@ export const glamourella = {
     { name: "dashboard", uid: shortid.generate() },
   ],
   gallery: {
-    uid: shortid.generate(),
     title: "Check out my collection",
     subtitle: "",
     isNav: true,

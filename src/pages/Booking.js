@@ -6,11 +6,11 @@ import Icons from "../component/atoms/Icons";
 import CalendarEvents from "../component/organisms/CalendarEvents";
 import BookingEvents from "../component/organisms/BookingEvents";
 import { ServicesContext } from "../utils/context/ServicesContext";
+import { formatDate } from "../utils/moment";
 
 const Booking = () => {
   const [value, onChange] = useState(null);
-  const { events, setDay, formatDate, isDateEqual } =
-    useContext(CalendarContext);
+  const { events, setDay, isDateEqual } = useContext(CalendarContext);
   const { cart } = useContext(ServicesContext);
 
   useEffect(() => {
