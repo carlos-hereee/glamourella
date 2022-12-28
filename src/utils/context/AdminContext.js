@@ -1,5 +1,7 @@
 import React, { createContext, useReducer } from "react";
+import { useEffect } from "react";
 import shortid from "shortid";
+import { admin } from "../../admin.config";
 import { formatDate } from "../moment";
 import { reducer } from "../reducers/AdminReducer";
 export const AdminContext = createContext();
@@ -7,104 +9,23 @@ export const AdminContext = createContext();
 export const AdminState = ({ children }) => {
   const initialState = {
     isLoading: false,
-    menu: [
-      { name: "schedule", uid: shortid.generate(), isActive: true },
-      { name: "appointment", uid: shortid.generate(), isActive: false },
-    ],
     isAdmin: true,
-    active: { name: "schedule", uid: shortid.generate(), isActive: true },
     isFiltered: false,
+    active: { name: "schedule", uid: shortid.generate(), isActive: true },
+    menu: admin.menu,
+    schedule: admin.schedule,
     planner: {},
-    schedule: {
-      title: "My Schedule",
-      subtitle: "",
-      isHeroEmpty: true,
-      isNav: true,
-      nav: ["all", "today", "booked"],
-      isIcon: false,
-      sections: [
-        {
-          title: formatDate(new Date()),
-          uid: shortid.generate(),
-          isHeroEmpty: true,
-          isLinkEmpty: true,
-          isListEmpty: false,
-          list: [
-            { uid: shortid.generate(), response: "9am - 10am", isOpen: false },
-            { uid: shortid.generate(), response: "11am - 12pm", isOpen: true },
-            { uid: shortid.generate(), response: "2pm - 3pm", isOpen: true },
-            { uid: shortid.generate(), response: "4pm - 5pm", isOpen: true },
-          ],
-        },
-        {
-          title: formatDate(new Date().setDate(new Date().getDate() + 1)),
-          uid: shortid.generate(),
-          isHeroEmpty: true,
-          isLinkEmpty: true,
-          isListEmpty: false,
-          list: [
-            { uid: shortid.generate(), response: "9am - 10am", isOpen: true },
-            { uid: shortid.generate(), response: "11am - 12pm", isOpen: true },
-            { uid: shortid.generate(), response: "2pm - 3pm", isOpen: true },
-            { uid: shortid.generate(), response: "4pm - 5pm", isOpen: true },
-          ],
-        },
-        {
-          title: formatDate(new Date().setDate(new Date().getDate() + 2)),
-          uid: shortid.generate(),
-          isHeroEmpty: true,
-          isLinkEmpty: true,
-          isListEmpty: false,
-          list: [
-            { uid: shortid.generate(), response: "9am - 10am", isOpen: true },
-            { uid: shortid.generate(), response: "11am - 12pm", isOpen: true },
-            { uid: shortid.generate(), response: "2pm - 3pm", isOpen: true },
-            { uid: shortid.generate(), response: "4pm - 5pm", isOpen: true },
-          ],
-        },
-        {
-          title: formatDate(new Date().setDate(new Date().getDate() + 3)),
-          uid: shortid.generate(),
-          isHeroEmpty: true,
-          isLinkEmpty: true,
-          isListEmpty: false,
-          list: [
-            { uid: shortid.generate(), response: "9am - 10am", isOpen: true },
-            { uid: shortid.generate(), response: "11am - 12pm", isOpen: true },
-            { uid: shortid.generate(), response: "2pm - 3pm", isOpen: true },
-            { uid: shortid.generate(), response: "4pm - 5pm", isOpen: true },
-          ],
-        },
-        {
-          title: formatDate(new Date().setDate(new Date().getDate() + 4)),
-          uid: shortid.generate(),
-          isHeroEmpty: true,
-          isLinkEmpty: true,
-          isListEmpty: false,
-          list: [
-            { uid: shortid.generate(), response: "9am - 10am", isOpen: true },
-            { uid: shortid.generate(), response: "11am - 12pm", isOpen: true },
-            { uid: shortid.generate(), response: "2pm - 3pm", isOpen: true },
-            { uid: shortid.generate(), response: "4pm - 5pm", isOpen: true },
-          ],
-        },
-        {
-          title: formatDate(new Date().setDate(new Date().getDate() + 5)),
-          uid: shortid.generate(),
-          isHeroEmpty: true,
-          isLinkEmpty: true,
-          isListEmpty: false,
-          list: [
-            { uid: shortid.generate(), response: "9am - 10am", isOpen: true },
-            { uid: shortid.generate(), response: "11am - 12pm", isOpen: true },
-            { uid: shortid.generate(), response: "2pm - 3pm", isOpen: true },
-            { uid: shortid.generate(), response: "4pm - 5pm", isOpen: false },
-          ],
-        },
-      ],
-    },
+    booked: admin.booked,
   };
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    dispatch({ type: "IS_LOADING", payload: true });
+    let sorted = filterBooked(state.schedule.sections, true);
+    // let s = filterSortedBooked(sorted);
+    // console.log("sorted", s);
+    dispatch({ type: "LOAD_BOOKED", payload: sorted });
+  }, []);
   const setMenuActive = (menu, e) => {
     dispatch({ type: "IS_LOADING", payload: true });
     menu.filter((m) => {
@@ -112,9 +33,24 @@ export const AdminState = ({ children }) => {
       if (m.uid === e.uid) m.isActive = true;
       return m;
     });
-    // console.log("menu", menu);
     dispatch({ type: "SET_MENU_ACTIVE", payload: e, menu: menu });
   };
+  const filterBooked = (content) => {
+    return content.filter((c) => {
+      let booked = c.list.filter((l) => l.isOpen === false);
+      return booked.length > 0 && c;
+    });
+  };
+  // const filterSortedBooked = (content) => {
+  //   return content.filter((c) => {
+  //     let booked = c.list.filter((l) => {
+
+  //       l.isOpen === false
+
+  //     });
+  //     return booked.length > 0 && c;
+  //   });
+  // };
   const filter = (content, option) => {
     dispatch({ type: "IS_LOADING", payload: true });
     if (option === "all") {
@@ -125,10 +61,7 @@ export const AdminState = ({ children }) => {
       return dispatch({ type: "FILTER_PLANNER", payload: today });
     }
     if (option === "booked") {
-      let sorted = content.filter((c) => {
-        let booked = c.list.filter((l) => l.isOpen === false);
-        return booked.length > 0 && c;
-      });
+      let sorted = filterBooked(content);
       return dispatch({ type: "FILTER_PLANNER", payload: sorted });
     }
     // const data = data.option((s) => s.type === option);
@@ -144,6 +77,7 @@ export const AdminState = ({ children }) => {
         active: state.active,
         isFiltered: state.isFiltered,
         planner: state.planner,
+        booked: state.booked,
         setMenuActive,
         filter,
       }}>

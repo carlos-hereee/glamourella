@@ -7,6 +7,7 @@ const SecondaryContainer = ({ filter, filtered, isFiltered, data }) => {
     let content = e.currentTarget.textContent.split(" ").join("").toLowerCase();
     filter(data.sections, content);
   };
+  console.log("isFiltered", data.sections);
   return (
     <section className="primary-container">
       <CardHeader data={data} />

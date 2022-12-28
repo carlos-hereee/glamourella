@@ -24,6 +24,16 @@ const filterPlanner = (state, action) => {
     planner: action.payload,
   };
 };
+const loadBooked = (state, action) => {
+  return {
+    ...state,
+    isLoading: false,
+    booked: {
+      ...state.booked,
+      sections: action.payload,
+    },
+  };
+};
 export const reducer = (state, action) => {
   switch (action.type) {
     case "IS_LOADING":
@@ -34,6 +44,8 @@ export const reducer = (state, action) => {
       return loadPlanner(state, action);
     case "FILTER_PLANNER":
       return filterPlanner(state, action);
+    case "LOAD_BOOKED":
+      return loadBooked(state, action);
     default:
       return state;
   }

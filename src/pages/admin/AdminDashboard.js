@@ -1,23 +1,9 @@
 import { useContext } from "react";
-// import { NavLink } from "react-router-dom";
-// import { UserContext } from "../utils/context/UserContext";
 import MenuLink from "../../component/molecules/MenuLink";
-import { CalendarContext } from "../../utils/context/CalendarContext";
 import { AdminContext } from "../../utils/context/AdminContext";
+import Appointment from "./AdminAppointment";
 import Schedule from "./AdminSchedule";
 
-const Appointment = (
-  <>
-    <h3>Upcoming appointments</h3>
-    {/* {booked.length > 0 &&
-        booked.map((b) => (
-          <div key={b.uid}>
-            <h3>{b.type}</h3>
-            <p>Start count</p>
-          </div>
-        ))} */}
-  </>
-);
 const AdminDashboard = () => {
   // TODO: LET ADMIN ADD THEIR WORK SCHEDULE
   // TODO: LET ADMIN REMOVE APPOINTMENTS FROM WORK SCHEDULE
