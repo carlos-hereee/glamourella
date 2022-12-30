@@ -16,18 +16,19 @@ export const AdminState = ({ children }) => {
     schedule: admin.schedule,
     planner: {},
     booked: admin.booked,
+    appointment: admin.appointment,
   };
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  useEffect(() => {
-    dispatch({ type: "IS_LOADING", payload: true });
-    let filtered = [];
-    state.schedule.sections.filter((s) => {
-      let filter = s.list.filter((l) => !l.isOpen);
-      return filter.length > 0 && filtered.push({ ...s, list: filter });
-    });
-    dispatch({ type: "LOAD_BOOKED", payload: filtered });
-  }, []);
+  // useEffect(() => {
+  //   dispatch({ type: "IS_LOADING", payload: true });
+  //   let filtered = [];
+  //   state.schedule.sections.filter((s) => {
+  //     let filter = s.list.filter((l) => !l.isOpen);
+  //     return filter.length > 0 && filtered.push({ ...s, list: filter });
+  //   });
+  //   dispatch({ type: "LOAD_BOOKED", payload: filtered });
+  // }, []);
   const setMenuActive = (menu, e) => {
     dispatch({ type: "IS_LOADING", payload: true });
     menu.filter((m) => {
@@ -80,6 +81,7 @@ export const AdminState = ({ children }) => {
         isFiltered: state.isFiltered,
         planner: state.planner,
         booked: state.booked,
+        appointment: state.appointment,
         setMenuActive,
         filter,
       }}>

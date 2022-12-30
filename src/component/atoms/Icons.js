@@ -59,7 +59,7 @@ const svg = {
   schedule: faCalendarAlt,
   today: faCalendarDay,
   booked: faSquareCheck,
-  appointment: faSquareCheck,
+  appointments: faSquareCheck,
   x: faX,
   1: fa1,
   2: fa2,

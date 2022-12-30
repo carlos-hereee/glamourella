@@ -42,6 +42,7 @@
   flex-direction: row;
   gap: 1rem;
   position: relative;
+  justify-content: flex-start;
   background-color: #{$secondary-color2};
   .notification-count {
     top: -0.5rem;

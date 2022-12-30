@@ -90,7 +90,7 @@
   flex-direction: column;
   justify-content: space-between;
   flex: 1;
-  min-width: 270px;
+  min-width: 250px;
   gap: 1rem;
   .secondary-card-body {
     display: flex;
@@ -121,10 +121,10 @@
 .primary-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   // flex-wrap: wrap;
   width: 100%;
   background-color: #{$text-color};
+  min-height: 60vh;
   gap: 1rem;
   padding: 1rem;
   @include devices(mobile) {

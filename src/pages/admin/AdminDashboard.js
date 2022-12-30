@@ -3,6 +3,7 @@ import MenuLink from "../../component/molecules/MenuLink";
 import { AdminContext } from "../../utils/context/AdminContext";
 import Appointment from "./AdminAppointment";
 import Schedule from "./AdminSchedule";
+import Booked from "./AdminBooked";
 
 const AdminDashboard = () => {
   // TODO: LET ADMIN ADD THEIR WORK SCHEDULE
@@ -14,7 +15,8 @@ const AdminDashboard = () => {
   // TODO, FORMAT DATE WITH COMA, AND PERIOD.
   const container = {
     schedule: <Schedule />,
-    appointment: <Appointment />,
+    booked: <Booked />,
+    appointments: <Appointment />,
   };
   return (
     <section className="admin-container">

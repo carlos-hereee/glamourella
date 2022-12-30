@@ -3,14 +3,18 @@ import { AdminContext } from "../../utils/context/AdminContext";
 import SecondaryContainer from "../../component/template/SecondaryContainer";
 
 const Appointment = () => {
-  const { booked, filter, isFiltered } = useContext(AdminContext);
+  const { appointment, filter, planner, isFiltered } = useContext(AdminContext);
 
+  // const click = (e) => {
+  //   console.log("click", e);
+  // };
   return (
     <SecondaryContainer
-      data={booked}
-      // filtered={planner}
+      data={appointment}
+      filtered={planner}
       filter={filter}
       isFiltered={isFiltered}
+      // click={click}
     />
   );
 };
