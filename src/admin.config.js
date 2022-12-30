@@ -14,7 +14,18 @@ export const admin = {
     isNav: false,
     // nav: ["all", "today", "booked"],
     isIcon: false,
-    sections: [],
+    sections: [
+      {
+        title: "Schedule item",
+        uid: shortid.generate(),
+        isHeroEmpty: true,
+        isLinkEmpty: true,
+        isListEmpty: true,
+        time: {
+          startTime: "9am",
+        },
+      },
+    ],
   },
   booked: {
     title: "Upcoming appointments",

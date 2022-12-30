@@ -3,7 +3,7 @@ import React, { createContext, useEffect, useReducer } from "react";
 import { axiosWithAuth, axiosCalendar } from "../axios";
 import { reducer } from "../reducers/CalendarReducer";
 import { isDev } from "../../config";
-import { formatDate, formatTime, today } from "../moment";
+import { formatTime, isDateEqual, today } from "../moment";
 
 export const CalendarContext = createContext();
 export const CalendarState = ({ children }) => {
@@ -68,11 +68,7 @@ export const CalendarState = ({ children }) => {
     dispatch({ type: "IS_LOADING", payload: true });
     dispatch({ type: "UPDATE_CALENDAR_EVENT", payload: event });
   };
-  const isDateEqual = (date, events) => {
-    return events.filter((e) => {
-      return formatDate(e.start.dateTime) === date && !e.attendees;
-    });
-  };
+
   const bookNow = async (values, event) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
@@ -105,7 +101,6 @@ export const CalendarState = ({ children }) => {
         getCalendarDay,
         setDay: updateDay,
         bookNow,
-        isDateEqual,
       }}>
       {children}
     </CalendarContext.Provider>

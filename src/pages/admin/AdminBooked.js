@@ -3,7 +3,7 @@ import { AdminContext } from "../../utils/context/AdminContext";
 import SecondaryCard from "../../component/template/SecondaryContainer";
 
 const Booked = () => {
-  const { booked, filter, setMenuActive } = useContext(AdminContext);
+  const { booked, filter } = useContext(AdminContext);
   const click = (e) => {
     console.log("e", e);
   };

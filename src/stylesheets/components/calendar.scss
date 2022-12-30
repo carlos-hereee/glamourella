@@ -8,6 +8,9 @@
     flex: none;
   }
 }
+#calendar-events {
+  flex: 1;
+}
 .react-calendar__navigation {
   background-color: #{$secondary-color2};
   display: flex;
@@ -43,6 +46,9 @@
     // z-index: 1;
   }
 }
+// .react-calendar__month-view__days {
+//   display: flex;
+// }
 .react-calendar__month-view__weekdays {
   color: #{$text-color2};
   text-align: center;
