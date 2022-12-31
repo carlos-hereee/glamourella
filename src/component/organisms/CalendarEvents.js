@@ -3,6 +3,7 @@ import { CalendarContext } from "../../utils/context/CalendarContext";
 import Icons from "../atoms/Icons";
 import * as yup from "yup";
 import Forms from "./Forms";
+import CardHeader from "../molecules/card/CardHeader";
 
 const schema = yup.object().shape({
   name: yup.string().required("*Required field"),
@@ -15,11 +16,14 @@ const CalendarEvents = () => {
   const [confirmation, setConfirmation] = useState(false);
   const onSubmit = (values) => bookNow(values, appointment);
   return (
-    <div className="card" id="calendar-events">
-      <div className="card-header">
-        <h3>{calendar.summary}</h3>
-        <p>{calendar.description}</p>
-      </div>
+    <div id="calendar-events">
+      <CardHeader
+        data={{
+          title: calendar.title,
+          subtitle: calendar.description,
+          isHeroEmpty: true,
+        }}
+      />
       {confirmation ? (
         <>
           <p>

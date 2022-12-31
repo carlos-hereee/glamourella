@@ -1,8 +1,18 @@
+import { useEffect, useState } from "react";
 import { Calendar } from "react-calendar";
 import { formatDate, isDateEqual } from "../../utils/moment";
 import Icons from "../atoms/Icons";
 
-const AppCalendar = ({ change, value, data }) => {
+const AppCalendar = ({ data }) => {
+  const [value, onChange] = useState(null);
+
+  useEffect(() => {
+    if (value) {
+      // const day = formatDate(value);
+      // setDay(isDateEqual(day, data));
+      document.getElementById("calendar-events").scrollIntoView();
+    }
+  }, [value]);
   const tileContent = (date) => {
     const current = new Date(date).getDate();
     const today = new Date().getDate();
@@ -17,7 +27,7 @@ const AppCalendar = ({ change, value, data }) => {
   };
   return (
     <Calendar
-      onChange={change}
+      onChange={onChange}
       value={value}
       minDate={new Date()}
       minDetail="month"

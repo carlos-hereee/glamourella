@@ -118,37 +118,3 @@
   color: white;
   padding: 0.25rem 4rem;
 }
-.primary-container {
-  display: flex;
-  flex-direction: column;
-  // flex-wrap: wrap;
-  width: 100%;
-  background-color: #{$text-color};
-  min-height: 60vh;
-  gap: 1rem;
-  padding: 1rem;
-  @include devices(mobile) {
-    width: auto;
-  }
-}
-.container {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 1rem;
-  // background-color: #{$text-color};
-  // background-color: #{$text-color};
-  // padding: 1rem;
-  @include devices(mobile) {
-    .card {
-      width: 100%;
-    }
-  }
-}
-.card-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  background-color: #{$text-color};
-  gap: 1rem;
-}

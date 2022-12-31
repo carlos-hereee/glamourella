@@ -2,21 +2,16 @@ import { useContext, useState } from "react";
 import { AdminContext } from "../../utils/context/AdminContext";
 import SecondaryCard from "../../component/template/SecondaryContainer";
 import AppCalendar from "../../component/organisms/AppCalendar";
+import CalendarEvents from "../../component/organisms/CalendarEvents";
 
 const Schedule = () => {
-  const { schedule, filter, isFiltered, planner } = useContext(AdminContext);
-  const [value, onChange] = useState(null);
+  const { schedule } = useContext(AdminContext);
 
   return (
-    <>
-      <AppCalendar change={onChange} value={value} data={schedule.sections} />
-      <SecondaryCard
-        data={schedule}
-        filtered={planner}
-        filter={filter}
-        isFiltered={isFiltered}
-      />
-    </>
+    <SecondaryCard data={schedule}>
+      <AppCalendar data={schedule.sections} />
+      <CalendarEvents />
+    </SecondaryCard>
   );
 };
 export default Schedule;

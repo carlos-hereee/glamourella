@@ -16,7 +16,7 @@ export const admin = {
     isIcon: false,
     sections: [
       {
-        title: "Schedule item",
+        title: "",
         uid: shortid.generate(),
         isHeroEmpty: true,
         isLinkEmpty: true,

@@ -1,0 +1,44 @@
+.primary-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #{$text-color};
+  min-height: 60vh;
+  gap: 1rem;
+  padding: 1rem;
+  @include devices(mobile) {
+    width: auto;
+  }
+}
+.secondary-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #{$text-color};
+  min-height: 60vh;
+  gap: 1rem;
+  padding: 1rem;
+}
+.children {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+  @include devices(mobile) {
+    .card {
+      width: 100%;
+    }
+  }
+}
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: #{$text-color};
+  gap: 1rem;
+}
