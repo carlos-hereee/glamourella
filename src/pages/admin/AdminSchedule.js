@@ -10,7 +10,7 @@ const Schedule = () => {
   return (
     <SecondaryCard data={schedule}>
       <AppCalendar data={schedule.sections} />
-      <CalendarEvents />
+      <CalendarEvents data={schedule.sections} />
     </SecondaryCard>
   );
 };

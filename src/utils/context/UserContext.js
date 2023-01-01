@@ -3,15 +3,14 @@ import { AuthContext } from "./AuthContext";
 import { axiosWithAuth } from "../axios";
 import { reducer } from "../reducers/UserReducer";
 import { isDev } from "../../config";
-export const UserContext = createContext();
 
+export const UserContext = createContext();
 export const UserState = ({ children }) => {
   const initialState = {
     isLoading: false,
     user: {},
     booked: [],
     log: [],
-    isAdmin: false,
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   const { accessToken } = useContext(AuthContext);
@@ -45,7 +44,6 @@ export const UserState = ({ children }) => {
         user: state.user,
         booked: state.booked,
         log: state.log,
-        isAdmin: state.isAdmin,
         admin: state.admin,
         // getUserData,
       }}>

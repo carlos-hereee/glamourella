@@ -13,6 +13,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
+  background-color: #{$text-color};
 }
 .react-calendar__navigation {
   background-color: #{$secondary-color2};

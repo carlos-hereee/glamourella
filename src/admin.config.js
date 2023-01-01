@@ -23,6 +23,7 @@ export const admin = {
         isListEmpty: true,
         time: {
           startTime: "9am",
+          endTime: "10am",
         },
       },
     ],
