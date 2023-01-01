@@ -18,6 +18,9 @@
   min-height: 60vh;
   gap: 1rem;
   padding: 1rem;
+  @include devices(mobile) {
+    width: auto;
+  }
 }
 .children {
   display: flex;

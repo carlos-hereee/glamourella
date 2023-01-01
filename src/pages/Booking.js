@@ -4,7 +4,6 @@ import { CalendarContext } from "../utils/context/CalendarContext";
 import CalendarEvents from "../component/organisms/CalendarEvents";
 import BookingEvents from "../component/organisms/BookingEvents";
 import { ServicesContext } from "../utils/context/ServicesContext";
-import { formatDate, isDateEqual } from "../utils/moment";
 import AppCalendar from "../component/organisms/AppCalendar";
 
 const Booking = () => {

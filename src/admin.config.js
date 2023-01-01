@@ -16,15 +16,24 @@ export const admin = {
     isIcon: false,
     sections: [
       {
-        title: "",
+        title: formatDate(new Date()),
         uid: shortid.generate(),
         isHeroEmpty: true,
         isLinkEmpty: true,
         isListEmpty: true,
-        time: {
-          startTime: "9am",
-          endTime: "10am",
-        },
+        attendees: {},
+        list: [
+          {
+            uid: shortid.generate(),
+            isHeroEmpty: true,
+            isLinkEmpty: true,
+            isListEmpty: true,
+            time: {
+              startTime: new Date(new Date().setHours(9)).setMinutes(0),
+              endTime: new Date(new Date().setHours(10)).setMinutes(30),
+            },
+          },
+        ],
       },
     ],
   },
