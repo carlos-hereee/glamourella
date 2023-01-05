@@ -12,9 +12,9 @@ const Booking = () => {
 
   return (
     <section className="container">
-      {cart.length > 0 && <BookingEvents data={cart} />}
-      <AppCalendar data={events} />
-      <CalendarEvents />
+      {/* {cart.length > 0 && <BookingEvents data={cart} />} */}
+      <AppCalendar data={events.sections} />
+      <CalendarEvents data={events} />
     </section>
   );
 };

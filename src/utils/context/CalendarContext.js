@@ -2,7 +2,7 @@
 import React, { createContext, useEffect, useReducer } from "react";
 import { axiosWithAuth, axiosCalendar } from "../axios";
 import { reducer } from "../reducers/CalendarReducer";
-import { isDev } from "../../config";
+import { glamourella, isDev } from "../../config";
 import { formatTime, isDateEqual, today } from "../moment";
 
 export const CalendarContext = createContext();
@@ -11,7 +11,7 @@ export const CalendarState = ({ children }) => {
     isLoading: false,
     calendar: [],
     log: [],
-    events: [],
+    events: glamourella.events,
     selectedDay: [],
     appointment: {},
     book: {},

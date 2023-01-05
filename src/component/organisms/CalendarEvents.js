@@ -12,7 +12,7 @@ const schema = yup.object().shape({
   email: yup.string().email().required("*Required field"),
 });
 const CalendarEvents = ({ data }) => {
-  const { selectedDay, calendar, bookNow, log } = useContext(CalendarContext);
+  const { bookNow, log } = useContext(CalendarContext);
   const { isAdmin } = useContext(AdminContext);
   const [appointment, setAppointment] = useState();
   const [confirmation, setConfirmation] = useState(false);
@@ -21,7 +21,7 @@ const CalendarEvents = ({ data }) => {
     <div id="calendar-events">
       <CardHeader data={data} />
       <div className="list">
-        {data.sections.length ? (
+        {data.sections && data.sections.length ? (
           data.sections.map((day) =>
             day.list.map((d) => (
               <button

@@ -17,7 +17,7 @@ const AppCalendar = ({ data }) => {
     const current = new Date(date).getDate();
     const today = new Date().getDate();
     const match = isDateEqual(formatDate(date), data);
-    if (match.length && current >= today) {
+    if (match.length > 0 && current >= today) {
       return (
         <div className="match">
           <Icons name={match.length} />

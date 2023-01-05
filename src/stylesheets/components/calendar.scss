@@ -1,7 +1,7 @@
 .react-calendar {
   background-color: #{$secondary-color};
   color: #{$primary-color};
-  // flex: 1;
+  flex: 1;
   box-shadow: 0 1px 5px 1px #{$shadow-color};
   @include devices(mobile) {
     width: 100%;
@@ -9,7 +9,7 @@
   }
 }
 #calendar-events {
-  // flex: 1;
+  flex: 1;
   display: flex;
   justify-content: center;
   flex-direction: column;
