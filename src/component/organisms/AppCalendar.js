@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useEffect, useState } from "react";
 import { Calendar } from "react-calendar";
+import shortid from "shortid";
 import { CalendarContext } from "../../utils/context/CalendarContext";
 import { formatDate, dateEqual } from "../../utils/moment";
 import Icons from "../atoms/Icons";
@@ -12,8 +13,21 @@ const AppCalendar = ({ data }) => {
   useEffect(() => {
     if (value) {
       const day = formatDate(value);
-      setDay(dateEqual(day, data));
-      // document.getElementById("calendar-events").scrollIntoView();
+      const match = dateEqual(day, data);
+      if (match) {
+        setDay(match);
+        document.getElementById("calendar-events").scrollIntoView();
+      } else {
+        const data = {
+          title: day,
+          uid: shortid.generate(),
+          hasHero: false,
+          hasLink: false,
+          hasList: false,
+          list: [],
+        };
+        setDay(data);
+      }
     } else onChange(new Date());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
@@ -22,9 +36,10 @@ const AppCalendar = ({ data }) => {
     const today = new Date().getDate();
     const match = dateEqual(formatDate(date), data);
     if (match && current >= today) {
+      const open = match.list.filter((m) => m.isOpen);
       return (
         <div className="match">
-          <Icons name={match.list.length} />
+          <Icons name={open.length} />
         </div>
       );
     }

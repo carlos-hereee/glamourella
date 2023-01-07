@@ -7,6 +7,7 @@ import CardHeader from "../molecules/card/CardHeader";
 import { AdminContext } from "../../utils/context/AdminContext";
 import { formatDate, formatTime } from "../../utils/moment";
 import { useEffect } from "react";
+import ListItem from "../atoms/ListItem";
 
 const schema = yup.object().shape({
   name: yup.string().required("*Required field"),
@@ -15,37 +16,25 @@ const schema = yup.object().shape({
 const CalendarEvents = () => {
   const { bookNow, log, selectedDay } = useContext(CalendarContext);
   const { isAdmin } = useContext(AdminContext);
-  const [appointment, setAppointment] = useState();
+  const [appointment, setApp] = useState();
   const [confirmation, setConfirmation] = useState(false);
-  // const [day, setSelectedDay] = useState([]);
   const onSubmit = (values) => bookNow(values, appointment);
-  console.log("selectedDay", selectedDay);
-  // useEffect(() => {
-  //   // if(day.length)
-  //   // selectedDay.forEach()
-  //   setSelectedDay(selectedDay);
-  // }, [selectedDay]);
   return (
     <div id="calendar-events">
       <CardHeader data={selectedDay} />
       <div className="list">
-        {selectedDay.title ? (
-          selectedDay.list.map((d) => (
-            <button
-              type="button"
-              className="btn list-item"
-              key={d.uid}
-              onClick={() => setAppointment(d)}>
-              {d.uid === appointment?.uid ? (
-                <Icons name="check" />
+        {selectedDay.hasList ? (
+          selectedDay.list.map(
+            (d) =>
+              d.isOpen &&
+              (d.uid === appointment?.uid ? (
+                <ListItem key={d.uid} data={d} click={setApp} icon="check" />
               ) : (
-                <Icons name="uncheck" />
-              )}
-              {formatTime(d.time.startTime)} - {formatTime(d.time.endTime)}
-            </button>
-          ))
+                <ListItem key={d.uid} data={d} click={setApp} icon="uncheck" />
+              ))
+          )
         ) : isAdmin ? (
-          <h4>No appointment this day, add some here</h4>
+          <h4>No appointment this day, try a different day</h4>
         ) : (
           <h4>All booked up, please come back tomorrow</h4>
         )}

@@ -17,7 +17,7 @@ export const ServicesState = ({ children }) => {
         hasHero: false,
         hasIcon: false,
         hero: { link: "/lorem", name: "lorem ipsum" },
-        isLinkEmpty: true,
+        hasLink: false,
         isForSale: true,
         hyperlink: [{ word: "Maiores", link: "/lorem" }],
         //link:
@@ -35,7 +35,7 @@ export const ServicesState = ({ children }) => {
         hasHero: false,
         hasIcon: false,
         hero: { link: "/lorem", name: "lorem ipsum" },
-        isLinkEmpty: true,
+        hasLink: false,
         isForSale: true,
         hyperlink: [{ word: "Maiores", link: "/lorem" }],
         //link:
@@ -53,7 +53,7 @@ export const ServicesState = ({ children }) => {
         hasHero: false,
         hasIcon: false,
         hero: { link: "/lorem", name: "lorem ipsum" },
-        isLinkEmpty: true,
+        hasLink: false,
         isForSale: true,
         hyperlink: [{ word: "Maiores", link: "/lorem" }],
         //link:
