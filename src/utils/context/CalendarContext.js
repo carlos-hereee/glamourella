@@ -3,7 +3,7 @@ import React, { createContext, useEffect, useReducer } from "react";
 import { axiosWithAuth, axiosCalendar } from "../axios";
 import { reducer } from "../reducers/CalendarReducer";
 import { glamourella, isDev } from "../../config";
-import { formatTime, isDateEqual, today } from "../moment";
+import { formatTime, dateEqual, today } from "../moment";
 
 export const CalendarContext = createContext();
 export const CalendarState = ({ children }) => {
@@ -12,17 +12,19 @@ export const CalendarState = ({ children }) => {
     calendar: [],
     log: [],
     events: glamourella.events,
-    selectedDay: [],
+    selectedDay: {},
     appointment: {},
     book: {},
   };
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  useEffect(() => {
-    // refresh accesstoken
-    // getAccessToken();
-    getCalendar();
-  }, []);
+  // useEffect(() => {
+  //   // getCalendar();
+  //   if (state.events.length > 0) {
+  //     setDay(isDateEqual(today, state.events));
+  //     console.log("state.events", state.events);
+  //   }
+  // }, [state.events]);
 
   const getCalendar = async () => {
     try {
@@ -30,7 +32,7 @@ export const CalendarState = ({ children }) => {
       // console.log("get calendar", data);
       // updateCalendar(data.events);
       updateEvents(data);
-      updateDay(isDateEqual(today, data));
+      setDay(dateEqual(today, data));
     } catch (error) {
       const { status, data } = error.response;
       isDev && console.log("status", status, data);
@@ -41,6 +43,10 @@ export const CalendarState = ({ children }) => {
   const updateEvents = async (events) => {
     dispatch({ type: "IS_LOADING", payload: true });
     dispatch({ type: "UPDATE_EVENTS", payload: events });
+  };
+  const resetDay = async (events) => {
+    dispatch({ type: "IS_LOADING", payload: true });
+    dispatch({ type: "RESET_EVENTS", payload: events });
   };
   // const updateCalendar = async (calendar) => {
   //   dispatch({ type: "IS_LOADING", payload: true });
@@ -64,7 +70,7 @@ export const CalendarState = ({ children }) => {
       dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: true });
     }
   };
-  const updateDay = async (event) => {
+  const setDay = async (event) => {
     dispatch({ type: "IS_LOADING", payload: true });
     dispatch({ type: "UPDATE_CALENDAR_EVENT", payload: event });
   };
@@ -99,8 +105,9 @@ export const CalendarState = ({ children }) => {
         log: state.log,
         contactUs,
         getCalendarDay,
-        setDay: updateDay,
+        setDay,
         bookNow,
+        resetDay,
       }}>
       {children}
     </CalendarContext.Provider>

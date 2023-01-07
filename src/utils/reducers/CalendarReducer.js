@@ -13,7 +13,7 @@ const addMessageToLog = (state, action) => {
 const updateEvents = (state, action) => {
   return {
     ...state,
-    events: action.payload,
+    selectedDay: action.payload,
   };
 };
 const booked = (state, action) => {

@@ -10,22 +10,22 @@ export const admin = {
   schedule: {
     title: "My Schedule",
     subtitle: "",
-    isHeroEmpty: true,
+    hasHero: false,
     isNav: false,
     // nav: ["all", "today", "booked"],
-    isIcon: false,
+    hasIcon: false,
     sections: [
       {
         title: formatDate(new Date()),
         uid: shortid.generate(),
-        isHeroEmpty: true,
+        hasHero: false,
         isLinkEmpty: true,
         isListEmpty: true,
         attendees: {},
         list: [
           {
             uid: shortid.generate(),
-            isHeroEmpty: true,
+            hasHero: false,
             isLinkEmpty: true,
             isListEmpty: true,
             time: {
@@ -40,14 +40,14 @@ export const admin = {
   booked: {
     title: "Upcoming appointments",
     subtitle: "",
-    isHeroEmpty: true,
+    hasHero: false,
     isNav: false,
-    isIcon: false,
+    hasIcon: false,
     sections: [
       {
         title: formatDate(new Date()),
         uid: shortid.generate(),
-        isHeroEmpty: true,
+        hasHero: false,
         isLinkEmpty: true,
         isListEmpty: false,
         list: [
@@ -57,7 +57,7 @@ export const admin = {
       {
         title: formatDate(new Date().setDate(new Date().getDate() + 5)),
         uid: shortid.generate(),
-        isHeroEmpty: true,
+        hasHero: false,
         isLinkEmpty: true,
         isListEmpty: false,
         list: [
@@ -69,15 +69,15 @@ export const admin = {
   appointment: {
     title: "Appointments",
     subtitle: "",
-    isHeroEmpty: true,
+    hasHero: false,
     isNav: true,
-    isIcon: false,
+    hasIcon: false,
     nav: ["all", "today", "booked"],
     sections: [
       {
         title: formatDate(new Date()),
         uid: shortid.generate(),
-        isHeroEmpty: true,
+        hasHero: false,
         isLinkEmpty: true,
         isListEmpty: false,
         list: [
@@ -90,7 +90,7 @@ export const admin = {
       {
         title: formatDate(new Date().setDate(new Date().getDate() + 1)),
         uid: shortid.generate(),
-        isHeroEmpty: true,
+        hasHero: false,
         isLinkEmpty: true,
         isListEmpty: false,
         list: [
@@ -103,7 +103,7 @@ export const admin = {
       {
         title: formatDate(new Date().setDate(new Date().getDate() + 2)),
         uid: shortid.generate(),
-        isHeroEmpty: true,
+        hasHero: false,
         isLinkEmpty: true,
         isListEmpty: false,
         list: [
@@ -116,7 +116,7 @@ export const admin = {
       {
         title: formatDate(new Date().setDate(new Date().getDate() + 3)),
         uid: shortid.generate(),
-        isHeroEmpty: true,
+        hasHero: false,
         isLinkEmpty: true,
         isListEmpty: false,
         list: [
@@ -129,7 +129,7 @@ export const admin = {
       {
         title: formatDate(new Date().setDate(new Date().getDate() + 4)),
         uid: shortid.generate(),
-        isHeroEmpty: true,
+        hasHero: false,
         isLinkEmpty: true,
         isListEmpty: false,
         list: [
@@ -142,7 +142,7 @@ export const admin = {
       {
         title: formatDate(new Date().setDate(new Date().getDate() + 5)),
         uid: shortid.generate(),
-        isHeroEmpty: true,
+        hasHero: false,
         isLinkEmpty: true,
         isListEmpty: false,
         list: [

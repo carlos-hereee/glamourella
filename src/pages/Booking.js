@@ -7,14 +7,14 @@ import { ServicesContext } from "../utils/context/ServicesContext";
 import AppCalendar from "../component/organisms/AppCalendar";
 
 const Booking = () => {
-  const { events, setDay } = useContext(CalendarContext);
+  const { events } = useContext(CalendarContext);
   const { cart } = useContext(ServicesContext);
 
   return (
     <section className="container">
       {/* {cart.length > 0 && <BookingEvents data={cart} />} */}
       <AppCalendar data={events.sections} />
-      <CalendarEvents data={events} />
+      <CalendarEvents />
     </section>
   );
 };

@@ -6,38 +6,44 @@ import Forms from "./Forms";
 import CardHeader from "../molecules/card/CardHeader";
 import { AdminContext } from "../../utils/context/AdminContext";
 import { formatDate, formatTime } from "../../utils/moment";
+import { useEffect } from "react";
 
 const schema = yup.object().shape({
   name: yup.string().required("*Required field"),
   email: yup.string().email().required("*Required field"),
 });
-const CalendarEvents = ({ data }) => {
-  const { bookNow, log } = useContext(CalendarContext);
+const CalendarEvents = () => {
+  const { bookNow, log, selectedDay } = useContext(CalendarContext);
   const { isAdmin } = useContext(AdminContext);
   const [appointment, setAppointment] = useState();
   const [confirmation, setConfirmation] = useState(false);
+  // const [day, setSelectedDay] = useState([]);
   const onSubmit = (values) => bookNow(values, appointment);
+  console.log("selectedDay", selectedDay);
+  // useEffect(() => {
+  //   // if(day.length)
+  //   // selectedDay.forEach()
+  //   setSelectedDay(selectedDay);
+  // }, [selectedDay]);
   return (
     <div id="calendar-events">
-      <CardHeader data={data} />
+      <CardHeader data={selectedDay} />
       <div className="list">
-        {data.sections && data.sections.length ? (
-          data.sections.map((day) =>
-            day.list.map((d) => (
-              <button
-                type="button"
-                className="btn list-item"
-                key={d.uid}
-                onClick={() => setAppointment(d)}>
-                {d.uid === appointment?.uid ? (
-                  <Icons name="check" />
-                ) : (
-                  <Icons name="uncheck" />
-                )}
-                {formatTime(d.time.startTime)} - {formatTime(d.time.endTime)}
-              </button>
-            ))
-          )
+        {selectedDay.title ? (
+          selectedDay.list.map((d) => (
+            <button
+              type="button"
+              className="btn list-item"
+              key={d.uid}
+              onClick={() => setAppointment(d)}>
+              {d.uid === appointment?.uid ? (
+                <Icons name="check" />
+              ) : (
+                <Icons name="uncheck" />
+              )}
+              {formatTime(d.time.startTime)} - {formatTime(d.time.endTime)}
+            </button>
+          ))
         ) : isAdmin ? (
           <h4>No appointment this day, add some here</h4>
         ) : (

@@ -14,8 +14,8 @@ export const ServicesState = ({ children }) => {
       {
         uid: shortid.generate(),
         subtitle: "pedicure",
-        isHeroEmpty: true,
-        isIcon: false,
+        hasHero: false,
+        hasIcon: false,
         hero: { link: "/lorem", name: "lorem ipsum" },
         isLinkEmpty: true,
         isForSale: true,
@@ -32,8 +32,8 @@ export const ServicesState = ({ children }) => {
       {
         uid: shortid.generate(),
         subtitle: "pedicure",
-        isHeroEmpty: true,
-        isIcon: false,
+        hasHero: false,
+        hasIcon: false,
         hero: { link: "/lorem", name: "lorem ipsum" },
         isLinkEmpty: true,
         isForSale: true,
@@ -50,8 +50,8 @@ export const ServicesState = ({ children }) => {
       {
         uid: shortid.generate(),
         subtitle: "pedicure",
-        isHeroEmpty: true,
-        isIcon: false,
+        hasHero: false,
+        hasIcon: false,
         hero: { link: "/lorem", name: "lorem ipsum" },
         isLinkEmpty: true,
         isForSale: true,

@@ -1,26 +1,30 @@
+import { useContext } from "react";
 import { useEffect, useState } from "react";
 import { Calendar } from "react-calendar";
-import { formatDate, isDateEqual } from "../../utils/moment";
+import { CalendarContext } from "../../utils/context/CalendarContext";
+import { formatDate, dateEqual } from "../../utils/moment";
 import Icons from "../atoms/Icons";
 
 const AppCalendar = ({ data }) => {
   const [value, onChange] = useState(null);
+  const { setDay } = useContext(CalendarContext);
 
   useEffect(() => {
     if (value) {
-      // const day = formatDate(value);
-      // setDay(isDateEqual(day, data));
-      document.getElementById("calendar-events").scrollIntoView();
-    }
+      const day = formatDate(value);
+      setDay(dateEqual(day, data));
+      // document.getElementById("calendar-events").scrollIntoView();
+    } else onChange(new Date());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
   const tileContent = (date) => {
     const current = new Date(date).getDate();
     const today = new Date().getDate();
-    const match = isDateEqual(formatDate(date), data);
-    if (match.length > 0 && current >= today) {
+    const match = dateEqual(formatDate(date), data);
+    if (match && current >= today) {
       return (
         <div className="match">
-          <Icons name={match.length} />
+          <Icons name={match.list.length} />
         </div>
       );
     }
