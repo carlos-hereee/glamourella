@@ -119,3 +119,41 @@
   color: white;
   padding: 0.25rem 4rem;
 }
+.card-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  border-bottom: dotted 1px #{$text-color2};
+  gap: 1rem;
+  width: 100%;
+  padding-bottom: 0.5rem;
+  position: relative;
+  .checkout-wrapper {
+    max-height: 150px;
+    &:has(> .card-header) {
+      .card-header {
+        float: left;
+        margin-right: 1rem;
+      }
+    }
+  }
+  .photo-accessory {
+    height: 50px;
+    width: 50px;
+  }
+  @include devices(mobile) {
+    flex-wrap: wrap;
+  }
+}
+.card-row-footer {
+  padding: 0.5rem;
+  margin: auto;
+}
+.cancel-row {
+  text-align: center;
+}
+.cancel-row-footer {
+  display: flex;
+  gap: 1rem;
+  padding-bottom: 2rem;
+}

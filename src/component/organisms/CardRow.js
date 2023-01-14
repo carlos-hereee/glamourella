@@ -1,24 +1,24 @@
 import CardHeader from "../molecules/card/CardHeader";
 // import ReadMore from "../molecules/ReadMore";
 
-const CardRow = ({ data, handleClick }) => {
+const CardRow = ({ data, click }) => {
   return (
-    <div className="checkout-card">
+    <div className="card-row">
       <div className="checkout-wrapper">
         <CardHeader data={data} />
         <p>{data.response}</p>
       </div>
-      <div>
+      <div className="card-row-footer">
         <button
           type="button"
-          className="btn"
-          onClick={() => handleClick(data, false)}>
+          className="search-btn"
+          onClick={() => click(data, false)}>
           Find next open appointment
         </button>
         <button
           type="button"
           className="cancel-btn"
-          onClick={() => handleClick(data, true)}>
+          onClick={() => click(data, true)}>
           x
         </button>
       </div>

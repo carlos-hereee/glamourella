@@ -28,45 +28,13 @@
     justify-content: center;
   }
 }
-.checkout-container {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  background-color: #{$primary-color};
-  gap: 1rem;
-  padding: 1rem;
-  border-radius: 4px;
-}
-.checkout-card {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  border-bottom: dotted 1px #{$text-color2};
-  gap: 1rem;
-  width: 100%;
-  padding-bottom: 0.5rem;
-  position: relative;
-  .checkout-wrapper {
-    &:has(> .card-header) {
-      .card-header {
-        float: left;
-        margin-right: 1rem;
-      }
-    }
-  }
-  .cancel-btn {
-    position: absolute;
-    top: 0.5rem;
-    right: 0;
-    // display: flex;
-    // width: fit-content;
-  }
-  .photo-accessory {
-    height: 50px;
-    width: 50px;
-  }
-  @include devices(mobile) {
-    flex-wrap: wrap;
-  }
-}
+// .checkout-container {
+//   display: flex;
+//   flex-wrap: wrap;
+//   flex-direction: column;
+//   justify-content: center;
+//   background-color: #{$primary-color};
+//   gap: 1rem;
+//   padding: 1rem;
+//   border-radius: 4px;
+// }

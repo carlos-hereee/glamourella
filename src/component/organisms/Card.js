@@ -1,5 +1,5 @@
 import CardHeader from "../molecules/card/CardHeader";
-import CardBody from "../molecules/CardBody";
+import CardBody from "../molecules/card/CardBody";
 import AddToCart from "../molecules/AddToCart";
 
 const Card = ({ data, click }) => {

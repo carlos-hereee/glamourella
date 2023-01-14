@@ -46,10 +46,6 @@ button {
     background-color: #{$secondary-color};
     color: #{$primary-color};
   }
-  &:focus {
-    background-color: #{$secondary-color};
-    color: #{$primary-color};
-  }
   &:disabled {
     cursor: not-allowed;
   }
