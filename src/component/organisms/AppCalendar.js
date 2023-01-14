@@ -16,7 +16,9 @@ const AppCalendar = ({ data }) => {
       const match = dateEqual(day, data);
       if (match) {
         setDay(match);
-        document.getElementById("calendar-events").scrollIntoView();
+        document
+          .getElementById("calendar-events")
+          .scrollIntoView({ block: "center", behavior: "smooth" });
       } else {
         const data = {
           title: day,
