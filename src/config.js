@@ -328,7 +328,7 @@ export const glamourella = {
           {
             uid: shortid.generate(),
             response: "9am - 10am",
-            isOpen: true,
+            isOpen: false,
             hasHero: false,
             hasLink: false,
             date: formatDate(new Date()),
@@ -340,7 +340,7 @@ export const glamourella = {
           {
             uid: shortid.generate(),
             response: "11am - 12pm",
-            isOpen: true,
+            isOpen: false,
             hasHero: false,
             hasLink: false,
             date: formatDate(new Date()),
@@ -352,7 +352,7 @@ export const glamourella = {
           {
             uid: shortid.generate(),
             response: "2pm - 3pm",
-            isOpen: true,
+            isOpen: false,
             hasHero: false,
             hasLink: false,
             date: formatDate(new Date()),
@@ -364,7 +364,7 @@ export const glamourella = {
           {
             uid: shortid.generate(),
             response: "4pm - 5pm",
-            isOpen: true,
+            isOpen: false,
             hasHero: false,
             hasLink: false,
             date: formatDate(new Date()),
@@ -454,7 +454,7 @@ export const glamourella = {
           {
             uid: shortid.generate(),
             response: "11am - 12pm",
-            isOpen: true,
+            isOpen: false,
             hasHero: false,
             hasLink: false,
             date: formatDate(new Date().setDate(new Date().getDate() + 2)),
@@ -466,7 +466,7 @@ export const glamourella = {
           {
             uid: shortid.generate(),
             response: "2pm - 3pm",
-            isOpen: true,
+            isOpen: false,
             hasHero: false,
             hasLink: false,
             date: formatDate(new Date().setDate(new Date().getDate() + 2)),
@@ -478,7 +478,7 @@ export const glamourella = {
           {
             uid: shortid.generate(),
             response: "4pm - 5pm",
-            isOpen: true,
+            isOpen: false,
             hasHero: false,
             hasLink: false,
             date: formatDate(new Date().setDate(new Date().getDate() + 2)),
@@ -625,7 +625,7 @@ export const glamourella = {
           {
             uid: shortid.generate(),
             response: "11am - 12pm",
-            isOpen: true,
+            isOpen: false,
             hasHero: false,
             hasLink: false,
             date: formatDate(new Date().setDate(new Date().getDate() + 5)),
@@ -637,7 +637,7 @@ export const glamourella = {
           {
             uid: shortid.generate(),
             response: "2pm - 3pm",
-            isOpen: true,
+            isOpen: false,
             hasHero: false,
             hasLink: false,
             date: formatDate(new Date().setDate(new Date().getDate() + 5)),
@@ -649,7 +649,7 @@ export const glamourella = {
           {
             uid: shortid.generate(),
             response: "4pm - 5pm",
-            isOpen: true,
+            isOpen: false,
             hasHero: false,
             hasLink: false,
             date: formatDate(new Date().setDate(new Date().getDate() + 5)),

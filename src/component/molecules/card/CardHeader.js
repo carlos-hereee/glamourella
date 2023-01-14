@@ -7,7 +7,7 @@ const CardHeader = ({ data }) => {
   return (
     <div className="card-header">
       {data.title && <h3 className="title">{data.title}</h3>}
-      {data.subtitle && <h5 className="sub-title">{data.subtitle}</h5>}
+      {data.subtitle && <h4 className="sub-title">{data.subtitle}</h4>}
       {data.hasHero && <Hero data={data.hero} />}
       {data.hasHero && data.hero.name.split("unsplash") && (
         <ArtistName name={data.hero.name} />

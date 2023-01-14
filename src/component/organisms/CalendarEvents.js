@@ -1,12 +1,10 @@
 import { useContext, useState } from "react";
 import { CalendarContext } from "../../utils/context/CalendarContext";
-import Icons from "../atoms/Icons";
 import * as yup from "yup";
 import Forms from "./Forms";
 import CardHeader from "../molecules/card/CardHeader";
 import { AdminContext } from "../../utils/context/AdminContext";
 import { formatDate, formatTime } from "../../utils/moment";
-import { useEffect } from "react";
 import ListItem from "../atoms/ListItem";
 
 const schema = yup.object().shape({

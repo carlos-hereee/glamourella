@@ -1,12 +1,12 @@
 import CardHeader from "../molecules/card/CardHeader";
-// import ReadMore from "../molecules/ReadMore";
+import ReadMore from "../molecules/ReadMore";
 
 const CardRow = ({ data, click }) => {
   return (
     <div className="card-row">
       <div className="checkout-wrapper">
         <CardHeader data={data} />
-        <p>{data.response}</p>
+        {data.response && <ReadMore data={data.response} lines={2} />}
       </div>
       <div className="card-row-footer">
         <button

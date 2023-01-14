@@ -19,14 +19,15 @@
   }
 }
 .read-more-toggle {
-  color: #{$text-color};
+  color: #{$text-color2};
+  width: 100%;
   appearance: none;
   cursor: pointer;
   text-align: right;
   padding: 0.5rem;
   border-radius: 0.25rem;
   &::before {
-    content: "Read More";
+    content: "...Read More";
   }
   &:checked::before {
     content: "Collapse";

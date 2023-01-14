@@ -36,13 +36,16 @@ const AppCalendar = ({ data }) => {
     const current = new Date(date).getDate();
     const today = new Date().getDate();
     const match = dateEqual(formatDate(date), data);
+
     if (match && current >= today) {
       const open = match.list.filter((m) => m.isOpen);
-      return (
-        <div className="match">
-          <Icons name={open.length} />
-        </div>
-      );
+      if (open.length > 0) {
+        return (
+          <div className="match">
+            <Icons name={open.length} />
+          </div>
+        );
+      }
     }
   };
   return (

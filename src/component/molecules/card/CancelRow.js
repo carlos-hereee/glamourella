@@ -1,6 +1,3 @@
-// import ReadMore from "../molecules/ReadMore";
-import CardHeader from "./CardHeader";
-
 const CancelRow = ({ data, click }) => {
   return (
     <div className="cancel-row">
