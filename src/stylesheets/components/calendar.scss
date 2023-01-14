@@ -4,8 +4,9 @@
   flex: 1;
   box-shadow: 0 1px 5px 1px #{$shadow-color};
   @include devices(mobile) {
-    width: 100%;
-    flex: none;
+    // width: 100%;
+    // flex: none;
+    // display: flex;
   }
 }
 #calendar-events {
@@ -27,15 +28,23 @@
 .react-calendar__tile {
   position: relative;
   cursor: pointer;
-  aspect-ratio: 1 / 1;
-  // min-height: 50px;
-  // max-height: 100px;
-  // max-width: 100px;
+  // aspect-ratio: 1 / 1;
   // display: flex;
-  padding: 0.25rem;
+  // padding: 0.5rem;
+  padding: 1rem;
+  // flex: 1;
   background-color: #{$secondary-color};
   color: #{$primary-color};
   box-shadow: none;
+  .match {
+    background-color: #{$danger};
+    position: absolute;
+    top: 1px;
+    right: 0;
+    border-radius: 100%;
+    padding: 5px;
+    // z-index: 1;
+  }
   &:hover {
     background-color: #{$third-color};
     color: #{$text-color3};
@@ -45,16 +54,9 @@
     color: #{$text-color2};
     cursor: not-allowed;
   }
-  .match {
-    background-color: #{$danger};
-    position: absolute;
-    top: 1px;
-    right: 0;
-    border-radius: 100%;
-    width: fit-content;
-    padding: 5px;
-    // z-index: 1;
-  }
+  // @include devices(mobile) {
+  //   padding: 0.75rem;
+  // }
 }
 // .react-calendar__month-view__days {
 //   display: flex;

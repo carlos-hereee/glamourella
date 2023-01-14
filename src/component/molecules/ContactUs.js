@@ -16,7 +16,7 @@ const ContactUs = () => {
   const { socials } = useContext(AppContext);
   // const socials = ;
   return (
-    <section className="card">
+    <section className="primary-container">
       <h3>Contact Us</h3>
       <Forms data={{ values, schema, onSubmit: contactUs }} />
       <FollowUs socials={socials} />
