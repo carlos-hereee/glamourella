@@ -27,11 +27,6 @@
     min-width: auto;
     max-width: auto;
   }
-  // &:has(> .card-body) {
-  //   .card-body {
-  //     height: 100%;
-  //   }
-  // }
 }
 .card-header {
   display: flex;
@@ -50,11 +45,6 @@
   width: 100%;
   flex-wrap: wrap;
   gap: 1rem;
-  // .sub-title {
-  //   // text-align: left;
-  //   display: flex;
-  //   justify-content: flex-start;
-  // }
   &:has(> .btn-primary) {
     justify-content: space-between;
     .btn-primary {
@@ -101,7 +91,6 @@
     background-color: #{$third-color2};
   }
 }
-
 .secondary-card {
   display: flex;
   flex-direction: column;

@@ -48,11 +48,12 @@
   flex-wrap: wrap;
 }
 .nav-link {
-  text-decoration: none;
   display: flex;
+  text-decoration: none;
+  position: relative;
   padding: 0.5rem;
   flex: 1;
-  position: relative;
+  color: #{$text-color};
 }
 .nav-link[data-state="active"] {
   border-top-left-radius: 1rem;
