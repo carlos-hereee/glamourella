@@ -3,7 +3,6 @@ import Hero from "../../atoms/Hero";
 import Icons from "../../atoms/Icons";
 
 const CardHeader = ({ data }) => {
-  // console.log("data", data);
   return (
     <div className="card-header">
       {data.title && <h3 className="title">{data.title}</h3>}

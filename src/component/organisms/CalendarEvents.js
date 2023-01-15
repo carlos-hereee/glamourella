@@ -1,26 +1,18 @@
 import { useContext, useState } from "react";
 import { CalendarContext } from "../../utils/context/CalendarContext";
-import * as yup from "yup";
-import Forms from "./Forms";
 import CardHeader from "../molecules/card/CardHeader";
-import { AdminContext } from "../../utils/context/AdminContext";
-import { formatDate, formatTime } from "../../utils/moment";
 import ListItem from "../atoms/ListItem";
 import { ServicesContext } from "../../utils/context/ServicesContext";
-import BookingEvents from "./BookingEvents";
 import { UserContext } from "../../utils/context/UserContext";
 import { useEffect } from "react";
+import BookEvent from "../molecules/BookEvent";
+import Icons from "../atoms/Icons";
 
-const schema = yup.object().shape({
-  name: yup.string().required("*Required field"),
-  email: yup.string().email().required("*Required field"),
-});
-const values = { name: "", email: "" };
 const CalendarEvents = () => {
   const { bookNow, log, selectedDay, appointment, setAppointment } =
     useContext(CalendarContext);
   const { isAdmin } = useContext(UserContext);
-  const { cart } = useContext(ServicesContext);
+  const { active } = useContext(ServicesContext);
   const [isConfirm, setIsConfirm] = useState(false);
 
   useEffect(() => {
@@ -34,7 +26,7 @@ const CalendarEvents = () => {
     <div id="calendar-events">
       <CardHeader data={selectedDay} />
       <div>
-        {selectedDay.hasList ? (
+        {selectedDay.uid && selectedDay.list.length > 0 ? (
           selectedDay.list.map((d) => (
             <ListItem
               key={d.uid}
@@ -44,23 +36,31 @@ const CalendarEvents = () => {
             />
           ))
         ) : isAdmin ? (
-          <h4>No appointment this day, try a different day</h4>
+          <>
+            <h4>No appointment this day</h4>
+            <button>Add an appointment</button>
+          </>
         ) : (
-          <h4>All booked up, please come back tomorrow</h4>
+          <>
+            <h4>All booked up, please try a different day</h4>
+            <button>Find Next Open Appointment</button>
+          </>
         )}
       </div>
-
       {isConfirm && (
         <div className="appointment">
-          <p>Booking: </p>
-          <p>
-            Appointment set for{" "}
-            <strong>
-              {appointment.date} @ {appointment.time.startTime} -
-              {appointment.time.endTime}
-            </strong>
-          </p>
-          <p>Please fill out information bellow</p>
+          {active.uid ? (
+            <BookEvent data={active} app={appointment} onSubmit={onSubmit} />
+          ) : (
+            // <EmptyEvent />
+            <div className="container">
+              <p>
+                Please select the service you would like to book on this
+                appointment
+              </p>
+              <Icons name="left" size="3x" />
+            </div>
+          )}
           {log &&
             log.map((l) => (
               <p
@@ -69,7 +69,6 @@ const CalendarEvents = () => {
                 {l.message}
               </p>
             ))}
-          <Forms data={{ values, schema, onSubmit }} />
         </div>
       )}
     </div>

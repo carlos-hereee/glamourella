@@ -17,6 +17,7 @@ const AppCalendar = ({ data }) => {
       if (match) {
         const element = document.getElementById("calendar-events");
         element.scrollIntoView({ block: "center", behavior: "smooth" });
+        match.list = match.list.filter((d) => d.isOpen);
         setDay(match);
       } else {
         const data = {

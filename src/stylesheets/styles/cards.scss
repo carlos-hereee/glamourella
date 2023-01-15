@@ -36,6 +36,7 @@
 .card-header {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
   // flex: 1;
   .title {
     text-align: center;
@@ -127,6 +128,18 @@
   width: 100%;
   padding-bottom: 0.5rem;
   position: relative;
+  color: #{$text-color3};
+  box-shadow: none;
+  &:has(+ .active) {
+    padding: 0.5rem;
+    border-radius: 1rem;
+    background-color: #{$primary-color};
+    div > .read-more {
+      &:has(+ .read-more-toggle:not(:checked))::before {
+        background: linear-gradient(to bottom, transparent, #{$primary-color});
+      }
+    }
+  }
   .card-header {
     display: flex;
     flex-direction: row;

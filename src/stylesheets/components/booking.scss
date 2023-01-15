@@ -32,22 +32,6 @@
     display: flex;
     justify-content: center;
   }
-  &:has(> .active) {
-    .active {
-      padding: 0.5rem;
-      border-radius: 1rem;
-      background-color: #{$primary-color};
-      .checkout-wrapper > div > .read-more {
-        &:has(+ .read-more-toggle:not(:checked))::before {
-          background: linear-gradient(
-            to bottom,
-            transparent,
-            #{$primary-color}
-          );
-        }
-      }
-    }
-  }
   @include devices(mobile) {
     flex: auto;
   }

@@ -328,7 +328,7 @@ export const glamourella = {
           {
             uid: shortid.generate(),
             response: "9am - 10am",
-            isOpen: false,
+            isOpen: true,
             hasHero: false,
             hasLink: false,
             date: formatDate(new Date()),
@@ -336,6 +336,7 @@ export const glamourella = {
               startTime: formatTime(new Date().setHours(9, 0, 0)).toString(),
               endTime: formatTime(new Date().setHours(10, 0, 0)).toString(),
             },
+            attendees: {},
           },
           {
             uid: shortid.generate(),

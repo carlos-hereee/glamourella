@@ -3,26 +3,19 @@ import ReadMore from "../molecules/ReadMore";
 
 const CardRow = ({ data, active, click }) => {
   return (
-    <div className={`card-row ${data.uid === active.uid ? "active" : ""}`}>
-      <div className="checkout-wrapper">
-        <CardHeader data={data} />
-        {data.response && <ReadMore data={data.response} lines={2} />}
-      </div>
-      <div className="card-row-footer">
-        <button
-          type="button"
-          className="search-btn"
-          onClick={() => click(data, false)}>
-          Find next open appointment
-        </button>
-        <button
-          type="button"
-          className="cancel-btn"
-          onClick={() => click(data, true)}>
-          x
-        </button>
-      </div>
-    </div>
+    <button
+      type="button"
+      className={`card-row ${data.uid === active.uid ? "active" : ""}`}
+      onClick={() => click(data, false)}>
+      <CardHeader data={data} />
+      {data.response && <ReadMore data={data.response} lines={2} />}
+      <button
+        type="button"
+        className="cancel-btn"
+        onClick={() => click(data, true)}>
+        x
+      </button>
+    </button>
   );
 };
 
