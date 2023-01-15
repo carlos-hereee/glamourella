@@ -121,30 +121,19 @@
 }
 .card-row {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
-  border-bottom: dotted 1px #{$text-color2};
   gap: 1rem;
   width: 100%;
   padding-bottom: 0.5rem;
   position: relative;
   .card-header {
     display: flex;
-    // justify-content: ;
     flex-direction: row;
   }
   .title {
     text-align: left;
   }
-  // .checkout-wrapper {
-  //   max-height: 150px;
-  //   &:has(> .card-header) {
-  //     .card-header {
-  //       float: left;
-  //       margin-right: 1rem;
-  //     }
-  //   }
-  // }
   .photo-accessory {
     height: 50px;
     width: 50px;

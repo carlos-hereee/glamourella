@@ -12,20 +12,44 @@
 .confirmation {
   height: 100%;
 }
+.booking {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
 .booking-events {
+  display: flex;
+  flex-wrap: wrap;
   background-color: #{$text-color};
+  flex: 1;
+  gap: 1rem;
   padding: 1rem;
   border-radius: 4px;
   width: 100%;
-  max-height: 30vh;
-  box-shadow: 0 1px 3px 1px #{$text-color2};
-  position: sticky;
   top: 7rem;
-  z-index: 1;
   overflow-y: scroll;
   .required {
     display: flex;
     justify-content: center;
+  }
+  &:has(> .active) {
+    .active {
+      padding: 0.5rem;
+      border-radius: 1rem;
+      background-color: #{$primary-color};
+      .checkout-wrapper > div > .read-more {
+        &:has(+ .read-more-toggle:not(:checked))::before {
+          background: linear-gradient(
+            to bottom,
+            transparent,
+            #{$primary-color}
+          );
+        }
+      }
+    }
+  }
+  @include devices(mobile) {
+    flex: auto;
   }
 }
 // .checkout-container {

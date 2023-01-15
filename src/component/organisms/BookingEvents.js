@@ -11,6 +11,8 @@ const BookingEvents = ({ data }) => {
   const { removeFromCart } = useContext(ServicesContext);
   const [cancel, setCancel] = useState({});
   const [error, setError] = useState("");
+  const [active, setActive] = useState({});
+
   const cancelReq = (e, isConfirm) => {
     isConfirm ? removeFromCart(e) : setCancel({});
   };
@@ -23,6 +25,7 @@ const BookingEvents = ({ data }) => {
   const handleClick = (d, isCancel) => {
     if (isCancel) {
       setCancel(d);
+      active.uid === d.uid && setActive({});
     } else {
       // find next open appointment
       const element = document.getElementById("calendar-events");
@@ -39,24 +42,21 @@ const BookingEvents = ({ data }) => {
       const minDate = filtered.reduce((a, b) => {
         return formatMilli(a.title) < formatMilli(b.title) ? a : b;
       });
+      setActive(d);
       // set Date
       setDay(minDate);
       // set earliest appointment
       setEarliestApp(minDate);
       element.scrollIntoView({ block: "center", behavior: "smooth" });
     }
-    if (!events.length) {
-      setError("Sorry we are all booked up, please come back tomorrow");
-    } else setError("");
   };
   return (
     <div className="booking-events">
-      <h3 className="title">Booking Events</h3>
       {data.map((c) =>
         cancel.uid === c.uid ? (
           <CancelRow data={c} key={c.uid} click={cancelReq} />
         ) : (
-          <CardRow data={c} key={c.uid} click={handleClick} />
+          <CardRow data={c} key={c.uid} click={handleClick} active={active} />
         )
       )}
       <span className="required">{error}</span>

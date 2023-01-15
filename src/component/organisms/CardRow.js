@@ -1,9 +1,9 @@
 import CardHeader from "../molecules/card/CardHeader";
 import ReadMore from "../molecules/ReadMore";
 
-const CardRow = ({ data, click }) => {
+const CardRow = ({ data, active, click }) => {
   return (
-    <div className="card-row">
+    <div className={`card-row ${data.uid === active.uid ? "active" : ""}`}>
       <div className="checkout-wrapper">
         <CardHeader data={data} />
         {data.response && <ReadMore data={data.response} lines={2} />}

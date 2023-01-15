@@ -6,6 +6,9 @@ import CardHeader from "../molecules/card/CardHeader";
 import { AdminContext } from "../../utils/context/AdminContext";
 import { formatDate, formatTime } from "../../utils/moment";
 import ListItem from "../atoms/ListItem";
+import { ServicesContext } from "../../utils/context/ServicesContext";
+import BookingEvents from "./BookingEvents";
+import { UserContext } from "../../utils/context/UserContext";
 
 const schema = yup.object().shape({
   name: yup.string().required("*Required field"),
@@ -14,35 +17,25 @@ const schema = yup.object().shape({
 const CalendarEvents = () => {
   const { bookNow, log, selectedDay, appointment, setAppointment } =
     useContext(CalendarContext);
-  const { isAdmin } = useContext(AdminContext);
+  const { isAdmin } = useContext(UserContext);
+  const { cart } = useContext(ServicesContext);
+
   // const [appointment, setApp] = useState();
-  const [confirmation, setConfirmation] = useState(false);
+  const [isConfirm, setIsConfirm] = useState(false);
   const onSubmit = (values) => bookNow(values, appointment);
-  console.log("appointment", appointment);
   return (
     <div id="calendar-events">
       <CardHeader data={selectedDay} />
       <div className="list">
         {selectedDay.hasList ? (
-          selectedDay.list.map(
-            (d) =>
-              d.isOpen &&
-              (d.uid === appointment?.uid ? (
-                <ListItem
-                  key={d.uid}
-                  data={d}
-                  click={setAppointment}
-                  icon="check"
-                />
-              ) : (
-                <ListItem
-                  key={d.uid}
-                  data={d}
-                  click={setAppointment}
-                  icon="uncheck"
-                />
-              ))
-          )
+          selectedDay.list.map((d) => (
+            <ListItem
+              key={d.uid}
+              data={d}
+              click={setAppointment}
+              icon={d.uid === appointment?.uid ? "check" : "uncheck"}
+            />
+          ))
         ) : isAdmin ? (
           <h4>No appointment this day, try a different day</h4>
         ) : (
@@ -50,7 +43,7 @@ const CalendarEvents = () => {
         )}
       </div>
 
-      {confirmation && (
+      {isConfirm && (
         <>
           <p>
             Appointment set for{" "}
