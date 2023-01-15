@@ -12,11 +12,13 @@ const schema = yup.object().shape({
   email: yup.string().email().required("*Required field"),
 });
 const CalendarEvents = () => {
-  const { bookNow, log, selectedDay } = useContext(CalendarContext);
+  const { bookNow, log, selectedDay, appointment, setAppointment } =
+    useContext(CalendarContext);
   const { isAdmin } = useContext(AdminContext);
-  const [appointment, setApp] = useState();
+  // const [appointment, setApp] = useState();
   const [confirmation, setConfirmation] = useState(false);
   const onSubmit = (values) => bookNow(values, appointment);
+  console.log("appointment", appointment);
   return (
     <div id="calendar-events">
       <CardHeader data={selectedDay} />
@@ -26,9 +28,19 @@ const CalendarEvents = () => {
             (d) =>
               d.isOpen &&
               (d.uid === appointment?.uid ? (
-                <ListItem key={d.uid} data={d} click={setApp} icon="check" />
+                <ListItem
+                  key={d.uid}
+                  data={d}
+                  click={setAppointment}
+                  icon="check"
+                />
               ) : (
-                <ListItem key={d.uid} data={d} click={setApp} icon="uncheck" />
+                <ListItem
+                  key={d.uid}
+                  data={d}
+                  click={setAppointment}
+                  icon="uncheck"
+                />
               ))
           )
         ) : isAdmin ? (

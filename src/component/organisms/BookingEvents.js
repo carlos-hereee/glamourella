@@ -2,17 +2,23 @@ import { useState } from "react";
 import { useContext } from "react";
 import { CalendarContext } from "../../utils/context/CalendarContext";
 import { ServicesContext } from "../../utils/context/ServicesContext";
-import { formatDate, formatMilli } from "../../utils/moment";
+import { formatMilli } from "../../utils/moment";
 import CancelRow from "../molecules/card/CancelRow";
 import CardRow from "./CardRow";
 
 const BookingEvents = ({ data }) => {
-  const { events, setDay } = useContext(CalendarContext);
+  const { events, setDay, setAppointment } = useContext(CalendarContext);
   const { removeFromCart } = useContext(ServicesContext);
   const [cancel, setCancel] = useState({});
   const [error, setError] = useState("");
   const cancelReq = (e, isConfirm) => {
     isConfirm ? removeFromCart(e) : setCancel({});
+  };
+  const setEarliestApp = (date) => {
+    const min = date.list.reduce((a, b) => {
+      return a.isOpen && a.time.startTime > b.time.startTime ? a : b;
+    });
+    setAppointment(min);
   };
   const handleClick = (d, isCancel) => {
     if (isCancel) {
@@ -33,8 +39,10 @@ const BookingEvents = ({ data }) => {
       const minDate = filtered.reduce((a, b) => {
         return formatMilli(a.title) < formatMilli(b.title) ? a : b;
       });
-      console.log("minDate", minDate);
+      // set Date
       setDay(minDate);
+      // set earliest appointment
+      setEarliestApp(minDate);
       element.scrollIntoView({ block: "center", behavior: "smooth" });
     }
     if (!events.length) {

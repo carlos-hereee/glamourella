@@ -74,6 +74,10 @@ export const CalendarState = ({ children }) => {
     dispatch({ type: "IS_LOADING", payload: true });
     dispatch({ type: "UPDATE_CALENDAR_EVENT", payload: event });
   };
+  const setAppointment = async (event) => {
+    dispatch({ type: "IS_LOADING", payload: true });
+    dispatch({ type: "UPDATE_APPOINTMENT", payload: event });
+  };
 
   const bookNow = async (values, event) => {
     dispatch({ type: "IS_LOADING", payload: true });
@@ -106,6 +110,7 @@ export const CalendarState = ({ children }) => {
         contactUs,
         getCalendarDay,
         setDay,
+        setAppointment,
         bookNow,
         resetDay,
       }}>

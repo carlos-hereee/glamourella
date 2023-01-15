@@ -385,7 +385,7 @@ export const glamourella = {
           {
             uid: shortid.generate(),
             response: "9am - 10am",
-            isOpen: false,
+            isOpen: true,
             hasHero: false,
             hasLink: false,
             date: formatDate(new Date().setDate(new Date().getDate() + 1)),
@@ -397,7 +397,7 @@ export const glamourella = {
           {
             uid: shortid.generate(),
             response: "11am - 12pm",
-            isOpen: true,
+            isOpen: false,
             hasHero: false,
             hasLink: false,
             date: formatDate(new Date().setDate(new Date().getDate() + 1)),
