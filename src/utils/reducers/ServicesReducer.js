@@ -20,6 +20,13 @@ const updateAssets = (state, action) => {
     filteredServices: action.payload,
   };
 };
+const updateActive = (state, action) => {
+  return {
+    ...state,
+    isLoading: false,
+    active: action.payload,
+  };
+};
 const addToCart = (state, action) => {
   return {
     ...state,
@@ -45,6 +52,8 @@ export const reducer = (state, action) => {
       return addToCart(state, action);
     case "REMOVE_FROM_CART":
       return removeFromCart(state, action);
+    case "UPDATE_ACTIVE":
+      return updateActive(state, action);
     case "UPDATE_SERVICES":
       return updateAssets(state, action);
     default:

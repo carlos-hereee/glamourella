@@ -11,8 +11,8 @@
 }
 #calendar-events {
   flex: 1;
+  padding: 1rem;
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
   background-color: #{$text-color};

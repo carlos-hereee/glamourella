@@ -9,24 +9,31 @@ import ListItem from "../atoms/ListItem";
 import { ServicesContext } from "../../utils/context/ServicesContext";
 import BookingEvents from "./BookingEvents";
 import { UserContext } from "../../utils/context/UserContext";
+import { useEffect } from "react";
 
 const schema = yup.object().shape({
   name: yup.string().required("*Required field"),
   email: yup.string().email().required("*Required field"),
 });
+const values = { name: "", email: "" };
 const CalendarEvents = () => {
   const { bookNow, log, selectedDay, appointment, setAppointment } =
     useContext(CalendarContext);
   const { isAdmin } = useContext(UserContext);
   const { cart } = useContext(ServicesContext);
-
-  // const [appointment, setApp] = useState();
   const [isConfirm, setIsConfirm] = useState(false);
+
+  useEffect(() => {
+    if (appointment.uid) {
+      setIsConfirm(true);
+    } else setIsConfirm(false);
+  }, [appointment]);
+
   const onSubmit = (values) => bookNow(values, appointment);
   return (
     <div id="calendar-events">
       <CardHeader data={selectedDay} />
-      <div className="list">
+      <div>
         {selectedDay.hasList ? (
           selectedDay.list.map((d) => (
             <ListItem
@@ -44,23 +51,26 @@ const CalendarEvents = () => {
       </div>
 
       {isConfirm && (
-        <>
+        <div className="appointment">
+          <p>Booking: </p>
           <p>
             Appointment set for{" "}
             <strong>
-              {formatDate(appointment?.start.dateTime)} @{" "}
-              {formatTime(appointment?.start.dateTime)} -{" "}
-              {formatTime(appointment?.end.dateTime)}
+              {appointment.date} @ {appointment.time.startTime} -
+              {appointment.time.endTime}
             </strong>
           </p>
+          <p>Please fill out information bellow</p>
           {log &&
             log.map((l) => (
-              <p key={l} className={l.success ? "message-success" : "required"}>
+              <p
+                key={l.uid}
+                className={l.success ? "message-success" : "required"}>
                 {l.message}
               </p>
             ))}
-          <Forms data={{ values: { name: "", email: "" }, schema, onSubmit }} />
-        </>
+          <Forms data={{ values, schema, onSubmit }} />
+        </div>
       )}
     </div>
   );

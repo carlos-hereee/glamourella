@@ -8,10 +8,9 @@ import CardRow from "./CardRow";
 
 const BookingEvents = ({ data }) => {
   const { events, setDay, setAppointment } = useContext(CalendarContext);
-  const { removeFromCart } = useContext(ServicesContext);
+  const { removeFromCart, setActive, active } = useContext(ServicesContext);
   const [cancel, setCancel] = useState({});
   const [error, setError] = useState("");
-  const [active, setActive] = useState({});
 
   const cancelReq = (e, isConfirm) => {
     isConfirm ? removeFromCart(e) : setCancel({});

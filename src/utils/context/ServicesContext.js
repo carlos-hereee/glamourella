@@ -67,6 +67,7 @@ export const ServicesState = ({ children }) => {
       },
     ],
     filteredServices: [],
+    active: {},
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   const addToCart = (service) => {
@@ -96,6 +97,10 @@ export const ServicesState = ({ children }) => {
     const data = services.filter((s) => s.type === filter);
     dispatch({ type: "UPDATE_SERVICES", payload: data });
   };
+  const setActive = (active) => {
+    dispatch({ type: "IS_LOADING", payload: true });
+    dispatch({ type: "UPDATE_ACTIVE", payload: active });
+  };
   return (
     <ServicesContext.Provider
       value={{
@@ -103,9 +108,11 @@ export const ServicesState = ({ children }) => {
         isFiltered: state.isFiltered,
         filteredServices: state.filteredServices,
         cart: state.cart,
+        active: state.active,
         filterServices,
         addToCart,
         removeFromCart,
+        setActive,
       }}>
       {children}
     </ServicesContext.Provider>
