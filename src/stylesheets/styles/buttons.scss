@@ -91,6 +91,16 @@
 .green-btn {
   background-color: #{$success-color};
 }
+.btn-back {
+  background-color: #{$secondary-color};
+}
+.btn-danger {
+  background-color: #{$danger};
+  color: #{$text-color};
+}
 .btn {
+  flex: 1;
+  display: flex;
+  padding: 1rem 1.5rem;
   gap: 1rem;
 }

@@ -6,13 +6,13 @@ const CancelRow = ({ data, click }) => {
       <div className="cancel-row-footer">
         <button
           type="button"
-          className="back-btn"
+          className="btn btn-back"
           onClick={() => click(data, false)}>
           Back
         </button>
         <button
           type="button"
-          className="green-btn"
+          className="btn btn-danger"
           onClick={() => click(data, true)}>
           Confirm
         </button>

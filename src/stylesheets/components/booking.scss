@@ -1,25 +1,17 @@
-.list {
-  width: 100%;
-  height: 100%;
-  margin: auto;
-}
-.list-item {
-  margin: 0.5rem;
-  display: flex;
-  height: fit-content;
-  gap: 1rem;
-}
 .confirmation {
   height: 100%;
 }
 .booking {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
   gap: 1rem;
 }
 .booking-events {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   background-color: #{$text-color};
   flex: 1;
   gap: 1rem;
@@ -32,17 +24,23 @@
     display: flex;
     justify-content: center;
   }
+  &:has(> .active) {
+    .active {
+      border-radius: 1rem;
+      background-color: #{$primary-color};
+      color: #{$text-color3};
+      .read-more {
+        &:has(+ .read-more-toggle:not(:checked))::before {
+          background: linear-gradient(
+            to bottom,
+            transparent,
+            #{$primary-color}
+          );
+        }
+      }
+    }
+  }
   @include devices(mobile) {
     flex: auto;
   }
 }
-// .checkout-container {
-//   display: flex;
-//   flex-wrap: wrap;
-//   flex-direction: column;
-//   justify-content: center;
-//   background-color: #{$primary-color};
-//   gap: 1rem;
-//   padding: 1rem;
-//   border-radius: 4px;
-// }

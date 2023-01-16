@@ -10,7 +10,7 @@ const BookingEvents = ({ data }) => {
   const { events, setDay, setAppointment } = useContext(CalendarContext);
   const { removeFromCart, setActive, active } = useContext(ServicesContext);
   const [cancel, setCancel] = useState({});
-  const [error, setError] = useState("");
+  // const [error, setError] = useState("");
 
   const cancelReq = (e, isConfirm) => {
     isConfirm ? removeFromCart(e) : setCancel({});
@@ -46,7 +46,7 @@ const BookingEvents = ({ data }) => {
       setDay(minDate);
       // set earliest appointment
       setEarliestApp(minDate);
-      element.scrollIntoView({ block: "center", behavior: "smooth" });
+      element.scrollIntoView({ block: "start", behavior: "smooth" });
     }
   };
   return (
@@ -58,7 +58,7 @@ const BookingEvents = ({ data }) => {
           <CardRow data={c} key={c.uid} click={handleClick} active={active} />
         )
       )}
-      <span className="required">{error}</span>
+      {/* <span className="required">{error}</span> */}
     </div>
   );
 };
