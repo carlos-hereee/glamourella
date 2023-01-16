@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { CalendarContext } from "../utils/context/CalendarContext";
-import CalendarEvents from "../component/organisms/CalendarEvents";
+import CalendarEvents from "../component/template/CalendarEvents";
 import BookingEvents from "../component/organisms/BookingEvents";
 import { ServicesContext } from "../utils/context/ServicesContext";
 import AppCalendar from "../component/organisms/AppCalendar";

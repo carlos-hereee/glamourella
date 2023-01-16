@@ -25,7 +25,7 @@ const CalendarEvents = () => {
   return (
     <div id="calendar-events">
       <CardHeader data={selectedDay} />
-      <div>
+      <div className="list">
         {selectedDay.uid && selectedDay.list.length > 0 ? (
           selectedDay.list.map((d) => (
             <ListItem
@@ -52,7 +52,6 @@ const CalendarEvents = () => {
           {active.uid ? (
             <BookEvent data={active} app={appointment} onSubmit={onSubmit} />
           ) : (
-            // <EmptyEvent />
             <div className="container">
               <p>
                 Please select the service you would like to book on this

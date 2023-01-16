@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AdminContext } from "../../utils/context/AdminContext";
 import AppCalendar from "../../component/organisms/AppCalendar";
-import CalendarEvents from "../../component/organisms/CalendarEvents";
+import CalendarEvents from "../../component/template/CalendarEvents";
 
 const Schedule = () => {
   const { schedule } = useContext(AdminContext);

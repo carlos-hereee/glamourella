@@ -12,12 +12,13 @@
   }
 }
 #calendar-events {
-  flex: 1;
-  padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #{$text-color};
+  flex: 1;
+  padding: 1rem;
+  gap: 1rem;
 }
 .react-calendar__navigation {
   background-color: #{$secondary-color2};

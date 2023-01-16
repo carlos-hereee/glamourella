@@ -10,6 +10,7 @@ const BookEvent = ({ data, app, onSubmit }) => {
   return (
     <>
       <h3>
+        Booking:{" "}
         <strong>
           {data.title} {data.subtitle}
         </strong>

@@ -44,3 +44,14 @@
     flex: auto;
   }
 }
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  .list-item {
+    background-color: #{$secondary-color};
+  }
+  [data-state="check"] {
+    color: #{$text-color};
+  }
+}
