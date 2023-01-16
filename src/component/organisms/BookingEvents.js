@@ -13,7 +13,10 @@ const BookingEvents = ({ data }) => {
   // const [error, setError] = useState("");
 
   const cancelReq = (e, isConfirm) => {
-    isConfirm ? removeFromCart(e) : setCancel({});
+    if (isConfirm) {
+      removeFromCart(e);
+      e.uid === active.uid && setActive({});
+    } else setCancel({});
   };
   const setEarliestApp = (date) => {
     const min = date.list.reduce((a, b) => {

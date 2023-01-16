@@ -109,36 +109,34 @@
   color: white;
   padding: 0.25rem 4rem;
 }
-.card-row {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
-  max-width: 400px;
-  padding-bottom: 0.5rem;
+.card-row-wrapper {
   position: relative;
-  color: #{$text-color3};
   background-color: #{$text-color};
-  box-shadow: none;
-  .card-header {
+  max-width: 400px;
+  .card-row {
     display: flex;
-    flex-direction: row;
-  }
-  .title {
-    text-align: left;
-  }
-  .photo-accessory {
-    height: 50px;
-    width: 50px;
-  }
-  @include devices(mobile) {
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: transparent;
+    box-shadow: none;
+    color: #{$text-color3};
+    gap: 1rem;
     .card-header {
+      display: flex;
       flex-direction: row;
-      gap: 1rem;
+      .title {
+        text-align: left;
+      }
     }
-    .row-description {
-      display: none;
+    @include devices(mobile) {
+      flex-wrap: wrap;
+      .card-header {
+        flex-direction: row;
+        gap: 1rem;
+      }
+      .row-description {
+        display: none;
+      }
     }
   }
 }

@@ -28,7 +28,6 @@
     .active {
       border-radius: 1rem;
       background-color: #{$primary-color};
-      color: #{$text-color3};
       .read-more {
         &:has(+ .read-more-toggle:not(:checked))::before {
           background: linear-gradient(

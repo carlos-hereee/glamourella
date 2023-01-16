@@ -34,6 +34,9 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
+  @include devices(mobile) {
+    width: 100%;
+  }
 }
 .card-container {
   display: flex;
