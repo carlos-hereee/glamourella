@@ -1,12 +1,15 @@
 import Forms from "../organisms/Forms";
 import * as yup from "yup";
+import { useContext } from "react";
+import { CalendarContext } from "../../utils/context/CalendarContext";
 
 const schema = yup.object().shape({
   name: yup.string().required("*Required field"),
   email: yup.string().email().required("*Required field"),
 });
 const values = { name: "", email: "" };
-const BookEvent = ({ data, app, onSubmit }) => {
+const BookEvent = ({ data }) => {
+  const { bookNow, meeting } = useContext(CalendarContext);
   return (
     <>
       <h3>
@@ -18,11 +21,11 @@ const BookEvent = ({ data, app, onSubmit }) => {
       <p>
         Appointment set for{" "}
         <strong>
-          {app.date} @ {app.time.startTime} -{app.time.endTime}
+          {meeting.date} @ {meeting.time.startTime} -{meeting.time.endTime}
         </strong>
       </p>
       <p>Please fill out information bellow</p>
-      <Forms data={{ values, schema, onSubmit }} />
+      <Forms data={{ values, schema, onSubmit: (e) => bookNow(e, meeting) }} />
     </>
   );
 };

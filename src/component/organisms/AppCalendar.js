@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Calendar } from "react-calendar";
 import shortid from "shortid";
 import { CalendarContext } from "../../utils/context/CalendarContext";
-import { formatDate, dateEqual } from "../../utils/moment";
+import { formatDate, dateEqual } from "../../utils/functions/moment";
 import Icons from "../atoms/Icons";
 
 const AppCalendar = ({ data }) => {

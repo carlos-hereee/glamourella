@@ -3,73 +3,57 @@ import { CalendarContext } from "../../utils/context/CalendarContext";
 import CardHeader from "../molecules/card/CardHeader";
 import ListItem from "../atoms/ListItem";
 import { ServicesContext } from "../../utils/context/ServicesContext";
-import { UserContext } from "../../utils/context/UserContext";
 import { useEffect } from "react";
 import BookEvent from "../molecules/BookEvent";
 import Icons from "../atoms/Icons";
+import SectionBody from "../molecules/SectionBody";
 
 const CalendarEvents = () => {
-  const { bookNow, log, selectedDay, appointment, setAppointment } =
-    useContext(CalendarContext);
-  const { isAdmin } = useContext(UserContext);
+  const { log, selectedDay, meeting, setMeeting } = useContext(CalendarContext);
   const { active } = useContext(ServicesContext);
   const [isConfirm, setIsConfirm] = useState(false);
 
   useEffect(() => {
-    if (appointment.uid) {
+    if (meeting.uid) {
       setIsConfirm(true);
     } else setIsConfirm(false);
-  }, [appointment]);
+  }, [meeting]);
 
-  const onSubmit = (values) => bookNow(values, appointment);
+  // const onSubmit = (values) => ;
   return (
     <div id="calendar-events">
       <CardHeader data={selectedDay} />
       <div className="list">
         {selectedDay.uid && selectedDay.list.length > 0 ? (
-          selectedDay.list.map((d) => (
-            <ListItem
-              key={d.uid}
-              data={d}
-              click={setAppointment}
-              icon={d.uid === appointment?.uid ? "check" : "uncheck"}
-            />
-          ))
-        ) : isAdmin ? (
-          <>
-            <h4>No appointment this day</h4>
-            <button>Add an appointment</button>
-          </>
+          selectedDay.list.map((d) =>
+            d.uid === meeting?.uid ? (
+              <ListItem key={d.uid} data={d} click={setMeeting} icon="check" />
+            ) : (
+              <ListItem key={d.uid} data={d} click={setMeeting} icon="uncheck" />
+            )
+          )
         ) : (
-          <>
-            <h4>All booked up, please try a different day</h4>
-            <button>Find Next Open Appointment</button>
-          </>
+          <SectionBody />
         )}
       </div>
       {isConfirm && (
-        <div className="appointment">
+        <div className="meeting">
           {active.uid ? (
-            <BookEvent data={active} app={appointment} onSubmit={onSubmit} />
+            <BookEvent data={active} />
           ) : (
             <div className="container">
-              <p>
-                Please select the service you would like to book on this
-                appointment
-              </p>
+              <p>Please select the service you would like to book on this meeting</p>
               <Icons name="left" size="3x" />
             </div>
           )}
-          {log &&
-            log.map((l) => (
-              <p
-                key={l.uid}
-                className={l.success ? "message-success" : "required"}>
-                {l.message}
-              </p>
-            ))}
         </div>
       )}
+      {log.length > 0 &&
+        log.map((l) => (
+          <p key={l.uid} className={l.success ? "message-success" : "required"}>
+            {l.message}
+          </p>
+        ))}
     </div>
   );
 };

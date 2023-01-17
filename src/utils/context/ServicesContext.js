@@ -1,7 +1,7 @@
 import { createContext, useEffect, useReducer } from "react";
 import { useContext } from "react";
 import shortid from "shortid";
-import { axiosWithAuth } from "../axios";
+import { axiosWithAuth } from "../functions/axios";
 import { reducer } from "../reducers/ServicesReducer";
 import { AppContext } from "./AppContext";
 

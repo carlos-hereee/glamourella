@@ -112,7 +112,7 @@
 .card-row-wrapper {
   position: relative;
   background-color: #{$text-color};
-  max-width: 400px;
+  // min-width: 250px;
   .card-row {
     display: flex;
     flex-direction: column;
@@ -121,6 +121,7 @@
     box-shadow: none;
     color: #{$text-color3};
     gap: 1rem;
+    // padding: 0;
     .card-header {
       display: flex;
       flex-direction: row;

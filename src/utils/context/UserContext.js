@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useReducer } from "react";
 import { AuthContext } from "./AuthContext";
-import { axiosWithAuth } from "../axios";
+import { axiosWithAuth } from "../functions/axios";
 import { reducer } from "../reducers/UserReducer";
 import { isDev } from "../../config";
 

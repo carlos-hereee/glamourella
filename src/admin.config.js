@@ -1,5 +1,5 @@
 import shortid from "shortid";
-import { formatDate } from "./utils/moment";
+import { formatDate } from "./utils/functions/moment";
 
 export const admin = {
   menu: [
@@ -50,9 +50,7 @@ export const admin = {
         hasHero: false,
         hasLink: false,
         hasList: true,
-        list: [
-          { uid: shortid.generate(), response: "9am - 10am", isOpen: false },
-        ],
+        list: [{ uid: shortid.generate(), response: "9am - 10am", isOpen: false }],
       },
       {
         title: formatDate(new Date().setDate(new Date().getDate() + 5)),
@@ -60,13 +58,11 @@ export const admin = {
         hasHero: false,
         hasLink: false,
         hasList: true,
-        list: [
-          { uid: shortid.generate(), response: "4pm - 5pm", isOpen: false },
-        ],
+        list: [{ uid: shortid.generate(), response: "4pm - 5pm", isOpen: false }],
       },
     ],
   },
-  appointment: {
+  meeting: {
     title: "Appointments",
     subtitle: "",
     hasHero: false,

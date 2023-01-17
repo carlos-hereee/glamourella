@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { createContext, useEffect, useReducer } from "react";
-import { axiosWithAuth, axiosCalendar } from "../axios";
+import { axiosWithAuth, axiosCalendar } from "../functions/axios";
 import { reducer } from "../reducers/CalendarReducer";
 import { glamourella, isDev } from "../../config";
-import { formatTime, dateEqual, today } from "../moment";
+import { formatTime, dateEqual, today } from "../functions/moment";
 
 export const CalendarContext = createContext();
 export const CalendarState = ({ children }) => {
@@ -13,7 +13,7 @@ export const CalendarState = ({ children }) => {
     log: [],
     events: glamourella.events,
     selectedDay: {},
-    appointment: {},
+    meeting: {},
     book: {},
   };
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -74,7 +74,7 @@ export const CalendarState = ({ children }) => {
     dispatch({ type: "IS_LOADING", payload: true });
     dispatch({ type: "UPDATE_CALENDAR_EVENT", payload: event });
   };
-  const setAppointment = async (event) => {
+  const setMeeting = async (event) => {
     dispatch({ type: "IS_LOADING", payload: true });
     dispatch({ type: "UPDATE_APPOINTMENT", payload: event });
   };
@@ -103,14 +103,14 @@ export const CalendarState = ({ children }) => {
         isLoading: state.isLoading,
         calendar: state.calendar,
         selectedDay: state.selectedDay,
-        appointment: state.appointment,
+        meeting: state.meeting,
         events: state.events,
         booked: state.booked,
         log: state.log,
         contactUs,
         getCalendarDay,
         setDay,
-        setAppointment,
+        setMeeting,
         bookNow,
         resetDay,
       }}>

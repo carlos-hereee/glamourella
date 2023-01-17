@@ -68,6 +68,9 @@
     background-color: #{$primary-color};
   }
 }
+.btn-submit {
+  background-color: #{$secondary-color};
+}
 .cancel-btn {
   position: absolute;
   top: -0.5rem;

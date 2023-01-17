@@ -2,7 +2,7 @@ import React, { createContext, useReducer } from "react";
 import { useEffect } from "react";
 import shortid from "shortid";
 import { admin } from "../../admin.config";
-import { formatDate } from "../moment";
+import { formatDate } from "../functions/moment";
 import { reducer } from "../reducers/AdminReducer";
 export const AdminContext = createContext();
 
@@ -16,7 +16,7 @@ export const AdminState = ({ children }) => {
     schedule: admin.schedule,
     planner: {},
     booked: admin.booked,
-    appointment: admin.appointment,
+    meeting: admin.meeting,
   };
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -81,7 +81,7 @@ export const AdminState = ({ children }) => {
         isFiltered: state.isFiltered,
         planner: state.planner,
         booked: state.booked,
-        appointment: state.appointment,
+        meeting: state.meeting,
         setMenuActive,
         filter,
       }}>

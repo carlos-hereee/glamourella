@@ -1,5 +1,5 @@
 import shortid from "shortid";
-import { formatDate, formatTime } from "./utils/moment";
+import { formatDate, formatTime } from "./utils/functions/moment";
 
 const lorem10 =
   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, neque?";

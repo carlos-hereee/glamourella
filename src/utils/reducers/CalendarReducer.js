@@ -37,13 +37,13 @@ const updateCalendarEvent = (state, action) => {
 const bookNow = (state, action) => {
   return {
     ...state,
-    appointment: action.payload,
+    meeting: action.payload,
   };
 };
 const updateAppointment = (state, action) => {
   return {
     ...state,
-    appointment: action.payload,
+    meeting: action.payload,
   };
 };
 export const reducer = (state, action) => {
