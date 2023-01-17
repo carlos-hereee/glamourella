@@ -11,7 +11,7 @@ const values = { name: "", email: "" };
 const BookEvent = ({ data }) => {
   const { bookNow, meeting } = useContext(CalendarContext);
   return (
-    <>
+    <div>
       <h3>
         Booking:{" "}
         <strong>
@@ -26,7 +26,7 @@ const BookEvent = ({ data }) => {
       </p>
       <p>Please fill out information bellow</p>
       <Forms data={{ values, schema, onSubmit: (e) => bookNow(e, meeting) }} />
-    </>
+    </div>
   );
 };
 export default BookEvent;

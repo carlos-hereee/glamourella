@@ -41,13 +41,6 @@
     flex-wrap: wrap;
   }
 }
-.meeting {
-  @include devices(mobile) {
-    .icon {
-      transform: rotate(90deg);
-    }
-  }
-}
 .list {
   display: flex;
   flex-direction: column;

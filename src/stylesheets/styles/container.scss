@@ -45,3 +45,13 @@
   background-color: #{$text-color};
   gap: 1rem;
 }
+.not-found {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  @include devices(mobile) {
+    .icon {
+      transform: rotate(90deg);
+    }
+  }
+}

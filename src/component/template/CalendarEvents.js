@@ -5,8 +5,9 @@ import ListItem from "../atoms/ListItem";
 import { ServicesContext } from "../../utils/context/ServicesContext";
 import { useEffect } from "react";
 import BookEvent from "../molecules/BookEvent";
-import Icons from "../atoms/Icons";
 import SectionBody from "../molecules/SectionBody";
+import NotFound from "../molecules/NotFound";
+import Log from "../molecules/Log";
 
 const CalendarEvents = () => {
   const { log, selectedDay, meeting, setMeeting } = useContext(CalendarContext);
@@ -36,24 +37,8 @@ const CalendarEvents = () => {
           <SectionBody />
         )}
       </div>
-      {isConfirm && (
-        <div className="meeting">
-          {active.uid ? (
-            <BookEvent data={active} />
-          ) : (
-            <div className="container">
-              <p>Please select the service you would like to book on this meeting</p>
-              <Icons name="left" size="3x" />
-            </div>
-          )}
-        </div>
-      )}
-      {log.length > 0 &&
-        log.map((l) => (
-          <p key={l.uid} className={l.success ? "message-success" : "required"}>
-            {l.message}
-          </p>
-        ))}
+      {isConfirm && active.uid ? <BookEvent data={active} /> : <NotFound />}
+      {log.length > 0 && log.map((l) => <Log key={l.uid} data={l} />)}
     </div>
   );
 };
