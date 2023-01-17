@@ -8,7 +8,7 @@ const CardRow = ({ data, active, click }) => {
         <CardHeader data={data} />
         {data.response && <ReadMore data={data.response} lines={2} />}
       </button>
-      <button type="button" className="cancel-btn" onClick={() => click(data, true)}>
+      <button type="button" className="btn-cancel" onClick={() => click(data, true)}>
         x
       </button>
     </div>

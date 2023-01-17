@@ -22,9 +22,9 @@ const BookEvent = () => {
       </h3>
       <p>
         Appointment set for{" "}
-        {/* <strong>
+        <strong>
           {meeting.date} @ {meeting.time.startTime} -{meeting.time.endTime}
-        </strong> */}
+        </strong>
       </p>
       <p>Please fill out information bellow</p>
       <Forms data={{ values, schema, onSubmit: (e) => bookNow(e, meeting) }} />

@@ -68,17 +68,17 @@
     background-color: #{$primary-color};
   }
 }
-.btn-submit {
+.btn-classic {
   background-color: #{$secondary-color};
 }
-.cancel-btn {
+.btn-cancel {
   position: absolute;
   top: -0.5rem;
   right: 0;
   border-radius: 50%;
   background-color: #{$danger};
 }
-.search-btn {
+.btn-search {
   padding: 0.5rem;
   margin: auto;
   color: #{$text-color};
@@ -104,6 +104,5 @@
 .btn {
   flex: 1;
   display: flex;
-  padding: 1rem 1.5rem;
   gap: 1rem;
 }
