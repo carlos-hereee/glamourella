@@ -1,5 +1,4 @@
 import React, { createContext, useEffect, useReducer } from "react";
-import { axiosWithAuth } from "../functions/axios";
 import { reducer } from "../reducers/GalleryReducer";
 export const GalleryContext = createContext();
 

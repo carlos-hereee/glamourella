@@ -323,12 +323,12 @@ export const glamourella = {
         uid: shortid.generate(),
         hasHero: false,
         hasLink: false,
-        hasList: true,
+        hasList: false,
         list: [
           {
             uid: shortid.generate(),
             response: "9am - 10am",
-            isOpen: true,
+            isOpen: false,
             hasHero: false,
             hasLink: false,
             date: formatDate(new Date()),
@@ -386,7 +386,7 @@ export const glamourella = {
           {
             uid: shortid.generate(),
             response: "9am - 10am",
-            isOpen: true,
+            isOpen: false,
             hasHero: false,
             hasLink: false,
             date: formatDate(new Date().setDate(new Date().getDate() + 1)),
@@ -422,7 +422,7 @@ export const glamourella = {
           {
             uid: shortid.generate(),
             response: "4pm - 5pm",
-            isOpen: true,
+            isOpen: false,
             hasHero: false,
             hasLink: false,
             date: formatDate(new Date().setDate(new Date().getDate() + 1)),
@@ -438,7 +438,7 @@ export const glamourella = {
         uid: shortid.generate(),
         hasHero: false,
         hasLink: false,
-        hasList: true,
+        hasList: false,
         list: [
           {
             uid: shortid.generate(),
@@ -609,7 +609,7 @@ export const glamourella = {
         uid: shortid.generate(),
         hasHero: false,
         hasLink: false,
-        hasList: true,
+        hasList: false,
         list: [
           {
             uid: shortid.generate(),

@@ -2,16 +2,19 @@ import moment from "moment/moment";
 
 export const formatDate = (t) => moment(t).format("dddd MMM DD YYYY");
 export const formatTime = (t) => moment(t).format("hh:mm a");
-export const formatMilli = (t) => moment(t).valueOf();
+export const formatMilli = (t) => Date.parse(t);
 export const today = formatDate(new Date());
 export const dateEqual = (date, events) => {
   return events.filter((event) => event.title === date)[0];
 };
-export const setEarliestApp = (date, cb) => {
-  const min = date.list.reduce((a, b) => {
-    return a.isOpen && a.time.startTime > b.time.startTime ? a : b;
+export const setEarliestApp = (events, cb) => {
+  const meetings = getMeetingList(events);
+  cb(getEarlyMeeting(meetings));
+};
+export const getEarlyMeeting = (arr) => {
+  return arr.reduce((pre, cur) => {
+    return formatMilli(pre.title) > formatMilli(cur.title) ? cur : pre;
   });
-  cb(min);
 };
 export const getMeetingList = (arr) => {
   let filtered = [];
