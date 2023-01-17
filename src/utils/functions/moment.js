@@ -25,3 +25,8 @@ export const getMeetingList = (arr) => {
   }
   return filtered;
 };
+export const minDate = (list) => {
+  return list.reduce((a, b) => {
+    return formatMilli(a.title) < formatMilli(b.title) ? a : b;
+  });
+};

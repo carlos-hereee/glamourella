@@ -1,9 +1,6 @@
-import { createContext, useEffect, useReducer } from "react";
-import { useContext } from "react";
+import { createContext, useReducer } from "react";
 import shortid from "shortid";
-import { axiosWithAuth } from "../functions/axios";
 import { reducer } from "../reducers/ServicesReducer";
-import { AppContext } from "./AppContext";
 
 export const ServicesContext = createContext();
 export const ServicesState = ({ children }) => {
@@ -79,8 +76,10 @@ export const ServicesState = ({ children }) => {
       dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data.message });
     }
   };
-  const removeFromCart = (service) => {
+  const removeFromCart = (service, active) => {
     try {
+      // reset active if it matches item
+      service.uid === active.uid && setActive({});
       const services = { ...service, isService: true };
       dispatch({ type: "REMOVE_FROM_CART", payload: services });
     } catch (err) {

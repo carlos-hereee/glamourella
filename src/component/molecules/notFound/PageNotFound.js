@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import Buttons from "../component/molecules/Buttons";
+import Buttons from "../Buttons";
 
-const NotFound = () => {
+const PageNotFound = () => {
   return (
     <main className="container">
       <section className="card">
@@ -16,4 +16,4 @@ const NotFound = () => {
   );
 };
 
-export default NotFound;
+export default PageNotFound;

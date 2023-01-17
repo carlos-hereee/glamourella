@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import NotFound from "./component/molecules/notFound/PageNotFound";
 import About from "./pages/About";
 // import Account from "./component/template/Account";
 import Booking from "./pages/Booking";
@@ -6,7 +7,6 @@ import Footer from "./pages/Footer";
 import Gallery from "./pages/Gallery";
 import Header from "./pages/Header";
 import Landing from "./pages/Landing";
-import NotFound from "./pages/NotFound";
 import OauthCallback from "./pages/OauthCallback";
 import Services from "./pages/Services";
 import SignUp from "./pages/SignUp";
