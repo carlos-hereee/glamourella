@@ -7,7 +7,7 @@ import { UserState } from "./utils/context/UserContext";
 import { AuthState } from "./utils/context/AuthContext";
 import { GalleryState } from "./utils/context/GalleryContext";
 import { ServicesState } from "./utils/context/ServicesContext";
-import { GlamourellaState } from "./utils/context/AppContext";
+import { AppState } from "./utils/context/AppContext";
 import "./stylesheets/index.scss";
 import { AdminState } from "./utils/context/AdminContext";
 
@@ -15,9 +15,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <AuthState>
-      <AdminState>
-        <UserState>
-          <GlamourellaState>
+      <UserState>
+        <AdminState>
+          <AppState>
             <ServicesState>
               <GalleryState>
                 <CalendarState>
@@ -25,9 +25,9 @@ root.render(
                 </CalendarState>
               </GalleryState>
             </ServicesState>
-          </GlamourellaState>
-        </UserState>
-      </AdminState>
+          </AppState>
+        </AdminState>
+      </UserState>
     </AuthState>
   </BrowserRouter>
 );

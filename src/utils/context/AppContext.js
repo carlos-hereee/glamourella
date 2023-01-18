@@ -5,7 +5,7 @@ import { glamourella } from "../../config";
 
 export const AppContext = createContext();
 
-export const GlamourellaState = ({ children }) => {
+export const AppState = ({ children }) => {
   const initialState = {
     isLoading: false,
     glamourella: [],
@@ -15,6 +15,7 @@ export const GlamourellaState = ({ children }) => {
     about: glamourella.about,
     services: glamourella.services,
     gallery: glamourella.gallery,
+    appLog: [],
     app: {
       title: "Glamour Beauty Collection",
       link: require("../../assets/glamour-logo.jpg"),
@@ -22,9 +23,9 @@ export const GlamourellaState = ({ children }) => {
     },
   };
   const [state, dispatch] = useReducer(reducer, initialState);
-  // useEffect(() => {
-  //   // getAllAssets();
-  // }, []);
+  useEffect(() => {
+    // getAllAssets();
+  }, []);
   // const getAssets = async () => {
   //   try {
   //     const { data } = await axiosWithAuth.get("/app/glamourella");
@@ -71,6 +72,7 @@ export const GlamourellaState = ({ children }) => {
         burgerOptions: state.burgerOptions,
         gallery: state.gallery,
         app: state.app,
+        appLog: state.appLog,
         updateBurger,
         newsletter,
       }}>
