@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { createContext, useEffect, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
 import { axiosWithAuth, axiosCalendar } from "../functions/axios";
 import { reducer } from "../reducers/CalendarReducer";
 import { glamourella, isDev } from "../../config";
@@ -81,6 +81,7 @@ export const CalendarState = ({ children }) => {
 
   const bookNow = async (values, event) => {
     dispatch({ type: "IS_LOADING", payload: true });
+    console.log("values, event", values, event);
     try {
       const content = {
         ...event,

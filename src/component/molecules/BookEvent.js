@@ -8,7 +8,7 @@ import { UserContext } from "../../utils/context/UserContext";
 const schema = yup.object().shape({
   name: yup.string().required("*Required field"),
   email: yup.string().email().required("*Required field"),
-  recaptcha: yup.string().required("*Required field"),
+  recaptcha: yup.string().required("*Required field").nullable(),
   phone: yup.number().required("*Required field"),
 });
 const values = { name: "", email: "", phone: "" };
@@ -16,6 +16,7 @@ const BookEvent = () => {
   const { bookNow, meeting } = useContext(CalendarContext);
   const { active } = useContext(ServicesContext);
   const { user } = useContext(UserContext);
+
   return (
     <div>
       <h3>
@@ -38,7 +39,7 @@ const BookEvent = () => {
           <p>Phone: {user.phone}</p>
         </div>
       ) : (
-        <Forms data={{ values, schema, onSubmit: (e) => bookNow(e, meeting) }} />
+        <Forms data={{ values, schema }} submit={(e) => bookNow(e, meeting)} />
       )}
     </div>
   );
