@@ -13,11 +13,13 @@ import SignUp from "./pages/SignUp";
 import Checkout from "./pages/Checkout";
 import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/admin/AdminDashboard";
+import Log from "./component/organisms/Log";
 
 function App() {
   return (
     <div className="App">
       <Header />
+      <Log />
       <div className="app-body">
         <Routes>
           <Route exact path="/" element={<Landing />} />

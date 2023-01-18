@@ -3,13 +3,12 @@ import { CalendarContext } from "../../utils/context/CalendarContext";
 import CardHeader from "../molecules/card/CardHeader";
 import BookEvent from "../molecules/BookEvent";
 import NotFound from "../molecules/notFound/MeetingNotFound";
-import Log from "../molecules/Log";
 import EventList from "../organisms/EventList";
 import { ServicesContext } from "../../utils/context/ServicesContext";
 import DayNotFound from "../molecules/notFound/DayNotFound";
 
 const CalendarEvents = () => {
-  const { log, selectedDay, meeting } = useContext(CalendarContext);
+  const { selectedDay, meeting } = useContext(CalendarContext);
   const { active } = useContext(ServicesContext);
   const [isConfirm, setIsConfirm] = useState(false);
 
@@ -23,7 +22,6 @@ const CalendarEvents = () => {
       <CardHeader data={selectedDay} />
       {selectedDay.list?.length > 0 ? <EventList /> : <DayNotFound />}
       {isConfirm ? <BookEvent /> : <NotFound />}
-      {log.length > 0 && log.map((l) => <Log key={l.uid} data={l} />)}
     </div>
   );
 };

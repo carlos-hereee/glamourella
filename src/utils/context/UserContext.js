@@ -10,7 +10,7 @@ export const UserState = ({ children }) => {
     isLoading: false,
     user: {},
     booked: [],
-    log: [],
+    userLog: [],
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   const { accessToken } = useContext(AuthContext);
@@ -43,7 +43,7 @@ export const UserState = ({ children }) => {
         isLoading: state.isLoading,
         user: state.user,
         booked: state.booked,
-        log: state.log,
+        userLog: state.userLog,
         admin: state.admin,
         // getUserData,
       }}>

@@ -7,7 +7,7 @@ const isLoading = (state, action) => {
 const addMessageToLog = (state, action) => {
   return {
     ...state,
-    log: [...state.log, action.payload],
+    calendarLog: [...state.log, action.payload],
   };
 };
 const updateEvents = (state, action) => {

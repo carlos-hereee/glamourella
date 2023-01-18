@@ -8,7 +8,7 @@ export const GalleryState = ({ children }) => {
     isFiltered: false,
     filteredGallery: [],
     // gallery: [],
-    log: [],
+    galleryLog: [],
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   useEffect(() => {
@@ -39,6 +39,7 @@ export const GalleryState = ({ children }) => {
         isLoading: state.isLoading,
         isFiltered: state.isFiltered,
         filteredGallery: state.filteredGallery,
+        galleryLog: state.galleryLog,
         filterGallery,
         addToCart,
       }}>

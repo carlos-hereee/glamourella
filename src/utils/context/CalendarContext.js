@@ -3,28 +3,20 @@ import { createContext, useEffect, useReducer } from "react";
 import { axiosWithAuth, axiosCalendar } from "../functions/axios";
 import { reducer } from "../reducers/CalendarReducer";
 import { glamourella, isDev } from "../../config";
-import { formatTime, dateEqual, today } from "../functions/moment";
+import { dateEqual, today } from "../functions/moment";
 
 export const CalendarContext = createContext();
 export const CalendarState = ({ children }) => {
   const initialState = {
     isLoading: false,
     calendar: [],
-    log: [],
+    calendarLog: [],
     events: glamourella.events,
     selectedDay: {},
     meeting: {},
     book: {},
   };
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  // useEffect(() => {
-  //   // getCalendar();
-  //   if (state.events.length > 0) {
-  //     setDay(isDateEqual(today, state.events));
-  //     console.log("state.events", state.events);
-  //   }
-  // }, [state.events]);
 
   const getCalendar = async () => {
     try {
@@ -81,20 +73,13 @@ export const CalendarState = ({ children }) => {
 
   const bookNow = async (values, event) => {
     dispatch({ type: "IS_LOADING", payload: true });
-    console.log("values, event", values, event);
     try {
-      const content = {
-        ...event,
-        summary: `${values.name}, at ${formatTime(
-          event.start.dateTime
-        )} ${formatTime(event.end.dateTime)}`,
-        attendees: [{ displayName: values.name, email: values.email }],
-      };
-      const { data } = await axiosWithAuth.post("calendar/book", content);
+      const { data } = await axiosWithAuth.post("calendar/book", { values, event });
       console.log("data", data);
       dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data });
     } catch (error) {
       const data = error.response.data;
+      isDev && console.log("data", data);
       dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data });
     }
   };
@@ -107,7 +92,7 @@ export const CalendarState = ({ children }) => {
         meeting: state.meeting,
         events: state.events,
         booked: state.booked,
-        log: state.log,
+        calendarLog: state.calendarLog,
         contactUs,
         getCalendarDay,
         setDay,
