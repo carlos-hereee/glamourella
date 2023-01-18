@@ -3,6 +3,8 @@ import { axiosWithAuth } from "../functions/axios";
 import authReducer from "../reducers/AuthReducer";
 import * as yup from "yup";
 import { isDev } from "../../config";
+import { useContext } from "react";
+import { LogContext } from "./LogContext";
 
 export const AuthContext = createContext();
 
@@ -29,6 +31,8 @@ export const AuthState = (props) => {
     appName: "Glamourella",
   };
   const [state, dispatch] = useReducer(authReducer, initialState);
+  const { addMessageToLog } = useContext(LogContext);
+
   useEffect(() => {
     getAccessToken();
   }, []);
@@ -39,9 +43,9 @@ export const AuthState = (props) => {
       // console.log("data", data);
       dispatch({ type: "SIGNIN_SUCCESS", payload: data });
     } catch (err) {
-      const { status, data } = err.response;
-      isDev && console.log("status", status, data);
-      dispatch({ type: "SIGNIN_ERROR", payload: data });
+      const res = err.response;
+      isDev && console.log("status", res.status, res.data);
+      addMessageToLog(res.data);
     }
   };
   const signUp = async (values) => {

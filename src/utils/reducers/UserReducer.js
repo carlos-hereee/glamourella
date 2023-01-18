@@ -4,13 +4,6 @@ const isLoading = (state, action) => {
     isLoading: action.payload,
   };
 };
-const addMessageToLog = (state, action) => {
-  return {
-    ...state,
-    userLog: [...state.log, action.payload],
-    isLoading: false,
-  };
-};
 const updateUserData = (state, action) => {
   return {
     ...state,
@@ -23,8 +16,6 @@ export const reducer = (state, action) => {
   switch (action.type) {
     case "IS_LOADING":
       return isLoading(state, action);
-    case "ADD_MESSAGE_TO_LOG":
-      return addMessageToLog(state, action);
     case "UPDATE_USER_DATA":
       return updateUserData(state, action);
     default:

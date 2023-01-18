@@ -1,0 +1,12 @@
+.log {
+  // width: 100%;
+  display: flex;
+  position: absolute;
+  background-color: #{$danger};
+  top: 20%;
+  right: 40%;
+  z-index: 9;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  color: #{$text-color};
+}

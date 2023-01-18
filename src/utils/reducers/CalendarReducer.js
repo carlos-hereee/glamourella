@@ -4,12 +4,6 @@ const isLoading = (state, action) => {
     isLoading: action.payload,
   };
 };
-const addMessageToLog = (state, action) => {
-  return {
-    ...state,
-    calendarLog: [...state.log, action.payload],
-  };
-};
 const updateEvents = (state, action) => {
   return {
     ...state,
@@ -50,8 +44,6 @@ export const reducer = (state, action) => {
   switch (action.type) {
     case "IS_LOADING":
       return isLoading(state, action);
-    case "ADD_MESSAGE_TO_LOG":
-      return addMessageToLog(state, action);
     case "BOOKED":
       return booked(state, action);
     case "UPDATE_EVENTS":

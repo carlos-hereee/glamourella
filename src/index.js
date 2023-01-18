@@ -10,24 +10,27 @@ import { ServicesState } from "./utils/context/ServicesContext";
 import { AppState } from "./utils/context/AppContext";
 import "./stylesheets/index.scss";
 import { AdminState } from "./utils/context/AdminContext";
+import { LogState } from "./utils/context/LogContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <AuthState>
-      <UserState>
-        <AdminState>
-          <AppState>
-            <ServicesState>
-              <GalleryState>
-                <CalendarState>
-                  <App />
-                </CalendarState>
-              </GalleryState>
-            </ServicesState>
-          </AppState>
-        </AdminState>
-      </UserState>
-    </AuthState>
+    <LogState>
+      <AuthState>
+        <UserState>
+          <AdminState>
+            <AppState>
+              <ServicesState>
+                <GalleryState>
+                  <CalendarState>
+                    <App />
+                  </CalendarState>
+                </GalleryState>
+              </ServicesState>
+            </AppState>
+          </AdminState>
+        </UserState>
+      </AuthState>
+    </LogState>
   </BrowserRouter>
 );

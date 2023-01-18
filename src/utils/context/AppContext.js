@@ -15,7 +15,6 @@ export const AppState = ({ children }) => {
     about: glamourella.about,
     services: glamourella.services,
     gallery: glamourella.gallery,
-    appLog: [],
     app: {
       title: "Glamour Beauty Collection",
       link: require("../../assets/glamour-logo.jpg"),
@@ -72,7 +71,6 @@ export const AppState = ({ children }) => {
         burgerOptions: state.burgerOptions,
         gallery: state.gallery,
         app: state.app,
-        appLog: state.appLog,
         updateBurger,
         newsletter,
       }}>

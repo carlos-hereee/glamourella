@@ -1,23 +1,23 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { createContext, useEffect, useReducer } from "react";
+import { createContext, useReducer, useContext } from "react";
 import { axiosWithAuth, axiosCalendar } from "../functions/axios";
 import { reducer } from "../reducers/CalendarReducer";
 import { glamourella, isDev } from "../../config";
 import { dateEqual, today } from "../functions/moment";
+import { LogContext } from "./LogContext";
 
 export const CalendarContext = createContext();
 export const CalendarState = ({ children }) => {
   const initialState = {
     isLoading: false,
     calendar: [],
-    calendarLog: [],
     events: glamourella.events,
     selectedDay: {},
     meeting: {},
     book: {},
   };
   const [state, dispatch] = useReducer(reducer, initialState);
-
+  const { addMessageToLog } = useContext(LogContext);
   const getCalendar = async () => {
     try {
       const { data } = await axiosCalendar.get("/calendar/events");
@@ -80,7 +80,7 @@ export const CalendarState = ({ children }) => {
     } catch (error) {
       const data = error.response.data;
       isDev && console.log("data", data);
-      dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data });
+      addMessageToLog(data);
     }
   };
   return (
@@ -92,7 +92,6 @@ export const CalendarState = ({ children }) => {
         meeting: state.meeting,
         events: state.events,
         booked: state.booked,
-        calendarLog: state.calendarLog,
         contactUs,
         getCalendarDay,
         setDay,
