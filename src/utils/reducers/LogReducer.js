@@ -14,7 +14,7 @@ const addMessageToLog = (state, action) => {
 const removeMessageFromLog = (state, action) => {
   return {
     ...state,
-    log: [...state.log, action.payload],
+    log: state.log.filter((i) => i.uid !== action.payload),
     isLoading: false,
   };
 };

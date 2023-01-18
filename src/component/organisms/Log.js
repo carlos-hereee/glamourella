@@ -1,12 +1,29 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { LogContext } from "../../utils/context/LogContext";
 
 const Log = () => {
-  const { log } = useContext(LogContext);
+  const { log, removeMessageFromLog } = useContext(LogContext);
+
+  // useEffect(() => {
+  //   if (log.length > 0) {
+  //     const intervalId = setInterval(() => {
+  //       const firstElem = log[0].uid;
+  //       removeMessageFromLog(firstElem);
+  //       // removeMessageFromLog(firstElem);
+  //     }, 10000);
+  //     return () => clearInterval(intervalId);
+  //   }
+  // }, [log]);
   return (
-    <div className="log">
-      {log.length > 0 && log.map((l) => <span key={l.uid}>{l.message} </span>)}
-    </div>
+    log.length > 0 && (
+      <div className="log">
+        {log.map((l) => (
+          <p className={`message ${!l.success && "error-message"}`} key={l.uid}>
+            {l.message}{" "}
+          </p>
+        ))}
+      </div>
+    )
   );
 };
 export default Log;

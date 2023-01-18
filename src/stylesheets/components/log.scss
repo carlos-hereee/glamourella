@@ -1,12 +1,21 @@
 .log {
-  // width: 100%;
   display: flex;
-  position: absolute;
-  background-color: #{$danger};
-  top: 20%;
+  position: fixed;
+  gap: 1rem;
+  top: 30%;
   right: 40%;
   z-index: 9;
   padding: 1rem 2rem;
-  border-radius: 1rem;
   color: #{$text-color};
+  border-radius: 1rem;
+  .message {
+    width: 100%;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    background-color: #{$success};
+    animation: fadeIn 1s, slideIn 0.8s linear;
+  }
+  .error-message {
+    background-color: #{$danger};
+  }
 }

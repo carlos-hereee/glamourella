@@ -12,14 +12,12 @@ span {
   font-family: "Roboto", sans-serif;
 }
 .App {
-  // max-width: 1200px;
   background-color: $primary-color;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   line-height: normal;
   margin: auto;
-  // position: relative;
 }
 .app-body {
   display: flex;

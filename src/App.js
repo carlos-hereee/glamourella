@@ -19,8 +19,8 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Log />
       <div className="app-body">
+        <Log />
         <Routes>
           <Route exact path="/" element={<Landing />} />
           <Route path="/about" element={<About />} />
