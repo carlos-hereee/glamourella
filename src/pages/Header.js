@@ -1,12 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useReducer } from "react";
 import { useContext, useEffect, useState } from "react";
 import BurgerButton from "../component/molecules/BugerButton";
 import Logo from "../component/atoms/Logo";
 import Navlink from "../component/molecules/Navlink";
 import { AppContext } from "../utils/context/AppContext";
 import { ServicesContext } from "../utils/context/ServicesContext";
-import { reducer } from "../utils/reducers/GlamourellaReducer";
 // import { UserContext } from "../utils/context/UserContext";
 
 const Header = () => {
@@ -14,10 +12,9 @@ const Header = () => {
   const [isClose, setClose] = useState(false);
   const { cart } = useContext(ServicesContext);
   // const { user } = useContext(UserContext);
-  const { menu, updateBurger } = useContext(AppContext);
+  const { menu, updateBurger, burger } = useContext(AppContext);
 
   // eslint-disable-next-line no-unused-vars
-  const [_, dispatch] = useReducer(reducer);
   useEffect(() => {
     const endAnimation = () => setClose(true);
     // TODO: close navigation is clicks outside container
@@ -43,9 +40,7 @@ const Header = () => {
       name: isActive ? "x" : "burger",
       notification: cart.length,
     };
-    dispatch({ type: "UPDATE_MENU", payload: menuPayload });
     updateBurger(burgerPayload);
-    // if ()
     // if (user.isAdmin) {
     //   <Navigate to="/admin-dashboard" replace />;
     // }
@@ -53,13 +48,12 @@ const Header = () => {
   const handleClick = () => {
     setActive(!isActive);
   };
-  // useEffect(() => {}, []);
 
   return (
     <header>
       <Logo />
       <nav className="primary-navigation">
-        <BurgerButton isBurger={isActive} handleClick={handleClick} />
+        <BurgerButton isBurger={isActive} burger={burger} click={handleClick} />
         <ul
           className="navigation"
           data-state={isActive ? "open" : isClose ? "closing" : "close"}>

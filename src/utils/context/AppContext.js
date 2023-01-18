@@ -68,7 +68,7 @@ export const AppState = ({ children }) => {
         services: state.services,
         menu: state.menu,
         schedule: state.schedule,
-        burgerOptions: state.burgerOptions,
+        burger: state.burger,
         gallery: state.gallery,
         app: state.app,
         updateBurger,

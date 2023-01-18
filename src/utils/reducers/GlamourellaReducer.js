@@ -36,7 +36,7 @@ const updateBurger = (state, action) => {
   return {
     ...state,
     isLoading: false,
-    burgerOptions: action.payload,
+    burger: action.payload,
   };
 };
 export const reducer = (state, action) => {

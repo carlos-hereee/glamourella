@@ -10,7 +10,7 @@ const Log = () => {
         const firstElem = log[0].uid;
         removeMessageFromLog(firstElem);
         // removeMessageFromLog(firstElem);
-      }, 5000);
+      }, 7000);
       return () => clearInterval(intervalId);
     }
   }, [log, removeMessageFromLog]);
