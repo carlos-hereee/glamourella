@@ -6,10 +6,15 @@ import Icons from "../atoms/Icons";
 const Forms = ({ data }) => {
   const [isHuman, setIsHuman] = useState(false);
   const [isRequired, setIsRequired] = useState(false);
-
-  const apiKey = process.env.REACT_APP_SITE_KEY;
+  // const [isHuman, isRequired, setIsHuman] = useCaptcha();
   const textarea = ["message"];
-  const passwords = ["password", "confirmPassword"];
+  const types = {
+    password: "password",
+    confirmPassword: "password",
+    email: "text",
+    name: "text",
+    phone: "number",
+  };
 
   const formik = useFormik({
     initialValues: data.values,
@@ -29,51 +34,52 @@ const Forms = ({ data }) => {
     formik.handleChange(e);
     formik.handleBlur(e);
   };
-  const onChange = (e) => setIsHuman(e);
-
   return (
     <form className="form" onSubmit={handleSubmit}>
-      {Object.keys(data.values).map((ref) => (
-        <div key={ref}>
-          <div>
-            <label htmlFor={ref}>
-              {ref.charAt(0).toUpperCase() + ref.slice(1)}{" "}
-              {formik.errors[ref] && (
-                <span className="required">{formik.errors[ref]}</span>
+      {Object.keys(data.values).map(
+        (v) =>
+          v !== "recaptcha" && (
+            <div key={v}>
+              <div>
+                <label htmlFor={v}>
+                  {v.charAt(0).toUpperCase() + v.slice(1)}{" "}
+                  {formik.errors[v] && (
+                    <span className="required">{formik.errors[v]}</span>
+                  )}
+                </label>
+              </div>
+              {textarea.includes(v) ? (
+                <textarea
+                  type="text"
+                  name={v}
+                  value={getIn(formik.values, v)}
+                  onChange={handleChange}
+                  onBlur={formik.handleBlur}
+                />
+              ) : (
+                <input
+                  type={types[v]}
+                  autoComplete="on"
+                  name={v}
+                  value={getIn(formik.values, v)}
+                  placeholder={v}
+                  onChange={handleChange}
+                  onBlur={formik.handleBlur}
+                />
               )}
-            </label>
-          </div>
-          {textarea.includes(ref) ? (
-            <textarea
-              type="text"
-              name={ref}
-              value={getIn(formik.values, ref)}
-              onChange={handleChange}
-              onBlur={formik.handleBlur}
-              autoComplete="on"
-            />
-          ) : (
-            <input
-              type={passwords.includes(ref) ? "password" : "text"}
-              autoComplete={data.isLogin ? "current-password" : "new-password"}
-              name={ref}
-              value={getIn(formik.values, ref)}
-              onChange={handleChange}
-              onBlur={formik.handleBlur}
-            />
-          )}
-        </div>
-      ))}
+            </div>
+          )
+      )}
       <div className="form-submit">
         {isRequired && <span className="required">*Recaptcha is required</span>}
         <ReCAPTCHA
-          sitekey={apiKey}
-          onChange={onChange}
+          sitekey={process.env.REACT_APP_SITE_KEY}
+          onChange={(e) => e && setIsHuman(e)}
           size={window.screen.width < 481 ? "compact" : "normal"}
         />
       </div>
       <button type="submit" className="btn btn-classic">
-        <Icons name="submit" /> SUBMIT
+        <Icons name="submit" /> SEND
       </button>
     </form>
   );

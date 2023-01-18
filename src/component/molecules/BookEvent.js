@@ -3,15 +3,19 @@ import * as yup from "yup";
 import { useContext } from "react";
 import { CalendarContext } from "../../utils/context/CalendarContext";
 import { ServicesContext } from "../../utils/context/ServicesContext";
+import { UserContext } from "../../utils/context/UserContext";
 
 const schema = yup.object().shape({
   name: yup.string().required("*Required field"),
   email: yup.string().email().required("*Required field"),
+  recaptcha: yup.string().required("*Required field"),
+  phone: yup.number().required("*Required field"),
 });
-const values = { name: "", email: "" };
+const values = { name: "", email: "", phone: "" };
 const BookEvent = () => {
   const { bookNow, meeting } = useContext(CalendarContext);
   const { active } = useContext(ServicesContext);
+  const { user } = useContext(UserContext);
   return (
     <div>
       <h3>
@@ -27,7 +31,15 @@ const BookEvent = () => {
         </strong>
       </p>
       <p>Please fill out information bellow</p>
-      <Forms data={{ values, schema, onSubmit: (e) => bookNow(e, meeting) }} />
+      {user.uid ? (
+        <div>
+          <p>Name: {user.name}</p>
+          <p>Email: {user.email}</p>
+          <p>Phone: {user.phone}</p>
+        </div>
+      ) : (
+        <Forms data={{ values, schema, onSubmit: (e) => bookNow(e, meeting) }} />
+      )}
     </div>
   );
 };
