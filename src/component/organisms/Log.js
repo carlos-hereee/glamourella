@@ -4,16 +4,16 @@ import { LogContext } from "../../utils/context/LogContext";
 const Log = () => {
   const { log, removeMessageFromLog } = useContext(LogContext);
 
-  // useEffect(() => {
-  //   if (log.length > 0) {
-  //     const intervalId = setInterval(() => {
-  //       const firstElem = log[0].uid;
-  //       removeMessageFromLog(firstElem);
-  //       // removeMessageFromLog(firstElem);
-  //     }, 10000);
-  //     return () => clearInterval(intervalId);
-  //   }
-  // }, [log]);
+  useEffect(() => {
+    if (log.length > 0) {
+      const intervalId = setInterval(() => {
+        const firstElem = log[0].uid;
+        removeMessageFromLog(firstElem);
+        // removeMessageFromLog(firstElem);
+      }, 5000);
+      return () => clearInterval(intervalId);
+    }
+  }, [log, removeMessageFromLog]);
   return (
     log.length > 0 && (
       <div className="log">

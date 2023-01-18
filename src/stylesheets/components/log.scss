@@ -13,7 +13,7 @@
     padding: 1rem 2rem;
     border-radius: 1rem;
     background-color: #{$success};
-    animation: fadeIn 1s, slideUp 0.8s linear;
+    animation: fadeIn 1s, slideUp 0.8s forwards;
   }
   .error-message {
     background-color: #{$danger};
