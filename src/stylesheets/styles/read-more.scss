@@ -1,7 +1,11 @@
+.read-more-wrapper {
+  position: relative;
+}
 .read-more {
   --max-lines: 2;
   --line-height: 1.4;
   max-height: calc(var(--max-lines) * 1em * var(--line-height));
+  max-width: 300px;
   line-height: var(--line-height);
   position: relative;
   overflow: hidden;
@@ -18,12 +22,16 @@
     max-height: none;
   }
 }
+
 .read-more-toggle {
   color: #{$text-color2};
-  width: 100%;
   appearance: none;
   cursor: pointer;
   text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
   padding: 0.5rem;
   border-radius: 0.25rem;
   &::before {

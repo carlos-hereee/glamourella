@@ -41,13 +41,14 @@
   gap: 1rem;
   position: relative;
 }
-.not-found {
+.container-empty {
   display: flex;
   flex-direction: column;
   text-align: center;
   background-color: #{$text-color};
   flex: 1;
   padding: 1rem;
+  min-width: 250px;
   .icon {
     color: $secondary-color2;
   }

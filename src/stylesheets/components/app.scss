@@ -29,7 +29,6 @@ span {
   gap: 1rem;
 }
 button {
-  box-shadow: 0 1px 5px 1px #{$shadow-color};
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
@@ -37,10 +36,6 @@ button {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  &:hover {
-    background-color: #{$secondary-color};
-    color: #{$primary-color};
-  }
   &:disabled {
     cursor: not-allowed;
   }

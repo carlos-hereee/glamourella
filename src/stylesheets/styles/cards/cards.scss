@@ -109,44 +109,6 @@
   color: white;
   padding: 0.25rem 4rem;
 }
-.card-row-wrapper {
-  position: relative;
-  .cost {
-    text-align: right;
-    padding: 0 1rem;
-  }
-  .card-row {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    background-color: transparent;
-    box-shadow: none;
-    color: #{$text-color3};
-    gap: 1rem;
-    // padding: 0;
-    .card-header {
-      display: flex;
-      flex-direction: row;
-      .title {
-        text-align: left;
-      }
-    }
-    @include devices(mobile) {
-      flex-wrap: wrap;
-      .card-header {
-        flex-direction: row;
-        gap: 1rem;
-      }
-      .row-description {
-        display: none;
-      }
-    }
-  }
-}
-.card-row-footer {
-  padding: 0.5rem;
-  margin: auto;
-}
 .cancel-row {
   text-align: center;
 }

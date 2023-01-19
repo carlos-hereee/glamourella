@@ -19,7 +19,7 @@ const CartItem = ({ data }) => {
         cancel.uid === c.uid ? (
           <CancelRow data={c} key={c.uid} click={cancelReq} />
         ) : (
-          <CardRow data={c} key={c.uid} click={handleClick} active={active} />
+          <CardRow data={c} key={c.uid} click={handleClick} />
         )
       )}
     </div>

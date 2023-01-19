@@ -1,5 +1,5 @@
 import ButtonLink from "../atoms/buttons/ButtonLink";
-import Buttons from "../molecules/Buttons";
+import Buttons from "../molecules/buttons/Buttons";
 import CardHeader from "../molecules/card/CardHeader";
 import Card from "../organisms/Card";
 

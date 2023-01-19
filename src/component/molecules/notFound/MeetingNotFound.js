@@ -5,7 +5,7 @@ import Icons from "../../atoms/Icons";
 const NotFound = () => {
   const { active } = useContext(ServicesContext);
   return (
-    <div className="not-found">
+    <div className="container-empty">
       {active.uid ? (
         <p>
           Please select a day and time to book{" "}

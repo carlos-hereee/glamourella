@@ -1,6 +1,6 @@
 import Icons from "../atoms/Icons";
 
-const SetNotificationCount = ({ count }) => {
+const NotificationCount = ({ count }) => {
   return (
     <>
       {count <= 9 && count > 0 && (
@@ -20,4 +20,4 @@ const SetNotificationCount = ({ count }) => {
   );
 };
 
-export default SetNotificationCount;
+export default NotificationCount;
