@@ -75,6 +75,8 @@ export const glamourella = {
         hero: { link: "/lorem", name: "lorem ipsum" },
         hasLink: false,
         isForSale: true,
+        isBookable: true,
+        isAccessory: false,
         hyperlink: [{ word: "Maiores", link: "/lorem" }],
         //link:
         //   process.env.REACT_APP_DB_URL +
@@ -93,6 +95,8 @@ export const glamourella = {
         hasLink: false,
         hyperlink: [{ word: "Maiores", link: "/lorem" }],
         isForSale: true,
+        isBookable: true,
+        isAccessory: false,
         subtitle: "pedicure",
         //link:
         //   process.env.REACT_APP_DB_URL +
@@ -108,6 +112,8 @@ export const glamourella = {
         hasHero: false,
         hasIcon: false,
         isForSale: true,
+        isBookable: true,
+        isAccessory: false,
         hero: { link: "/lorem", name: "lorem ipsum" },
         hasLink: false,
         hyperlink: [{ word: "Maiores", link: "/lorem" }],
@@ -128,6 +134,8 @@ export const glamourella = {
         hero: { link: "/lorem", name: "lorem ipsum" },
         hasLink: false,
         isForSale: true,
+        isBookable: true,
+        isAccessory: false,
         hyperlink: [{ word: "Maiores", link: "/lorem" }],
         subtitle: "manicure",
         //link:
@@ -146,6 +154,8 @@ export const glamourella = {
         hasIcon: false,
         hero: { link: "/lorem", name: "lorem ipsum" },
         isForSale: true,
+        isBookable: true,
+        isAccessory: false,
         hasLink: false,
         hyperlink: [{ word: "Maiores", link: "/lorem" }],
         //link:
@@ -189,6 +199,8 @@ export const glamourella = {
       {
         hasIcon: false,
         hasHero: false,
+        isBookable: false,
+        isAccessory: true,
         isForSale: true,
         hero: {
           link: "http://localhost:4937/gallery/photo/?path=assets/hair/braids/gustavo-spindula-unsplash.jpg",
@@ -209,6 +221,8 @@ export const glamourella = {
       {
         hasIcon: false,
         hasHero: false,
+        isBookable: false,
+        isAccessory: true,
         isForSale: true,
         hero: {
           link: "http://localhost:4937/gallery/photo/?path=assets/hair/braids/gustavo-spindula-unsplash.jpg",
@@ -229,6 +243,8 @@ export const glamourella = {
       {
         hasIcon: false,
         hasHero: false,
+        isBookable: false,
+        isAccessory: true,
         isForSale: true,
         hero: {
           link: "http://localhost:4937/gallery/photo/?path=assets/hair/braids/gustavo-spindula-unsplash.jpg",
@@ -249,6 +265,8 @@ export const glamourella = {
       {
         hasIcon: false,
         hasHero: false,
+        isBookable: false,
+        isAccessory: true,
         isForSale: true,
         hero: {
           link: "http://localhost:4937/gallery/photo/?path=assets/hair/braids/gustavo-spindula-unsplash.jpg",
@@ -270,6 +288,8 @@ export const glamourella = {
       {
         hasIcon: false,
         hasHero: false,
+        isBookable: false,
+        isAccessory: true,
         isForSale: true,
         hero: {
           link: "http://localhost:4937/gallery/photo/?path=assets/hair/braids/gustavo-spindula-unsplash.jpg",
@@ -291,6 +311,8 @@ export const glamourella = {
       {
         hasIcon: false,
         hasHero: false,
+        isBookable: false,
+        isAccessory: true,
         isForSale: true,
         hero: {
           link: "http://localhost:4937/gallery/photo/?path=assets/hair/braids/gustavo-spindula-unsplash.jpg",

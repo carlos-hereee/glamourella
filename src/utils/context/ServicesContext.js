@@ -28,10 +28,10 @@ export const ServicesState = ({ children }) => {
         };
         addMessageToLog(data);
       } else {
-        dispatch({ type: "ADD_TO_CART", payload: { ...service, isService: true } });
+        dispatch({ type: "ADD_TO_CART", payload: service });
       }
     } else {
-      dispatch({ type: "ADD_TO_CART", payload: { ...service, isService: true } });
+      dispatch({ type: "ADD_TO_CART", payload: service });
     }
   };
   const removeFromCart = (service, active) => {

@@ -52,6 +52,9 @@
     top: -0.5rem;
     right: -0.5rem;
   }
+  &:hover {
+    color: #{$text-color3};
+  }
 }
 .icon {
   min-width: 1rem;
