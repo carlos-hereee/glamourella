@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const HyperlinkText = ({ data }) => {
   return (
-    <p className="message">
+    <p>
       <span>{data.responseArr[0]} </span>
       {data.isNav ? (
         <Link to={data.link} className="link">

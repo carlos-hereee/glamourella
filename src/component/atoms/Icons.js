@@ -16,6 +16,7 @@ import {
   faCalendarDay,
   faCheckCircle,
   faCircle,
+  faCircleNotch,
   faEnvelope,
   faGlobe,
   faHands,
@@ -28,6 +29,7 @@ import {
   faPaperPlane,
   faShoePrints,
   faShoppingCart,
+  faSpinner,
   faSquareCheck,
   faUpLong,
   faUsd,
@@ -64,6 +66,8 @@ const svg = {
   appointments: faSquareCheck,
   left: faLeftLong,
   top: faUpLong,
+  spinner: faSpinner,
+  circle: faCircleNotch,
   x: faX,
   1: fa1,
   2: fa2,
@@ -76,8 +80,16 @@ const svg = {
   9: fa9,
   0: fa0,
 };
-const Icons = ({ name, size }) => {
-  return <FontAwesomeIcon icon={svg[name]} size={size} className="icon" />;
+const Icons = ({ name, size, spin }) => {
+  return (
+    <FontAwesomeIcon
+      icon={svg[name]}
+      size={size}
+      className="icon"
+      spin={spin === "spin"}
+      pulse={spin === "pulse"}
+    />
+  );
 };
 
 export default Icons;

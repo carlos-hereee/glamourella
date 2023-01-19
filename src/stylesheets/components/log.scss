@@ -2,18 +2,23 @@
   display: flex;
   text-align: center;
   position: fixed;
-  min-width: 300px;
-  gap: 1rem;
-  top: 30%;
-  // right: 40%;
+  // min-width: 300px;
+  // width: 80%;
   z-index: 9;
-  padding: 1rem 2rem;
+  gap: 1rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: #{$text-color};
   border-radius: 1rem;
   .message {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     width: 100%;
-    padding: 1rem 2rem;
+    gap: 1rem;
     border-radius: 1rem;
+    padding: 1rem 2rem;
     background-color: #{$success};
     animation: fadeIn 1s, slideUp 0.8s forwards;
     .link {
@@ -25,8 +30,15 @@
     background-color: #{$danger};
   }
 }
-.message {
-  // display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+.close {
+  box-shadow: none;
+  background: transparent;
+  position: relative;
+  .icon {
+    position: absolute;
+    animation-duration: 7s;
+  }
+  &:hover {
+    background: transparent;
+  }
 }
