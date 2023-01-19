@@ -7,7 +7,7 @@ import Footer from "./pages/Footer";
 import Gallery from "./pages/Gallery";
 import Header from "./pages/Header";
 import Landing from "./pages/Landing";
-import OauthCallback from "./pages/OauthCallback";
+// import OauthCallback from "./pages/OauthCallback";
 import Services from "./pages/Services";
 import SignUp from "./pages/SignUp";
 import Checkout from "./pages/Checkout";
@@ -36,7 +36,7 @@ function App() {
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/checkout" element={<Checkout />} />
-          <Route path="/oauth2callback" element={<OauthCallback />} />
+          {/* <Route path="/oauth2callback" element={<OauthCallback />} /> */}
           <Route path="/*" element={<NotFound />} />
         </Routes>
       </div>

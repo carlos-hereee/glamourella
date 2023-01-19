@@ -1,5 +1,6 @@
 .card-row-wrapper {
   position: relative;
+  min-width: 250px;
   .cost {
     text-align: right;
     padding: 0 1rem;
@@ -7,28 +8,24 @@
 }
 .card-row {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: flex-start;
   background-color: transparent;
   box-shadow: none;
   color: #{$text-color3};
   gap: 1rem;
-  // padding: 0;
-  .card-header {
-    display: flex;
-    flex-direction: row;
-    .title {
-      text-align: left;
-    }
-  }
   @include devices(mobile) {
-    flex-wrap: wrap;
     .card-header {
       flex-direction: row;
       gap: 1rem;
     }
-    .row-description {
-      display: none;
+  }
+  &:hover {
+    background-color: #{$primary-color};
+    .read-more {
+      &:has(+ .read-more-toggle:not(:checked))::before {
+        background: linear-gradient(to bottom, transparent, #{$primary-color});
+      }
     }
   }
 }

@@ -4,9 +4,12 @@ import Icons from "../../atoms/Icons";
 const CardSectionHeader = ({ data }) => {
   return (
     <div className="card-section-header">
-      {!data.hasHero && <Hero data={data.hero} />}
+      {data.hasHero && <Hero data={data.hero} />}
       {data.hasIcon && <Icons name={data.hero.icon} size="3x" />}
-      {data.title && <h4 className="card-section-title">{data.title}</h4>}
+      <div className="card-section-heading">
+        {data.title && <h3 className="card-section-title">{data.title}</h3>}
+        {data.subtitle && <h3 className="card-section-subtitle">{data.subtitle}</h3>}
+      </div>
       {data.description && <p>{data.description}</p>}
     </div>
   );

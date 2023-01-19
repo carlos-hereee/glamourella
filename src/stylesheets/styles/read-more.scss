@@ -2,7 +2,7 @@
   position: relative;
 }
 .read-more {
-  --max-lines: 2;
+  --max-lines: 3;
   --line-height: 1.4;
   max-height: calc(var(--max-lines) * 1em * var(--line-height));
   max-width: 300px;

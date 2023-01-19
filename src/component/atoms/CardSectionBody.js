@@ -1,11 +1,10 @@
 import HyperlinkText from "../atoms/HyperlinkText";
 
 const CardSectionBody = ({ data }) => {
-  const { hyperlink, response, isLinkEmpty, uid } = data;
-
+  const { hyperlink, response, hasLink, uid } = data;
   return (
     <div className="card-section-body">
-      {isLinkEmpty ? (
+      {hasLink ? (
         <p>{response}</p>
       ) : (
         hyperlink.map(({ word, link }) => (
