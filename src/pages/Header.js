@@ -5,13 +5,11 @@ import Logo from "../component/atoms/Logo";
 import Navlink from "../component/molecules/Navlink";
 import { AppContext } from "../utils/context/AppContext";
 import { ServicesContext } from "../utils/context/ServicesContext";
-// import { UserContext } from "../utils/context/UserContext";
 
 const Header = () => {
   const [isActive, setActive] = useState(false);
   const [isClose, setClose] = useState(false);
   const { cart } = useContext(ServicesContext);
-  // const { user } = useContext(UserContext);
   const { menu, updateBurger, burger } = useContext(AppContext);
 
   // eslint-disable-next-line no-unused-vars
@@ -26,13 +24,10 @@ const Header = () => {
     // };
     document.addEventListener("animationend", endAnimation, true);
     // document.addEventListener("mousedown", onClick, true);
-    return () => {
-      document.removeEventListener("animationend", endAnimation, true);
-      // document.removeEventListener("mousedown", onClick, true);
-    };
+    return () => document.removeEventListener("animationend", endAnimation, true);
+    // document.removeEventListener("mousedown", onClick, true);
   }, []);
   useEffect(() => {
-    // console.log("cart.length", cart.length);
     let menuPayload = [...menu];
     const bookingIdx = menuPayload.findIndex((i) => i.name === "booking");
     menuPayload[bookingIdx].notification = cart.length;

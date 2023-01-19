@@ -20,7 +20,7 @@
   }
   .navigation[data-state="closing"] {
     display: block;
-    animation: circleClose 750ms ease-in-out forwards;
+    animation: circleClose ease-in-out forwards;
   }
   .navigation[data-state="close"] {
     display: none;

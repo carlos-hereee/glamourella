@@ -15,6 +15,7 @@ export const AppState = ({ children }) => {
     about: glamourella.about,
     services: glamourella.services,
     gallery: glamourella.gallery,
+    burger: { notification: 0 },
     app: {
       title: "Glamour Beauty Collection",
       link: require("../../assets/glamour-logo.jpg"),
@@ -22,9 +23,9 @@ export const AppState = ({ children }) => {
     },
   };
   const [state, dispatch] = useReducer(reducer, initialState);
-  useEffect(() => {
-    // getAllAssets();
-  }, []);
+  // useEffect(() => {
+  //   // getAllAssets();
+  // }, []);
   // const getAssets = async () => {
   //   try {
   //     const { data } = await axiosWithAuth.get("/app/glamourella");

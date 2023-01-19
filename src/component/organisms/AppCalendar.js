@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { useEffect, useState } from "react";
 import { Calendar } from "react-calendar";
-import shortid from "shortid";
 import { CalendarContext } from "../../utils/context/CalendarContext";
+import { scrollToMeetings } from "../../utils/functions/calendar";
 import { formatDate, dateEqual } from "../../utils/functions/moment";
 import Icons from "../atoms/Icons";
 
@@ -15,24 +15,13 @@ const AppCalendar = ({ data }) => {
       const day = formatDate(value);
       const match = dateEqual(day, data);
       if (match) {
-        const element = document.getElementById("calendar-events");
-        element.scrollIntoView({ block: "center", behavior: "smooth" });
         match.list = match.list.filter((d) => d.isOpen);
         setDay(match);
-      } else {
-        const data = {
-          title: day,
-          uid: shortid.generate(),
-          hasHero: false,
-          hasLink: false,
-          hasList: false,
-          list: [],
-        };
-        setDay(data);
       }
     } else onChange(new Date());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
+  console.log("value", value);
   const tileContent = (date) => {
     const current = new Date(date).getDate();
     const today = new Date().getDate();
@@ -62,6 +51,7 @@ const AppCalendar = ({ data }) => {
       )}
       showNeighboringMonth={false}
       tileContent={({ date }) => tileContent(date)}
+      onClickDay={() => scrollToMeetings()}
     />
   );
 };
