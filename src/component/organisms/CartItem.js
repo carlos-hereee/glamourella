@@ -27,7 +27,7 @@ const CartItem = ({ data, click, link }) => {
                 Proceed to {link}
               </button>
             ) : (
-              <OpenAppButton />
+              <OpenAppButton service={c} />
             )}
           </div>
         )
