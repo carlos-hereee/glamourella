@@ -38,11 +38,10 @@ export const ServicesState = ({ children }) => {
     try {
       // reset active if it matches item
       service.uid === active.uid && setActive({});
-      const services = { ...service, isService: true };
-      dispatch({ type: "REMOVE_FROM_CART", payload: services });
+      dispatch({ type: "REMOVE_FROM_CART", payload: service });
     } catch (err) {
       const data = err.response.data;
-      dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data.message });
+      addMessageToLog(data);
     }
   };
   const filterServices = async (services, filter) => {

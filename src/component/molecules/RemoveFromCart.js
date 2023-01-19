@@ -1,19 +1,19 @@
 import { useContext } from "react";
 import { ServicesContext } from "../../utils/context/ServicesContext";
 
-const AddToCart = ({ data }) => {
-  const { addToCart, cart } = useContext(ServicesContext);
+const RemoveFromCart = ({ data }) => {
+  const { removefromCart, active } = useContext(ServicesContext);
   return (
     <>
       <strong className="ribbon">${data.cost}</strong>
       <button
         type="button"
-        className="btn-green"
-        onClick={() => addToCart(cart, data)}>
-        Add to cart
+        className="btn-danger"
+        onClick={() => removefromCart(data, active)}>
+        Remove from cart
       </button>
     </>
   );
 };
 
-export default AddToCart;
+export default RemoveFromCart;

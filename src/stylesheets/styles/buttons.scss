@@ -93,8 +93,13 @@
     color: #{$text-color};
   }
 }
-.green-btn {
+.btn-green {
   background-color: #{$success};
+  color: #{$text-color};
+  &:hover {
+    background-color: #{$success-hover};
+    color: #{$text-color};
+  }
 }
 .btn-back {
   background-color: #{$secondary-color};
@@ -107,4 +112,14 @@
   flex: 1;
   display: flex;
   gap: 1rem;
+}
+.btn-checkout {
+  background-color: #{$secondary-color2};
+  color: #{$text-color};
+  position: sticky;
+  z-index: 9;
+  top: 20%;
+  &:hover {
+    color: #{$text-color3};
+  }
 }

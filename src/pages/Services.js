@@ -5,7 +5,7 @@ import { ServicesContext } from "../utils/context/ServicesContext";
 
 const Services = () => {
   const { services } = useContext(AppContext);
-  const { filteredServices, filterServices, isFiltered } =
+  const { filteredServices, filterServices, isFiltered, cart } =
     useContext(ServicesContext);
 
   return (
@@ -14,6 +14,7 @@ const Services = () => {
       filtered={filteredServices}
       isFiltered={isFiltered}
       data={services}
+      cart={cart.length > 0 ? cart.filter((c) => c.isBookable) : []}
     />
   );
 };

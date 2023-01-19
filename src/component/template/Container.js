@@ -2,7 +2,7 @@ import Buttons from "../molecules/Buttons";
 import CardHeader from "../molecules/card/CardHeader";
 import Card from "../organisms/Card";
 
-const Container = ({ filter, filtered, isFiltered, data }) => {
+const Container = ({ filter, filtered, isFiltered, data, cart }) => {
   const handleClick = (e) => {
     let content = e.currentTarget.textContent.split(" ").join("").toLowerCase();
     filter(data.sections, content);
@@ -17,10 +17,13 @@ const Container = ({ filter, filtered, isFiltered, data }) => {
           ))}
         </nav>
       )}
+      {cart.length > 0 && (
+        <button className="btn-checkout">Procceed to checkout</button>
+      )}
       <div className="card-container">
         {isFiltered
-          ? filtered.map((fg) => <Card data={fg} key={fg.uid} />)
-          : data.sections.map((g) => <Card data={g} key={g.uid} />)}
+          ? filtered.map((fg) => <Card data={fg} key={fg.uid} cart={cart} />)
+          : data.sections.map((g) => <Card data={g} key={g.uid} cart={cart} />)}
       </div>
     </section>
   );

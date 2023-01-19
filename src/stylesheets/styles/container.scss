@@ -39,6 +39,7 @@
   flex-wrap: wrap;
   background-color: #{$text-color};
   gap: 1rem;
+  position: relative;
 }
 .not-found {
   display: flex;
