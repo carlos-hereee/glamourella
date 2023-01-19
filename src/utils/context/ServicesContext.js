@@ -1,5 +1,4 @@
 import { createContext, useReducer } from "react";
-import shortid from "shortid";
 import { reducer } from "../reducers/ServicesReducer";
 
 export const ServicesContext = createContext();
@@ -7,62 +6,7 @@ export const ServicesState = ({ children }) => {
   const initialState = {
     isLoading: false,
     isFiltered: false,
-    cart: [
-      {
-        uid: shortid.generate(),
-        subtitle: "pedicure",
-        hasHero: false,
-        hasIcon: false,
-        hero: { link: "/lorem", name: "lorem ipsum" },
-        hasLink: false,
-        isForSale: true,
-        hyperlink: [{ word: "Maiores", link: "/lorem" }],
-        //link:
-        //   process.env.REACT_APP_DB_URL +
-        //   "gallery/photo/?path=assets/pedicure/billie-unsplash.jpg",
-        title: "classic",
-        length: "30 minutes",
-        cost: 25,
-        response:
-          "Your feet will be pampered, nails are professionally shaped and filed, cuticle trimmer, callus removed, followed by a hot oil massage and finish with a nail buff or polish.",
-      },
-      {
-        uid: shortid.generate(),
-        subtitle: "pedicure",
-        hasHero: false,
-        hasIcon: false,
-        hero: { link: "/lorem", name: "lorem ipsum" },
-        hasLink: false,
-        isForSale: true,
-        hyperlink: [{ word: "Maiores", link: "/lorem" }],
-        //link:
-        //   process.env.REACT_APP_DB_URL +
-        //   "gallery/photo/?path=assets/pedicure/billie-unsplash.jpg",
-        title: "classic",
-        length: "30 minutes",
-        cost: 25,
-        response:
-          "Your feet will be pampered, nails are professionally shaped and filed, cuticle trimmer, callus removed, followed by a hot oil massage and finish with a nail buff or polish.",
-      },
-      {
-        uid: shortid.generate(),
-        subtitle: "pedicure",
-        hasHero: false,
-        hasIcon: false,
-        hero: { link: "/lorem", name: "lorem ipsum" },
-        hasLink: false,
-        isForSale: true,
-        hyperlink: [{ word: "Maiores", link: "/lorem" }],
-        //link:
-        //   process.env.REACT_APP_DB_URL +
-        //   "gallery/photo/?path=assets/pedicure/billie-unsplash.jpg",
-        title: "classic",
-        length: "30 minutes",
-        cost: 25,
-        response:
-          "Your feet will be pampered, nails are professionally shaped and filed, cuticle trimmer, callus removed, followed by a hot oil massage and finish with a nail buff or polish.",
-      },
-    ],
+    cart: [],
     filteredServices: [],
     active: {},
   };

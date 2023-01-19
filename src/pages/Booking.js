@@ -13,7 +13,7 @@ const Booking = () => {
     <section className="container">
       <AppCalendar data={events.sections} />
       <div className="booking">
-        {cart.length > 0 && <BookingEvents data={cart} />}
+        <BookingEvents data={cart} />
         <CalendarEvents />
       </div>
     </section>

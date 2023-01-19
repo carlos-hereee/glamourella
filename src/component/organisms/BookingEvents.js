@@ -1,10 +1,11 @@
 import { useContext, useState } from "react";
 import { ServicesContext } from "../../utils/context/ServicesContext";
 import CancelRow from "../molecules/card/CancelRow";
+import CartEmpty from "../molecules/empty/CartEmpty";
 import CardRow from "./CardRow";
 
-const BookingEvents = ({ data }) => {
-  const { removeFromCart, setActive, active } = useContext(ServicesContext);
+const BookingEvents = () => {
+  const { removeFromCart, setActive, active, cart } = useContext(ServicesContext);
   const [cancel, setCancel] = useState({});
 
   const cancelReq = (e, isConfirm) => {
@@ -15,12 +16,16 @@ const BookingEvents = ({ data }) => {
   };
   return (
     <div className="booking-events">
-      {data.map((c) =>
-        cancel.uid === c.uid ? (
-          <CancelRow data={c} key={c.uid} click={cancelReq} />
-        ) : (
-          <CardRow data={c} key={c.uid} click={handleClick} active={active} />
+      {cart.length > 0 ? (
+        cart.map((c) =>
+          cancel.uid === c.uid ? (
+            <CancelRow data={c} key={c.uid} click={cancelReq} />
+          ) : (
+            <CardRow data={c} key={c.uid} click={handleClick} active={active} />
+          )
         )
+      ) : (
+        <CartEmpty link="services" />
       )}
     </div>
   );
