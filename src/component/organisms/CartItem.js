@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { ServicesContext } from "../../utils/context/ServicesContext";
 import CardRow from "../molecules/card/CardRow";
 import CancelRow from "../molecules/card/CancelRow";
+import OpenAppButton from "../atoms/buttons/OpenAppButton";
 
 const CartItem = ({ data, click, link }) => {
   const { removeFromCart, setActive, active } = useContext(ServicesContext);
@@ -19,12 +20,14 @@ const CartItem = ({ data, click, link }) => {
         cancel.uid === c.uid ? (
           <CancelRow data={c} key={c.uid} click={cancelReq} />
         ) : (
-          <div key={c.uid}>
+          <div key={c.uid} className="row-wrapper">
             <CardRow data={c} click={handleClick} />
-            {link && (
-              <button type="button" className="btn btn-classic" onClick={click}>
-                {link}
+            {link ? (
+              <button type="button" className="btn btn-link" onClick={click}>
+                Proceed to {link}
               </button>
+            ) : (
+              <OpenAppButton />
             )}
           </div>
         )

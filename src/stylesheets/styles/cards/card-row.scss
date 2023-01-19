@@ -1,3 +1,20 @@
+.row-wrapper {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  padding: 1rem;
+  &:hover {
+    background-color: #{$secondary-color};
+    .card-row {
+      background-color: #{$primary-color};
+    }
+    .read-more {
+      &:has(+ .read-more-toggle:not(:checked))::before {
+        background: linear-gradient(to bottom, transparent, #{$primary-color});
+      }
+    }
+  }
+}
 .card-row-wrapper {
   position: relative;
   min-width: 250px;
@@ -14,6 +31,7 @@
   box-shadow: none;
   color: #{$text-color3};
   gap: 1rem;
+  border-radius: 1rem;
   @include devices(mobile) {
     .card-header {
       flex-direction: row;
@@ -22,7 +40,6 @@
   }
   &:hover {
     background-color: #{$primary-color};
-    border-radius: 1rem;
     .read-more {
       &:has(+ .read-more-toggle:not(:checked))::before {
         background: linear-gradient(to bottom, transparent, #{$primary-color});

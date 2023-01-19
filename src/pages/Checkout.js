@@ -3,10 +3,12 @@ import { ServicesContext } from "../utils/context/ServicesContext";
 import CartEmpty from "../component/molecules/empty/CartEmpty";
 import CartItem from "../component/organisms/CartItem";
 import CustomLink from "../component/atoms/CustomLink";
+import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
   const { cart } = useContext(ServicesContext);
   const [total, setTotal] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (cart.length > 0) {
@@ -17,12 +19,12 @@ const Checkout = () => {
     }
   }, [cart]);
 
-  const handleClick = (e) => {
-    console.log("e", e);
+  const handleClick = () => {
+    navigate("/booking");
   };
 
   return (
-    <section className="primary-container">
+    <section className="secondary-container">
       <h3>Check Out</h3>
       {cart.length > 0 ? (
         <>

@@ -9,7 +9,7 @@ const Container = ({ filter, filtered, isFiltered, data, cart }) => {
     filter(data.sections, content);
   };
   return (
-    <section className="primary-container">
+    <section className="secondary-container">
       <CardHeader data={data} />
       {data.isNav && (
         <nav className="navbar">
