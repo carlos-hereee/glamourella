@@ -12,7 +12,7 @@ const DayNotFound = () => {
   ) : (
     <div className="container-empty">
       <h4>All booked up, please try a different day</h4>
-      <OpenAppButton />
+      <OpenAppButton service={{}} />
     </div>
   );
 };

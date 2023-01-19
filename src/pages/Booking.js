@@ -13,7 +13,7 @@ const Booking = ({ data }) => {
       <AppCalendar data={events.sections} />
       <div className="booking">
         {data.length > 0 ? (
-          <div className="primary-container">
+          <div className="secondary-container">
             <CartItem data={data} />
           </div>
         ) : (

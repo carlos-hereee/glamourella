@@ -8,7 +8,6 @@ import ButtonLink from "../atoms/buttons/ButtonLink";
 const CartItem = ({ data, link }) => {
   const { removeFromCart, setActive, active } = useContext(ServicesContext);
   const [cancel, setCancel] = useState({});
-
   const cancelReq = (e, isConfirm) => {
     isConfirm ? removeFromCart(e, active) : setCancel({});
   };
@@ -23,7 +22,7 @@ const CartItem = ({ data, link }) => {
         ) : (
           <div key={c.uid} className="row-wrapper">
             <CardRow data={c} click={handleClick} />
-            {link ? <ButtonLink link={link} /> : <OpenAppButton service={c} />}
+            {c.isBookable && link && <ButtonLink link={link} />}
           </div>
         )
       )}
