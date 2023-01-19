@@ -16,8 +16,17 @@
     border-radius: 1rem;
     background-color: #{$success};
     animation: fadeIn 1s, slideUp 0.8s forwards;
+    .link {
+      color: #{$text-color};
+      margin: 0 0.25rem;
+    }
   }
   .error-message {
     background-color: #{$danger};
   }
+}
+.message {
+  // display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }

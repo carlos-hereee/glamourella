@@ -21,7 +21,6 @@ const AppCalendar = ({ data }) => {
     } else onChange(new Date());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
-  console.log("value", value);
   const tileContent = (date) => {
     const current = new Date(date).getDate();
     const today = new Date().getDate();

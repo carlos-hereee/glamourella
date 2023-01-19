@@ -1,12 +1,12 @@
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Account from "../component/template/Account";
-import { AdminContext } from "../utils/context/AdminContext";
-// import { UserContext } from "../utils/context/UserContext";
+// import { AdminContext } from "../utils/context/AdminContext";
+import { UserContext } from "../utils/context/UserContext";
 
 const Dashboard = () => {
-  // const { user } = useContext(UserContext);
-  const { isAdmin } = useContext(AdminContext);
+  const { isAdmin } = useContext(UserContext);
+  // const { isAdmin } = useContext(AdminContext);
   const navigate = useNavigate();
   useEffect(() => {
     if (isAdmin) {

@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import { LogContext } from "../../utils/context/LogContext";
+import HyperlinkText from "../atoms/HyperlinkText";
 
 const Log = () => {
   const { log, removeMessageFromLog } = useContext(LogContext);
@@ -13,15 +14,22 @@ const Log = () => {
       }, 7000);
       return () => clearInterval(intervalId);
     }
-  }, [log, removeMessageFromLog]);
+  }, [log]);
   return (
     log.length > 0 && (
       <div className="log">
-        {log.map((l) => (
-          <p className={`message ${!l.success && "error-message"}`} key={l.uid}>
-            {l.message}{" "}
-          </p>
-        ))}
+        {log.map(({ data, success, uid }) =>
+          data.isLink ? (
+            <HyperlinkText
+              key={uid}
+              data={{ ...data, uid, responseArr: data.message.split(data.word) }}
+            />
+          ) : (
+            <p className={`message ${!success && "error-message"}`} key={uid}>
+              {data.message}{" "}
+            </p>
+          )
+        )}
       </div>
     )
   );
