@@ -1,7 +1,13 @@
-const ButtonLink = ({ link, click }) => {
+import { useNavigate } from "react-router-dom";
+
+const ButtonLink = ({ link }) => {
+  const navigate = useNavigate();
   return (
-    <button type="button" className="btn btn-classic" onClick={click}>
-      Go to {link}
+    <button
+      type="button"
+      className="btn btn-link"
+      onClick={() => navigate(`/${link}`)}>
+      Proceed to {link}
     </button>
   );
 };

@@ -1,3 +1,4 @@
+import ButtonLink from "../atoms/buttons/ButtonLink";
 import Buttons from "../molecules/Buttons";
 import CardHeader from "../molecules/card/CardHeader";
 import Card from "../organisms/Card";
@@ -17,9 +18,7 @@ const Container = ({ filter, filtered, isFiltered, data, cart }) => {
           ))}
         </nav>
       )}
-      {cart.length > 0 && (
-        <button className="btn-checkout">Procceed to checkout</button>
-      )}
+      {cart.length > 0 && <ButtonLink link="checkout" />}
       <div className="card-container">
         {isFiltered
           ? filtered.map((fg) => <Card data={fg} key={fg.uid} cart={cart} />)

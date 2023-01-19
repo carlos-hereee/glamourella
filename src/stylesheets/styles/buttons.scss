@@ -113,11 +113,11 @@
   display: flex;
   gap: 1rem;
 }
-.btn-checkout {
+.btn-link {
   background-color: #{$secondary-color2};
   color: #{$text-color};
   position: sticky;
-  z-index: 9;
+  z-index: 2;
   top: 20%;
   &:hover {
     color: #{$text-color3};
