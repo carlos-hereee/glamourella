@@ -21,10 +21,8 @@ const Checkout = () => {
       <h3>Check Out</h3>
       {cart.length > 0 ? (
         <>
-          <CustomLink data={{ link: "services", content: "Head to services" }} />
-          <CustomLink
-            data={{ link: "accessories", content: "Head to accessories" }}
-          />
+          <CustomLink link="services" />
+          <CustomLink link="accessories" />
           <CartItem data={cart} />
         </>
       ) : (
