@@ -43,7 +43,7 @@ const svg = {
   about: faInfo,
   services: faListCheck,
   booking: faCalendarAlt,
-  gallery: faImage,
+  accessories: faImage,
   "contact us": faEnvelope,
   checkout: faShoppingCart,
   pricing: faUsd,

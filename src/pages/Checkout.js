@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import CardRow from "../component/organisms/CardRow";
 import { ServicesContext } from "../utils/context/ServicesContext";
 import CartEmpty from "../component/molecules/empty/CartEmpty";
+import CartItem from "../component/organisms/CartItem";
 
 const Checkout = () => {
   const { cart } = useContext(ServicesContext);
@@ -9,16 +9,15 @@ const Checkout = () => {
 
   useEffect(() => {
     if (cart.length > 0) {
-      let count = 0;
-      cart && cart.forEach((c) => c.cost && (count += c.cost));
-      setTotal(count);
+      // let cost = cart.reduce((a, b) => a.cost + b.cost);
+      // setTotal(cost);
     }
   }, [cart]);
   return (
     <section className="primary-container">
       <h3>Check Out</h3>
       {cart.length > 0 ? (
-        cart.map((c) => <CardRow key={c.uid} data={c} />)
+        <CartItem data={cart} />
       ) : (
         <>
           <CartEmpty link="services" />

@@ -14,6 +14,7 @@ const Log = () => {
       }, 5000);
       return () => clearInterval(intervalId);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [log]);
   return (
     log.length > 0 && (

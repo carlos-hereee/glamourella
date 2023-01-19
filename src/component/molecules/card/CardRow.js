@@ -1,9 +1,9 @@
-import CardHeader from "../molecules/card/CardHeader";
-import ReadMore from "../molecules/ReadMore";
+import CardHeader from "./CardHeader";
+import ReadMore from "../ReadMore";
 
 const CardRow = ({ data, active, click }) => {
   return (
-    <div className={`card-row-wrapper ${data.uid === active.uid ? "active" : ""}`}>
+    <div className={`card-row-wrapper ${data.uid === active?.uid ? "active" : ""}`}>
       <button type="button" className="card-row" onClick={() => click(data)}>
         <CardHeader data={data} />
         {data.response && <ReadMore data={data.response} lines={2} />}

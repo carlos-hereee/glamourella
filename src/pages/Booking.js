@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { CalendarContext } from "../utils/context/CalendarContext";
 import CalendarEvents from "../component/template/CalendarEvents";
-import BookingEvents from "../component/organisms/BookingEvents";
 import { ServicesContext } from "../utils/context/ServicesContext";
 import AppCalendar from "../component/organisms/AppCalendar";
+import CartEmpty from "../component/molecules/empty/CartEmpty";
+import CartItem from "../component/organisms/CartItem";
 
 const Booking = () => {
   const { events } = useContext(CalendarContext);
@@ -13,7 +14,11 @@ const Booking = () => {
     <section className="container">
       <AppCalendar data={events.sections} />
       <div className="booking">
-        <BookingEvents data={cart} />
+        {cart.length > 0 ? (
+          <CartItem data={cart.filter((c) => c.isBookable)} />
+        ) : (
+          <CartEmpty link="services" />
+        )}
         <CalendarEvents />
       </div>
     </section>
