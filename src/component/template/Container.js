@@ -2,7 +2,7 @@ import Buttons from "../molecules/Buttons";
 import CardHeader from "../molecules/card/CardHeader";
 import Card from "../organisms/Card";
 
-const Container = ({ filter, filtered, isFiltered, data, addToCart }) => {
+const Container = ({ filter, filtered, isFiltered, data }) => {
   const handleClick = (e) => {
     let content = e.currentTarget.textContent.split(" ").join("").toLowerCase();
     filter(data.sections, content);
@@ -19,12 +19,8 @@ const Container = ({ filter, filtered, isFiltered, data, addToCart }) => {
       )}
       <div className="card-container">
         {isFiltered
-          ? filtered.map((fg) => (
-              <Card data={fg} key={fg.uid} click={addToCart} />
-            ))
-          : data.sections.map((g) => (
-              <Card data={g} key={g.uid} click={addToCart} />
-            ))}
+          ? filtered.map((fg) => <Card data={fg} key={fg.uid} />)
+          : data.sections.map((g) => <Card data={g} key={g.uid} />)}
       </div>
     </section>
   );

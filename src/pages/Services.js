@@ -5,7 +5,7 @@ import { ServicesContext } from "../utils/context/ServicesContext";
 
 const Services = () => {
   const { services } = useContext(AppContext);
-  const { addToCart, filteredServices, filterServices, isFiltered } =
+  const { filteredServices, filterServices, isFiltered } =
     useContext(ServicesContext);
 
   return (
@@ -14,7 +14,6 @@ const Services = () => {
       filtered={filteredServices}
       isFiltered={isFiltered}
       data={services}
-      addToCart={addToCart}
     />
   );
 };

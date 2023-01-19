@@ -2,12 +2,12 @@ import CardHeader from "../molecules/card/CardHeader";
 import CardBody from "../molecules/card/CardBody";
 import AddToCart from "../molecules/AddToCart";
 
-const Card = ({ data, click }) => {
+const Card = ({ data }) => {
   return (
     <div className="card">
       <CardHeader data={data} />
       <CardBody data={data} />
-      {data.isForSale && <AddToCart data={data} click={click} />}
+      {data.isForSale && <AddToCart data={data} />}
     </div>
   );
 };
