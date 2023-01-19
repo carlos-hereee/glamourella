@@ -19,7 +19,6 @@ export const ServicesState = ({ children }) => {
   const addToCart = (cart, service) => {
     if (cart.length > 0) {
       if (cart.filter((c) => c.uid === service.uid).length > 0) {
-        console.log("cart", cart);
         const data = {
           uid: shortid.generate(),
           data: {
@@ -31,6 +30,8 @@ export const ServicesState = ({ children }) => {
       } else {
         dispatch({ type: "ADD_TO_CART", payload: { ...service, isService: true } });
       }
+    } else {
+      dispatch({ type: "ADD_TO_CART", payload: { ...service, isService: true } });
     }
   };
   const removeFromCart = (service, active) => {
@@ -49,8 +50,7 @@ export const ServicesState = ({ children }) => {
     if (filter === "all") {
       return dispatch({ type: "LOAD_SERVICES", payload: services });
     }
-    console.log("services", services);
-    const data = services.filter((s) => s.type === filter);
+    const data = services.filter((s) => s.subtitle === filter);
     dispatch({ type: "UPDATE_SERVICES", payload: data });
   };
   const setActive = (active) => {

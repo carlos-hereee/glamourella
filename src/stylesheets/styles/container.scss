@@ -1,7 +1,6 @@
 .primary-container {
   display: flex;
   flex-direction: column;
-  width: 100%;
   background-color: #{$text-color};
   min-height: 60vh;
   gap: 1rem;
@@ -14,7 +13,6 @@
 .secondary-container {
   display: flex;
   flex-direction: column;
-  width: 100%;
   background-color: #{$text-color};
   min-height: 60vh;
   gap: 1rem;
@@ -34,9 +32,6 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
-  @include devices(mobile) {
-    width: 100%;
-  }
 }
 .card-container {
   display: flex;

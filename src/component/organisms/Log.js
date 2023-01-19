@@ -11,7 +11,7 @@ const Log = () => {
       const intervalId = setInterval(() => {
         const firstElem = log[0].uid;
         removeMessageFromLog(firstElem);
-      }, 7000);
+      }, 4000);
       return () => clearInterval(intervalId);
     }
   }, [log]);
