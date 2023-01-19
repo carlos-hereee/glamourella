@@ -15,6 +15,7 @@ const Gallery = () => {
       filter={filterGallery}
       filtered={filteredGallery}
       isFiltered={isFiltered}
+      link="checkout"
       data={gallery}
       cart={cart.length > 0 ? cart.filter((c) => c.isAccessory) : []}
     />

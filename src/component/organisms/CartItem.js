@@ -3,8 +3,9 @@ import { ServicesContext } from "../../utils/context/ServicesContext";
 import CardRow from "../molecules/card/CardRow";
 import CancelRow from "../molecules/card/CancelRow";
 import OpenAppButton from "../atoms/buttons/OpenAppButton";
+import ButtonLink from "../atoms/buttons/ButtonLink";
 
-const CartItem = ({ data, click, link }) => {
+const CartItem = ({ data, link }) => {
   const { removeFromCart, setActive, active } = useContext(ServicesContext);
   const [cancel, setCancel] = useState({});
 
@@ -22,13 +23,7 @@ const CartItem = ({ data, click, link }) => {
         ) : (
           <div key={c.uid} className="row-wrapper">
             <CardRow data={c} click={handleClick} />
-            {link ? (
-              <button type="button" className="btn btn-link" onClick={click}>
-                Proceed to {link}
-              </button>
-            ) : (
-              <OpenAppButton service={c} />
-            )}
+            {link ? <ButtonLink link={link} /> : <OpenAppButton service={c} />}
           </div>
         )
       )}

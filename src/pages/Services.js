@@ -13,6 +13,7 @@ const Services = () => {
       filter={filterServices}
       filtered={filteredServices}
       isFiltered={isFiltered}
+      link="booking"
       data={services}
       cart={cart.length > 0 ? cart.filter((c) => c.isBookable) : []}
     />
