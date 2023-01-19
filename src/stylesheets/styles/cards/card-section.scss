@@ -4,6 +4,9 @@
   // flex-direction: column;
   min-width: 250px;
   gap: 1rem;
+  .read-more {
+    text-align: left;
+  }
 }
 .card-section-header {
   display: flex;
@@ -12,8 +15,6 @@
     background-color: #{$text-color};
     color: #{$secondary-color};
   }
-}
-.card-section-heading {
 }
 .card-section-title {
   display: flex;

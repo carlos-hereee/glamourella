@@ -16,6 +16,11 @@ const Checkout = () => {
       setTotal(cost);
     }
   }, [cart]);
+
+  const handleClick = (e) => {
+    console.log("e", e);
+  };
+
   return (
     <section className="primary-container">
       <h3>Check Out</h3>
@@ -23,7 +28,7 @@ const Checkout = () => {
         <>
           <CustomLink link="services" />
           <CustomLink link="accessories" />
-          <CartItem data={cart} />
+          <CartItem data={cart} click={handleClick} link="booking" />
         </>
       ) : (
         <>

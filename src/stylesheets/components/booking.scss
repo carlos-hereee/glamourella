@@ -27,7 +27,6 @@
   }
   &:has(> .active) {
     .active {
-      border-radius: 1rem;
       background-color: #{$primary-color};
       .read-more {
         &:has(+ .read-more-toggle:not(:checked))::before {

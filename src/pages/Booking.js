@@ -8,11 +8,20 @@ import CartItem from "../component/organisms/CartItem";
 const Booking = ({ data }) => {
   const { events } = useContext(CalendarContext);
 
+  const handleClick = (e) => {
+    console.log("e", e);
+  };
   return (
     <section className="container">
       <AppCalendar data={events.sections} />
       <div className="booking">
-        {data.length > 0 ? <CartItem data={data} /> : <CartEmpty link="services" />}
+        {data.length > 0 ? (
+          <div className="primary-container">
+            <CartItem data={data} click={handleClick} />
+          </div>
+        ) : (
+          <CartEmpty link="services" />
+        )}
         <CalendarEvents />
       </div>
     </section>

@@ -3,7 +3,7 @@ import { ServicesContext } from "../../utils/context/ServicesContext";
 import CardRow from "../molecules/card/CardRow";
 import CancelRow from "../molecules/card/CancelRow";
 
-const CartItem = ({ data }) => {
+const CartItem = ({ data, click, link }) => {
   const { removeFromCart, setActive, active } = useContext(ServicesContext);
   const [cancel, setCancel] = useState({});
 
@@ -14,12 +14,19 @@ const CartItem = ({ data }) => {
     isCancel ? setCancel(d) : setActive(d);
   };
   return (
-    <div className="booking-events">
+    <div className="cart-container">
       {data.map((c) =>
         cancel.uid === c.uid ? (
           <CancelRow data={c} key={c.uid} click={cancelReq} />
         ) : (
-          <CardRow data={c} key={c.uid} click={handleClick} />
+          <div key={c.uid}>
+            <CardRow data={c} click={handleClick} />
+            {link && (
+              <button type="button" className="btn btn-classic" onClick={click}>
+                {link}
+              </button>
+            )}
+          </div>
         )
       )}
     </div>
