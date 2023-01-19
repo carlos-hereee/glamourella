@@ -111,8 +111,10 @@
 }
 .card-row-wrapper {
   position: relative;
-  background-color: #{$text-color};
-  // min-width: 250px;
+  .cost {
+    text-align: right;
+    padding: 0 1rem;
+  }
   .card-row {
     display: flex;
     flex-direction: column;

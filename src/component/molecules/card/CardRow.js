@@ -8,6 +8,11 @@ const CardRow = ({ data, active, click }) => {
         <CardHeader data={data} />
         {data.response && <ReadMore data={data.response} lines={2} />}
       </button>
+      {data.cost && (
+        <p className="cost">
+          <strong>Cost: ${data.cost}</strong>
+        </p>
+      )}
       <button type="button" className="btn-cancel" onClick={() => click(data, true)}>
         x
       </button>

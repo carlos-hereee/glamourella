@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { ServicesContext } from "../utils/context/ServicesContext";
 import CartEmpty from "../component/molecules/empty/CartEmpty";
 import CartItem from "../component/organisms/CartItem";
+import CustomLink from "../component/atoms/CustomLink";
 
 const Checkout = () => {
   const { cart } = useContext(ServicesContext);
@@ -9,15 +10,23 @@ const Checkout = () => {
 
   useEffect(() => {
     if (cart.length > 0) {
-      // let cost = cart.reduce((a, b) => a.cost + b.cost);
-      // setTotal(cost);
+      let cost = cart.reduce((a, b) => {
+        return a + b.cost;
+      }, 0);
+      setTotal(cost);
     }
   }, [cart]);
   return (
     <section className="primary-container">
       <h3>Check Out</h3>
       {cart.length > 0 ? (
-        <CartItem data={cart} />
+        <>
+          <CustomLink data={{ link: "services", content: "Head to services" }} />
+          <CustomLink
+            data={{ link: "accessories", content: "Head to accessories" }}
+          />
+          <CartItem data={cart} />
+        </>
       ) : (
         <>
           <CartEmpty link="services" />
