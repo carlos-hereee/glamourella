@@ -1,7 +1,7 @@
+import { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
 import NotFound from "./component/molecules/notFound/PageNotFound";
 import About from "./pages/About";
-// import Account from "./component/template/Account";
 import Booking from "./pages/Booking";
 import Footer from "./pages/Footer";
 import Gallery from "./pages/Gallery";
@@ -14,8 +14,10 @@ import Checkout from "./pages/Checkout";
 import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import Log from "./component/organisms/Log";
+import { ServicesContext } from "./utils/context/ServicesContext";
 
 function App() {
+  const { cart } = useContext(ServicesContext);
   return (
     <div className="App">
       <Header />
@@ -25,7 +27,10 @@ function App() {
           <Route exact path="/" element={<Landing />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/booking" element={<Booking />} />
+          <Route
+            path="/booking"
+            element={<Booking data={cart.filter((c) => c.isBookable)} />}
+          />
           <Route path="/accessories" element={<Gallery />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
