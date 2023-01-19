@@ -36,7 +36,6 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1;
   cursor: pointer;
   &:hover {
     background-color: #{$secondary-color};

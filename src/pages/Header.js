@@ -10,7 +10,7 @@ const Header = () => {
   const [isActive, setActive] = useState(false);
   const [isClose, setClose] = useState(false);
   const { cart } = useContext(ServicesContext);
-  const { menu, updateBurger, burger } = useContext(AppContext);
+  const { menu, updateBurger, burger, updateMenu } = useContext(AppContext);
 
   // eslint-disable-next-line no-unused-vars
   useEffect(() => {
@@ -28,18 +28,18 @@ const Header = () => {
     // document.removeEventListener("mousedown", onClick, true);
   }, []);
   useEffect(() => {
-    let menuPayload = [...menu];
-    const bookingIdx = menuPayload.findIndex((i) => i.name === "booking");
-    menuPayload[bookingIdx].notification = cart.length;
+    const menuPayload = {
+      accessoryCount: cart.filter((c) => c.isAccessory).length,
+      servicesCount: cart.filter((c) => c.isBookable).length,
+    };
     const burgerPayload = {
       name: isActive ? "x" : "burger",
       notification: cart.length,
     };
     updateBurger(burgerPayload);
-    // if (user.isAdmin) {
-    //   <Navigate to="/admin-dashboard" replace />;
-    // }
+    updateMenu(menuPayload);
   }, [cart, isActive]);
+
   const handleClick = () => {
     setActive(!isActive);
   };

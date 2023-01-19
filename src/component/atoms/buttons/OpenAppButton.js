@@ -7,7 +7,7 @@ const OpenAppButton = () => {
   return (
     <button
       type="button"
-      className="btn btn-classic"
+      className="btn btn-link"
       onClick={() => setEarliestApp(events.sections, setDay)}>
       Find Open Appointment
     </button>

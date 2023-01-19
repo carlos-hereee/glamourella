@@ -29,7 +29,16 @@ const updateMenu = (state, action) => {
   return {
     ...state,
     isLoading: false,
-    menu: action.payload,
+    menu: state.menu.map((m) => {
+      if (m.name === "booking") {
+        return { ...m, notification: action.payload.servicesCount };
+      } else if (m.name === "checkout") {
+        return {
+          ...m,
+          notification: action.payload.accessoryCount + action.payload.servicesCount,
+        };
+      } else return m;
+    }),
   };
 };
 const updateBurger = (state, action) => {

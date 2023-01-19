@@ -1,6 +1,6 @@
-import { createContext, useEffect, useReducer } from "react";
+import { createContext, useReducer } from "react";
 import { axiosWithAuth } from "../functions/axios";
-import { reducer } from "../reducers/GlamourellaReducer";
+import { reducer } from "../reducers/AppReducer";
 import { glamourella } from "../../config";
 
 export const AppContext = createContext();
@@ -49,6 +49,9 @@ export const AppState = ({ children }) => {
   const updateBurger = (payload) => {
     dispatch({ type: "UPDATE_BURGER", payload: payload });
   };
+  const updateMenu = (payload) => {
+    dispatch({ type: "UPDATE_MENU", payload: payload });
+  };
   const newsletter = async (values) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
@@ -73,6 +76,7 @@ export const AppState = ({ children }) => {
         gallery: state.gallery,
         app: state.app,
         updateBurger,
+        updateMenu,
         newsletter,
       }}>
       {children}
