@@ -1,4 +1,4 @@
 export const scrollToMeetings = () => {
   const element = document.getElementById("calendar-events");
-  element.scrollIntoView({ block: "start", behavior: "smooth" });
+  element.scrollIntoView({ block: "end", behavior: "smooth" });
 };

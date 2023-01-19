@@ -19,16 +19,13 @@ const Log = () => {
     log.length > 0 && (
       <div className="log">
         {log.map(({ data, success, uid }) => (
-          <div className="message">
+          <div className="message" key={uid}>
             {data.isLink ? (
               <HyperlinkText
-                key={uid}
                 data={{ ...data, uid, responseArr: data.message.split(data.word) }}
               />
             ) : (
-              <p className={!success && "error-message"} key={uid}>
-                {data.message}{" "}
-              </p>
+              <p className={!success && "error-message"}>{data.message} </p>
             )}
             <button
               type="button"

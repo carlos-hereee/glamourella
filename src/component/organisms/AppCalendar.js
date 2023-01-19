@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useEffect, useState } from "react";
 import { Calendar } from "react-calendar";
+import { useNavigate } from "react-router-dom";
 import { CalendarContext } from "../../utils/context/CalendarContext";
 import { scrollToMeetings } from "../../utils/functions/calendar";
 import { formatDate, dateEqual } from "../../utils/functions/moment";
@@ -9,6 +10,7 @@ import Icons from "../atoms/Icons";
 const AppCalendar = ({ data }) => {
   const [value, onChange] = useState(null);
   const { setDay } = useContext(CalendarContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (value) {
@@ -37,6 +39,14 @@ const AppCalendar = ({ data }) => {
       }
     }
   };
+  const handleDayClick = () => {
+    if (window.location.pathname === "/booking") {
+      scrollToMeetings();
+    }
+    if (window.location.pathname === "/") {
+      navigate("/booking");
+    }
+  };
   return (
     <Calendar
       onChange={onChange}
@@ -50,7 +60,7 @@ const AppCalendar = ({ data }) => {
       )}
       showNeighboringMonth={false}
       tileContent={({ date }) => tileContent(date)}
-      onClickDay={() => scrollToMeetings()}
+      onClickDay={() => handleDayClick()}
     />
   );
 };
