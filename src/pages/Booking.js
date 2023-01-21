@@ -9,7 +9,7 @@ const Booking = ({ data }) => {
   const { events } = useContext(CalendarContext);
 
   return (
-    <section className="container">
+    <section className="primary-container">
       <AppCalendar data={events.sections} />
       <div className="booking">
         {data.length > 0 ? (

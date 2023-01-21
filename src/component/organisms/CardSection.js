@@ -1,12 +1,11 @@
 import CardSectionBody from "../atoms/CardSectionBody";
 import CardSectionHeader from "../molecules/card/CardSectionHeader";
-import ReadMore from "../molecules/ReadMore";
 
 const CardSection = ({ data }) => {
   return (
     <div className="card-section">
       <CardSectionHeader data={data} />
-      {data.response && <ReadMore data={<CardSectionBody data={data} />} />}
+      {data.response && <CardSectionBody data={data} />}
     </div>
   );
 };

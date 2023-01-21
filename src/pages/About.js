@@ -9,7 +9,7 @@ const About = () => {
 
   // return <Container data={about} />;
   return (
-    <section className="primary-container">
+    <section className="secondary-container">
       <CardHeader data={about} />
       <div className="card-body">
         {about.sections.map((section) => (

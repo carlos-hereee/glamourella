@@ -1,7 +1,6 @@
 .primary-container {
   display: flex;
   flex-direction: column;
-  background-color: #{$text-color};
   min-height: 60vh;
   gap: 1rem;
   @include devices(mobile) {
