@@ -111,14 +111,15 @@
   color: #{$text-color};
 }
 .btn {
-  flex: 1;
   display: flex;
+  border-radius: 0.5rem;
   gap: 1rem;
 }
 .btn-link {
   background-color: #{$secondary-color2};
   color: #{$text-color};
   position: sticky;
+  text-decoration: underline;
   z-index: 2;
   top: 20%;
   border-radius: 0.5rem;

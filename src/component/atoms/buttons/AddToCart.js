@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ServicesContext } from "../../utils/context/ServicesContext";
+import { ServicesContext } from "../../../utils/context/ServicesContext";
 
 const AddToCart = ({ data }) => {
   const { addToCart, cart } = useContext(ServicesContext);
@@ -8,7 +8,7 @@ const AddToCart = ({ data }) => {
       <strong className="ribbon">${data.cost}</strong>
       <button
         type="button"
-        className="btn-green"
+        className="btn btn-green"
         onClick={() => addToCart(cart, data)}>
         Add to cart
       </button>
