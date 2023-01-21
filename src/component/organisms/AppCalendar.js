@@ -19,7 +19,7 @@ const AppCalendar = ({ data }) => {
       if (match) {
         match.list = match.list.filter((d) => d.isOpen);
         setDay(match);
-      }
+      } else setDay({ title: day, uid: day });
     } else onChange(new Date());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);

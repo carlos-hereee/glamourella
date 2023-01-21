@@ -13,7 +13,7 @@ const schema = yup.object().shape({
 });
 const values = { name: "", email: "", phone: "" };
 const BookEvent = () => {
-  const { bookNow, meeting } = useContext(CalendarContext);
+  const { bookNow, meeting, selectedDay } = useContext(CalendarContext);
   const { active } = useContext(ServicesContext);
   const { user } = useContext(UserContext);
 
@@ -25,10 +25,20 @@ const BookEvent = () => {
           {active.title} {active.subtitle}
         </strong>
       </h3>
+      {selectedDay.hasList ? (
+        selectedDay.list.filter((l) => l.uid !== meeting.uid).length > 0 && (
+          <p>{meeting.uid}</p>
+        )
+      ) : (
+        <p className="warning">
+          A new date was selected, your previous appointment has been saved in memory
+          so if you cannot find a new time you can continue below
+        </p>
+      )}{" "}
       <p>
         Appointment set for{" "}
         <strong>
-          {meeting.date} @ {meeting.time.startTime} -{meeting.time.endTime}
+          {meeting.date} @ {meeting.time.startTime} - {meeting.time.endTime}
         </strong>
       </p>
       <p>Please fill out information bellow</p>

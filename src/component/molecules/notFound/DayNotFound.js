@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { UserContext } from "../../../utils/context/UserContext";
-import OpenAppButton from "../../atoms/buttons/OpenAppButton";
 
 const DayNotFound = () => {
   const { isAdmin } = useContext(UserContext);
@@ -12,7 +11,6 @@ const DayNotFound = () => {
   ) : (
     <div className="container-empty">
       <h4>All booked up, please try a different day</h4>
-      <OpenAppButton service={{}} />
     </div>
   );
 };
