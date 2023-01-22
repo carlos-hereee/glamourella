@@ -3,8 +3,8 @@
 }
 .booking {
   display: flex;
-  max-width: 1200px;
   align-items: flex-start;
+  max-width: 1200px;
   gap: 1rem;
   @include devices(mobile) {
     flex-wrap: wrap;

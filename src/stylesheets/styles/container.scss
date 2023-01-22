@@ -46,8 +46,8 @@
   text-align: center;
   background-color: #{$text-color};
   flex: 1;
+  min-width: 200px;
   padding: 1rem;
-  min-width: 250px;
   .icon {
     color: $secondary-color2;
   }

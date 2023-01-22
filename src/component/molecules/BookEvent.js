@@ -16,7 +16,6 @@ const BookEvent = () => {
   const { bookNow, meeting, selectedDay } = useContext(CalendarContext);
   const { active } = useContext(ServicesContext);
   const { user } = useContext(UserContext);
-  console.log("meeting", meeting);
   return (
     <div>
       <h3>

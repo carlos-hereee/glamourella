@@ -1,21 +1,3 @@
-// .gallery-photo {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-between;
-//   position: relative;
-//   overflow: hidden;
-//   text-align: left;
-//   padding: 1rem;
-//   flex: 1;
-//   min-width: 200px;
-//   gap: 1rem;
-//   &:has(> .ribbon) {
-//     position: relative;
-//     border-color: #{$shadow-color};
-//     box-shadow: 0 1px 5px 1px #{$shadow-color};
-//     color: #{$shadow-color};
-//   }
-// }
 .photo {
   border-radius: 4px;
   max-width: 30w;
