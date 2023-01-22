@@ -4,6 +4,8 @@ import { useContext } from "react";
 import { CalendarContext } from "../../utils/context/CalendarContext";
 import { ServicesContext } from "../../utils/context/ServicesContext";
 import { UserContext } from "../../utils/context/UserContext";
+import MeetingDetails from "../atoms/MeetingDetails";
+import ButtonLink from "../atoms/buttons/ButtonLink";
 
 const schema = yup.object().shape({
   name: yup.string().required("*Required field"),
@@ -13,11 +15,12 @@ const schema = yup.object().shape({
 });
 const values = { name: "", email: "", phone: "" };
 const BookEvent = () => {
-  const { bookNow, meeting, selectedDay } = useContext(CalendarContext);
+  const { bookNow, meeting, selectedDay, booked, cart } =
+    useContext(CalendarContext);
   const { active } = useContext(ServicesContext);
   const { user } = useContext(UserContext);
   return (
-    <div>
+    <div className="book-event">
       <h3>
         Booking:{" "}
         <strong>
@@ -31,13 +34,8 @@ const BookEvent = () => {
             memory so if you cannot find a new time you can continue below
           </p>
         )}
-      <p>
-        Appointment set for{" "}
-        <strong>
-          {meeting.date} @ {meeting.time.startTime} - {meeting.time.endTime}
-        </strong>
-      </p>
-      <p>Please fill out information bellow</p>
+      <MeetingDetails meeting={meeting} />
+      {/* {cart.length === 0 && booked && <ButtonLink link="checkout" />} */}
       {user.uid ? (
         <div>
           <p>Name: {user.name}</p>
@@ -45,7 +43,10 @@ const BookEvent = () => {
           <p>Phone: {user.phone}</p>
         </div>
       ) : (
-        <Forms data={{ values, schema }} submit={(e) => bookNow(e, meeting)} />
+        <>
+          <p>Please fill out information bellow</p>
+          <Forms data={{ values, schema }} submit={(e) => bookNow(e, meeting)} />
+        </>
       )}
     </div>
   );

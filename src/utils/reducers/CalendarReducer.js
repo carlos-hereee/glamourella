@@ -40,6 +40,12 @@ const updateAppointment = (state, action) => {
     meeting: action.payload,
   };
 };
+const bookEvent = (state, action) => {
+  return {
+    ...state,
+    booked: [...state.booked, action.payload],
+  };
+};
 export const reducer = (state, action) => {
   switch (action.type) {
     case "IS_LOADING":
@@ -56,6 +62,8 @@ export const reducer = (state, action) => {
       return updateCalendar(state, action);
     case "BOOK_NOW":
       return bookNow(state, action);
+    case "BOOK_EVENT":
+      return bookEvent(state, action);
     default:
       return state;
   }
