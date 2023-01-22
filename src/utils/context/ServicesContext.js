@@ -19,6 +19,7 @@ export const ServicesState = ({ children }) => {
         hyperlink: [{ word: "Maiores", link: "/lorem" }],
         isAccessory: false,
         isBookable: true,
+        isBooked: false,
         isForSale: true,
         length: "20 minutes",
         response:
@@ -74,6 +75,24 @@ export const ServicesState = ({ children }) => {
     dispatch({ type: "IS_LOADING", payload: true });
     dispatch({ type: "UPDATE_ACTIVE", payload: active });
   };
+  const bookEvent = (data, cart, service) => {
+    // get
+    // add to booked
+    // dispatch({ type: "BOOK_EVENT", payload: data });
+
+    // notify success
+    addMessageToLog({
+      uid: data.event.uid,
+      success: true,
+      data: {
+        isLink: true,
+        isNav: true,
+        link: "/checkout",
+        word: "checkout",
+        message: "Successfully booked event, would you like to proceed to checkout?",
+      },
+    });
+  };
   return (
     <ServicesContext.Provider
       value={{
@@ -82,6 +101,7 @@ export const ServicesState = ({ children }) => {
         filteredServices: state.filteredServices,
         cart: state.cart,
         active: state.active,
+        bookEvent,
         filterServices,
         addToCart,
         removeFromCart,

@@ -6,16 +6,16 @@ import Icons from "../atoms/Icons";
 const Log = () => {
   const { log, removeMessageFromLog } = useContext(LogContext);
 
-  useEffect(() => {
-    if (log.length > 0) {
-      const intervalId = setInterval(() => {
-        const firstElem = log[0].uid;
-        removeMessageFromLog(firstElem);
-      }, 5000);
-      return () => clearInterval(intervalId);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [log]);
+  // useEffect(() => {
+  //   if (log.length > 0) {
+  //     const intervalId = setInterval(() => {
+  //       const firstElem = log[0].uid;
+  //       removeMessageFromLog(firstElem);
+  //     }, 5000);
+  //     return () => clearInterval(intervalId);
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [log]);
   return (
     log.length > 0 && (
       <div className="log">

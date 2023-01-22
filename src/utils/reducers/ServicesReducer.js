@@ -42,6 +42,13 @@ const removeFromCart = (state, action) => {
     cart: state.cart.filter((c) => c.uid !== action.payload.uid),
   };
 };
+const bookEvent = (state, action) => {
+  return {
+    ...state,
+    isLoading: false,
+    cart: action.payload,
+  };
+};
 export const reducer = (state, action) => {
   switch (action.type) {
     case "IS_LOADING":
@@ -56,6 +63,8 @@ export const reducer = (state, action) => {
       return updateActive(state, action);
     case "UPDATE_SERVICES":
       return updateAssets(state, action);
+    case "BOOK_EVENT":
+      return bookEvent(state, action);
     default:
       return state;
   }

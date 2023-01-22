@@ -6,12 +6,10 @@ const HyperlinkText = ({ data }) => {
       <span>{data.responseArr[0]} </span>
       {data.isNav ? (
         <Link to={data.link} className="link">
-          {" "}
           {data.word}
         </Link>
       ) : (
         <a href={data.link} className="link">
-          {" "}
           {data.word}
         </a>
       )}

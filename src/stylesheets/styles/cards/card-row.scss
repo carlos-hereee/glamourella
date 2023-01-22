@@ -1,6 +1,7 @@
 .row-wrapper {
   display: flex;
   flex-direction: column;
+  text-align: center;
   gap: 1rem;
   padding: 1rem;
   &:hover {
@@ -17,6 +18,8 @@
 }
 .card-row-wrapper {
   position: relative;
+  display: flex;
+  // justify-content: ;
   .cost {
     text-align: right;
     width: 100%;
@@ -31,7 +34,10 @@
   color: #{$text-color3};
   gap: 1rem;
   border-radius: 1rem;
-  width: 100%;
+  .card-row-heading {
+    display: flex;
+    // flex-wrap: wrap;
+  }
   @include devices(mobile) {
     .card-header {
       flex-direction: row;

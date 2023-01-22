@@ -42,8 +42,8 @@
   cursor: pointer;
   // aspect-ratio: 1 / 1;
   max-width: 100px;
-  min-height: 50px;
-  min-width: 50px;
+  min-height: 45px;
+  min-width: 40px;
   // display: flex;
   // padding: 0.5rem;
   padding: 1rem;
@@ -69,9 +69,9 @@
     color: #{$text-color2};
     cursor: not-allowed;
   }
-  // @include devices(mobile) {
-  //   padding: 0.75rem;
-  // }
+  @include devices(mobile) {
+    padding: 0.5rem;
+  }
 }
 // .react-calendar__month-view__days {
 //   display: flex;

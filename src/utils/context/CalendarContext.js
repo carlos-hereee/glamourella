@@ -19,7 +19,7 @@ export const CalendarState = ({ children }) => {
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   const { addMessageToLog } = useContext(LogContext);
-  const { removeFromCart, active } = useContext(ServicesContext);
+  const { bookEvent, cart, active } = useContext(ServicesContext);
   // const getCalendar = async () => {
   //   try {
   //     const { data } = await axiosCalendar.get("/calendar/events");
@@ -77,28 +77,13 @@ export const CalendarState = ({ children }) => {
     try {
       // const { data } = await axiosWithAuth.post("calendar/book", { values, event });
       // console.log("data", data);
-      bookEvent({ values, event });
+      // console.log("event", event);
+      bookEvent({ values, event }, cart, active);
     } catch (error) {
       const data = error.response.data;
       isDev && console.log("data", data);
       addMessageToLog(data);
     }
-  };
-  const bookEvent = (data) => {
-    // add to booked
-    dispatch({ type: "BOOK_EVENT", payload: data });
-    // remove from cart
-    removeFromCart(active, data.event);
-    // notify success
-    addMessageToLog({
-      uid: data.event.uid,
-      success: true,
-      data: {
-        isLink: true,
-        word: "checkout",
-        message: "Successfully booked event, would you like to procced to checkout?",
-      },
-    });
   };
   return (
     <CalendarContext.Provider

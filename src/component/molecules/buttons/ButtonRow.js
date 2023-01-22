@@ -1,12 +1,14 @@
 import Cost from "../../atoms/Cost";
-import CardSection from "../../organisms/CardSection";
 import ReadMore from "../../molecules/ReadMore";
+import CardHeader from "../card/CardHeader";
 
 const ButtonRow = ({ data, click }) => {
   return (
     <button type="button" className="card-row" onClick={() => click(data)}>
-      <CardSection data={data} />
-      {data.response && <ReadMore />}
+      <div className="card-row-heading">
+        <CardHeader data={data} />
+        {data.response && <ReadMore data={data.response} />}
+      </div>
       {data.cost && <Cost cost={data.cost} />}
     </button>
   );

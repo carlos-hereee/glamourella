@@ -15,8 +15,7 @@ const schema = yup.object().shape({
 });
 const values = { name: "", email: "", phone: "" };
 const BookEvent = () => {
-  const { bookNow, meeting, selectedDay, booked, cart } =
-    useContext(CalendarContext);
+  const { bookNow, meeting, selectedDay } = useContext(CalendarContext);
   const { active } = useContext(ServicesContext);
   const { user } = useContext(UserContext);
   return (
