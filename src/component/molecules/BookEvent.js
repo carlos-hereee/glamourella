@@ -16,7 +16,7 @@ const BookEvent = () => {
   const { bookNow, meeting, selectedDay } = useContext(CalendarContext);
   const { active } = useContext(ServicesContext);
   const { user } = useContext(UserContext);
-
+  console.log("meeting", meeting);
   return (
     <div>
       <h3>
@@ -25,16 +25,13 @@ const BookEvent = () => {
           {active.title} {active.subtitle}
         </strong>
       </h3>
-      {selectedDay.hasList ? (
+      {selectedDay.hasList &&
         selectedDay.list.filter((l) => l.uid !== meeting.uid).length > 0 && (
-          <p>{meeting.uid}</p>
-        )
-      ) : (
-        <p className="warning">
-          A new date was selected, your previous appointment has been saved in memory
-          so if you cannot find a new time you can continue below
-        </p>
-      )}{" "}
+          <p className="warning">
+            A new date was selected, your previous appointment has been saved in
+            memory so if you cannot find a new time you can continue below
+          </p>
+        )}
       <p>
         Appointment set for{" "}
         <strong>

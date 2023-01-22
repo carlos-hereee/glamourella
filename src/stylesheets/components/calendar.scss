@@ -41,8 +41,10 @@
 .react-calendar__tile {
   position: relative;
   cursor: pointer;
-  aspect-ratio: 1 / 1;
+  // aspect-ratio: 1 / 1;
   max-width: 100px;
+  min-height: 50px;
+  min-width: 50px;
   // display: flex;
   // padding: 0.5rem;
   padding: 1rem;
