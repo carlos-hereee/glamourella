@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useReducer } from "react";
-import { axiosWithAuth } from "../functions/axios";
+import { axiosWithAuth, getCookie } from "../functions/axios";
 import authReducer from "../reducers/AuthReducer";
 import * as yup from "yup";
 import { isDev } from "../../config";
@@ -38,10 +38,12 @@ export const AuthState = (props) => {
   }, []);
 
   const getAccessToken = async () => {
+    let value = getCookie(process.env.REACT_APP_COOKIE_NAME);
     try {
-      const { data } = await axiosWithAuth.post("/users/refresh-token");
-      // console.log("data", data);
-      dispatch({ type: "SIGNIN_SUCCESS", payload: data });
+      if (value) {
+        const { data } = await axiosWithAuth.post("/users/refresh-token");
+        dispatch({ type: "SIGNIN_SUCCESS", payload: data });
+      }
     } catch (err) {
       const res = err.response;
       isDev && console.log("status", res.status, res.data);

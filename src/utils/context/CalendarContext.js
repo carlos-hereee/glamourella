@@ -14,23 +14,23 @@ export const CalendarState = ({ children }) => {
     events: glamourella.events,
     selectedDay: {},
     meeting: {},
-    book: {},
+    booked: [],
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   const { addMessageToLog } = useContext(LogContext);
-  const getCalendar = async () => {
-    try {
-      const { data } = await axiosCalendar.get("/calendar/events");
-      // console.log("get calendar", data);
-      // updateCalendar(data.events);
-      updateEvents(data);
-      setDay(dateEqual(today, data));
-    } catch (error) {
-      const { status, data } = error.response;
-      isDev && console.log("status", status, data);
-      dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data });
-    }
-  };
+  // const getCalendar = async () => {
+  //   try {
+  //     const { data } = await axiosCalendar.get("/calendar/events");
+  //     // console.log("get calendar", data);
+  //     // updateCalendar(data.events);
+  //     updateEvents(data);
+  //     setDay(dateEqual(today, data));
+  //   } catch (error) {
+  //     const { status, data } = error.response;
+  //     isDev && console.log("status", status, data);
+  //     dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data });
+  //   }
+  // };
 
   const updateEvents = async (events) => {
     dispatch({ type: "IS_LOADING", payload: true });
@@ -74,9 +74,19 @@ export const CalendarState = ({ children }) => {
   const bookNow = async (values, event) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
-      const { data } = await axiosWithAuth.post("calendar/book", { values, event });
-      console.log("data", data);
-      dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data });
+      // const { data } = await axiosWithAuth.post("calendar/book", { values, event });
+      // console.log("data", data);
+      dispatch({ type: "BOOK_EVENT", payload: { values, event } });
+      addMessageToLog({
+        uid: event.uid,
+        success: true,
+        data: {
+          isLink: true,
+          word: "checkout",
+          message:
+            "Successfully booked event, would you like to procced to checkout?",
+        },
+      });
     } catch (error) {
       const data = error.response.data;
       isDev && console.log("data", data);
