@@ -5,6 +5,7 @@ import { reducer } from "../reducers/CalendarReducer";
 import { glamourella, isDev } from "../../config";
 import { dateEqual, today } from "../functions/moment";
 import { LogContext } from "./LogContext";
+import { ServicesContext } from "./ServicesContext";
 
 export const CalendarContext = createContext();
 export const CalendarState = ({ children }) => {
@@ -18,6 +19,7 @@ export const CalendarState = ({ children }) => {
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   const { addMessageToLog } = useContext(LogContext);
+  const { removeFromCart, active } = useContext(ServicesContext);
   // const getCalendar = async () => {
   //   try {
   //     const { data } = await axiosCalendar.get("/calendar/events");
@@ -70,28 +72,33 @@ export const CalendarState = ({ children }) => {
     dispatch({ type: "IS_LOADING", payload: true });
     dispatch({ type: "UPDATE_APPOINTMENT", payload: event });
   };
-
   const bookNow = async (values, event) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
       // const { data } = await axiosWithAuth.post("calendar/book", { values, event });
       // console.log("data", data);
-      dispatch({ type: "BOOK_EVENT", payload: { values, event } });
-      addMessageToLog({
-        uid: event.uid,
-        success: true,
-        data: {
-          isLink: true,
-          word: "checkout",
-          message:
-            "Successfully booked event, would you like to procced to checkout?",
-        },
-      });
+      bookEvent({ values, event });
     } catch (error) {
       const data = error.response.data;
       isDev && console.log("data", data);
       addMessageToLog(data);
     }
+  };
+  const bookEvent = (data) => {
+    // add to booked
+    dispatch({ type: "BOOK_EVENT", payload: data });
+    // remove from cart
+    removeFromCart(active, data.event);
+    // notify success
+    addMessageToLog({
+      uid: data.event.uid,
+      success: true,
+      data: {
+        isLink: true,
+        word: "checkout",
+        message: "Successfully booked event, would you like to procced to checkout?",
+      },
+    });
   };
   return (
     <CalendarContext.Provider

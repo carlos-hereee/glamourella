@@ -1,6 +1,8 @@
 .primary-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   min-height: 60vh;
   gap: 1rem;
   @include devices(mobile) {
