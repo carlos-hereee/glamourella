@@ -9,7 +9,25 @@ export const ServicesState = ({ children }) => {
   const initialState = {
     isLoading: false,
     isFiltered: false,
-    cart: [],
+    cart: [
+      {
+        cost: 15,
+        hasHero: false,
+        hasIcon: false,
+        hasLink: false,
+        hero: { link: "/lorem", name: "lorem ipsum" },
+        hyperlink: [{ word: "Maiores", link: "/lorem" }],
+        isAccessory: false,
+        isBookable: true,
+        isForSale: true,
+        length: "20 minutes",
+        response:
+          "Your nail will be professionally shaped and filed,  cuticle trimmer. Followed by lotion massage and finish with a nail buff or polish.",
+        subtitle: "manicure",
+        title: "classic",
+        uid: "lqXZBMJYsM",
+      },
+    ],
     filteredServices: [],
     active: {},
   };
