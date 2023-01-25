@@ -26,7 +26,7 @@ export const ServicesState = ({ children }) => {
           "Your nail will be professionally shaped and filed,  cuticle trimmer. Followed by lotion massage and finish with a nail buff or polish.",
         subtitle: "manicure",
         title: "classic",
-        uid: "lqXZBMJYsM",
+        uid: "pe-123-di-456-cu-789-re-0000",
       },
     ],
     filteredServices: [],

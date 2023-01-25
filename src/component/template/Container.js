@@ -21,8 +21,8 @@ const Container = ({ filter, filtered, isFiltered, data, cart, link }) => {
       {cart.length > 0 && <ButtonLink link={link} />}
       <div className="card-container">
         {isFiltered
-          ? filtered.map((fg) => <Card data={fg} key={fg.uid} cart={cart} />)
-          : data.sections.map((g) => <Card data={g} key={g.uid} cart={cart} />)}
+          ? filtered.map((fg) => <Card data={fg} key={fg.uid} />)
+          : data.sections.map((g) => <Card data={g} key={g.uid} />)}
       </div>
     </section>
   );

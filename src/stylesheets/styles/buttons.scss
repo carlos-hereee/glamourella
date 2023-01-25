@@ -40,11 +40,12 @@
 .btn-icons {
   display: flex;
   flex-direction: row;
-  gap: 1rem;
   position: relative;
   justify-content: flex-start;
-  box-shadow: 0 1px 5px 1px #{$shadow-color};
+  gap: 1rem;
   flex: 1;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 5px 1px #{$shadow-color};
   background-color: #{$secondary-color2};
   .icon-label {
     flex: 1;

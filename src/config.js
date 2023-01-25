@@ -68,7 +68,7 @@ export const glamourella = {
     hero: { link: "", name: "main-hero" },
     sections: [
       {
-        uid: shortid.generate(),
+        uid: "pe-123-di-456-cu-789-re-0000",
         subtitle: "pedicure",
         hasHero: false,
         hasIcon: false,
