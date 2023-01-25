@@ -10,7 +10,7 @@ import ButtonLink from "../atoms/buttons/ButtonLink";
 const schema = yup.object().shape({
   name: yup.string().required("*Required field"),
   email: yup.string().email().required("*Required field"),
-  recaptcha: yup.string().required("*Required field").nullable(),
+  // recaptcha: yup.string().required("*Required field").nullable(),
   phone: yup.number().required("*Required field"),
 });
 const values = { name: "", email: "", phone: "" };

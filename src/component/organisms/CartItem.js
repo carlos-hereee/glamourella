@@ -23,11 +23,13 @@ const CartItem = ({ data, link }) => {
         cancel.uid === c.uid ? (
           <CancelRow data={c} key={c.uid} click={cancelReq} />
         ) : (
-          <div key={c.uid} className="row-wrapper">
+          <div key={c.uid} className="row-wrapper" id={c.uid}>
             <CardRow data={c} click={handleClick} />
             {c.isBookable && link ? (
               <>
-                <p>Please book a time before proceeding</p>
+                {!c.isBooked && c.isBookingRequired && (
+                  <p className="required">{c.bookingErr}</p>
+                )}
                 <ButtonLink link={link} />
               </>
             ) : (

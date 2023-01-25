@@ -15,12 +15,14 @@ export const ServicesState = ({ children }) => {
         hasHero: false,
         hasIcon: false,
         hasLink: false,
-        hero: { link: "/lorem", name: "lorem ipsum" },
-        hyperlink: [{ word: "Maiores", link: "/lorem" }],
         isAccessory: false,
         isBookable: true,
         isBooked: false,
         isForSale: true,
+        isBookingRequired: false,
+        hero: { link: "/lorem", name: "lorem ipsum" },
+        hyperlink: [{ word: "Maiores", link: "/lorem" }],
+        bookingErr: "",
         length: "20 minutes",
         response:
           "Your nail will be professionally shaped and filed,  cuticle trimmer. Followed by lotion massage and finish with a nail buff or polish.",
@@ -93,6 +95,15 @@ export const ServicesState = ({ children }) => {
       },
     });
   };
+  const bookingRequired = (idx, payload) => {
+    // const idx =
+    const data = {
+      ...payload,
+      isBookingRequired: true,
+      bookingErr: "Please book a time before proceeding",
+    };
+    dispatch({ type: "BOOK_REQUIRED", payload: { idx, data } });
+  };
   return (
     <ServicesContext.Provider
       value={{
@@ -106,6 +117,7 @@ export const ServicesState = ({ children }) => {
         addToCart,
         removeFromCart,
         setActive,
+        bookingRequired,
       }}>
       {children}
     </ServicesContext.Provider>
