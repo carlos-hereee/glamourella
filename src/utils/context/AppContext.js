@@ -8,13 +8,13 @@ export const AppContext = createContext();
 export const AppState = ({ children }) => {
   const initialState = {
     isLoading: false,
-    glamourella: [],
     menu: glamourella.menu,
     schedule: glamourella.schedule,
     socials: glamourella.socials,
     about: glamourella.about,
     services: glamourella.services,
     gallery: glamourella.gallery,
+    paymentMethods: [],
     burger: { notification: 0 },
     app: {
       title: "Glamour Beauty Collection",
@@ -65,7 +65,6 @@ export const AppState = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
-        glamourella: state.glamourella,
         isLoading: state.isLoading,
         socials: state.socials,
         about: state.about,
@@ -75,6 +74,7 @@ export const AppState = ({ children }) => {
         burger: state.burger,
         gallery: state.gallery,
         app: state.app,
+        paymentMethods: state.paymentMethods,
         updateBurger,
         updateMenu,
         newsletter,

@@ -4,10 +4,12 @@ import CartEmpty from "../component/molecules/empty/CartEmpty";
 import CartItem from "../component/organisms/CartItem";
 import CustomLink from "../component/atoms/CustomLink";
 import { scrollToCartItem } from "../utils/functions/calendar";
+import PaymentMethods from "../component/organisms/PaymentMethods";
 
 const Checkout = () => {
   const { cart, bookingRequired } = useContext(ServicesContext);
   const [total, setTotal] = useState(0);
+  const [proceedWithCheckout, setProceedWithCheckout] = useState(false);
 
   useEffect(() => {
     if (cart.length > 0) {
@@ -29,7 +31,7 @@ const Checkout = () => {
       });
       // scroll to first instance
       scrollToCartItem(isBookingRequired[0]);
-    }
+    } else setProceedWithCheckout(true);
   };
   return (
     <section className="secondary-container">
@@ -48,8 +50,13 @@ const Checkout = () => {
       )}
       <h4>Total ${total}</h4>
       <button type="button" className="btn btn-classic" onClick={handleClick}>
-        Pay now
+        Proceed With Checkout
       </button>
+      {proceedWithCheckout && (
+        <div>
+          <PaymentMethods />
+        </div>
+      )}
     </section>
   );
 };

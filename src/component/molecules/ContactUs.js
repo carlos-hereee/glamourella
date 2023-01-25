@@ -14,9 +14,8 @@ const values = { name: "", email: "", message: "" };
 const ContactUs = () => {
   const { contactUs } = useContext(CalendarContext);
   const { socials } = useContext(AppContext);
-  // const socials = ;
   return (
-    <section className="primary-container">
+    <section className="secondary-container">
       <h3>Contact Us</h3>
       <Forms data={{ values, schema, onSubmit: contactUs }} />
       <FollowUs socials={socials} />
