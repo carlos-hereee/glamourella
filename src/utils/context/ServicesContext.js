@@ -77,14 +77,19 @@ export const ServicesState = ({ children }) => {
     dispatch({ type: "IS_LOADING", payload: true });
     dispatch({ type: "UPDATE_ACTIVE", payload: active });
   };
-  const bookEvent = (data, cart, service) => {
-    // get
-    // add to booked
-    // dispatch({ type: "BOOK_EVENT", payload: data });
-
+  const bookEvent = (eventData, cart, idx) => {
+    // add  booked
+    const data = {
+      ...cart[idx],
+      isBookingRequired: false,
+      isBooked: true,
+      bookingErr: "",
+      meeting: eventData.meeting,
+    };
+    dispatch({ type: "BOOK_REQUIRED", payload: { idx, data } });
     // notify success
     addMessageToLog({
-      uid: data.event.uid,
+      uid: eventData.meeting.uid,
       success: true,
       data: {
         isLink: true,

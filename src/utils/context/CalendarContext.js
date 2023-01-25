@@ -72,15 +72,19 @@ export const CalendarState = ({ children }) => {
     dispatch({ type: "IS_LOADING", payload: true });
     dispatch({ type: "UPDATE_APPOINTMENT", payload: event });
   };
-  const bookNow = async (values, event) => {
+  const bookNow = async (values, meeting) => {
     dispatch({ type: "IS_LOADING", payload: true });
     try {
       // const { data } = await axiosWithAuth.post("calendar/book", { values, event });
       // console.log("data", data);
-      // console.log("event", event);
-      bookEvent({ values, event }, cart, active);
+      const isFilter = cart.filter((c) => c.uid === active.uid);
+      if (isFilter.length > 0) {
+        const idx = cart.findIndex((c) => c.uid === active.uid);
+        bookEvent({ values, meeting }, cart, idx);
+      }
     } catch (error) {
-      const data = error.response.data;
+      // const data = error.response.data;
+      const data = error;
       isDev && console.log("data", data);
       addMessageToLog(data);
     }

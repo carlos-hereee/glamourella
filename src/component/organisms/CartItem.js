@@ -5,6 +5,7 @@ import CancelRow from "../molecules/card/CancelRow";
 import OpenAppButton from "../atoms/buttons/OpenAppButton";
 import ButtonLink from "../atoms/buttons/ButtonLink";
 import { CalendarContext } from "../../utils/context/CalendarContext";
+import MeetingDetails from "../atoms/MeetingDetails";
 
 const CartItem = ({ data, link }) => {
   const { removeFromCart, setActive, active } = useContext(ServicesContext);
@@ -30,7 +31,11 @@ const CartItem = ({ data, link }) => {
                 {!c.isBooked && c.isBookingRequired && (
                   <p className="required">{c.bookingErr}</p>
                 )}
-                <ButtonLink link={link} />
+                {c.isBooked ? (
+                  <MeetingDetails meeting={c.meeting} />
+                ) : (
+                  <ButtonLink link={link} />
+                )}
               </>
             ) : (
               !selectedDay.hasList && <OpenAppButton service={c} />
