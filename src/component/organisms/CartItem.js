@@ -27,16 +27,14 @@ const CartItem = ({ data, link }) => {
           <div key={c.uid} className="row-wrapper" id={c.uid}>
             <CardRow data={c} click={handleClick} />
             {c.isBookable && link ? (
-              <>
-                {!c.isBooked && c.isBookingRequired && (
+              !c.isBooked && c.isBookingRequired ? (
+                <>
                   <p className="required">{c.bookingErr}</p>
-                )}
-                {c.isBooked ? (
-                  <MeetingDetails meeting={c.meeting} />
-                ) : (
                   <ButtonLink link={link} />
-                )}
-              </>
+                </>
+              ) : (
+                <MeetingDetails meeting={c.meeting} />
+              )
             ) : (
               !selectedDay.hasList && <OpenAppButton service={c} />
             )}
