@@ -4,6 +4,7 @@ import Forms from "../organisms/Forms";
 import { CalendarContext } from "../../utils/context/CalendarContext";
 import FollowUs from "./FollowUs";
 import { AppContext } from "../../utils/context/AppContext";
+import CardHeader from "./card/CardHeader";
 
 const schema = yup.object().shape({
   name: yup.string().required("*Required field"),
@@ -13,10 +14,10 @@ const schema = yup.object().shape({
 const values = { name: "", email: "", message: "" };
 const ContactUs = () => {
   const { contactUs } = useContext(CalendarContext);
-  const { socials } = useContext(AppContext);
+  const { socials, contact } = useContext(AppContext);
   return (
     <section className="secondary-container">
-      <h3>Contact Us</h3>
+      <CardHeader data={contact} />
       <Forms data={{ values, schema, onSubmit: contactUs }} />
       <FollowUs socials={socials} />
     </section>

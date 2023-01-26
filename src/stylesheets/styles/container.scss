@@ -15,8 +15,8 @@
   flex-direction: column;
   background-color: #{$text-color};
   min-height: 60vh;
+  width: 100%;
   gap: 1rem;
-  padding: 1rem;
   @include devices(mobile) {
     width: auto;
   }

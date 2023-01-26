@@ -6,9 +6,12 @@ import CustomLink from "../component/atoms/CustomLink";
 import { scrollToCartItem } from "../utils/functions/calendar";
 import PaymentMethods from "../component/organisms/PaymentMethods";
 import ButtonLinkNavigation from "../component/molecules/buttons/ButtonLinkNavigation";
+import CardHeader from "../component/molecules/card/CardHeader";
+import { AppContext } from "../utils/context/AppContext";
 
 const Checkout = () => {
   const { cart, bookingRequired } = useContext(ServicesContext);
+  const { checkout } = useContext(AppContext);
   const [total, setTotal] = useState(0);
   const [proceedWithCheckout, setProceedWithCheckout] = useState(false);
 
@@ -37,23 +40,23 @@ const Checkout = () => {
   };
   return (
     <section className="secondary-container">
-      <h3>Check Out</h3>
+      <CardHeader data={checkout} />
       <ButtonLinkNavigation links={["services", "accessories"]} />
       {cart.length > 0 && (
-        <>
+        <div className="card-body">
           <CartItem data={cart} link="booking" />
           <h4>Total ${total}</h4>
-        </>
-      )}
-      {proceedWithCheckout ? (
-        <div>
-          <PaymentMethods />
         </div>
-      ) : (
-        <button type="button" className="btn btn-classic" onClick={handleClick}>
-          Proceed With Checkout
-        </button>
       )}
+      <div className="card-footer">
+        {proceedWithCheckout ? (
+          <PaymentMethods />
+        ) : (
+          <button type="button" className="btn btn-classic" onClick={handleClick}>
+            Proceed With Checkout
+          </button>
+        )}
+      </div>
     </section>
   );
 };

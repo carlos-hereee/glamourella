@@ -44,8 +44,9 @@
   // width: 100%;
   display: flex;
   justify-content: space-around;
-  gap: 1rem;
   flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0 1rem;
   color: #{$text-color};
 }
 .nav-link {

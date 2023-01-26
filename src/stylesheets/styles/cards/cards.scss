@@ -10,7 +10,7 @@
     border-radius: 1rem;
     width: 100%;
   }
-  &:has(> .ribbon) {
+  &:has(> div > .ribbon) {
     position: relative;
     border-color: #{$shadow-color2};
     box-shadow: 0 1px 5px 1px #{$shadow-color2};
@@ -31,6 +31,7 @@
 .card-header {
   display: flex;
   flex-direction: column;
+  padding: 1rem;
   gap: 1rem;
 }
 .card-header-heading {
@@ -38,12 +39,10 @@
 }
 .card-body {
   display: flex;
-  // flex: 1;
   flex-direction: column;
-  // justify-content: center;
-  width: 100%;
   flex-wrap: wrap;
   gap: 1rem;
+  padding: 1rem;
   &:has(> .btn-primary) {
     justify-content: space-between;
     .btn-primary {
@@ -52,8 +51,9 @@
   }
 }
 .card-footer {
-  width: 100%;
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
 }
 .secondary-card-body {
   display: flex;

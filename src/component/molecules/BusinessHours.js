@@ -1,7 +1,13 @@
-const BusinessHours = ({ data }) => {
+import { useContext } from "react";
+import { AppContext } from "../../utils/context/AppContext";
+import CardHeader from "./card/CardHeader";
+
+const BusinessHours = () => {
+  const { schedule } = useContext(AppContext);
   return (
     <div className="card">
-      <h4>Business Hours</h4>
+      {/* <h4>Business Hours</h4> */}
+      <CardHeader data={schedule} />
       <table className="responsive-table">
         <thead>
           <tr className="table-header">
@@ -10,7 +16,7 @@ const BusinessHours = ({ data }) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((b) => (
+          {schedule.hours.map((b) => (
             <tr className="responsive-table-item" key={b.key}>
               <th className="left-header">{b.day}</th>
               <td className="responsive-table-cell">
