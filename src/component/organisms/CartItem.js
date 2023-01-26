@@ -36,7 +36,7 @@ const CartItem = ({ data, link }) => {
                 <MeetingDetails meeting={c.meeting} />
               )
             ) : (
-              !selectedDay.hasList && <OpenAppButton service={c} />
+              !selectedDay.hasList && !c.isAccessory && <OpenAppButton service={c} />
             )}
           </div>
         )

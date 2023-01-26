@@ -127,7 +127,7 @@
   z-index: 2;
   top: 25%;
   margin: 0 1rem;
-
+  flex: 1;
   border-radius: 0.5rem;
   &:hover {
     color: #{$text-color3};

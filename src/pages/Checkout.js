@@ -32,17 +32,21 @@ const Checkout = () => {
     <section className="secondary-container">
       <CardHeader data={checkout} />
       <ButtonLinkNavigation links={["services", "accessories"]} />
-      {cart.length > 0 && (
+      {cart.length > 0 ? (
         <div className="card-body">
           <CartItem data={cart} link="booking" />
         </div>
+      ) : (
+        <p className="empty">Your cart is empty head to Services or Accessory</p>
       )}
       {proceedWithCheckout ? (
         <PaymentMethods />
       ) : (
-        <button type="button" className="btn btn-classic" onClick={handleClick}>
-          Proceed With Checkout
-        </button>
+        cart.length > 0 && (
+          <button type="button" className="btn btn-classic" onClick={handleClick}>
+            Proceed With Checkout
+          </button>
+        )
       )}
     </section>
   );
