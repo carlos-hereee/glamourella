@@ -9,6 +9,7 @@ const PaymentMethods = () => {
   };
   return (
     <div>
+      <p>Please select a payment method</p>
       <nav className="navbar">
         {paymentMethods.map((p) => (
           <Buttons handleClick={() => handleClick(p)} key={p.uid} name={p.icon} />
