@@ -1,14 +1,11 @@
 import { getIn, useFormik } from "formik";
-import Icons from "../atoms/Icons";
 
-const Field = ({ data, submit, max, change }) => {
+const Field = ({ data, max, change }) => {
   const types = {
     quantity: "number",
   };
-
   const { handleSubmit, handleBlur, handleChange, values, errors } = useFormik({
     initialValues: data.values,
-    onSubmit: (e) => submit(e),
     validationSchema: data.schema,
   });
   const handleOnChange = (e) => {
@@ -37,9 +34,6 @@ const Field = ({ data, submit, max, change }) => {
           />
         </div>
       ))}
-      <button type="submit" className="btn btn-classic">
-        <Icons name="submit" /> SEND
-      </button>
     </form>
   );
 };

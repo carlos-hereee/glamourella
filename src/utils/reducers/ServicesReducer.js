@@ -58,6 +58,13 @@ const bookRequired = (state, action) => {
     ),
   };
 };
+const updateItemQuantity = (state, action) => {
+  return {
+    ...state,
+    isLoading: false,
+    cart: state.cart.map((c) => (c.uid === action.payload.uid ? action.payload : c)),
+  };
+};
 export const reducer = (state, action) => {
   switch (action.type) {
     case "IS_LOADING":
@@ -76,6 +83,8 @@ export const reducer = (state, action) => {
       return bookEvent(state, action);
     case "BOOK_REQUIRED":
       return bookRequired(state, action);
+    case "UPDATE_ITEM_QUANTITY":
+      return updateItemQuantity(state, action);
     default:
       return state;
   }

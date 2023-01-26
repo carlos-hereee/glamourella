@@ -9,14 +9,14 @@ const PaymentMethods = () => {
   const [total, setTotal] = useState(0);
   const { cart } = useContext(ServicesContext);
 
-  useEffect(() => {
-    if (cart.length > 0) {
-      let cost = cart.reduce((a, b) => {
-        return a + b.cost;
-      }, 0);
-      setTotal(cost);
-    }
-  }, [cart]);
+  // useEffect(() => {
+  //   if (cart.length > 0) {
+  //     let cost = cart.reduce((a, b) => {
+  //       return a + b.cost;
+  //     }, 0);
+  //     setTotal(cost);
+  //   }
+  // }, [cart]);
   const handleClick = (e) => {
     selectPaymentType(e);
   };

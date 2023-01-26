@@ -40,6 +40,12 @@
   gap: 1rem;
   .form {
     padding: 0;
+    padding-top: 1rem;
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
     input {
       padding: 0.5rem 0 0.5rem 1rem;
     }
@@ -49,8 +55,7 @@
   }
   .cost {
     flex: 1;
-    text-align: right;
-    min-width: fit-content;
+    min-width: 6rem;
   }
 }
 .empty {

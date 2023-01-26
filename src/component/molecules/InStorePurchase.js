@@ -10,10 +10,8 @@ import Field from "../organisms/Field";
 const schema = yup.object().shape({ quantity: yup.number() });
 const values = { quantity: 1 };
 const InStorePurchase = () => {
-  const { cart, quantityChange } = useContext(ServicesContext);
+  const { cart, onQuantityChange } = useContext(ServicesContext);
 
-  const handleSubmit = (quantity, item) => console.log("e", quantity, item);
-  const handleChange = (quantity, item) => console.log("e", quantity, item);
   return (
     <div className="secondary-card-section">
       <CardHeader
@@ -30,12 +28,11 @@ const InStorePurchase = () => {
             {c.isAccessory && (
               <Field
                 data={{ values, schema }}
-                submit={(e) => handleSubmit(e, c)}
                 max={c.inStock}
-                change={(e) => handleChange(e, c)}
+                change={({ target }) => onQuantityChange(target.value, c)}
               />
             )}
-            <Cost cost={c.cost} />
+            {c.cost && c.count && <Cost cost={c.cost * c.count} />}
           </div>
         ))}
       </div>
