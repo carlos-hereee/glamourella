@@ -75,4 +75,7 @@
 .details {
   display: flex;
   gap: 1rem;
+  .read-more-wrapper {
+    max-width: 350px;
+  }
 }

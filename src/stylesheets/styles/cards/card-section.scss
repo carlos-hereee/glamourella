@@ -37,10 +37,10 @@
 }
 .card-section-row {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   .form {
     padding: 0;
-    padding-top: 1rem;
     .field {
       display: flex;
       flex-direction: column;
@@ -53,10 +53,22 @@
       margin: 0;
     }
   }
-  .cost {
+  .details-wrapper {
+    flex: 3;
+  }
+  .card-section-cost {
+    display: flex;
+    justify-content: flex-end;
     flex: 1;
+    gap: 0.5rem;
+  }
+  .cost {
+    display: flex;
+    justify-content: flex-end;
     min-width: 6rem;
-    text-align: right;
+    @include devices(mobile) {
+      align-items: flex-end;
+    }
   }
 }
 .empty {
