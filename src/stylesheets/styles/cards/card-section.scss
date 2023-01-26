@@ -53,9 +53,7 @@
       margin: 0;
     }
   }
-  .details-wrapper {
-    flex: 3;
-  }
+
   .card-section-cost {
     display: flex;
     justify-content: flex-end;
@@ -73,4 +71,26 @@
 }
 .empty {
   text-align: center;
+}
+.details-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+  .in-stock {
+    padding: 0.5rem 0;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+.details {
+  display: flex;
+  // align-items: flex-start;
+  // justify-content: flex-start;
+  gap: 1rem;
+  .card-header {
+    padding: 0;
+  }
+  .read-more-wrapper {
+    max-width: 350px;
+  }
 }

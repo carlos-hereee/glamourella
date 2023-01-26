@@ -1,8 +1,6 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { ServicesContext } from "../utils/context/ServicesContext";
-import CartEmpty from "../component/molecules/empty/CartEmpty";
 import CartItem from "../component/organisms/CartItem";
-import CustomLink from "../component/atoms/CustomLink";
 import { scrollToCartItem } from "../utils/functions/calendar";
 import PaymentMethods from "../component/organisms/PaymentMethods";
 import ButtonLinkNavigation from "../component/molecules/buttons/ButtonLinkNavigation";
@@ -31,22 +29,23 @@ const Checkout = () => {
   return (
     <section className="secondary-container">
       <CardHeader data={checkout} />
-      <ButtonLinkNavigation links={["services", "accessories"]} />
-      {cart.length > 0 ? (
-        <div className="card-body">
-          <CartItem data={cart} link="booking" />
-        </div>
-      ) : (
-        <p className="empty">Your cart is empty head to Services or Accessory</p>
-      )}
       {proceedWithCheckout ? (
         <PaymentMethods />
+      ) : cart.length > 0 ? (
+        <>
+          <ButtonLinkNavigation links={["services", "accessories"]} />
+          <div className="card-body">
+            <CartItem data={cart} link="booking" />
+            <button type="button" className="btn btn-classic" onClick={handleClick}>
+              Proceed With Checkout
+            </button>
+          </div>
+        </>
       ) : (
-        cart.length > 0 && (
-          <button type="button" className="btn btn-classic" onClick={handleClick}>
-            Proceed With Checkout
-          </button>
-        )
+        <>
+          <ButtonLinkNavigation links={["services", "accessories"]} />
+          <p className="empty">Your cart is empty head to Services or Accessory</p>
+        </>
       )}
     </section>
   );

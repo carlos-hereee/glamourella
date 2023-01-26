@@ -101,7 +101,7 @@ export const glamourella = {
         isForSale: true,
         isBookable: true,
         isAccessory: false,
-        inStock: random100(100),
+        count: 1,
         hyperlink: [{ word: "Maiores", link: "/lorem" }],
         //link:
         //   process.env.REACT_APP_DB_URL +
@@ -122,7 +122,7 @@ export const glamourella = {
         isForSale: true,
         isBookable: true,
         isAccessory: false,
-        inStock: random100(100),
+        count: 1,
         subtitle: "pedicure",
         //link:
         //   process.env.REACT_APP_DB_URL +
@@ -140,7 +140,7 @@ export const glamourella = {
         isForSale: true,
         isBookable: true,
         isAccessory: false,
-        inStock: random100(100),
+        count: 1,
         hero: { link: "/lorem", name: "lorem ipsum" },
         hasLink: false,
         hyperlink: [{ word: "Maiores", link: "/lorem" }],
@@ -163,7 +163,7 @@ export const glamourella = {
         isForSale: true,
         isBookable: true,
         isAccessory: false,
-        inStock: random100(100),
+        count: 1,
         hyperlink: [{ word: "Maiores", link: "/lorem" }],
         subtitle: "manicure",
         //link:
@@ -184,7 +184,7 @@ export const glamourella = {
         isForSale: true,
         isBookable: true,
         isAccessory: false,
-        inStock: random100(100),
+        count: 1,
         hasLink: false,
         hyperlink: [{ word: "Maiores", link: "/lorem" }],
         //link:
@@ -756,15 +756,6 @@ export const glamourella = {
       type: "credit",
       name: "Credit visa",
       icon: "credit-visa",
-      isCash: false,
-      isCreditCard: true,
-      isDebitCard: false,
-    },
-    {
-      uid: shortid.generate(),
-      type: "cash-app",
-      name: "Cash app",
-      icon: "cash-app",
       isCash: false,
       isCreditCard: true,
       isDebitCard: false,

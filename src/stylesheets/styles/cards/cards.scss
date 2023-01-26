@@ -40,7 +40,6 @@
 .card-body {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   gap: 1rem;
   padding: 1rem;
   &:has(> .btn-primary) {
@@ -55,6 +54,9 @@
   justify-content: center;
   flex-direction: column;
   padding: 1rem;
+  .card-header {
+    padding: 0;
+  }
   .navbar {
     padding: 0;
   }

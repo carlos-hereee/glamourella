@@ -63,19 +63,3 @@
   padding: 0.5rem;
   margin: auto;
 }
-.details-wrapper {
-  display: flex;
-  flex-direction: column;
-  .in-stock {
-    padding: 0.5rem 0;
-    display: flex;
-    justify-content: flex-end;
-  }
-}
-.details {
-  display: flex;
-  gap: 1rem;
-  .read-more-wrapper {
-    max-width: 350px;
-  }
-}

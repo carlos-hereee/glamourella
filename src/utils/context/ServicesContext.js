@@ -1,6 +1,7 @@
 import { createContext, useReducer, useContext } from "react";
 import { reducer } from "../reducers/ServicesReducer";
 import { LogContext } from "./LogContext";
+import { UserContext } from "./UserContext";
 
 export const ServicesContext = createContext();
 export const ServicesState = ({ children }) => {
@@ -47,6 +48,7 @@ export const ServicesState = ({ children }) => {
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   const { addMessageToLog } = useContext(LogContext);
+  const { updateUserData, user } = useContext(UserContext);
 
   const addToCart = (service) => {
     dispatch({ type: "ADD_TO_CART", payload: service });
@@ -83,6 +85,8 @@ export const ServicesState = ({ children }) => {
       meeting: eventData.meeting,
     };
     dispatch({ type: "BOOK_REQUIRED", payload: { idx, data } });
+    // add user data to user if not exists
+    if (!user.uid) updateUserData(eventData.values);
     // notify success
     addMessageToLog({
       uid: eventData.meeting.uid,

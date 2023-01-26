@@ -36,6 +36,9 @@ export const UserState = ({ children }) => {
       dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: data });
     }
   };
+  const updateUserData = (data) => {
+    dispatch({ type: "UPDATE_USER_DATA", payload: data });
+  };
   return (
     <UserContext.Provider
       value={{
@@ -44,6 +47,7 @@ export const UserState = ({ children }) => {
         booked: state.booked,
         admin: state.admin,
         // getUserData,
+        updateUserData,
       }}>
       {children}
     </UserContext.Provider>

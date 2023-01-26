@@ -2,13 +2,13 @@ import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../utils/context/AppContext";
 import { ServicesContext } from "../../utils/context/ServicesContext";
 import Buttons from "../molecules/buttons/Buttons";
-import InStorePurchase from "../molecules/InStorePurchase";
-import * as yup from "yup";
 import AccessoryDetails from "../atoms/AccessoryDetails";
 import MeetingDetails from "../atoms/MeetingDetails";
 import Cost from "../atoms/Cost";
 import Field from "./Field";
 import CardHeader from "../molecules/card/CardHeader";
+import * as yup from "yup";
+import { scrollToCartItem } from "../../utils/functions/calendar";
 
 const schema = yup.object().shape({ quantity: yup.number() });
 const values = { quantity: 1 };
@@ -30,10 +30,16 @@ const PaymentMethods = () => {
     selectPaymentType(e);
   };
 
+  const handleSubmit = () => {
+    // confirm payment data enter is correct
+    if (paymentType.uid) {
+      // enter all data about checkout
+    } else scrollToCartItem({ uid: "required" });
+  };
   return (
     <div className="card-footer">
       {!paymentType.uid && (
-        <p className="required">
+        <p className="required" id="required">
           <strong>Please select a payment method</strong>
         </p>
       )}
@@ -49,7 +55,12 @@ const PaymentMethods = () => {
             {c.isAccessory ? (
               <AccessoryDetails data={c} />
             ) : (
-              <MeetingDetails meeting={c.meeting} />
+              <div className="details-wrapper">
+                <div className="details">
+                  <CardHeader data={c} />
+                  <MeetingDetails data={c} meeting={c.meeting} />
+                </div>
+              </div>
             )}
             <div className="card-section-cost">
               {c.isAccessory && (
@@ -65,7 +76,9 @@ const PaymentMethods = () => {
         ))}
       </div>
       <h3 className="total">Total ${total}</h3>
-      {/* {paymentType.uid && payment[paymentType.type]} */}
+      <button className="btn btn-green" type="button" onClick={handleSubmit}>
+        Confirm
+      </button>
     </div>
   );
 };

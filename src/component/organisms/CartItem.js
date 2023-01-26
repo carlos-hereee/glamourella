@@ -33,7 +33,7 @@ const CartItem = ({ data, link }) => {
                   <ButtonLink link={link} />
                 </>
               ) : (
-                <MeetingDetails meeting={c.meeting} />
+                c.meeting.uid && <MeetingDetails meeting={c.meeting} />
               )
             ) : (
               !selectedDay.hasList && !c.isAccessory && <OpenAppButton service={c} />
