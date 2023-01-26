@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { createContext, useReducer } from "react";
 import shortid from "shortid";
+import { formatDate, formatTime } from "../functions/moment";
 import { reducer } from "../reducers/ServicesReducer";
 import { LogContext } from "./LogContext";
 
@@ -17,7 +18,7 @@ export const ServicesState = ({ children }) => {
         hasLink: false,
         isAccessory: false,
         isBookable: true,
-        isBooked: false,
+        isBooked: true,
         isForSale: true,
         isBookingRequired: false,
         hero: { link: "/lorem", name: "lorem ipsum" },
@@ -29,6 +30,19 @@ export const ServicesState = ({ children }) => {
         subtitle: "manicure",
         title: "classic",
         uid: "pe-123-di-456-cu-789-re-0000",
+        meeting: {
+          uid: shortid.generate(),
+          response: "9am - 10am",
+          isOpen: false,
+          hasHero: false,
+          hasLink: false,
+          date: formatDate(new Date()),
+          time: {
+            startTime: formatTime(new Date().setHours(9, 0, 0)).toString(),
+            endTime: formatTime(new Date().setHours(10, 0, 0)).toString(),
+          },
+          attendees: {},
+        },
       },
     ],
     filteredServices: [],

@@ -28,12 +28,12 @@ const CartItem = ({ data, link }) => {
             <CardRow data={c} click={handleClick} />
             {c.isBookable && link ? (
               c.isBooked && c.isBookingRequired ? (
-                <MeetingDetails meeting={c.meeting} />
-              ) : (
                 <>
                   <p className="required">{c.bookingErr}</p>
                   <ButtonLink link={link} />
                 </>
+              ) : (
+                <MeetingDetails meeting={c.meeting} />
               )
             ) : (
               !selectedDay.hasList && <OpenAppButton service={c} />

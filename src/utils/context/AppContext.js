@@ -14,7 +14,7 @@ export const AppState = ({ children }) => {
     about: glamourella.about,
     services: glamourella.services,
     gallery: glamourella.gallery,
-    paymentMethods: [],
+    paymentMethods: glamourella.paymentMethods,
     burger: { notification: 0 },
     app: {
       title: "Glamour Beauty Collection",

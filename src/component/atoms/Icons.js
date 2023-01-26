@@ -1,4 +1,4 @@
-import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { faCcVisa, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import {
   fa0,
   fa1,
@@ -26,11 +26,13 @@ import {
   faInfo,
   faLeftLong,
   faListCheck,
+  faMoneyBill,
   faPaperPlane,
   faShoePrints,
   faShoppingCart,
   faSpinner,
   faSquareCheck,
+  faStore,
   faUpLong,
   faUsd,
   faUser,
@@ -68,6 +70,10 @@ const svg = {
   top: faUpLong,
   spinner: faSpinner,
   circle: faCircleNotch,
+  store: faStore,
+  "credit-visa": faCcVisa,
+  "debit-visa": faCcVisa,
+  "cash-app": faMoneyBill,
   x: faX,
   1: fa1,
   2: fa2,

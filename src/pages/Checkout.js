@@ -23,6 +23,7 @@ const Checkout = () => {
   const handleClick = () => {
     const isBookingRequired = cart.filter((c) => c.isBookable && !c.isBooked);
     if (isBookingRequired.length > 0) {
+      setProceedWithCheckout(false);
       isBookingRequired.forEach((br) => {
         const idx = cart.findIndex((c) => c.uid === br.uid);
         if (idx !== -1) {
