@@ -19,6 +19,7 @@ export const AppState = ({ children }) => {
     footerNewsletter: glamourella.footerNewsletter,
     paymentMethods: glamourella.paymentMethods,
     burger: { notification: 0 },
+    paymentType: {},
     app: {
       title: "Glamour Beauty Collection",
       link: require("../../assets/glamour-logo.jpg"),
@@ -64,6 +65,9 @@ export const AppState = ({ children }) => {
       dispatch({ type: "ADD_MESSAGE_TO_LOG", payload: true });
     }
   };
+  const selectPaymentType = (method) => {
+    dispatch({ type: "SELECT_PAYMENT_TYPE", payload: method });
+  };
 
   return (
     <AppContext.Provider
@@ -81,9 +85,11 @@ export const AppState = ({ children }) => {
         footerNewsletter: state.footerNewsletter,
         app: state.app,
         paymentMethods: state.paymentMethods,
+        paymentType: state.paymentType,
         updateBurger,
         updateMenu,
         newsletter,
+        selectPaymentType,
       }}>
       {children}
     </AppContext.Provider>

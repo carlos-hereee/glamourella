@@ -48,6 +48,13 @@ const updateBurger = (state, action) => {
     burger: action.payload,
   };
 };
+const selectPaymentType = (state, action) => {
+  return {
+    ...state,
+    isLoading: false,
+    paymentType: action.payload,
+  };
+};
 export const reducer = (state, action) => {
   switch (action.type) {
     case "IS_LOADING":
@@ -60,6 +67,8 @@ export const reducer = (state, action) => {
       return loadAssets(state, action);
     case "UPDATE_BURGER":
       return updateBurger(state, action);
+    case "SELECT_PAYMENT_TYPE":
+      return selectPaymentType(state, action);
     default:
       return state;
   }

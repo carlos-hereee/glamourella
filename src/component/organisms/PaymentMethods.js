@@ -1,11 +1,16 @@
 import { useContext } from "react";
 import { AppContext } from "../../utils/context/AppContext";
 import Buttons from "../molecules/buttons/Buttons";
+import InStorePurchase from "../molecules/InStorePurchase";
 
 const PaymentMethods = () => {
-  const { paymentMethods } = useContext(AppContext);
+  const { paymentMethods, selectPaymentType, paymentType } = useContext(AppContext);
   const handleClick = (e) => {
-    console.log("e", e);
+    selectPaymentType(e);
+  };
+
+  const payment = {
+    "in-store": <InStorePurchase />,
   };
   return (
     <div>
@@ -15,6 +20,7 @@ const PaymentMethods = () => {
           <Buttons handleClick={() => handleClick(p)} key={p.uid} name={p.icon} />
         ))}
       </nav>
+      {paymentType.uid && payment[paymentType.type]}
     </div>
   );
 };

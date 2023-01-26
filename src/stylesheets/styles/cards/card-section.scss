@@ -25,3 +25,14 @@
   display: flex;
   letter-spacing: 4px;
 }
+.secondary-card-section {
+  padding: 1rem;
+}
+.card-section-row {
+  display: flex;
+  gap: 1rem;
+  .cost {
+    min-width: fit-content;
+    padding: 0 1rem;
+  }
+}
