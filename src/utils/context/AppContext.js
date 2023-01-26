@@ -73,6 +73,9 @@ export const AppState = ({ children }) => {
     };
     dispatch({ type: "SELECT_PAYMENT_TYPE", payload: data });
   };
+  const checkout = (paymentType, user, cart) => {
+    console.log("paymentType, user, cart", paymentType, user, cart);
+  };
 
   return (
     <AppContext.Provider

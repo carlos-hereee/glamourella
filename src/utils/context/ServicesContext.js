@@ -1,4 +1,5 @@
 import { createContext, useReducer, useContext } from "react";
+import shortid from "shortid";
 import { reducer } from "../reducers/ServicesReducer";
 import { LogContext } from "./LogContext";
 import { UserContext } from "./UserContext";
@@ -86,7 +87,7 @@ export const ServicesState = ({ children }) => {
     };
     dispatch({ type: "BOOK_REQUIRED", payload: { idx, data } });
     // add user data to user if not exists
-    if (!user.uid) updateUserData(eventData.values);
+    if (!user.uid) updateUserData({ ...eventData.values, uid: shortid.generate() });
     // notify success
     addMessageToLog({
       uid: eventData.meeting.uid,

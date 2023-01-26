@@ -9,14 +9,17 @@ import Field from "./Field";
 import CardHeader from "../molecules/card/CardHeader";
 import * as yup from "yup";
 import { scrollToCartItem } from "../../utils/functions/calendar";
+import { UserContext } from "../../utils/context/UserContext";
 
 const schema = yup.object().shape({ quantity: yup.number() });
 const values = { quantity: 1 };
 
 const PaymentMethods = () => {
-  const { paymentMethods, selectPaymentType, paymentType } = useContext(AppContext);
-  const [total, setTotal] = useState(0);
+  const { paymentMethods, selectPaymentType, paymentType, checkout } =
+    useContext(AppContext);
   const { cart, onQuantityChange } = useContext(ServicesContext);
+  const { user } = useContext(UserContext);
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     if (cart.length > 0) {
@@ -33,7 +36,12 @@ const PaymentMethods = () => {
   const handleSubmit = () => {
     // confirm payment data enter is correct
     if (paymentType.uid) {
-      // enter all data about checkout
+      // check if user information exist
+      if (paymentType.name !== "in-store" && !user.uid) {
+      } else {
+        // enter all data about checkout
+        checkout(paymentType, user, cart);
+      }
     } else scrollToCartItem({ uid: "required" });
   };
   return (
@@ -45,6 +53,7 @@ const PaymentMethods = () => {
       )}
       <nav className="navbar">
         {paymentMethods.map((p) => (
+          // todo add toggle active
           <Buttons handleClick={() => handleClick(p)} key={p.uid} name={p.icon} />
         ))}
       </nav>

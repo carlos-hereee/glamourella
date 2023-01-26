@@ -1,23 +1,14 @@
 import Forms from "../organisms/Forms";
-import * as yup from "yup";
 import { useContext } from "react";
 import { CalendarContext } from "../../utils/context/CalendarContext";
 import { ServicesContext } from "../../utils/context/ServicesContext";
 import { UserContext } from "../../utils/context/UserContext";
 import MeetingDetails from "../atoms/MeetingDetails";
-import ButtonLink from "../atoms/buttons/ButtonLink";
 
-const schema = yup.object().shape({
-  name: yup.string().required("*Required field"),
-  email: yup.string().email().required("*Required field"),
-  // recaptcha: yup.string().required("*Required field").nullable(),
-  phone: yup.number().required("*Required field"),
-});
-const values = { name: "", email: "", phone: "" };
 const BookEvent = () => {
   const { bookNow, meeting, selectedDay } = useContext(CalendarContext);
   const { active } = useContext(ServicesContext);
-  const { user } = useContext(UserContext);
+  const { user, userSchema, userValues } = useContext(UserContext);
   return (
     <div className="book-event">
       <h3>
@@ -34,7 +25,6 @@ const BookEvent = () => {
           </p>
         )}
       <MeetingDetails meeting={meeting} />
-      {/* {cart.length === 0 && booked && <ButtonLink link="checkout" />} */}
       {user.uid ? (
         <div>
           <p>Name: {user.name}</p>
@@ -44,7 +34,10 @@ const BookEvent = () => {
       ) : (
         <>
           <p>Please fill out information bellow</p>
-          <Forms data={{ values, schema }} submit={(e) => bookNow(e, meeting)} />
+          <Forms
+            data={{ values: userValues, schema: userSchema }}
+            submit={(e) => bookNow(e, meeting)}
+          />
         </>
       )}
     </div>

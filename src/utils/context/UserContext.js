@@ -3,6 +3,7 @@ import { AuthContext } from "./AuthContext";
 import { axiosWithAuth } from "../functions/axios";
 import { reducer } from "../reducers/UserReducer";
 import { isDev } from "../../config";
+import * as yup from "yup";
 
 export const UserContext = createContext();
 export const UserState = ({ children }) => {
@@ -10,6 +11,13 @@ export const UserState = ({ children }) => {
     isLoading: false,
     user: {},
     booked: [],
+    userSchema: yup.object().shape({
+      name: yup.string().required("*Required field"),
+      email: yup.string().email().required("*Required field"),
+      // recaptcha: yup.string().required("*Required field").nullable(),
+      phone: yup.number().required("*Required field"),
+    }),
+    userValues: { name: "", email: "", phone: "" },
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   const { accessToken } = useContext(AuthContext);
@@ -46,6 +54,8 @@ export const UserState = ({ children }) => {
         user: state.user,
         booked: state.booked,
         admin: state.admin,
+        userSchema: state.userSchema,
+        userValues: state.userValues,
         // getUserData,
         updateUserData,
       }}>
