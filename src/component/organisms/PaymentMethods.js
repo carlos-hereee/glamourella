@@ -15,7 +15,7 @@ const schema = yup.object().shape({ quantity: yup.number() });
 const values = { quantity: 1 };
 
 const PaymentMethods = () => {
-  const { paymentMethods, selectPaymentType, paymentType, checkout } =
+  const { paymentMethods, selectPaymentType, paymentType, checkoutNow } =
     useContext(AppContext);
   const { cart, onQuantityChange } = useContext(ServicesContext);
   const { user } = useContext(UserContext);
@@ -37,10 +37,13 @@ const PaymentMethods = () => {
     // confirm payment data enter is correct
     if (paymentType.uid) {
       // check if user information exist
-      if (paymentType.name !== "in-store" && !user.uid) {
+      if (paymentType.type !== "in-store") {
+        if (!user.uid) {
+          // user is required to fill out information
+        }
       } else {
-        // enter all data about checkout
-        checkout(paymentType, user, cart);
+        // payment type is in-store; enter all data about checkout
+        checkoutNow(paymentType, user, cart);
       }
     } else scrollToCartItem({ uid: "required" });
   };
