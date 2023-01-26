@@ -30,9 +30,23 @@
     padding: 0;
   }
 }
+.card-section-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 .card-section-row {
   display: flex;
   gap: 1rem;
+  .form {
+    padding: 0;
+    input {
+      padding: 0.5rem 0 0.5rem 1rem;
+    }
+    .btn-classic {
+      margin: 0;
+    }
+  }
   .cost {
     flex: 1;
     text-align: right;

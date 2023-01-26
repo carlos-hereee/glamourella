@@ -237,6 +237,7 @@ export const glamourella = {
         hasHero: false,
         isBookable: false,
         isAccessory: true,
+        count: 1,
         inStock: random100(100),
         isForSale: true,
         hero: {
@@ -260,6 +261,7 @@ export const glamourella = {
         hasHero: false,
         isBookable: false,
         isAccessory: true,
+        count: 1,
         inStock: random100(100),
         isForSale: true,
         hero: {
@@ -283,6 +285,7 @@ export const glamourella = {
         hasHero: false,
         isBookable: false,
         isAccessory: true,
+        count: 1,
         inStock: random100(100),
         isForSale: true,
         hero: {
@@ -306,6 +309,7 @@ export const glamourella = {
         hasHero: false,
         isBookable: false,
         isAccessory: true,
+        count: 1,
         inStock: random100(100),
         isForSale: true,
         hero: {
@@ -330,6 +334,7 @@ export const glamourella = {
         hasHero: false,
         isBookable: false,
         isAccessory: true,
+        count: 1,
         inStock: random100(100),
         isForSale: true,
         hero: {
@@ -354,6 +359,7 @@ export const glamourella = {
         hasHero: false,
         isBookable: false,
         isAccessory: true,
+        count: 1,
         inStock: random100(100),
         isForSale: true,
         hero: {

@@ -4,20 +4,14 @@ import { AuthContext } from "../../utils/context/AuthContext";
 import Forms from "../organisms/Forms";
 
 const Login = () => {
-  const { signIn, loginValues, loginSchema, signInError } =
-    useContext(AuthContext);
+  const { signIn, loginValues, loginSchema, signInError } = useContext(AuthContext);
+
   const onSubmit = (e) => signIn(e);
-  let formData = {
-    values: loginValues,
-    schema: loginSchema,
-    onSubmit,
-    isLogin: true,
-  };
   return (
     <div className="card">
       <h3>Login</h3>
       {signInError && <p className="required">{signInError}</p>}
-      <Forms data={formData} />
+      <Forms data={{ values: loginValues, schema: loginSchema }} submit={onSubmit} />
       <Link to="/sign-up" className="form-link">
         Create an account?
       </Link>
