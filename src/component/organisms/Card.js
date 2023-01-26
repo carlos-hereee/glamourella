@@ -9,6 +9,7 @@ const Card = ({ data }) => {
       <CardBody data={data} />
       {data.isForSale && (
         <div className="card-footer">
+          {data.isAccessory && <p>In Stock: {data.inStock}</p>}
           <ForSaleBtn data={data} />
         </div>
       )}

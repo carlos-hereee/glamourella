@@ -28,14 +28,3 @@ span {
   padding: 1rem;
   gap: 1rem;
 }
-button {
-  border: none;
-  padding: 0.5rem 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  &:disabled {
-    cursor: not-allowed;
-  }
-}

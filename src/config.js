@@ -8,6 +8,7 @@ const lorem20 =
 const lorem30 =
   "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt explicabo accusantium vel. Quos, illo. Velit est voluptatum at dignissimos, amet alias veritatis obcaecati assumenda, repellat aliquid non quae nam! Nobis.";
 
+let random100 = (n) => Math.floor(Math.random() * n) + 1;
 export const isDev = process.env.NODE_ENV === "development";
 
 export const glamourella = {
@@ -100,6 +101,7 @@ export const glamourella = {
         isForSale: true,
         isBookable: true,
         isAccessory: false,
+        inStock: random100(100),
         hyperlink: [{ word: "Maiores", link: "/lorem" }],
         //link:
         //   process.env.REACT_APP_DB_URL +
@@ -120,6 +122,7 @@ export const glamourella = {
         isForSale: true,
         isBookable: true,
         isAccessory: false,
+        inStock: random100(100),
         subtitle: "pedicure",
         //link:
         //   process.env.REACT_APP_DB_URL +
@@ -137,6 +140,7 @@ export const glamourella = {
         isForSale: true,
         isBookable: true,
         isAccessory: false,
+        inStock: random100(100),
         hero: { link: "/lorem", name: "lorem ipsum" },
         hasLink: false,
         hyperlink: [{ word: "Maiores", link: "/lorem" }],
@@ -159,6 +163,7 @@ export const glamourella = {
         isForSale: true,
         isBookable: true,
         isAccessory: false,
+        inStock: random100(100),
         hyperlink: [{ word: "Maiores", link: "/lorem" }],
         subtitle: "manicure",
         //link:
@@ -179,6 +184,7 @@ export const glamourella = {
         isForSale: true,
         isBookable: true,
         isAccessory: false,
+        inStock: random100(100),
         hasLink: false,
         hyperlink: [{ word: "Maiores", link: "/lorem" }],
         //link:
@@ -231,6 +237,7 @@ export const glamourella = {
         hasHero: false,
         isBookable: false,
         isAccessory: true,
+        inStock: random100(100),
         isForSale: true,
         hero: {
           link: "http://localhost:4937/gallery/photo/?path=assets/hair/braids/gustavo-spindula-unsplash.jpg",
@@ -253,6 +260,7 @@ export const glamourella = {
         hasHero: false,
         isBookable: false,
         isAccessory: true,
+        inStock: random100(100),
         isForSale: true,
         hero: {
           link: "http://localhost:4937/gallery/photo/?path=assets/hair/braids/gustavo-spindula-unsplash.jpg",
@@ -275,6 +283,7 @@ export const glamourella = {
         hasHero: false,
         isBookable: false,
         isAccessory: true,
+        inStock: random100(100),
         isForSale: true,
         hero: {
           link: "http://localhost:4937/gallery/photo/?path=assets/hair/braids/gustavo-spindula-unsplash.jpg",
@@ -297,6 +306,7 @@ export const glamourella = {
         hasHero: false,
         isBookable: false,
         isAccessory: true,
+        inStock: random100(100),
         isForSale: true,
         hero: {
           link: "http://localhost:4937/gallery/photo/?path=assets/hair/braids/gustavo-spindula-unsplash.jpg",
@@ -320,6 +330,7 @@ export const glamourella = {
         hasHero: false,
         isBookable: false,
         isAccessory: true,
+        inStock: random100(100),
         isForSale: true,
         hero: {
           link: "http://localhost:4937/gallery/photo/?path=assets/hair/braids/gustavo-spindula-unsplash.jpg",
@@ -343,6 +354,7 @@ export const glamourella = {
         hasHero: false,
         isBookable: false,
         isAccessory: true,
+        inStock: random100(100),
         isForSale: true,
         hero: {
           link: "http://localhost:4937/gallery/photo/?path=assets/hair/braids/gustavo-spindula-unsplash.jpg",

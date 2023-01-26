@@ -15,7 +15,7 @@ const InStorePurchase = () => {
       {cart.map((c) => (
         <div className="card-section-row" key={c.uid}>
           {c.isAccessory ? (
-            <AccessoryDetails data={c.meeting} />
+            <AccessoryDetails data={c} />
           ) : (
             <MeetingDetails meeting={c.meeting} />
           )}

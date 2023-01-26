@@ -1,6 +1,4 @@
 import { createContext, useReducer, useContext } from "react";
-import shortid from "shortid";
-import { formatDate, formatTime } from "../functions/moment";
 import { reducer } from "../reducers/ServicesReducer";
 import { LogContext } from "./LogContext";
 
@@ -50,23 +48,8 @@ export const ServicesState = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { addMessageToLog } = useContext(LogContext);
 
-  const addToCart = (cart, service) => {
-    if (cart.length > 0) {
-      if (cart.filter((c) => c.uid === service.uid).length > 0) {
-        const data = {
-          uid: shortid.generate(),
-          data: {
-            isLink: false,
-            message: "Unable to add to cart because, service is already in cart",
-          },
-        };
-        addMessageToLog(data);
-      } else {
-        dispatch({ type: "ADD_TO_CART", payload: service });
-      }
-    } else {
-      dispatch({ type: "ADD_TO_CART", payload: service });
-    }
+  const addToCart = (service) => {
+    dispatch({ type: "ADD_TO_CART", payload: service });
   };
   const removeFromCart = (service, active) => {
     try {

@@ -26,7 +26,7 @@ const PaymentMethods = () => {
   };
   return (
     <div className="card-footer">
-      <p>Please select a payment method</p>
+      {!paymentType.uid && <strong>Please select a payment method</strong>}
       <nav className="navbar">
         {paymentMethods.map((p) => (
           <Buttons handleClick={() => handleClick(p)} key={p.uid} name={p.icon} />

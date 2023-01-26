@@ -11,8 +11,8 @@ const CardHeader = ({ data }) => {
       )}
       {data.hasIcon && <Icons name={data.hero.icon} size="3x" />}
       <div className="card-header-heading">
-        {data.title && <h3 className="title">{data.title}</h3>}
-        {data.subtitle && <h4 className="sub-title">{data.subtitle}</h4>}
+        {data.title && <h2 className="title">{data.title}</h2>}
+        {data.subtitle && <h3 className="sub-title">{data.subtitle}</h3>}
       </div>
       {data.description && <p>{data.description}</p>}
     </div>

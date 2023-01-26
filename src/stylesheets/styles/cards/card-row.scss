@@ -40,6 +40,9 @@
     display: flex;
     // flex-wrap: wrap;
     gap: 1rem;
+    .card-header {
+      padding: 0;
+    }
   }
   @include devices(mobile) {
     .card-header {
@@ -59,4 +62,8 @@
 .card-row-footer {
   padding: 0.5rem;
   margin: auto;
+}
+.details {
+  display: flex;
+  gap: 1rem;
 }
