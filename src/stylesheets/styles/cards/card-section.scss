@@ -26,13 +26,16 @@
   letter-spacing: 4px;
 }
 .secondary-card-section {
-  padding: 1rem;
+  .card-header {
+    padding: 0;
+  }
 }
 .card-section-row {
   display: flex;
   gap: 1rem;
   .cost {
+    flex: 1;
+    text-align: right;
     min-width: fit-content;
-    padding: 0 1rem;
   }
 }

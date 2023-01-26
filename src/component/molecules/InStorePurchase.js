@@ -1,20 +1,20 @@
 import { useContext } from "react";
-import { AppContext } from "../../utils/context/AppContext";
 import { ServicesContext } from "../../utils/context/ServicesContext";
 import AccessoryDetails from "../atoms/AccessoryDetails";
 import Cost from "../atoms/Cost";
 import MeetingDetails from "../atoms/MeetingDetails";
+import CardHeader from "./card/CardHeader";
 
 const InStorePurchase = () => {
-  const { paymentType } = useContext(AppContext);
   const { cart } = useContext(ServicesContext);
   return (
     <div className="secondary-card-section">
-      <h3>Payment type: {paymentType.name}</h3>
-      <h4>Details: </h4>
+      <CardHeader
+        data={{ title: "Payment type: In Store", subtitle: "Summary Details" }}
+      />
       {cart.map((c) => (
         <div className="card-section-row" key={c.uid}>
-          {c.isAccessories ? (
+          {c.isAccessory ? (
             <AccessoryDetails data={c.meeting} />
           ) : (
             <MeetingDetails meeting={c.meeting} />

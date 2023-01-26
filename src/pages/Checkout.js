@@ -12,17 +12,7 @@ import { AppContext } from "../utils/context/AppContext";
 const Checkout = () => {
   const { cart, bookingRequired } = useContext(ServicesContext);
   const { checkout } = useContext(AppContext);
-  const [total, setTotal] = useState(0);
   const [proceedWithCheckout, setProceedWithCheckout] = useState(false);
-
-  useEffect(() => {
-    if (cart.length > 0) {
-      let cost = cart.reduce((a, b) => {
-        return a + b.cost;
-      }, 0);
-      setTotal(cost);
-    }
-  }, [cart]);
 
   const handleClick = () => {
     const isBookingRequired = cart.filter((c) => c.isBookable && !c.isBooked);
@@ -45,18 +35,15 @@ const Checkout = () => {
       {cart.length > 0 && (
         <div className="card-body">
           <CartItem data={cart} link="booking" />
-          <h4>Total ${total}</h4>
         </div>
       )}
-      <div className="card-footer">
-        {proceedWithCheckout ? (
-          <PaymentMethods />
-        ) : (
-          <button type="button" className="btn btn-classic" onClick={handleClick}>
-            Proceed With Checkout
-          </button>
-        )}
-      </div>
+      {proceedWithCheckout ? (
+        <PaymentMethods />
+      ) : (
+        <button type="button" className="btn btn-classic" onClick={handleClick}>
+          Proceed With Checkout
+        </button>
+      )}
     </section>
   );
 };
