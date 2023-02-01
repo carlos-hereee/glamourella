@@ -79,6 +79,7 @@ export const CalendarState = ({ children }) => {
       // console.log("data", data);
       const isFilter = cart.filter((c) => c.uid === active.uid);
       if (isFilter.length > 0) {
+        // console.log("isFilter", isFilter);
         const idx = cart.findIndex((c) => c.uid === active.uid);
         bookEvent({ values, meeting }, cart, idx);
       }

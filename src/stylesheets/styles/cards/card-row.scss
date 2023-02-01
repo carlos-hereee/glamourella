@@ -35,7 +35,7 @@
   box-shadow: none;
   color: #{$text-color3};
   gap: 1rem;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   .card-row-heading {
     display: flex;
     // flex-wrap: wrap;
@@ -62,4 +62,21 @@
 .card-row-footer {
   padding: 0.5rem;
   margin: auto;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  &:has(> .secondary-container) {
+    width: 100%;
+    .secondary-container {
+      border-radius: 0.5rem;
+      label {
+        display: flex;
+        gap: 1rem;
+      }
+    }
+  }
+}
+.row {
+  display: flex;
 }

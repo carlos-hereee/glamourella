@@ -59,7 +59,7 @@ const Forms = ({ data, submit }) => {
         />
       </div>
       <button type="submit" className="btn btn-classic">
-        <Icons name="submit" /> SEND
+        <Icons name="submit" /> Submit
       </button>
     </form>
   );

@@ -1,12 +1,14 @@
 import { useContext } from "react";
 import { CalendarContext } from "../../../utils/context/CalendarContext";
 import { ServicesContext } from "../../../utils/context/ServicesContext";
+import { UserContext } from "../../../utils/context/UserContext";
 import { minDate, getMeetingList, minTime } from "../../../utils/functions/moment";
 
 const OpenAppButton = ({ service }) => {
-  const { events, setDay, selectedDay, setMeeting } = useContext(CalendarContext);
+  const { events, setDay, selectedDay, setMeeting, bookNow } =
+    useContext(CalendarContext);
   const { setActive } = useContext(ServicesContext);
-
+  const { user } = useContext(UserContext);
   const handleClick = () => {
     if (service.uid) {
       setActive(service);
@@ -14,6 +16,9 @@ const OpenAppButton = ({ service }) => {
     if (selectedDay.hasList && selectedDay.list.length > 0) {
       const meeting = minDate(selectedDay.list);
       setMeeting(meeting);
+      if (user.uid) {
+        bookNow(user, meeting);
+      }
     } else {
       const meetingList = getMeetingList(events.sections);
       const meetingDay = minDate(meetingList);

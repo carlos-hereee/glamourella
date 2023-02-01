@@ -6,10 +6,13 @@ import OpenAppButton from "../atoms/buttons/OpenAppButton";
 import ButtonLink from "../atoms/buttons/ButtonLink";
 import { CalendarContext } from "../../utils/context/CalendarContext";
 import MeetingDetails from "../atoms/MeetingDetails";
+import { UserContext } from "../../utils/context/UserContext";
+import Booknow from "../molecules/forms/Booknow";
 
 const CartItem = ({ data, link }) => {
   const { removeFromCart, setActive, active } = useContext(ServicesContext);
-  const { selectedDay } = useContext(CalendarContext);
+  const { selectedDay, meeting, bookNow } = useContext(CalendarContext);
+  const { user, userValues, userSchema } = useContext(UserContext);
   const [cancel, setCancel] = useState({});
 
   const cancelReq = (e, isConfirm) => {
@@ -18,6 +21,8 @@ const CartItem = ({ data, link }) => {
   const handleClick = (d, isCancel) => {
     isCancel ? setCancel(d) : setActive(d);
   };
+  const submit = (e) => bookNow(e, meeting);
+
   return (
     <div className="cart-container">
       {data.map((c) =>
@@ -28,10 +33,31 @@ const CartItem = ({ data, link }) => {
             <CardRow data={c} click={handleClick} />
             {c.isBookable && link ? (
               !c.isBooked ? (
-                <>
+                <div className="column">
                   {c.isBookingRequired && <p className="required">{c.bookingErr}</p>}
-                  <ButtonLink link={link} />
-                </>
+                  {c.meeting?.uid ? (
+                    <MeetingDetails meeting={c.meeting} />
+                  ) : c.uid === active.uid ? (
+                    user.uid ? (
+                      <div className="row">
+                        <ButtonLink link={link} />
+                        <p>or</p>
+                        <OpenAppButton service={c} />
+                      </div>
+                    ) : (
+                      <Booknow
+                        data={{ values: userValues, schema: userSchema }}
+                        submit={submit}
+                      />
+                    )
+                  ) : (
+                    <div className="row">
+                      <ButtonLink link={link} />
+                      <p>or</p>
+                      <OpenAppButton service={c} />
+                    </div>
+                  )}
+                </div>
               ) : (
                 c.meeting?.uid && <MeetingDetails meeting={c.meeting} />
               )

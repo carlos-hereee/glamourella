@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { CalendarContext } from "../../utils/context/CalendarContext";
 import CardHeader from "../molecules/card/CardHeader";
-import BookEvent from "../molecules/BookEvent";
+import BookEvent from "../organisms/BookEvent";
 import NotFound from "../molecules/notFound/MeetingNotFound";
 import EventList from "../organisms/EventList";
 import { ServicesContext } from "../../utils/context/ServicesContext";
