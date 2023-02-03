@@ -2,7 +2,7 @@
   background-color: #{$secondary-color};
   color: #{$primary-color};
   flex: 1;
-  box-shadow: 0 1px 5px 1px #{$shadow-color};
+  // box-shadow: 0 1px 5px 1px #{$shadow-color};
   min-width: 200px;
   max-width: 700px;
   @include devices(mobile) {
@@ -15,7 +15,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #{$text-color};
+  // background-color: #{$text-color};
   flex: 1;
   // width: 100%;
   gap: 1rem;
@@ -61,7 +61,7 @@
     // z-index: 1;
   }
   &:hover {
-    background-color: #{$third-color};
+    // background-color: #{$third-color};
     color: #{$text-color3};
   }
   &:disabled {
@@ -84,7 +84,7 @@
   box-shadow: none;
   cursor: pointer;
   &:hover {
-    background-color: #{$third-color2};
+    // background-color: #{$third-color2};
   }
   &:disabled {
     color: #{$text-color2};

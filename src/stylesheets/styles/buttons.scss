@@ -14,7 +14,7 @@ button {
   background-color: #{$primary-color};
   color: #{$text-color};
   flex: 1;
-  box-shadow: 0 0 3px 0px #{$shadow-color2};
+  // box-shadow: 0 0 3px 0px #{$shadow-color2};
   &:hover {
     background-color: #{$primary-color2};
     color: #{$text-color};
@@ -31,7 +31,7 @@ button {
 .btn-secondary {
   box-shadow: none;
   position: absolute;
-  background-color: #{$third-color};
+  // background-color: #{$third-color};
   color: #{$text-color};
   right: 0;
   padding: 1rem;
@@ -57,8 +57,9 @@ button {
   gap: 1rem;
   flex: 1;
   border-radius: 0.5rem;
-  box-shadow: 0 1px 5px 1px #{$shadow-color};
+  // box-shadow: 0 1px 5px 1px #{$shadow-color};
   background-color: #{$secondary-color2};
+  color: #{$text-color};
   .icon-label {
     flex: 1;
     text-align: left;
@@ -66,9 +67,6 @@ button {
   .notification-count {
     top: -0.5rem;
     right: -0.5rem;
-  }
-  &:hover {
-    color: #{$text-color3};
   }
 }
 .icon {
@@ -114,7 +112,7 @@ button {
   color: #{$text-color};
   width: 100%;
   &:hover {
-    background-color: #{$success-hover};
+    // background-color: #{$success-hover};
     color: #{$text-color};
   }
 }
@@ -141,7 +139,4 @@ button {
   margin: 0 1rem;
   flex: 1;
   border-radius: 0.5rem;
-  &:hover {
-    color: #{$text-color3};
-  }
 }

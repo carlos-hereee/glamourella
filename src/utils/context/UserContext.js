@@ -18,6 +18,13 @@ export const UserState = ({ children }) => {
       phone: yup.number().required("*Required field"),
     }),
     userValues: { name: "", email: "", phone: "" },
+    shippingSchema: yup.object().shape({
+      name: yup.string().required("*Required field"),
+      email: yup.string().email().required("*Required field"),
+      phone: yup.number().required("*Required field"),
+    }),
+    shippingValues: { name: "", email: "", phone: "" },
+    shippingDetails: {},
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   const { accessToken } = useContext(AuthContext);
@@ -47,6 +54,9 @@ export const UserState = ({ children }) => {
   const updateUserData = (data) => {
     dispatch({ type: "UPDATE_USER_DATA", payload: data });
   };
+  const setShipping = (data) => {
+    dispatch({ type: "UPDATE_SHIPPING_DETAILS", payload: data });
+  };
   return (
     <UserContext.Provider
       value={{
@@ -56,8 +66,12 @@ export const UserState = ({ children }) => {
         admin: state.admin,
         userSchema: state.userSchema,
         userValues: state.userValues,
+        shippingDetails: state.shippingDetails,
+        shippingValues: state.shippingValues,
+        shippingSchema: state.shippingSchema,
         // getUserData,
         updateUserData,
+        setShipping,
       }}>
       {children}
     </UserContext.Provider>

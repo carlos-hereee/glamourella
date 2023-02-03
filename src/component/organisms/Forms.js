@@ -53,6 +53,7 @@ const Forms = ({ data, submit }) => {
       <div className="form-submit">
         {errors["recaptcha"] && <span className="required">{errors.recaptcha}</span>}
         <ReCAPTCHA
+          theme="dark"
           sitekey={process.env.REACT_APP_SITE_KEY}
           onChange={(e) => setFieldValue("recaptcha", e)}
           size={window.screen.width < 481 ? "compact" : "normal"}

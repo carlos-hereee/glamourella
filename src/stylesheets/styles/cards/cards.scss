@@ -3,8 +3,8 @@
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #{$text-color};
   overflow: hidden;
+  background-color: #{$primary-color};
   min-width: 200px;
   .hero {
     border-radius: 1rem;
@@ -12,9 +12,7 @@
   }
   &:has(> div > .ribbon) {
     position: relative;
-    border-color: #{$shadow-color2};
-    box-shadow: 0 1px 5px 1px #{$shadow-color2};
-    color: #{$shadow-color2};
+    // box-shadow: 0 1px 5px 1px #{$shadow-color2};
     // height: auto;
     max-width: 275px;
     .btn-primary {
@@ -73,7 +71,7 @@
     width: 100%;
   }
   .third-btn[data-state="booked"] {
-    background-color: #{$third-color2};
+    // background-color: #{$third-color2};
   }
 }
 .secondary-card {

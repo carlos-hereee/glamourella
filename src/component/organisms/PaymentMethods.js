@@ -12,6 +12,7 @@ import { scrollToCartItem } from "../../utils/functions/calendar";
 import { UserContext } from "../../utils/context/UserContext";
 import Booknow from "../molecules/forms/Booknow";
 import UserCard from "../molecules/card/UserCard";
+import ShippingRequired from "../molecules/ShippingRequired";
 
 const schema = yup.object().shape({ quantity: yup.number() });
 const values = { quantity: 1 };
@@ -20,15 +21,21 @@ const PaymentMethods = () => {
   const { paymentMethods, selectPaymentType, paymentType, checkoutNow } =
     useContext(AppContext);
   const { cart, onQuantityChange } = useContext(ServicesContext);
-  const { user, userValues, userSchema } = useContext(UserContext);
+  const { user, userValues, userSchema, shippingDetails } = useContext(UserContext);
   const [total, setTotal] = useState(0);
+  const [shippingRequired, setShippingReq] = useState(false);
   // const [userInfoReq, setUserInfoReq] = useState(false);
 
   useEffect(() => {
     if (cart.length > 0) {
-      let cost = cart.reduce((a, b) => {
-        return a + b.cost * b.count;
-      }, 0);
+      let cost = 0;
+      cart.filter((c) => {
+        if (c.isAccessory) {
+          setShippingReq(true);
+        }
+        cost += c.cost * c.count;
+        return c;
+      });
       setTotal(cost);
     }
   }, [cart]);
@@ -78,6 +85,7 @@ const PaymentMethods = () => {
               )}
             </>
           )}
+          {shippingRequired && <ShippingRequired />}
         </>
       )}
       <div className="card-section-wrapper">

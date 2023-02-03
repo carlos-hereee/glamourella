@@ -12,12 +12,21 @@ const updateUserData = (state, action) => {
     isLoading: false,
   };
 };
+const updateShippingDetails = (state, action) => {
+  return {
+    ...state,
+    shippingDetails: action.payload,
+    isLoading: false,
+  };
+};
 export const reducer = (state, action) => {
   switch (action.type) {
     case "IS_LOADING":
       return isLoading(state, action);
     case "UPDATE_USER_DATA":
       return updateUserData(state, action);
+    case "UPDATE_SHIPPING_DETAILS":
+      return updateShippingDetails(state, action);
     default:
       return state;
   }
