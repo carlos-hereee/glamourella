@@ -15,7 +15,7 @@
     width: 100%;
     bottom: 0;
     pointer-events: none;
-    background: linear-gradient(to bottom, transparent, #{$primary-color2});
+    background: linear-gradient(to bottom, transparent, #{$secondary-color});
   }
   &:has(+ .read-more-toggle:checked) {
     max-height: none;

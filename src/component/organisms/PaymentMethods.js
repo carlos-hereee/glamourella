@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../utils/context/AppContext";
 import { ServicesContext } from "../../utils/context/ServicesContext";
-import Buttons from "../molecules/buttons/Buttons";
 import CardHeader from "../molecules/card/CardHeader";
 import { scrollToCartItem } from "../../utils/functions/calendar";
 import { UserContext } from "../../utils/context/UserContext";
@@ -10,14 +9,13 @@ import UserCard from "../molecules/card/UserCard";
 import ShippingRequired from "../molecules/ShippingRequired";
 import Total from "../molecules/Total";
 import BagSummary from "../molecules/BagSummary";
+import PaymentOptions from "../molecules/PaymentOptions";
 
 const PaymentMethods = () => {
-  const { paymentMethods, selectPaymentType, paymentType, checkoutNow } =
-    useContext(AppContext);
+  const { paymentMethods, paymentType, checkoutNow } = useContext(AppContext);
   const { cart } = useContext(ServicesContext);
   const { user, userValues, userSchema, shippingDetails } = useContext(UserContext);
   const [total, setTotal] = useState(0);
-  const [taxes, setTaxes] = useState(0);
   const [shippingRequired, setShippingReq] = useState(false);
   // const [userInfoReq, setUserInfoReq] = useState(false);
 
@@ -34,15 +32,7 @@ const PaymentMethods = () => {
       setTotal(cost);
     }
   }, [cart]);
-  useEffect(() => {
-    // find out sales tax
-    if (total) {
-      setTaxes(total * 0.0625);
-    } else setTaxes(0);
-  }, [total]);
-  const handleClick = (e) => {
-    selectPaymentType(e);
-  };
+  const handleClick = (e) => {};
 
   const handleSubmit = () => {
     // confirm payment data enter is correct
@@ -59,18 +49,8 @@ const PaymentMethods = () => {
   return (
     <div className="card-footer">
       <BagSummary />
-      {!paymentType.uid && (
-        <p className="required" id="required">
-          <strong>Please select a payment method</strong>
-        </p>
-      )}
-      <Total total={total} taxes={taxes} />
-      <nav className="navbar">
-        {paymentMethods.map((p) => (
-          // todo add toggle active
-          <Buttons handleClick={() => handleClick(p)} key={p.uid} name={p.icon} />
-        ))}
-      </nav>
+      <Total total={total} />
+      <PaymentOptions data={paymentMethods} required={paymentType.uid} />
       {paymentType.uid && (
         <>
           <CardHeader data={paymentType} />
