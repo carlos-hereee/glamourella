@@ -2,26 +2,19 @@ import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../utils/context/AppContext";
 import { ServicesContext } from "../../utils/context/ServicesContext";
 import Buttons from "../molecules/buttons/Buttons";
-import AccessoryDetails from "../atoms/AccessoryDetails";
-import MeetingDetails from "../atoms/MeetingDetails";
-import Cost from "../atoms/Cost";
-import Field from "./Field";
 import CardHeader from "../molecules/card/CardHeader";
-import * as yup from "yup";
 import { scrollToCartItem } from "../../utils/functions/calendar";
 import { UserContext } from "../../utils/context/UserContext";
 import Booknow from "../molecules/forms/Booknow";
 import UserCard from "../molecules/card/UserCard";
 import ShippingRequired from "../molecules/ShippingRequired";
 import Total from "../molecules/Total";
-
-const schema = yup.object().shape({ quantity: yup.number() });
-const values = { quantity: 1 };
+import BagSummary from "../molecules/BagSummary";
 
 const PaymentMethods = () => {
   const { paymentMethods, selectPaymentType, paymentType, checkoutNow } =
     useContext(AppContext);
-  const { cart, onQuantityChange } = useContext(ServicesContext);
+  const { cart } = useContext(ServicesContext);
   const { user, userValues, userSchema, shippingDetails } = useContext(UserContext);
   const [total, setTotal] = useState(0);
   const [taxes, setTaxes] = useState(0);
@@ -65,38 +58,13 @@ const PaymentMethods = () => {
   const submit = (e) => console.log("e", e);
   return (
     <div className="card-footer">
-      <div className="card-section-wrapper">
-        <h3>Bag Summary</h3>
-        {cart.map((c) => (
-          <div className="card-section-row" key={c.uid}>
-            {c.isAccessory ? (
-              <AccessoryDetails data={c} />
-            ) : (
-              <div className="details-wrapper">
-                <div className="details">
-                  <CardHeader data={c} />
-                  <MeetingDetails data={c} meeting={c.meeting} />
-                </div>
-              </div>
-            )}
-            <div className="card-section-cost">
-              {c.isAccessory && (
-                <Field
-                  data={{ values, schema }}
-                  max={c.inStock}
-                  change={({ target }) => onQuantityChange(target.value, c)}
-                />
-              )}
-              {c.cost && c.count && <Cost cost={c.cost * c.count} />}
-            </div>
-          </div>
-        ))}
-      </div>
+      <BagSummary />
       {!paymentType.uid && (
         <p className="required" id="required">
           <strong>Please select a payment method</strong>
         </p>
       )}
+      <Total total={total} taxes={taxes} />
       <nav className="navbar">
         {paymentMethods.map((p) => (
           // todo add toggle active
@@ -119,7 +87,6 @@ const PaymentMethods = () => {
           {shippingRequired && <ShippingRequired />}
         </>
       )}
-      <Total total={total} taxes={taxes} />
       <button className="btn btn-green" type="button" onClick={handleSubmit}>
         Confirm
       </button>
