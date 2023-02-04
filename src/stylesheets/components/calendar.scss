@@ -1,34 +1,29 @@
 .react-calendar {
   background-color: #{$secondary-color};
-  color: #{$primary-color};
+  color: #{$text-color};
   flex: 1;
-  // box-shadow: 0 1px 5px 1px #{$shadow-color};
   min-width: 200px;
   max-width: 700px;
   @include devices(mobile) {
     width: 100%;
     flex: auto;
-    // display: flex;
   }
 }
 #calendar-events {
   display: flex;
   flex-direction: column;
   align-items: center;
-  // background-color: #{$text-color};
+  background-color: #{$secondary-color};
   flex: 1;
-  // width: 100%;
   gap: 1rem;
 }
 .react-calendar__navigation {
-  background-color: #{$secondary-color2};
   display: flex;
-  border-radius: 4px;
   border: none;
   height: 100px;
   button {
     background-color: #{$secondary-color2};
-    color: #{$primary-color};
+    color: #{$text-color};
     &:disabled {
       background-color: #{$secondary-color2};
     }
@@ -49,7 +44,6 @@
   padding: 1rem;
   // flex: 1;
   background-color: #{$secondary-color};
-  color: #{$primary-color};
   box-shadow: none;
   .match {
     background-color: #{$danger};

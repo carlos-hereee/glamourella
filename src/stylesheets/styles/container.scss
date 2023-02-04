@@ -45,12 +45,10 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  background-color: #{$secondary-color};
   flex: 1;
   min-width: 200px;
   padding: 1rem;
-  .icon {
-    color: $secondary-color2;
-  }
   .fa-left-long {
     @include devices(mobile) {
       transform: rotate(90deg);
@@ -61,17 +59,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #{$secondary-color};
   flex: 1;
   gap: 1rem;
   border-radius: 4px;
   top: 7rem;
+  padding: 1rem;
   .required {
     display: flex;
     justify-content: center;
   }
   &:has(> div > .active) {
     .active {
-      border-radius: 1rem;
       background-color: #{$primary-color};
       .read-more {
         &:has(+ .read-more-toggle:not(:checked))::before {
