@@ -13,6 +13,7 @@ import { UserContext } from "../../utils/context/UserContext";
 import Booknow from "../molecules/forms/Booknow";
 import UserCard from "../molecules/card/UserCard";
 import ShippingRequired from "../molecules/ShippingRequired";
+import Total from "../molecules/Total";
 
 const schema = yup.object().shape({ quantity: yup.number() });
 const values = { quantity: 1 };
@@ -23,6 +24,7 @@ const PaymentMethods = () => {
   const { cart, onQuantityChange } = useContext(ServicesContext);
   const { user, userValues, userSchema, shippingDetails } = useContext(UserContext);
   const [total, setTotal] = useState(0);
+  const [taxes, setTaxes] = useState(0);
   const [shippingRequired, setShippingReq] = useState(false);
   // const [userInfoReq, setUserInfoReq] = useState(false);
 
@@ -39,6 +41,12 @@ const PaymentMethods = () => {
       setTotal(cost);
     }
   }, [cart]);
+  useEffect(() => {
+    // find out sales tax
+    if (total) {
+      setTaxes(total * 0.0625);
+    } else setTaxes(0);
+  }, [total]);
   const handleClick = (e) => {
     selectPaymentType(e);
   };
@@ -57,38 +65,8 @@ const PaymentMethods = () => {
   const submit = (e) => console.log("e", e);
   return (
     <div className="card-footer">
-      {!paymentType.uid && (
-        <p className="required" id="required">
-          <strong>Please select a payment method</strong>
-        </p>
-      )}
-      <nav className="navbar">
-        {paymentMethods.map((p) => (
-          // todo add toggle active
-          <Buttons handleClick={() => handleClick(p)} key={p.uid} name={p.icon} />
-        ))}
-      </nav>
-      {paymentType.uid && (
-        <>
-          <CardHeader data={paymentType} />
-          {paymentType.type === "in-store" ? (
-            <p>We hope to see you soon</p>
-          ) : (
-            <>
-              {user.uid ? (
-                <UserCard />
-              ) : (
-                <Booknow
-                  data={{ values: userValues, schema: userSchema }}
-                  submit={submit}
-                />
-              )}
-            </>
-          )}
-          {shippingRequired && <ShippingRequired />}
-        </>
-      )}
       <div className="card-section-wrapper">
+        <h3>Bag Summary</h3>
         {cart.map((c) => (
           <div className="card-section-row" key={c.uid}>
             {c.isAccessory ? (
@@ -114,7 +92,34 @@ const PaymentMethods = () => {
           </div>
         ))}
       </div>
-      <h3 className="total">Total ${total}</h3>
+      {!paymentType.uid && (
+        <p className="required" id="required">
+          <strong>Please select a payment method</strong>
+        </p>
+      )}
+      <nav className="navbar">
+        {paymentMethods.map((p) => (
+          // todo add toggle active
+          <Buttons handleClick={() => handleClick(p)} key={p.uid} name={p.icon} />
+        ))}
+      </nav>
+      {paymentType.uid && (
+        <>
+          <CardHeader data={paymentType} />
+          {paymentType.type === "in-store" ? (
+            <p>We hope to see you soon</p>
+          ) : user.uid ? (
+            <UserCard />
+          ) : (
+            <Booknow
+              data={{ values: userValues, schema: userSchema }}
+              submit={submit}
+            />
+          )}
+          {shippingRequired && <ShippingRequired />}
+        </>
+      )}
+      <Total total={total} taxes={taxes} />
       <button className="btn btn-green" type="button" onClick={handleSubmit}>
         Confirm
       </button>

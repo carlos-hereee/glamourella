@@ -54,6 +54,9 @@
 .book-event {
   padding: 1rem;
 }
-.total {
+.sub-total {
   text-align: right;
+  * {
+    border-bottom: 2px dotted #{$primary-color};
+  }
 }
