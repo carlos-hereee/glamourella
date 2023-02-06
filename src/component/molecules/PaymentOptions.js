@@ -3,10 +3,10 @@ import { AppContext } from "../../utils/context/AppContext";
 import { ServicesContext } from "../../utils/context/ServicesContext";
 import { UserContext } from "../../utils/context/UserContext";
 import { scrollToCartItem } from "../../utils/functions/calendar";
+import Forms from "../organisms/Forms";
 import Buttons from "./buttons/Buttons";
 import CardHeader from "./card/CardHeader";
 import UserCard from "./card/UserCard";
-import Booknow from "./forms/Booknow";
 import ShippingRequired from "./ShippingRequired";
 
 const PaymentOptions = () => {
@@ -53,7 +53,7 @@ const PaymentOptions = () => {
           ) : user.uid ? (
             <UserCard />
           ) : (
-            <Booknow
+            <Forms
               data={{ values: userValues, schema: userSchema }}
               submit={submit}
             />

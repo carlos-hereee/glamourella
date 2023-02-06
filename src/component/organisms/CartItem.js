@@ -7,8 +7,8 @@ import ButtonLink from "../atoms/buttons/ButtonLink";
 import { CalendarContext } from "../../utils/context/CalendarContext";
 import MeetingDetails from "../atoms/MeetingDetails";
 import { UserContext } from "../../utils/context/UserContext";
-import Booknow from "../molecules/forms/Booknow";
 import BookingLink from "./navigation/BookingLink";
+import Forms from "./Forms";
 
 const CartItem = ({ data, link }) => {
   const { removeFromCart, setActive, active } = useContext(ServicesContext);
@@ -46,7 +46,7 @@ const CartItem = ({ data, link }) => {
                         <OpenAppButton service={c} />
                       </div>
                     ) : (
-                      <Booknow
+                      <Forms
                         data={{ values: userValues, schema: userSchema }}
                         submit={submit}
                       />

@@ -140,3 +140,9 @@ button {
   flex: 1;
   border-radius: 0.5rem;
 }
+.btn-step {
+  background-color: #{$secondary-color2};
+  text-decoration: underline;
+  border-radius: 0;
+  padding: 1rem;
+}

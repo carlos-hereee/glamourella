@@ -5,7 +5,7 @@ const BookingRequired = ({ data }) => {
       <strong>
         {data.title} {data.subtitle}
       </strong>{" "}
-      set an appointment on our booking page
+      create an appointment on our booking page
     </p>
   );
 };

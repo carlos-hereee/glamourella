@@ -4,18 +4,31 @@ import CardHeader from "../component/molecules/card/CardHeader";
 import { AppContext } from "../utils/context/AppContext";
 import BagSummary from "../component/molecules/BagSummary";
 import ChechoutNav from "../component/organisms/navigation/ChechoutNavigation";
-import UserForm from "../component/molecules/forms/UserForm";
+import UserContact from "../component/molecules/forms/UserForm";
+import { useEffect } from "react";
+import { ServicesContext } from "../utils/context/ServicesContext";
+import { UserContext } from "../utils/context/UserContext";
 
 const Checkout = () => {
   const { checkout } = useContext(AppContext);
+  const { cart } = useContext(ServicesContext);
+  const { user } = useContext(UserContext);
   const [proceedWithCheckout, setNext] = useState(false);
-  const [isUserInfoReq, setUserInfo] = useState(false);
+  const [isUserInfoReq, setUserInfoReq] = useState(true);
+
+  useEffect(() => {
+    if (cart.length > 0) {
+      if (cart.filter((c) => c.isBookable).length > 0) {
+        setUserInfoReq(true);
+      }
+    } else setUserInfoReq(false);
+  }, [user, cart]);
 
   return (
     <section className="secondary-container">
       <CardHeader data={checkout} />
       <ChechoutNav />
-      {isUserInfoReq && <UserForm />}
+      {isUserInfoReq && <UserContact />}
       <BagSummary />
       {proceedWithCheckout && <PaymentMethods click={setNext} />}
     </section>

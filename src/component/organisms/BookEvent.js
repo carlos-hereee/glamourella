@@ -4,7 +4,7 @@ import { ServicesContext } from "../../utils/context/ServicesContext";
 import { UserContext } from "../../utils/context/UserContext";
 import MeetingDetails from "../atoms/MeetingDetails";
 import UserCard from "../molecules/card/UserCard";
-import Booknow from "../molecules/forms/Booknow";
+import Forms from "./Forms";
 
 const BookEvent = () => {
   const { bookNow, meeting, selectedDay } = useContext(CalendarContext);
@@ -31,7 +31,7 @@ const BookEvent = () => {
       {user.uid ? (
         <UserCard />
       ) : (
-        <Booknow data={{ values: userValues, schema: userSchema }} submit={submit} />
+        <Forms data={{ values: userValues, schema: userSchema }} submit={submit} />
       )}
     </div>
   );
