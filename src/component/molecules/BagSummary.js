@@ -5,7 +5,7 @@ import Cost from "../atoms/Cost";
 import MeetingDetails from "../atoms/MeetingDetails";
 import CardHeader from "./card/CardHeader";
 import * as yup from "yup";
-import FieldQuantity from "../organisms/Field";
+import FieldQuantity from "./forms/FieldQuantity";
 import BookingLink from "../organisms/navigation/BookingLink";
 import BookingRequired from "./required/BookingRequired";
 
@@ -27,7 +27,7 @@ const BagSummary = () => {
                 {c.meeting?.uid ? (
                   <MeetingDetails meeting={c.meeting} />
                 ) : (
-                  <BookingRequired />
+                  <BookingRequired data={c} />
                 )}
               </div>
               {!c.meeting?.uid && <BookingLink data={c} />}

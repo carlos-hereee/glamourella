@@ -24,7 +24,7 @@ const ChechoutNavigation = ({ click }) => {
       <ButtonLinkNavigation links={["services", "accessories"]} />
       {cart.length > 0 ? (
         <button type="button" className="btn btn-classic" onClick={handleClick}>
-          Proceed With Checkout
+          Verify Information
         </button>
       ) : (
         <p className="empty">Your cart is empty head to Services or Accessory</p>

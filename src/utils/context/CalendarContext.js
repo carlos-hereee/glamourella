@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { createContext, useReducer, useContext } from "react";
 import { axiosWithAuth, axiosCalendar } from "../functions/axios";
 import { reducer } from "../reducers/CalendarReducer";

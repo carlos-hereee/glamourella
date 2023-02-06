@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, useEffect, useState } from "react";
-import BurgerButton from "../component/molecules/BugerButton";
 import Logo from "../component/atoms/Logo";
-import Navlink from "../component/molecules/Navlink";
+import BurgerButton from "../component/molecules/navigation/BugerButton";
+import Navlink from "../component/molecules/navigation/Navlink";
 import { AppContext } from "../utils/context/AppContext";
 import { ServicesContext } from "../utils/context/ServicesContext";
 

@@ -1,4 +1,4 @@
-import Buttons from "./buttons/Buttons";
+import Buttons from "../buttons/Buttons";
 
 /**
  *

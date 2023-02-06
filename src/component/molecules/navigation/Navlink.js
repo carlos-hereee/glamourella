@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Buttons from "./buttons/Buttons";
+import Buttons from "../buttons/Buttons";
 
 /**
  *

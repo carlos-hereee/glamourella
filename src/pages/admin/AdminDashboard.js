@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import MenuLink from "../../component/molecules/MenuLink";
+import MenuLink from "../../component/molecules/navigation/MenuLink";
 import { AdminContext } from "../../utils/context/AdminContext";
 import Appointment from "./AdminAppointment";
 import Schedule from "./AdminSchedule";
