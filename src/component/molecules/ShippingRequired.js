@@ -17,7 +17,7 @@ const ShippingRequired = () => {
     return <p>Enter Shipping Details</p>;
   };
   return shippingDetails.uid ? (
-    <ShippingDetails data={shippingDetails} />
+    <ShippingDetails />
   ) : isOpen ? (
     <div>
       <ToggleOpen data={setData()} click={handleClick} />
