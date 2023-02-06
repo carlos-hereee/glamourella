@@ -15,7 +15,11 @@ const UserContact = () => {
       type="button"
       className="btn btn-step"
       onClick={() => setIsOpen(!isOpen)}>
-      Enter your contact information here
+      <p>
+        Your contact information is needed <br />
+        <br />
+        <span className="link">Enter your contact information here</span>
+      </p>
     </button>
   ) : (
     <Forms data={{ values: userValues, schema: userSchema }} submit={submit} />

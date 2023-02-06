@@ -14,13 +14,14 @@ const Checkout = () => {
   const { cart } = useContext(ServicesContext);
   const { user } = useContext(UserContext);
   const [proceedWithCheckout, setNext] = useState(false);
-  const [isUserInfoReq, setUserInfoReq] = useState(true);
+  const [isUserInfoReq, setUserInfoReq] = useState(false);
 
   useEffect(() => {
     if (cart.length > 0) {
       if (cart.filter((c) => c.isBookable).length > 0) {
         setUserInfoReq(true);
-      }
+        // if (user.uid )
+      } else setUserInfoReq(false);
     } else setUserInfoReq(false);
   }, [user, cart]);
 

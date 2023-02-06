@@ -142,7 +142,9 @@ button {
 }
 .btn-step {
   background-color: #{$secondary-color2};
-  text-decoration: underline;
   border-radius: 0;
   padding: 1rem;
+  .link {
+    text-decoration: underline;
+  }
 }
