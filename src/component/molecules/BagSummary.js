@@ -21,16 +21,19 @@ const BagSummary = () => {
           {c.isAccessory ? (
             <AccessoryDetails data={c} />
           ) : (
-            <div className="details-wrapper">
-              <div className="details">
-                <CardHeader data={c} />
-                {c.meeting?.uid ? (
-                  <MeetingDetails meeting={c.meeting} />
-                ) : (
-                  <BookingRequired data={c} />
-                )}
+            <>
+              <div className="details-wrapper">
+                <div className="details">
+                  <CardHeader data={c} />
+                  {c.meeting?.uid ? (
+                    <MeetingDetails meeting={c.meeting} />
+                  ) : (
+                    <BookingRequired data={c} />
+                  )}
+                </div>
               </div>
-            </div>
+              {!c.meeting?.uid && <BookingLink data={c} />}
+            </>
           )}
           <div className="card-section-cost">
             {c.isAccessory && (
@@ -42,7 +45,6 @@ const BagSummary = () => {
             )}
             {c.cost && c.count && <Cost cost={c.cost * c.count} />}
           </div>
-          {!c.meeting?.uid && <BookingLink data={c} />}
         </div>
       ))}
     </div>

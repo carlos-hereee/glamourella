@@ -22,7 +22,15 @@ const UserContact = () => {
       </p>
     </button>
   ) : (
-    <Forms data={{ values: userValues, schema: userSchema }} submit={submit} />
+    <>
+      <button
+        type="button"
+        className="btn btn-step"
+        onClick={() => setIsOpen(!isOpen)}>
+        Close
+      </button>
+      <Forms data={{ values: userValues, schema: userSchema }} submit={submit} />
+    </>
   );
 };
 export default UserContact;

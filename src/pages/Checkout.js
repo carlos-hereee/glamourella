@@ -30,7 +30,11 @@ const Checkout = () => {
       <CardHeader data={checkout} />
       <ChechoutNav />
       {isUserInfoReq && <UserContact />}
-      <BagSummary />
+      {cart.length > 0 ? (
+        <BagSummary />
+      ) : (
+        <p className="empty">Your cart is empty head to Services or Accessory</p>
+      )}
       {proceedWithCheckout && <PaymentMethods click={setNext} />}
     </section>
   );
