@@ -19,11 +19,23 @@ export const UserState = ({ children }) => {
     }),
     userValues: { name: "", email: "", phone: "" },
     shippingSchema: yup.object().shape({
-      name: yup.string().required("*Required field"),
-      email: yup.string().email().required("*Required field"),
-      phone: yup.number().required("*Required field"),
+      firstName: yup.string().required("*Required field"),
+      lastName: yup.string().required("*Required field"),
+      streetAddress: yup.string().required("*Required field"),
+      apt: yup.number().required("*Required field"),
+      city: yup.string().required("*Required field"),
+      state: yup.string().required("*Required field"),
+      postalCode: yup.number().required("*Required field"),
     }),
-    shippingValues: { name: "", email: "", phone: "" },
+    shippingValues: {
+      firstName: "",
+      lastName: "",
+      streetAddress: "",
+      apt: 101,
+      city: "",
+      state: "",
+      postalCode: "",
+    },
     shippingDetails: {},
   };
   const [state, dispatch] = useReducer(reducer, initialState);

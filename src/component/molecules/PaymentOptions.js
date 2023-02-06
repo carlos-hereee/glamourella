@@ -7,7 +7,6 @@ import Forms from "../organisms/Forms";
 import Buttons from "./buttons/Buttons";
 import CardHeader from "./card/CardHeader";
 import UserCard from "./card/UserCard";
-import ShippingRequired from "./ShippingRequired";
 
 const PaymentOptions = () => {
   const { selectPaymentType, paymentMethods, paymentType, checkoutNow } =

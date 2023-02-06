@@ -8,6 +8,7 @@ import UserContact from "../component/molecules/forms/UserForm";
 import { useEffect } from "react";
 import { ServicesContext } from "../utils/context/ServicesContext";
 import { UserContext } from "../utils/context/UserContext";
+import ShippingRequired from "../component/molecules/ShippingRequired";
 
 const Checkout = () => {
   const { checkout } = useContext(AppContext);
@@ -15,14 +16,21 @@ const Checkout = () => {
   const { user } = useContext(UserContext);
   const [proceedWithCheckout, setNext] = useState(false);
   const [isUserInfoReq, setUserInfoReq] = useState(false);
+  const [isShippingInfoReq, setShippingInfoReq] = useState(false);
 
   useEffect(() => {
     if (cart.length > 0) {
       if (cart.filter((c) => c.isBookable).length > 0) {
         setUserInfoReq(true);
-        // if (user.uid )
       } else setUserInfoReq(false);
-    } else setUserInfoReq(false);
+      if (cart.filter((c) => c.isAccessory).length > 0) {
+        setShippingInfoReq(true);
+      } else setShippingInfoReq(false);
+    } else {
+      // cart is empty
+      setShippingInfoReq(false);
+      setUserInfoReq(false);
+    }
   }, [user, cart]);
 
   return (
@@ -30,6 +38,7 @@ const Checkout = () => {
       <CardHeader data={checkout} />
       <ChechoutNav />
       {isUserInfoReq && <UserContact />}
+      {isShippingInfoReq && <ShippingRequired />}
       {cart.length > 0 ? (
         <BagSummary />
       ) : (
