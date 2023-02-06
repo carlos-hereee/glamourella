@@ -8,6 +8,7 @@ import { CalendarContext } from "../../utils/context/CalendarContext";
 import MeetingDetails from "../atoms/MeetingDetails";
 import { UserContext } from "../../utils/context/UserContext";
 import Booknow from "../molecules/forms/Booknow";
+import BookingLink from "./navigation/BookingLink";
 
 const CartItem = ({ data, link }) => {
   const { removeFromCart, setActive, active } = useContext(ServicesContext);
@@ -51,11 +52,7 @@ const CartItem = ({ data, link }) => {
                       />
                     )
                   ) : (
-                    <div className="row">
-                      <ButtonLink link={link} />
-                      <p>or</p>
-                      <OpenAppButton service={c} />
-                    </div>
+                    <BookingLink data={c} />
                   )}
                 </div>
               ) : (

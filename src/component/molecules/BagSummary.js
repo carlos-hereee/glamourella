@@ -6,6 +6,8 @@ import MeetingDetails from "../atoms/MeetingDetails";
 import CardHeader from "./card/CardHeader";
 import * as yup from "yup";
 import FieldQuantity from "../organisms/Field";
+import BookingLink from "../organisms/navigation/BookingLink";
+import BookingRequired from "./required/BookingRequired";
 
 const schema = yup.object().shape({ quantity: yup.number() });
 const values = { quantity: 1 };
@@ -22,8 +24,13 @@ const BagSummary = () => {
             <div className="details-wrapper">
               <div className="details">
                 <CardHeader data={c} />
-                <MeetingDetails data={c} meeting={c.meeting} />
+                {c.meeting?.uid ? (
+                  <MeetingDetails meeting={c.meeting} />
+                ) : (
+                  <BookingRequired />
+                )}
               </div>
+              {!c.meeting?.uid && <BookingLink data={c} />}
             </div>
           )}
           <div className="card-section-cost">
