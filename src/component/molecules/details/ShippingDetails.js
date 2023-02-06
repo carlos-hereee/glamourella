@@ -1,6 +1,6 @@
 const ShippingDetails = ({ data }) => {
   return (
-    <div>
+    <div className="shipping-details">
       <p>First Name: {data.firstName}</p>
       <p>Last Name: {data.lastName}</p>
       <p>Street Address: {data.streetAddress}</p>

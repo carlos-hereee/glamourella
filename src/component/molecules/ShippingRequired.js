@@ -1,33 +1,30 @@
 import { useState } from "react";
 import { useContext } from "react";
 import { UserContext } from "../../utils/context/UserContext";
-import Forms from "../organisms/Forms";
+import ToggleOpen from "./buttons/ToggleOpen";
 import ShippingDetails from "./details/ShippingDetails";
+import FormShippingDetails from "./forms/ShippingDetailsForm";
 
 const ShippingRequired = () => {
-  const { shippingValues, shippingSchema, shippingDetails } =
-    useContext(UserContext);
+  const { shippingDetails } = useContext(UserContext);
   const [isOpen, setIsOpen] = useState(false);
-  const handleSubmit = (e) => {
-    console.log("e", e);
+
+  const handleClick = () => setIsOpen(!isOpen);
+  const setData = () => {
+    if (isOpen) {
+      return <p>Close Shipping Details</p>;
+    }
+    return <p>Enter Shipping Details</p>;
   };
-  console.log("shipping", shippingValues);
-  console.log(shippingDetails);
   return shippingDetails.uid ? (
     <ShippingDetails data={shippingDetails} />
-  ) : (
+  ) : isOpen ? (
     <div>
-      <button
-        type="button"
-        className="btn btn-step"
-        onClick={() => setIsOpen(!isOpen)}>
-        Shipping Address
-      </button>
-      <Forms
-        data={{ values: shippingValues, schema: shippingSchema }}
-        submit={handleSubmit}
-      />
+      <ToggleOpen data={setData()} click={handleClick} />
+      <FormShippingDetails />
     </div>
+  ) : (
+    <ToggleOpen data={setData()} click={handleClick} />
   );
 };
 

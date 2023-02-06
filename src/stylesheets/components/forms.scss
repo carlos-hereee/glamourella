@@ -26,3 +26,28 @@
   align-items: center;
   gap: 1rem;
 }
+.shipping-form {
+  label {
+    max-width: 150px;
+  }
+  .form-fields {
+    display: flex;
+    // justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: auto;
+  }
+  .input-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .input {
+    max-width: 150px;
+    @include devices(mini) {
+      max-width: 120px;
+    }
+  }
+  .btn-classic {
+    margin: 0;
+  }
+}

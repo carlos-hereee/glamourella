@@ -13,6 +13,11 @@
       @content;
     }
   }
+  @if $breakpoint == mini {
+    @media only screen and (max-width:  #{$mini}) {
+      @content;
+    }
+  }
 }
 // retrieve css variable
 @function color($color-name) {

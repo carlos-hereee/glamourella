@@ -4,6 +4,7 @@ import { axiosWithAuth } from "../functions/axios";
 import { reducer } from "../reducers/UserReducer";
 import { isDev } from "../../config";
 import * as yup from "yup";
+import shortid, { generate } from "shortid";
 
 export const UserContext = createContext();
 export const UserState = ({ children }) => {
@@ -22,7 +23,7 @@ export const UserState = ({ children }) => {
       firstName: yup.string().required("*Required field"),
       lastName: yup.string().required("*Required field"),
       streetAddress: yup.string().required("*Required field"),
-      apt: yup.number().required("*Required field"),
+      apt: yup.number(),
       city: yup.string().required("*Required field"),
       state: yup.string().required("*Required field"),
       postalCode: yup.number().required("*Required field"),
@@ -31,7 +32,7 @@ export const UserState = ({ children }) => {
       firstName: "",
       lastName: "",
       streetAddress: "",
-      apt: 101,
+      apt: "",
       city: "",
       state: "",
       postalCode: "",
@@ -67,6 +68,7 @@ export const UserState = ({ children }) => {
     dispatch({ type: "UPDATE_USER_DATA", payload: data });
   };
   const setShipping = (data) => {
+    if (isDev) data.uid = shortid.generate();
     dispatch({ type: "UPDATE_SHIPPING_DETAILS", payload: data });
   };
   return (
