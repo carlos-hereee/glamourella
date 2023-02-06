@@ -1,18 +1,42 @@
 import { useContext } from "react";
 import { AppContext } from "../../utils/context/AppContext";
+import { ServicesContext } from "../../utils/context/ServicesContext";
+import { UserContext } from "../../utils/context/UserContext";
+import { scrollToCartItem } from "../../utils/functions/calendar";
 import Buttons from "./buttons/Buttons";
+import CardHeader from "./card/CardHeader";
+import UserCard from "./card/UserCard";
+import Booknow from "./forms/Booknow";
+import ShippingRequired from "./ShippingRequired";
 
-const PaymentOptions = ({ required, data, click }) => {
-  const { selectPaymentType } = useContext(AppContext);
+const PaymentOptions = () => {
+  const { selectPaymentType, paymentMethods, paymentType, checkoutNow } =
+    useContext(AppContext);
+  const { cart } = useContext(ServicesContext);
+  const { user, userValues, userSchema, shippingDetails } = useContext(UserContext);
+
+  const handleSubmit = () => {
+    // confirm payment data enter is correct
+    if (paymentType.uid) {
+      // check if user information exist
+      if (paymentType.type !== "in-store") {
+      } else {
+        // payment type is in-store; enter all data about checkout
+        checkoutNow(paymentType, user, cart);
+      }
+    } else scrollToCartItem({ uid: "required" });
+  };
+  const submit = (e) => console.log("e", e);
+
   return (
     <>
-      {!required && (
+      {!paymentType.uid && (
         <p className="required" id="required">
           <strong>Please select a payment method</strong>
         </p>
       )}
       <nav className="navbar payment-options">
-        {data.map((p) => (
+        {paymentMethods.map((p) => (
           // todo add toggle active
           <Buttons
             handleClick={() => selectPaymentType(p)}
@@ -21,7 +45,24 @@ const PaymentOptions = ({ required, data, click }) => {
           />
         ))}
       </nav>
-      ;
+      {paymentType.uid && (
+        <>
+          <CardHeader data={paymentType} />
+          {paymentType.type === "in-store" ? (
+            <p>We hope to see you soon</p>
+          ) : user.uid ? (
+            <UserCard />
+          ) : (
+            <Booknow
+              data={{ values: userValues, schema: userSchema }}
+              submit={submit}
+            />
+          )}
+          <button className="btn btn-green" type="button" onClick={handleSubmit}>
+            Confirm
+          </button>
+        </>
+      )}
     </>
   );
 };

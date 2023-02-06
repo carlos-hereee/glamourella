@@ -1,6 +1,6 @@
 import { getIn, useFormik } from "formik";
 
-const Field = ({ data, max, change }) => {
+const FieldQuantity = ({ data, max, change }) => {
   const types = {
     quantity: "number",
   };
@@ -38,4 +38,4 @@ const Field = ({ data, max, change }) => {
   );
 };
 
-export default Field;
+export default FieldQuantity;

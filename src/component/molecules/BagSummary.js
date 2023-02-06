@@ -1,4 +1,3 @@
-import { Field } from "formik";
 import { useContext } from "react";
 import { ServicesContext } from "../../utils/context/ServicesContext";
 import AccessoryDetails from "../atoms/AccessoryDetails";
@@ -6,6 +5,7 @@ import Cost from "../atoms/Cost";
 import MeetingDetails from "../atoms/MeetingDetails";
 import CardHeader from "./card/CardHeader";
 import * as yup from "yup";
+import FieldQuantity from "../organisms/Field";
 
 const schema = yup.object().shape({ quantity: yup.number() });
 const values = { quantity: 1 };
@@ -14,7 +14,6 @@ const BagSummary = () => {
   return (
     <div className="card-section-wrapper">
       <h3>Bag Summary</h3>
-      <p>Please verify everything is correct</p>
       {cart.map((c) => (
         <div className="card-section-row" key={c.uid}>
           {c.isAccessory ? (
@@ -29,7 +28,7 @@ const BagSummary = () => {
           )}
           <div className="card-section-cost">
             {c.isAccessory && (
-              <Field
+              <FieldQuantity
                 data={{ values, schema }}
                 max={c.inStock}
                 change={({ target }) => onQuantityChange(target.value, c)}
