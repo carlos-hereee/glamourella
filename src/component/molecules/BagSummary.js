@@ -30,7 +30,6 @@ const BagSummary = () => {
                   <BookingRequired data={c} />
                 )}
               </div>
-              {!c.meeting?.uid && <BookingLink data={c} />}
             </div>
           )}
           <div className="card-section-cost">
@@ -43,6 +42,7 @@ const BagSummary = () => {
             )}
             {c.cost && c.count && <Cost cost={c.cost * c.count} />}
           </div>
+          {!c.meeting?.uid && <BookingLink data={c} />}
         </div>
       ))}
     </div>
