@@ -12,19 +12,19 @@ import ShippingRequired from "../component/molecules/ShippingRequired";
 import ButtonNext from "../component/molecules/buttons/ButtonNext";
 
 const Checkout = () => {
-  const { checkout } = useContext(AppContext);
+  const { checkout, readyCheckout } = useContext(AppContext);
   const { cart } = useContext(ServicesContext);
   const { user, shippingDetails } = useContext(UserContext);
   const [proceedWithCheckout, setNext] = useState(false);
   const [isUserInfoReq, setUserInfoReq] = useState(false);
-  const [isShippingInfoReq, setShippingInfoReq] = useState(false);
+  const [isShippingReq, setShippingInfoReq] = useState(false);
 
   useEffect(() => {
     if (cart.length > 0) {
-      if (cart.filter((c) => c.isBookable).length > 0 && !user.uid) {
+      if (cart.filter((c) => c.isBookable).length > 0) {
         setUserInfoReq(true);
       } else setUserInfoReq(false);
-      if (cart.filter((c) => c.isAccessory).length > 0 && !shippingDetails.uid) {
+      if (cart.filter((c) => c.isAccessory).length > 0) {
         setShippingInfoReq(true);
       } else setShippingInfoReq(false);
     } else {
@@ -34,19 +34,22 @@ const Checkout = () => {
     }
   }, [user, cart]);
 
-  const handleClick = (e) => {};
   return (
     <section className="secondary-container">
       <CardHeader data={checkout} />
       <ChechoutNav />
       {isUserInfoReq && <UserContact />}
-      {isShippingInfoReq && <ShippingRequired />}
+      {isShippingReq && <ShippingRequired />}
       {cart.length > 0 ? (
         <>
           <BagSummary />
-          {!isUserInfoReq && !isShippingInfoReq && (
-            <ButtonNext click={handleClick} />
-          )}
+          {isUserInfoReq
+            ? isShippingReq
+              ? user.uid && shippingDetails.uid && <ButtonNext click={setNext} />
+              : user.uid &&
+                cart.every((c) => c.isBooked) &&
+                !proceedWithCheckout && <ButtonNext click={setNext} />
+            : ""}
         </>
       ) : (
         <p className="empty">Your cart is empty head to Services or Accessory</p>

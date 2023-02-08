@@ -73,7 +73,7 @@ export const AppState = ({ children }) => {
     };
     dispatch({ type: "SELECT_PAYMENT_TYPE", payload: data });
   };
-  const checkoutNow = (paymentType, user, cart) => {
+  const readyCheckout = (paymentType, user, cart) => {
     console.log("paymentType, user, cart", paymentType, user, cart);
   };
 
@@ -98,7 +98,7 @@ export const AppState = ({ children }) => {
         updateMenu,
         newsletter,
         selectPaymentType,
-        checkoutNow,
+        readyCheckout,
       }}>
       {children}
     </AppContext.Provider>

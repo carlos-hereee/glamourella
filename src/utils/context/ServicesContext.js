@@ -96,6 +96,7 @@ export const ServicesState = ({ children }) => {
       bookingErr: "",
       meeting: eventData.meeting,
     };
+    console.log(data);
     dispatch({ type: "BOOK_REQUIRED", payload: { idx, data } });
     // add user data to user if not exists
     if (!user.uid) updateUserData({ ...eventData.values, uid: shortid.generate() });
