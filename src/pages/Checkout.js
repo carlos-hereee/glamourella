@@ -35,7 +35,9 @@ const Checkout = () => {
         cost += c.cost * c.count;
         return c;
       });
-      setUserInfoReq(isBookable);
+      if (isBookable || isAccessory) {
+        setUserInfoReq(isBookable);
+      }
       setShippingInfoReq(isAccessory);
       setTotal(cost);
     } else {

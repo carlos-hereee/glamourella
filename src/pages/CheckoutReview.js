@@ -1,4 +1,5 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import BagSummary from "../component/molecules/BagSummary";
 import Total from "../component/molecules/Total";
 import { AppContext } from "../utils/context/AppContext";
@@ -9,7 +10,13 @@ const CheckoutReview = () => {
   const { total, cart, paymentType } = useContext(ServicesContext);
   const { readyCheckout } = useContext(AppContext);
   const { user } = useContext(UserContext);
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    if (!cart.length || !paymentType.uid || !user.uid) {
+      navigate("/checkout");
+    }
+  }, [cart, paymentType, user]);
   const handleClick = () => {
     readyCheckout(paymentType, user, cart);
   };
