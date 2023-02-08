@@ -1,10 +1,7 @@
-import ButtonLink from "../../atoms/buttons/ButtonLink";
-
-const CartEmpty = ({ link }) => {
+const CartEmpty = () => {
   return (
     <div className="container-empty">
-      <h4>No {link} in cart</h4>
-      <ButtonLink link={link} />
+      <p className="empty">Your cart is empty head to Services or Accessory</p>
     </div>
   );
 };

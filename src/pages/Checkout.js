@@ -10,9 +10,10 @@ import { ServicesContext } from "../utils/context/ServicesContext";
 import { UserContext } from "../utils/context/UserContext";
 import ShippingRequired from "../component/molecules/ShippingRequired";
 import ButtonNext from "../component/molecules/buttons/ButtonNext";
+import CartEmpty from "../component/molecules/empty/CartEmpty";
 
 const Checkout = () => {
-  const { checkout, readyCheckout } = useContext(AppContext);
+  const { checkout } = useContext(AppContext);
   const { cart } = useContext(ServicesContext);
   const { user, shippingDetails } = useContext(UserContext);
   const [proceedWithCheckout, setNext] = useState(false);
@@ -40,20 +41,14 @@ const Checkout = () => {
       <ChechoutNav />
       {isUserInfoReq && <UserContact />}
       {isShippingReq && <ShippingRequired />}
-      {cart.length > 0 ? (
-        <>
-          <BagSummary />
-          {isUserInfoReq
-            ? isShippingReq
-              ? user.uid && shippingDetails.uid && <ButtonNext click={setNext} />
-              : user.uid &&
-                cart.every((c) => c.isBooked) &&
-                !proceedWithCheckout && <ButtonNext click={setNext} />
-            : ""}
-        </>
-      ) : (
-        <p className="empty">Your cart is empty head to Services or Accessory</p>
-      )}
+      {cart.length > 0 ? <BagSummary /> : <CartEmpty />}
+      {isUserInfoReq
+        ? isShippingReq
+          ? user.uid && shippingDetails.uid && <ButtonNext click={setNext} />
+          : user.uid &&
+            cart.every((c) => c.isBooked) &&
+            !proceedWithCheckout && <ButtonNext click={setNext} />
+        : ""}
       {proceedWithCheckout && <PaymentMethods click={setNext} />}
     </section>
   );

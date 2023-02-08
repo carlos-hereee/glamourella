@@ -3,9 +3,11 @@ import { ServicesContext } from "../../utils/context/ServicesContext";
 import ShippingRequired from "../molecules/ShippingRequired";
 import Total from "../molecules/Total";
 import PaymentOptions from "../molecules/PaymentOptions";
+import { AppContext } from "../../utils/context/AppContext";
 
 const PaymentMethods = () => {
   const { cart } = useContext(ServicesContext);
+  const { readyCheckout } = useContext(AppContext);
   const [total, setTotal] = useState(0);
   const [shippingRequired, setShippingReq] = useState(false);
 
