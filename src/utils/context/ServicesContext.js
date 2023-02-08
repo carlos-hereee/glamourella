@@ -1,4 +1,4 @@
-import { createContext, useReducer, useContext } from "react";
+import { createContext, useReducer, useContext, useEffect } from "react";
 import shortid from "shortid";
 import { reducer } from "../reducers/ServicesReducer";
 import { LogContext } from "./LogContext";
@@ -51,6 +51,12 @@ export const ServicesState = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { addMessageToLog } = useContext(LogContext);
   const { updateUserData, user } = useContext(UserContext);
+
+  useEffect(() => {
+    if (user.uid) {
+      setIsUserReq(false);
+    }
+  }, [user]);
 
   const addToCart = (service) => {
     dispatch({ type: "ADD_TO_CART", payload: service });

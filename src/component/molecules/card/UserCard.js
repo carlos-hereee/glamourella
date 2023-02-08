@@ -4,7 +4,7 @@ import { UserContext } from "../../../utils/context/UserContext";
 const UserCard = () => {
   const { user } = useContext(UserContext);
   return (
-    <div>
+    <div className="card-body">
       <p>Name: {user.name}</p>
       <p>Email: {user.email}</p>
       <p>Phone: {user.phone}</p>

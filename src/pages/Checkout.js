@@ -14,17 +14,17 @@ import ButtonNext from "../component/molecules/buttons/ButtonNext";
 const Checkout = () => {
   const { checkout } = useContext(AppContext);
   const { cart } = useContext(ServicesContext);
-  const { user } = useContext(UserContext);
+  const { user, shippingDetails } = useContext(UserContext);
   const [proceedWithCheckout, setNext] = useState(false);
   const [isUserInfoReq, setUserInfoReq] = useState(false);
   const [isShippingInfoReq, setShippingInfoReq] = useState(false);
 
   useEffect(() => {
     if (cart.length > 0) {
-      if (cart.filter((c) => c.isBookable).length > 0) {
+      if (cart.filter((c) => c.isBookable).length > 0 && !user.uid) {
         setUserInfoReq(true);
       } else setUserInfoReq(false);
-      if (cart.filter((c) => c.isAccessory).length > 0) {
+      if (cart.filter((c) => c.isAccessory).length > 0 && !shippingDetails.uid) {
         setShippingInfoReq(true);
       } else setShippingInfoReq(false);
     } else {
@@ -34,10 +34,7 @@ const Checkout = () => {
     }
   }, [user, cart]);
 
-  const handleClick = (e) => {
-    if (isShippingInfoReq) {
-    }
-  };
+  const handleClick = (e) => {};
   return (
     <section className="secondary-container">
       <CardHeader data={checkout} />

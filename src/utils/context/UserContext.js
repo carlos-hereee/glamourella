@@ -65,6 +65,9 @@ export const UserState = ({ children }) => {
     }
   };
   const updateUserData = (data) => {
+    if (isDev) {
+      data.uid = shortid.generate();
+    }
     dispatch({ type: "UPDATE_USER_DATA", payload: data });
   };
   const setShipping = (data) => {
