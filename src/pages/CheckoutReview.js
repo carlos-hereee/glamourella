@@ -29,7 +29,7 @@ const CheckoutReview = () => {
       <BagSummary inReview={true} />
       <CardHeader data={paymentType} />
       <Total total={total} />
-      <button type="button" className="btn btn-classic" onClick={handleClick}>
+      <button type="button" className="btn btn-submit" onClick={handleClick}>
         Confirm
       </button>
     </div>

@@ -40,6 +40,9 @@
   gap: 1rem;
   position: relative;
   padding-bottom: 1rem;
+  .card {
+    box-shadow: 2px 0px 5px 1px #{$primary-color};
+  }
 }
 .container-empty {
   display: flex;
