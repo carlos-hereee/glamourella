@@ -16,6 +16,7 @@ const PaymentMethods = ({ isShippingReq }) => {
     if (paymentType.uid) {
       // check if user information exist
       if (paymentType.type !== "in-store") {
+        // todo redirect to stripe page
       } else {
         // payment type is in-store; enter all data about checkout
         navigate("/checkout-review");

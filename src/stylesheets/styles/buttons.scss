@@ -5,6 +5,7 @@ button {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  // margin: auto;
   &:disabled {
     cursor: not-allowed;
   }
@@ -84,7 +85,7 @@ button {
   }
 }
 .btn-classic {
-  margin: 1rem;
+  // margin: 1rem;
   background-color: #{$secondary-color2};
 }
 .btn-cancel {
@@ -148,4 +149,7 @@ button {
   .link {
     text-decoration: underline;
   }
+}
+.btn-next {
+  margin: 1rem;
 }

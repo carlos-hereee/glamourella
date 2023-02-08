@@ -20,7 +20,7 @@ const ButtonNext = ({ click }) => {
   };
 
   return (
-    <button type="button" className="btn btn-classic" onClick={handleClick}>
+    <button type="button" className="btn btn-classic btn-next" onClick={handleClick}>
       Procced with checkout
     </button>
   );

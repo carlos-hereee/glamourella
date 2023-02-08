@@ -54,7 +54,7 @@ const FormShippingDetails = () => {
         ))}
       </div>
 
-      <button type="submit" className="btn btn-classic">
+      <button type="submit" className="btn btn-submit">
         <Icons name="submit" /> Confirm
       </button>
     </form>

@@ -32,7 +32,8 @@
   }
   .form-fields {
     display: flex;
-    // justify-content: space-evenly;
+    justify-content: space-between;
+    margin: auto;
     flex-wrap: wrap;
     gap: 1rem;
     margin: auto;
@@ -47,7 +48,10 @@
       max-width: 120px;
     }
   }
-  .btn-classic {
-    margin: 0;
-  }
+}
+.btn-submit {
+  background-color: #{$secondary-color2};
+  margin: auto;
+  max-width: 300px;
+  width: 100%;
 }
