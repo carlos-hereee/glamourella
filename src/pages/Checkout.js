@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { ServicesContext } from "../utils/context/ServicesContext";
 import { UserContext } from "../utils/context/UserContext";
 import ShippingRequired from "../component/molecules/ShippingRequired";
+import ButtonNext from "../component/molecules/buttons/ButtonNext";
 
 const Checkout = () => {
   const { checkout } = useContext(AppContext);
@@ -33,6 +34,10 @@ const Checkout = () => {
     }
   }, [user, cart]);
 
+  const handleClick = (e) => {
+    if (isShippingInfoReq) {
+    }
+  };
   return (
     <section className="secondary-container">
       <CardHeader data={checkout} />
@@ -40,7 +45,12 @@ const Checkout = () => {
       {isUserInfoReq && <UserContact />}
       {isShippingInfoReq && <ShippingRequired />}
       {cart.length > 0 ? (
-        <BagSummary />
+        <>
+          <BagSummary />
+          {!isUserInfoReq && !isShippingInfoReq && (
+            <ButtonNext click={handleClick} />
+          )}
+        </>
       ) : (
         <p className="empty">Your cart is empty head to Services or Accessory</p>
       )}

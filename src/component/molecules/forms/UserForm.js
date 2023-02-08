@@ -7,30 +7,32 @@ import UserCard from "../card/UserCard";
 
 const UserContact = () => {
   const { user, userValues, userSchema, updateUserData } = useContext(UserContext);
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const submit = (e) => updateUserData(e);
   const handleClick = () => setIsOpen(!isOpen);
   const setData = () => {
-    if (isOpen) {
-      return "close";
-    }
-    return (
-      <p>
-        Your contact information is needed <br />
-        <br />
-        <span className="link">Enter your contact information here</span>
-      </p>
+    return isOpen ? (
+      <p>Close contact details</p>
+    ) : (
+      <p>Enter contact information details</p>
     );
   };
 
-  return user.uid ? (
-    <UserCard />
-  ) : isOpen ? (
-    <ToggleOpen data={setData()} click={handleClick} />
-  ) : (
+  return (
     <>
-      <ToggleOpen data={setData()} click={handleClick} />
-      <Forms data={{ values: userValues, schema: userSchema }} submit={submit} />
+      <div className="card-header">
+        <h3>Contact information</h3>
+      </div>
+      {user.uid ? (
+        <UserCard />
+      ) : isOpen ? (
+        <>
+          <ToggleOpen data={setData()} click={handleClick} />
+          <Forms data={{ values: userValues, schema: userSchema }} submit={submit} />
+        </>
+      ) : (
+        <ToggleOpen data={setData()} click={handleClick} />
+      )}
     </>
   );
 };

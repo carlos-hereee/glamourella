@@ -11,20 +11,24 @@ const ShippingRequired = () => {
 
   const handleClick = () => setIsOpen(!isOpen);
   const setData = () => {
-    if (isOpen) {
-      return <p>Close Shipping Details</p>;
-    }
-    return <p>Enter Shipping Details</p>;
+    return isOpen ? <p>Close shipping details</p> : <p>Enter Shipping Details</p>;
   };
-  return shippingDetails.uid ? (
-    <ShippingDetails />
-  ) : isOpen ? (
-    <div>
-      <ToggleOpen data={setData()} click={handleClick} />
-      <FormShippingDetails />
-    </div>
-  ) : (
-    <ToggleOpen data={setData()} click={handleClick} />
+  return (
+    <>
+      <div className="card-header">
+        <h3>Shipping Details</h3>
+      </div>
+      {shippingDetails.uid ? (
+        <ShippingDetails />
+      ) : isOpen ? (
+        <div>
+          <ToggleOpen data={setData()} click={handleClick} />
+          <FormShippingDetails />
+        </div>
+      ) : (
+        <ToggleOpen data={setData()} click={handleClick} />
+      )}
+    </>
   );
 };
 

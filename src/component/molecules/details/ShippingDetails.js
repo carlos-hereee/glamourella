@@ -5,9 +5,6 @@ const ShippingDetails = () => {
   const { shippingDetails } = useContext(UserContext);
   return (
     <div className="shipping-details">
-      <div className="shipping-card-header">
-        <h3>Shipping Details:</h3>
-      </div>
       <div className="shipping-content">
         <p>
           First Name: <strong> {shippingDetails.firstName}</strong>

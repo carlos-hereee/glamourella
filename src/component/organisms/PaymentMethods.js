@@ -3,10 +3,9 @@ import { ServicesContext } from "../../utils/context/ServicesContext";
 import ShippingRequired from "../molecules/ShippingRequired";
 import Total from "../molecules/Total";
 import PaymentOptions from "../molecules/PaymentOptions";
-import { scrollToCartItem } from "../../utils/functions/calendar";
 
-const PaymentMethods = ({ click }) => {
-  const { cart, bookingRequired } = useContext(ServicesContext);
+const PaymentMethods = () => {
+  const { cart } = useContext(ServicesContext);
   const [total, setTotal] = useState(0);
   const [shippingRequired, setShippingReq] = useState(false);
 
@@ -24,27 +23,10 @@ const PaymentMethods = ({ click }) => {
     }
   }, [cart]);
 
-  const handleClick = () => {
-    const isBookingRequired = cart.filter((c) => c.isBookable && !c.isBooked);
-    if (isBookingRequired.length > 0) {
-      click(false);
-      isBookingRequired.forEach((br) => {
-        const idx = cart.findIndex((c) => c.uid === br.uid);
-        if (idx !== -1) {
-          bookingRequired(idx, br);
-        }
-      });
-      // scroll to first instance
-      scrollToCartItem(isBookingRequired[0]);
-    } else click(true);
-  };
   return (
     <div className="card-footer">
       <Total total={total} />
       <PaymentOptions />
-      <button type="button" className="btn btn-classic" onClick={handleClick}>
-        Verify Information
-      </button>
       {shippingRequired && <ShippingRequired />}
     </div>
   );
