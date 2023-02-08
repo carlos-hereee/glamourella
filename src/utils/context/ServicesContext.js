@@ -9,6 +9,7 @@ export const ServicesState = ({ children }) => {
   const initialState = {
     isLoading: false,
     isFiltered: false,
+    isUserReq: false,
     cart: [
       // {
       //   cost: 15,
@@ -76,6 +77,10 @@ export const ServicesState = ({ children }) => {
     dispatch({ type: "IS_LOADING", payload: true });
     dispatch({ type: "UPDATE_ACTIVE", payload: active });
   };
+  const setIsUserReq = (data) => {
+    dispatch({ type: "IS_LOADING", payload: true });
+    dispatch({ type: "SET_IS_USER_REQ", payload: data });
+  };
   const bookEvent = (eventData, cart, idx) => {
     // add  booked
     const data = {
@@ -122,6 +127,7 @@ export const ServicesState = ({ children }) => {
         filteredServices: state.filteredServices,
         cart: state.cart,
         active: state.active,
+        isUserReq: state.isUserReq,
         bookEvent,
         filterServices,
         addToCart,
@@ -129,6 +135,7 @@ export const ServicesState = ({ children }) => {
         setActive,
         bookingRequired,
         onQuantityChange,
+        setIsUserReq,
       }}>
       {children}
     </ServicesContext.Provider>

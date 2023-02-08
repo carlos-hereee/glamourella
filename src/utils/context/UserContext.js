@@ -4,7 +4,7 @@ import { axiosWithAuth } from "../functions/axios";
 import { reducer } from "../reducers/UserReducer";
 import { isDev } from "../../config";
 import * as yup from "yup";
-import shortid, { generate } from "shortid";
+import shortid from "shortid";
 
 export const UserContext = createContext();
 export const UserState = ({ children }) => {

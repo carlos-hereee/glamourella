@@ -19,6 +19,7 @@ const updateShippingDetails = (state, action) => {
     isLoading: false,
   };
 };
+
 export const reducer = (state, action) => {
   switch (action.type) {
     case "IS_LOADING":

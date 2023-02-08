@@ -65,6 +65,13 @@ const updateItemQuantity = (state, action) => {
     cart: state.cart.map((c) => (c.uid === action.payload.uid ? action.payload : c)),
   };
 };
+const setIsUserReq = (state, action) => {
+  return {
+    ...state,
+    isLoading: false,
+    isUserReq: action.payload,
+  };
+};
 export const reducer = (state, action) => {
   switch (action.type) {
     case "IS_LOADING":
@@ -85,6 +92,8 @@ export const reducer = (state, action) => {
       return bookRequired(state, action);
     case "UPDATE_ITEM_QUANTITY":
       return updateItemQuantity(state, action);
+    case "SET_IS_USER_REQ":
+      return setIsUserReq(state, action);
     default:
       return state;
   }
