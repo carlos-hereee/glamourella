@@ -3,10 +3,11 @@ import PaymentOptions from "../molecules/PaymentOptions";
 import { AppContext } from "../../utils/context/AppContext";
 import { scrollToCartItem } from "../../utils/functions/calendar";
 import CardHeader from "../molecules/card/CardHeader";
-import InStore from "../molecules/InStore";
+import InStore from "../molecules/buttons/InStore";
 import { useNavigate } from "react-router-dom";
+import ShippingRequired from "../molecules/ShippingRequired";
 
-const PaymentMethods = () => {
+const PaymentMethods = ({ isShippingReq }) => {
   const { paymentMethods, paymentType } = useContext(AppContext);
   const navigate = useNavigate();
 
@@ -20,10 +21,6 @@ const PaymentMethods = () => {
         navigate("/checkout-review");
       }
     } else scrollToCartItem({ uid: "required" });
-  };
-
-  const type = {
-    "in-store": <InStore />,
   };
 
   return (
@@ -42,10 +39,11 @@ const PaymentMethods = () => {
       {paymentType.uid && (
         <>
           <CardHeader data={paymentType} />
-          {type[paymentType.type]}
-          <button className="btn btn-green" type="button" onClick={handleSubmit}>
-            Review
-          </button>
+          {paymentType.type === "in-store" ? (
+            <InStore click={handleSubmit} />
+          ) : (
+            isShippingReq && <ShippingRequired />
+          )}
         </>
       )}
     </div>

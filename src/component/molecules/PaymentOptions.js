@@ -22,8 +22,6 @@ const PaymentOptions = ({ data }) => {
       <span className="icon-label">{data.name}</span>
     </button>
   );
-
-  return <Buttons handleClick={() => selectPaymentType(data)} name={data.icon} />;
 };
 
 export default PaymentOptions;

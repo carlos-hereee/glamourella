@@ -4,10 +4,9 @@ import CardHeader from "../component/molecules/card/CardHeader";
 import { AppContext } from "../utils/context/AppContext";
 import BagSummary from "../component/molecules/BagSummary";
 import ChechoutNav from "../component/organisms/navigation/ChechoutNavigation";
-import UserContact from "../component/molecules/forms/UserForm";
+import UserContact from "../component/organisms/UserContact";
 import { ServicesContext } from "../utils/context/ServicesContext";
 import { UserContext } from "../utils/context/UserContext";
-import ShippingRequired from "../component/molecules/ShippingRequired";
 import ButtonNext from "../component/molecules/buttons/ButtonNext";
 import CartEmpty from "../component/molecules/empty/CartEmpty";
 import Total from "../component/molecules/Total";
@@ -29,14 +28,14 @@ const Checkout = () => {
         if (c.isBookable) {
           isBookable = true;
         }
-        if (isAccessory) {
-          isBookable = true;
+        if (c.isAccessory) {
+          isAccessory = true;
         }
         cost += c.cost * c.count;
         return c;
       });
       if (isBookable || isAccessory) {
-        setUserInfoReq(isBookable);
+        setUserInfoReq(true);
       }
       setShippingInfoReq(isAccessory);
       setTotal(cost);
@@ -53,7 +52,7 @@ const Checkout = () => {
       <CardHeader data={checkout} />
       <ChechoutNav />
       {isUserInfoReq && <UserContact />}
-      {isShippingReq && <ShippingRequired />}
+      {/* {isShippingReq && <ShippingRequired />} */}
       {cart.length > 0 ? <BagSummary /> : <CartEmpty />}
       {total > 0 && <Total total={total} />}
       {isUserInfoReq
@@ -63,7 +62,9 @@ const Checkout = () => {
             cart.every((c) => c.isBooked) &&
             !proceedWithCheckout && <ButtonNext click={setNext} />
         : ""}
-      {proceedWithCheckout && <PaymentMethods click={setNext} />}
+      {proceedWithCheckout && (
+        <PaymentMethods click={setNext} isShippingReq={isShippingReq} />
+      )}
     </section>
   );
 };

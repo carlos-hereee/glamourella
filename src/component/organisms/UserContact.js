@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useContext } from "react";
-import { ServicesContext } from "../../../utils/context/ServicesContext";
-import { UserContext } from "../../../utils/context/UserContext";
-import Forms from "../../organisms/Forms";
-import ToggleOpen from "../buttons/ToggleOpen";
-import UserCard from "../card/UserCard";
+import { ServicesContext } from "../../utils/context/ServicesContext";
+import { UserContext } from "../../utils/context/UserContext";
+import ToggleOpen from "../molecules/buttons/ToggleOpen";
+import UserCard from "../molecules/card/UserCard";
+import NoCaptchaForm from "../molecules/forms/NoCaptchaForm";
 
 const UserContact = () => {
   const { user, userValues, userSchema, updateUserData } = useContext(UserContext);
@@ -28,7 +28,10 @@ const UserContact = () => {
       ) : isOpen ? (
         <>
           <ToggleOpen data={setData()} click={handleClick} />
-          <Forms data={{ values: userValues, schema: userSchema }} submit={submit} />
+          <NoCaptchaForm
+            data={{ values: userValues, schema: userSchema }}
+            submit={submit}
+          />
         </>
       ) : (
         <ToggleOpen data={setData()} click={handleClick} />

@@ -13,12 +13,13 @@ export const UserState = ({ children }) => {
     user: {},
     booked: [],
     userSchema: yup.object().shape({
-      name: yup.string().required("*Required field"),
+      firstName: yup.string().required("*Required field"),
+      lastName: yup.string().required("*Required field"),
       email: yup.string().email().required("*Required field"),
       // recaptcha: yup.string().required("*Required field").nullable(),
       phone: yup.number().required("*Required field"),
     }),
-    userValues: { name: "", email: "", phone: "" },
+    userValues: { firstName: "", lastName: "", email: "", phone: "" },
     shippingSchema: yup.object().shape({
       firstName: yup.string().required("*Required field"),
       lastName: yup.string().required("*Required field"),
