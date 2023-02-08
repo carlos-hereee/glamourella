@@ -47,6 +47,7 @@ export const ServicesState = ({ children }) => {
     ],
     filteredServices: [],
     active: {},
+    total: 0,
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   const { addMessageToLog } = useContext(LogContext);
@@ -126,6 +127,9 @@ export const ServicesState = ({ children }) => {
     const data = { ...item, count: quantity };
     dispatch({ type: "UPDATE_ITEM_QUANTITY", payload: data });
   };
+  const setTotal = (total) => {
+    dispatch({ type: "SET_TOTAL", payload: total });
+  };
   return (
     <ServicesContext.Provider
       value={{
@@ -135,6 +139,7 @@ export const ServicesState = ({ children }) => {
         cart: state.cart,
         active: state.active,
         isUserReq: state.isUserReq,
+        total: state.total,
         bookEvent,
         filterServices,
         addToCart,
@@ -143,6 +148,7 @@ export const ServicesState = ({ children }) => {
         bookingRequired,
         onQuantityChange,
         setIsUserReq,
+        setTotal,
       }}>
       {children}
     </ServicesContext.Provider>

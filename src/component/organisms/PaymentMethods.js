@@ -1,16 +1,14 @@
 import { useContext } from "react";
-import { ServicesContext } from "../../utils/context/ServicesContext";
 import PaymentOptions from "../molecules/PaymentOptions";
 import { AppContext } from "../../utils/context/AppContext";
 import { scrollToCartItem } from "../../utils/functions/calendar";
-import { UserContext } from "../../utils/context/UserContext";
 import CardHeader from "../molecules/card/CardHeader";
 import InStore from "../molecules/InStore";
+import { useNavigate } from "react-router-dom";
 
 const PaymentMethods = () => {
-  const { cart } = useContext(ServicesContext);
-  const { readyCheckout, paymentMethods, paymentType } = useContext(AppContext);
-  const { user } = useContext(UserContext);
+  const { paymentMethods, paymentType } = useContext(AppContext);
+  const navigate = useNavigate();
 
   const handleSubmit = () => {
     // confirm payment data enter is correct
@@ -19,7 +17,7 @@ const PaymentMethods = () => {
       if (paymentType.type !== "in-store") {
       } else {
         // payment type is in-store; enter all data about checkout
-        readyCheckout(paymentType, user, cart);
+        navigate("/checkout-review");
       }
     } else scrollToCartItem({ uid: "required" });
   };

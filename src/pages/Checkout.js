@@ -1,11 +1,10 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import PaymentMethods from "../component/organisms/PaymentMethods";
 import CardHeader from "../component/molecules/card/CardHeader";
 import { AppContext } from "../utils/context/AppContext";
 import BagSummary from "../component/molecules/BagSummary";
 import ChechoutNav from "../component/organisms/navigation/ChechoutNavigation";
 import UserContact from "../component/molecules/forms/UserForm";
-import { useEffect } from "react";
 import { ServicesContext } from "../utils/context/ServicesContext";
 import { UserContext } from "../utils/context/UserContext";
 import ShippingRequired from "../component/molecules/ShippingRequired";
@@ -15,12 +14,11 @@ import Total from "../component/molecules/Total";
 
 const Checkout = () => {
   const { checkout } = useContext(AppContext);
-  const { cart } = useContext(ServicesContext);
+  const { cart, setTotal, total } = useContext(ServicesContext);
   const { user, shippingDetails } = useContext(UserContext);
   const [proceedWithCheckout, setNext] = useState(false);
   const [isUserInfoReq, setUserInfoReq] = useState(false);
   const [isShippingReq, setShippingInfoReq] = useState(false);
-  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     if (cart.length > 0) {
@@ -55,7 +53,7 @@ const Checkout = () => {
       {isUserInfoReq && <UserContact />}
       {isShippingReq && <ShippingRequired />}
       {cart.length > 0 ? <BagSummary /> : <CartEmpty />}
-      {total && <Total total={total} />}
+      {total > 0 && <Total total={total} />}
       {isUserInfoReq
         ? isShippingReq
           ? user.uid && shippingDetails.uid && <ButtonNext click={setNext} />

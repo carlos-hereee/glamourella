@@ -15,6 +15,7 @@ import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import Log from "./component/organisms/Log";
 import { ServicesContext } from "./utils/context/ServicesContext";
+import CheckoutReview from "./pages/CheckoutReview";
 
 function App() {
   const { cart } = useContext(ServicesContext);
@@ -36,6 +37,7 @@ function App() {
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout-review" element={<CheckoutReview />} />
           {/* <Route path="/oauth2callback" element={<OauthCallback />} /> */}
           <Route path="/*" element={<NotFound />} />
         </Routes>

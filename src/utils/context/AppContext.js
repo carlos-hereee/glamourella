@@ -69,7 +69,6 @@ export const AppState = ({ children }) => {
     const data = {
       ...method,
       title: `Payment type: ${method.name}`,
-      subtitle: "Summary Details",
     };
     dispatch({ type: "SELECT_PAYMENT_TYPE", payload: data });
   };

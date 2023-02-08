@@ -72,6 +72,13 @@ const setIsUserReq = (state, action) => {
     isUserReq: action.payload,
   };
 };
+const setTotal = (state, action) => {
+  return {
+    ...state,
+    isLoading: false,
+    toatl: action.payload,
+  };
+};
 export const reducer = (state, action) => {
   switch (action.type) {
     case "IS_LOADING":
@@ -94,6 +101,8 @@ export const reducer = (state, action) => {
       return updateItemQuantity(state, action);
     case "SET_IS_USER_REQ":
       return setIsUserReq(state, action);
+    case "SET_TOTAL":
+      return setTotal(state, action);
     default:
       return state;
   }
