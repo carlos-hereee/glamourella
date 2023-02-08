@@ -76,7 +76,7 @@ const setTotal = (state, action) => {
   return {
     ...state,
     isLoading: false,
-    toatl: action.payload,
+    total: action.payload,
   };
 };
 export const reducer = (state, action) => {

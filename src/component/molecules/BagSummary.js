@@ -11,7 +11,7 @@ import BookingRequired from "./required/BookingRequired";
 
 const schema = yup.object().shape({ quantity: yup.number() });
 const values = { quantity: 1 };
-const BagSummary = () => {
+const BagSummary = ({ inReview }) => {
   const { cart, onQuantityChange } = useContext(ServicesContext);
   return (
     <div className="card-section-wrapper">
@@ -36,12 +36,16 @@ const BagSummary = () => {
             </>
           )}
           <div className="card-section-cost">
-            {c.isAccessory && (
-              <FieldQuantity
-                data={{ values, schema }}
-                max={c.inStock}
-                change={({ target }) => onQuantityChange(target.value, c)}
-              />
+            {inReview ? (
+              <p>x{c.count}</p>
+            ) : (
+              c.isAccessory && (
+                <FieldQuantity
+                  data={{ values, schema }}
+                  max={c.inStock}
+                  change={({ target }) => onQuantityChange(target.value, c)}
+                />
+              )
             )}
             {c.cost && c.count && <Cost cost={c.cost * c.count} />}
           </div>
