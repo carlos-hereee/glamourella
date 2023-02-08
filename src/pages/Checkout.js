@@ -11,6 +11,7 @@ import { UserContext } from "../utils/context/UserContext";
 import ShippingRequired from "../component/molecules/ShippingRequired";
 import ButtonNext from "../component/molecules/buttons/ButtonNext";
 import CartEmpty from "../component/molecules/empty/CartEmpty";
+import Total from "../component/molecules/Total";
 
 const Checkout = () => {
   const { checkout } = useContext(AppContext);
@@ -19,19 +20,31 @@ const Checkout = () => {
   const [proceedWithCheckout, setNext] = useState(false);
   const [isUserInfoReq, setUserInfoReq] = useState(false);
   const [isShippingReq, setShippingInfoReq] = useState(false);
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     if (cart.length > 0) {
-      if (cart.filter((c) => c.isBookable).length > 0) {
-        setUserInfoReq(true);
-      } else setUserInfoReq(false);
-      if (cart.filter((c) => c.isAccessory).length > 0) {
-        setShippingInfoReq(true);
-      } else setShippingInfoReq(false);
+      let cost = 0;
+      let isBookable = false;
+      let isAccessory = false;
+      cart.filter((c) => {
+        if (c.isBookable) {
+          isBookable = true;
+        }
+        if (isAccessory) {
+          isBookable = true;
+        }
+        cost += c.cost * c.count;
+        return c;
+      });
+      setUserInfoReq(isBookable);
+      setShippingInfoReq(isAccessory);
+      setTotal(cost);
     } else {
       // cart is empty
       setShippingInfoReq(false);
       setUserInfoReq(false);
+      setTotal(0);
     }
   }, [user, cart]);
 
@@ -42,6 +55,7 @@ const Checkout = () => {
       {isUserInfoReq && <UserContact />}
       {isShippingReq && <ShippingRequired />}
       {cart.length > 0 ? <BagSummary /> : <CartEmpty />}
+      {total && <Total total={total} />}
       {isUserInfoReq
         ? isShippingReq
           ? user.uid && shippingDetails.uid && <ButtonNext click={setNext} />
