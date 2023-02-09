@@ -16,6 +16,7 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import Log from "./component/organisms/Log";
 import { ServicesContext } from "./utils/context/ServicesContext";
 import CheckoutReview from "./pages/CheckoutReview";
+import Login from "./component/template/Login";
 
 function App() {
   const { cart } = useContext(ServicesContext);
@@ -34,6 +35,7 @@ function App() {
           />
           <Route path="/accessories" element={<Gallery />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/checkout" element={<Checkout />} />

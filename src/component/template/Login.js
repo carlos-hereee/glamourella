@@ -16,10 +16,13 @@ const Login = () => {
       <NoCaptchaForm
         data={{ values: loginValues, schema: loginSchema }}
         submit={onSubmit}
+        isHorizontal={true}
       />
-      <Link to="/sign-up" className="form-link">
-        Don't have an account? Create one here
-      </Link>
+      <div className="form-link-wrapper">
+        <Link to="/sign-up" className="form-link">
+          Don't have an account? Create one here
+        </Link>
+      </div>
     </div>
   );
 };

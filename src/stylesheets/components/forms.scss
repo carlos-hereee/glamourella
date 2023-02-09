@@ -55,10 +55,13 @@
   max-width: 300px;
   width: 100%;
 }
-.form-link {
-  color: white;
-  text-align: center;
-  padding-bottom: 1rem;
+.form-link-wrapper {
+  padding: 1rem;
+  .form-link {
+    color: white;
+    text-align: center;
+    padding-bottom: 1rem;
+  }
 }
 .horizontal-fields {
   flex-direction: column;

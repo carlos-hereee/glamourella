@@ -16,9 +16,11 @@ const SignUp = () => {
       </div>
       {signUpError && <p className="required">{signUpError}</p>}
       <NoCaptchaForm data={data} submit={onSubmit} isHorizontal={true} />
-      <Link to="/account" className="form-link">
-        Already have an account?
-      </Link>
+      <div className="form-link-wrapper">
+        <Link to="/account" className="form-link">
+          Already have an account? Login here
+        </Link>
+      </div>
     </section>
   );
 };
