@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import Forms from "../component/organisms/Forms";
 import { useContext } from "react";
 import { AuthContext } from "../utils/context/AuthContext";
+import NoCaptchaForm from "../component/molecules/forms/NoCaptchaForm";
 
 const SignUp = () => {
   const { signUp, signUpValues, signUpSchema, signUpError } =
@@ -10,16 +10,16 @@ const SignUp = () => {
   const onSubmit = (e) => signUp(e);
   let data = { values: signUpValues, schema: signUpSchema, onSubmit };
   return (
-    <main className="container">
-      <section className="card">
+    <section className="secondary-container">
+      <div className="card-header">
         <h3>Create Account</h3>
-        {signUpError && <p className="required">{signUpError}</p>}
-        <Forms data={data} />
-        <Link to="/account" className="form-link">
-          Already have an account?
-        </Link>
-      </section>
-    </main>
+      </div>
+      {signUpError && <p className="required">{signUpError}</p>}
+      <NoCaptchaForm data={data} submit={onSubmit} isHorizontal={true} />
+      <Link to="/account" className="form-link">
+        Already have an account?
+      </Link>
+    </section>
   );
 };
 

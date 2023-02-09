@@ -40,6 +40,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  border-bottom: 2px dotted #{$primary-color};
+  padding: 0.5rem 0.25rem;
   .form {
     padding: 0;
     .field {
@@ -70,6 +72,14 @@
   }
   .row {
     flex-grow: 1;
+  }
+  &:hover {
+    background-color: #{$primary-color2};
+    .read-more {
+      &:has(+ .read-more-toggle:not(:checked))::before {
+        background: linear-gradient(to bottom, transparent, #{$primary-color2});
+      }
+    }
   }
 }
 .empty {

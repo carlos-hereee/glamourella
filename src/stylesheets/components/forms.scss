@@ -55,3 +55,15 @@
   max-width: 300px;
   width: 100%;
 }
+.form-link {
+  color: white;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+.horizontal-fields {
+  flex-direction: column;
+  .input {
+    max-width: 500px;
+    width: 100%;
+  }
+}

@@ -1,7 +1,7 @@
 import { getIn, useFormik } from "formik";
 import Icons from "../../atoms/Icons";
 
-const NoCaptchaForm = ({ data, submit }) => {
+const NoCaptchaForm = ({ data, submit, isHorizontal }) => {
   const label = {
     firstName: "First name",
     lastName: "Last name",
@@ -12,6 +12,9 @@ const NoCaptchaForm = ({ data, submit }) => {
     city: "City",
     state: "State",
     postalCode: "Postal code",
+    username: "Username",
+    password: "Password",
+    confirmPassword: "Confirm Password",
   };
   const placeholder = {
     firstName: "Peter..",
@@ -23,6 +26,9 @@ const NoCaptchaForm = ({ data, submit }) => {
     state: "State..",
     postalCode: "56789",
     phone: "987-654-3210",
+    username: "",
+    password: "",
+    confirmPassword: "",
   };
   const { handleSubmit, handleBlur, handleChange, values, errors } = useFormik({
     initialValues: data.values,
@@ -32,7 +38,7 @@ const NoCaptchaForm = ({ data, submit }) => {
 
   return (
     <form className="form shipping-form" onSubmit={handleSubmit}>
-      <div className="form-fields">
+      <div className={`form-fields ${isHorizontal && "horizontal-fields"}`}>
         {Object.keys(data.values).map((v) => (
           <div key={v} className="input-wrapper">
             <div className="label">
