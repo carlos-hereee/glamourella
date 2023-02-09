@@ -10,10 +10,10 @@ const Landing = () => {
   const { events } = useContext(CalendarContext);
   return (
     <>
-      <About />
-      <AppCalendar data={events.sections} />
       <Services />
+      <AppCalendar data={events.sections} />
       <Gallery />
+      <About />
       <ContactUs />
     </>
   );

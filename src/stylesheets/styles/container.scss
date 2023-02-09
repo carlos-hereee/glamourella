@@ -52,6 +52,7 @@
   flex: 1;
   min-width: 200px;
   padding: 1rem;
+  gap: 1rem;
   .fa-left-long {
     @include devices(mobile) {
       transform: rotate(90deg);
